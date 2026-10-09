@@ -17,6 +17,7 @@ interface HeaderProps {
   onNewInvoice: () => void;
   onOpenTemplates: () => void;
   savedInvoicesCount: number;
+  onSelectHome?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -26,6 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
   onNewInvoice,
   onOpenTemplates,
   savedInvoicesCount,
+  onSelectHome,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
@@ -52,6 +54,15 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const handleHomeClick = () => {
+    setMobileMenuOpen(false);
+    if (onSelectHome) {
+      onSelectHome();
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="h-[62px] bg-white text-gray-900 border-b border-gray-200 sticky top-0 z-40 select-none shadow-xs">
       <div className="max-w-[1320px] mx-auto h-full px-4 sm:px-6 flex items-center justify-between">
@@ -59,10 +70,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center">
           <button
             type="button"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            onClick={handleHomeClick}
             className="cursor-pointer tracking-tight text-xl sm:text-2xl font-black text-[#1A3263] hover:opacity-90 transition leading-none select-none text-left"
           >
             Invoiceo<span className="text-gray-900 font-extrabold">.online</span>
@@ -74,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Invoice Generator */}
           <button
             type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={handleHomeClick}
             className="cursor-pointer flex items-center gap-2 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
           >
             <div className="w-7 h-7 rounded-lg bg-[#1A3263]/10 text-[#1A3263] flex items-center justify-center shrink-0">
@@ -201,10 +209,7 @@ export const Header: React.FC<HeaderProps> = ({
               {/* Invoice Generator */}
               <button
                 type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={handleHomeClick}
                 className="cursor-pointer flex items-center justify-between w-full p-2.5 rounded-xl hover:bg-gray-50 active:bg-gray-100 text-left text-gray-800 transition"
               >
                 <div className="flex items-center gap-3">

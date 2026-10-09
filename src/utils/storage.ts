@@ -189,7 +189,7 @@ export function setCurrentInvoiceId(id: string): void {
   }
 }
 
-export function getBlankInvoice(numberStr = 'INV-0001'): InvoiceData {
+export function getBlankInvoice(numberStr = 'INV-0001', title = 'INVOICE'): InvoiceData {
   const today = new Date().toISOString().split('T')[0];
   const dueDate = new Date();
   dueDate.setDate(dueDate.getDate() + 30);
@@ -197,7 +197,7 @@ export function getBlankInvoice(numberStr = 'INV-0001'): InvoiceData {
 
   return {
     id: 'inv_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 7),
-    title: 'INVOICE',
+    title: title,
     number: numberStr,
     date: today,
     dueDate: dueDateStr,
@@ -275,11 +275,13 @@ export function getBlankInvoice(numberStr = 'INV-0001'): InvoiceData {
   };
 }
 
-export function createNewInvoice(): InvoiceData {
+export function createNewDocument(prefix = 'INV-', documentTitle = 'INVOICE'): InvoiceData {
   const all = getAllInvoices();
   let maxNum = 0;
+  const escapedPrefix = prefix.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+  const regex = new RegExp(`^${escapedPrefix}(\\d+)`, 'i');
   for (const inv of all) {
-    const match = inv.number.match(/INV-(\d+)/i);
+    const match = inv.number.match(regex);
     if (match) {
       const n = parseInt(match[1], 10);
       if (!isNaN(n) && n > maxNum) {
@@ -287,13 +289,17 @@ export function createNewInvoice(): InvoiceData {
       }
     }
   }
-  const nextNum = Math.max(all.length + 1, maxNum + 1);
+  const nextNum = maxNum + 1;
   const numPad = String(nextNum).padStart(4, '0');
-  const newInvoice = getBlankInvoice(`INV-${numPad}`);
+  const newDoc = getBlankInvoice(`${prefix}${numPad}`, documentTitle);
 
-  saveInvoice(newInvoice);
-  setCurrentInvoiceId(newInvoice.id);
-  return newInvoice;
+  saveInvoice(newDoc);
+  setCurrentInvoiceId(newDoc.id);
+  return newDoc;
+}
+
+export function createNewInvoice(): InvoiceData {
+  return createNewDocument('INV-', 'INVOICE');
 }
 
 export function duplicateInvoice(id: string): InvoiceData | null {

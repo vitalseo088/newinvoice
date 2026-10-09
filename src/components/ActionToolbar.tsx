@@ -26,6 +26,7 @@ interface ActionToolbarProps {
   onDuplicateInvoice: () => void;
   onResetInvoice: () => void;
   isDownloadingPdf?: boolean;
+  documentTypeLabel?: string;
 }
 
 export const ActionToolbar: React.FC<ActionToolbarProps> = ({
@@ -39,6 +40,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
   onDuplicateInvoice,
   onResetInvoice,
   isDownloadingPdf = false,
+  documentTypeLabel = 'Invoice',
 }) => {
   const [moreOpen, setMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement | null>(null);
@@ -69,7 +71,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
             }`}
           >
             <FileText className={`w-4 h-4 ${activeTab === 'invoice' ? 'text-white' : 'text-gray-500'}`} />
-            <span>Invoice</span>
+            <span>{documentTypeLabel}</span>
             {activeTab === 'invoice' && (
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
             )}
@@ -118,7 +120,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 type="button"
                 onClick={onOpenCustomize}
                 className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
-                title="Invoice Settings & Customization"
+                title={`${documentTypeLabel} Settings & Customization`}
               >
                 <SlidersHorizontal className="w-4 h-4 text-[#1A3263]" />
                 Customize
@@ -129,10 +131,10 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 type="button"
                 onClick={onNewInvoice}
                 className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
-                title="Create a new invoice"
+                title={`Create a new ${documentTypeLabel.toLowerCase()}`}
               >
                 <Plus className="w-4 h-4 text-[#1A3263] stroke-[2.5]" />
-                <span className="hidden sm:inline">New Invoice</span>
+                <span className="hidden sm:inline">New {documentTypeLabel}</span>
                 <span className="sm:hidden">New</span>
               </button>
 
