@@ -122,7 +122,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
             </tr>
             <tr>
               <td className="border border-gray-300 p-3 font-medium text-gray-900">Multiple currencies</td>
-              <td className="border border-gray-300 p-3 text-gray-700">Invoice international clients in the currency they pay in (including PKR, USD, EUR, GBP, and more).</td>
+              <td className="border border-gray-300 p-3 text-gray-700">Invoice international clients in the currency they pay in (including USD, EUR, GBP, CAD, AUD, and more).</td>
             </tr>
             <tr>
               <td className="border border-gray-300 p-3 font-medium text-gray-900">Custom colors</td>
@@ -278,7 +278,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         If you work with international clients, you can set the invoice currency to match the country you are billing. For example:
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-1 text-gray-700">
-        <li>A freelancer in Pakistan invoicing a UK client in GBP or invoicing locally in PKR (Rs)</li>
+        <li>A freelancer in Canada invoicing a US client in USD or invoicing locally in CAD</li>
         <li>A consultant in the US invoicing a European company in EUR</li>
         <li>A photographer in the Philippines invoicing locally in PHP</li>
       </ul>
@@ -382,7 +382,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         <li><strong>Itemized breakdown:</strong> Clear description of each service or product, quantity, unit rate, and line total.</li>
         <li><strong>Taxes and discounts:</strong> Clearly separated VAT/tax percentages and promotional deductions.</li>
         <li><strong>Total amount due:</strong> The final balance due prominently displayed with the currency symbol.</li>
-        <li><strong>Payment terms and instructions:</strong> How to pay (bank transfer details, IBAN, account number, Raast ID, PayPal, or card link).</li>
+        <li><strong>Payment terms and instructions:</strong> How to pay (bank transfer details, IBAN, account number, PayPal, wire instructions, or card link).</li>
       </ul>
 
       {/* Invoice numbering made simple */}
@@ -466,7 +466,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         <div>
           <h3 className="font-bold text-gray-900 mb-1">Which currencies are supported?</h3>
           <p className="text-gray-700 leading-relaxed">
-            Invoiceo supports Pakistani Rupee (PKR - Rs), US Dollar (USD - $), Euro (EUR - €), British Pound (GBP - £), Canadian Dollar, Australian Dollar, UAE Dirham, Saudi Riyal, and other global currencies.
+            Invoiceo supports US Dollar (USD - $), Euro (EUR - €), British Pound (GBP - £), Canadian Dollar (CAD - CA$), Australian Dollar (AUD - AU$), UAE Dirham, Saudi Riyal, and over 40 global currencies.
           </p>
         </div>
 

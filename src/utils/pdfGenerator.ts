@@ -49,24 +49,50 @@ export async function generateInvoicePdf(
 
     let cursorY = margin;
 
-    // Standard Professional Header
-    if (invoice.logoUrl) {
-      try {
-        doc.addImage(invoice.logoUrl, 'PNG', margin, cursorY, 110, 48, undefined, 'FAST');
-      } catch {}
+    const templateId = invoice.customization.template || 'classic-professional';
+
+    // Bold Header layout for PDF: full bleed top banner
+    if (templateId === 'bold-header') {
+      doc.setFillColor(r, g, b);
+      doc.rect(0, 0, pageWidth, 74, 'F');
+
+      if (invoice.logoUrl) {
+        try {
+          doc.addImage(invoice.logoUrl, 'PNG', margin, 14, 100, 44, undefined, 'FAST');
+        } catch {}
+      }
+
+      doc.setTextColor(255, 255, 255);
+      doc.setFont(baseFont, 'bold');
+      doc.setFontSize(22);
+      doc.text(invoice.title || 'INVOICE', pageWidth - margin, 38, { align: 'right' });
+
+      doc.setTextColor(240, 240, 240);
+      doc.setFontSize(10);
+      doc.setFont(baseFont, 'normal');
+      doc.text(`# ${invoice.number}`, pageWidth - margin, 54, { align: 'right' });
+
+      cursorY = 92;
+    } else {
+      // Standard Professional Header
+      if (invoice.logoUrl) {
+        try {
+          doc.addImage(invoice.logoUrl, 'PNG', margin, cursorY, 110, 48, undefined, 'FAST');
+        } catch {}
+      }
+
+      doc.setTextColor(31, 41, 55);
+      doc.setFont(baseFont, 'bold');
+      doc.setFontSize(24);
+      doc.text(invoice.title || 'INVOICE', pageWidth - margin, cursorY + 22, { align: 'right' });
+
+      doc.setTextColor(100, 116, 139);
+      doc.setFontSize(10);
+      doc.setFont(baseFont, 'normal');
+      doc.text(`# ${invoice.number}`, pageWidth - margin, cursorY + 38, { align: 'right' });
+
+      cursorY += 60;
     }
-
-    doc.setTextColor(31, 41, 55);
-    doc.setFont(baseFont, 'bold');
-    doc.setFontSize(24);
-    doc.text(invoice.title || 'INVOICE', pageWidth - margin, cursorY + 22, { align: 'right' });
-
-    doc.setTextColor(100, 116, 139);
-    doc.setFontSize(10);
-    doc.setFont(baseFont, 'normal');
-    doc.text(`# ${invoice.number}`, pageWidth - margin, cursorY + 38, { align: 'right' });
-
-    cursorY += 60;
 
     // FROM & TO COLUMNS + DATES
     const colWidth = (contentWidth - 20) / 2;
@@ -249,8 +275,8 @@ export async function generateInvoicePdf(
       theme: 'grid',
       headStyles: {
         font: baseFont,
-        fillColor: [r, g, b],
-        textColor: [255, 255, 255],
+        fillColor: templateId === 'modern-minimal' ? [243, 244, 246] : [r, g, b],
+        textColor: templateId === 'modern-minimal' ? [31, 41, 55] : [255, 255, 255],
         fontStyle: 'bold',
         fontSize: 8.5,
         cellPadding: 7,

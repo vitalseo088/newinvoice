@@ -5,7 +5,7 @@ import {
   FolderOpen,
   Database,
   Sliders,
-  BookOpen,
+  LayoutTemplate,
   Menu,
   X,
 } from 'lucide-react';
@@ -15,6 +15,7 @@ interface HeaderProps {
   onOpenImportExport: () => void;
   onOpenSettings: () => void;
   onNewInvoice: () => void;
+  onOpenTemplates: () => void;
   savedInvoicesCount: number;
 }
 
@@ -23,6 +24,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenImportExport,
   onOpenSettings,
   onNewInvoice,
+  onOpenTemplates,
   savedInvoicesCount,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -79,20 +81,15 @@ export const Header: React.FC<HeaderProps> = ({
             <span>Invoice Generator</span>
           </button>
 
-          {/* Guide & Examples */}
+          {/* Templates */}
           <button
             type="button"
-            onClick={() => {
-              const el = document.getElementById('invoiceo-guide');
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            onClick={onOpenTemplates}
             className="cursor-pointer flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
-            title="Read Complete Guide & Examples"
+            title="Browse Invoice Templates & Layouts"
           >
-            <BookOpen className="w-4 h-4 text-[#1A3263] stroke-[2.2]" />
-            <span>Guide & Examples</span>
+            <LayoutTemplate className="w-4 h-4 text-[#1A3263] stroke-[2.2]" />
+            <span>Templates</span>
           </button>
 
           {/* My Invoices */}
@@ -209,25 +206,22 @@ export const Header: React.FC<HeaderProps> = ({
                 </div>
               </button>
 
-              {/* Guide & Examples */}
+              {/* Templates */}
               <button
                 type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  const el = document.getElementById('invoiceo-guide');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
-                  }
+                  onOpenTemplates();
                 }}
                 className="cursor-pointer flex items-center justify-between w-full p-2.5 rounded-xl hover:bg-gray-50 active:bg-gray-100 text-left text-gray-800 transition"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
-                    <BookOpen className="w-4 h-4 stroke-[2.2]" />
+                  <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center">
+                    <LayoutTemplate className="w-4 h-4 stroke-[2.2]" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900">Guide & Examples</div>
-                    <div className="text-xs text-gray-500">How-to guide and profession examples</div>
+                    <div className="text-sm font-bold text-gray-900">Templates Library</div>
+                    <div className="text-xs text-gray-500">12 layouts & profession templates</div>
                   </div>
                 </div>
               </button>

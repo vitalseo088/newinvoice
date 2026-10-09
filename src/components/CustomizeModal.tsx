@@ -1,8 +1,17 @@
 import React, { useEffect } from 'react';
-import { X, Palette, Check, SlidersHorizontal, Type, DollarSign } from 'lucide-react';
-import { InvoiceCustomization } from '../types/invoice';
+import {
+  X,
+  Palette,
+  Check,
+  SlidersHorizontal,
+  Type,
+  DollarSign,
+  LayoutTemplate,
+  Sparkles,
+} from 'lucide-react';
+import { InvoiceCustomization, TemplateId } from '../types/invoice';
 import { CURRENCIES } from '../utils/currency';
-import { PRESET_ACCENT_COLORS } from '../utils/templates';
+import { PRESET_ACCENT_COLORS, TEMPLATES } from '../utils/templates';
 import { INVOICE_FONTS } from '../utils/fonts';
 
 interface CustomizeModalProps {
@@ -86,8 +95,67 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
 
         {/* Content body with scrolling */}
         <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-8 text-sm">
-          {/* 1. Color & Branding */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* 1. Template Layout & Style */}
+          <section className="space-y-3">
+            <div className="flex items-center justify-between">
+              <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2">
+                <LayoutTemplate className="w-4 h-4 text-[#1A3263]" /> Template Layout Design
+              </label>
+              <span className="text-xs text-gray-500 font-medium">
+                Active: <strong className="text-[#1A3263]">{TEMPLATES.find((t) => t.id === customization.template)?.name || customization.template}</strong>
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {TEMPLATES.map((tpl) => {
+                const isSelected = customization.template === tpl.id;
+                return (
+                  <button
+                    key={tpl.id}
+                    type="button"
+                    onClick={() => {
+                      onChange({
+                        ...customization,
+                        template: tpl.id,
+                        accentColor: tpl.defaultAccent || customization.accentColor,
+                        fontFamily: tpl.recommendedFont || customization.fontFamily,
+                      });
+                    }}
+                    className={`cursor-pointer p-3 rounded-xl border text-left transition-all relative flex flex-col justify-between ${
+                      isSelected
+                        ? 'border-[#1A3263] ring-2 ring-[#1A3263]/20 bg-[#1A3263]/5 shadow-xs'
+                        : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50/80 bg-white'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-1 mb-1.5">
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-gray-100 text-gray-700">
+                          {tpl.category}
+                        </span>
+                        <div
+                          className="w-2.5 h-2.5 rounded-full border border-white"
+                          style={{ backgroundColor: tpl.defaultAccent }}
+                        />
+                      </div>
+                      <div className="text-xs sm:text-sm font-bold text-gray-900 leading-snug">
+                        {tpl.name}
+                      </div>
+                    </div>
+
+                    <div className="mt-2 pt-2 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500">
+                      <span>{tpl.recommendedFont}</span>
+                      {isSelected && (
+                        <Check className="w-3.5 h-3.5 text-[#1A3263] stroke-[3]" />
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* 2. Color & Branding */}
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-gray-200">
             <div>
               <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2 mb-2">
                 <Palette className="w-4 h-4 text-[#1A3263]" /> Accent Color

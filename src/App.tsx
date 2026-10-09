@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ShieldCheck, Download, AlertCircle, FileText } from 'lucide-react';
+import { ShieldCheck, Download, AlertCircle, FileText, CheckCircle2 } from 'lucide-react';
 import { Header } from './components/Header';
 import { ActionToolbar } from './components/ActionToolbar';
 import { InvoiceEditor } from './components/InvoiceEditor';
@@ -8,10 +8,12 @@ import { CustomizeModal } from './components/CustomizeModal';
 import { MyInvoicesModal } from './components/MyInvoicesModal';
 import { ImportExportModal } from './components/ImportExportModal';
 import { SignatureModal } from './components/SignatureModal';
+import { TemplatesLibrary } from './components/TemplatesLibrary';
 import { CompleteGuide } from './components/CompleteGuide';
 import { ProfessionTemplateExample } from './data/professionExamples';
 import { Footer } from './components/Footer';
-import { InvoiceData } from './types/invoice';
+import { InvoiceData, TemplateId, InvoiceFontFamily } from './types/invoice';
+import { TEMPLATES } from './utils/templates';
 import {
   getAllInvoices,
   getCurrentInvoice,
@@ -32,6 +34,7 @@ export default function App() {
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'error'>('saved');
   const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
   const [storageErrorToast, setStorageErrorToast] = useState<string | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Modals state
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
@@ -155,6 +158,99 @@ export default function App() {
     setActiveTab('invoice');
   };
 
+  // Smooth scroll to Templates library section
+  const handleOpenTemplates = () => {
+    const el = document.getElementById('invoice-templates');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Apply layout design styling without overwriting items
+  const handleApplyTemplateLayout = (
+    templateId: TemplateId,
+    font?: InvoiceFontFamily,
+    accent?: string
+  ) => {
+    const updated: InvoiceData = {
+      ...currentInvoice,
+      customization: {
+        ...currentInvoice.customization,
+        template: templateId,
+        ...(font ? { fontFamily: font } : {}),
+        ...(accent ? { accentColor: accent } : {}),
+      },
+      updatedAt: new Date().toISOString(),
+    };
+    saveInvoice(updated);
+    setCurrentInvoice(updated);
+    setAllInvoices(getAllInvoices());
+    const tplName = TEMPLATES.find((t) => t.id === templateId)?.name || templateId;
+    setToastMessage(`Switched to "${tplName}" layout!`);
+    setTimeout(() => setToastMessage(null), 3500);
+    setActiveTab('invoice');
+    window.scrollTo({ top: 120, behavior: 'smooth' });
+  };
+
+  // Live preview a template layout immediately
+  const handlePreviewTemplate = (
+    templateId: TemplateId,
+    exampleData?: ProfessionTemplateExample
+  ) => {
+    let updated: InvoiceData = {
+      ...currentInvoice,
+      customization: {
+        ...currentInvoice.customization,
+        template: templateId,
+        ...(exampleData
+          ? {
+              fontFamily: exampleData.fontFamily,
+              accentColor: exampleData.accentColor,
+              currency: exampleData.suggestedCurrency,
+              currencySymbol: exampleData.suggestedCurrencySymbol,
+            }
+          : {}),
+      },
+      updatedAt: new Date().toISOString(),
+    };
+
+    if (exampleData) {
+      updated = {
+        ...updated,
+        ...exampleData.data,
+      };
+    }
+
+    saveInvoice(updated);
+    setCurrentInvoice(updated);
+    setAllInvoices(getAllInvoices());
+    setActiveTab('preview');
+    window.scrollTo({ top: 100, behavior: 'smooth' });
+  };
+
+  // Open settings focused on chosen template
+  const handleOpenSettingsWithTemplate = (templateId: TemplateId) => {
+    const tpl = TEMPLATES.find((t) => t.id === templateId);
+    const updated: InvoiceData = {
+      ...currentInvoice,
+      customization: {
+        ...currentInvoice.customization,
+        template: templateId,
+        ...(tpl
+          ? {
+              fontFamily: tpl.recommendedFont,
+              accentColor: tpl.defaultAccent,
+            }
+          : {}),
+      },
+      updatedAt: new Date().toISOString(),
+    };
+    saveInvoice(updated);
+    setCurrentInvoice(updated);
+    setAllInvoices(getAllInvoices());
+    setIsCustomizeOpen(true);
+  };
+
   // Import invoices handler
   const handleImportInvoices = (imported: InvoiceData[], strategy: 'copy' | 'replace') => {
     let currentList = getAllInvoices();
@@ -235,8 +331,19 @@ export default function App() {
         onOpenImportExport={() => setIsImportExportOpen(true)}
         onOpenSettings={() => setIsCustomizeOpen(true)}
         onNewInvoice={handleNewInvoice}
+        onOpenTemplates={handleOpenTemplates}
         savedInvoicesCount={allInvoices.length}
       />
+
+      {/* Floating or inline toast notification for template changes */}
+      {toastMessage && (
+        <div className="fixed bottom-6 right-6 z-50 animate-in fade-in slide-in-from-bottom-3 duration-200 no-print">
+          <div className="flex items-center gap-2.5 px-4 py-3 bg-[#1A3263] text-white rounded-xl shadow-xl border border-white/10 text-xs sm:text-sm font-semibold">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 stroke-[2.5]" />
+            <span>{toastMessage}</span>
+          </div>
+        </div>
+      )}
 
       {/* 2. Main Centered Content Container */}
       <main className="flex-1 max-w-[1320px] w-full mx-auto px-4 sm:px-6 pt-6 pb-4 print:p-0 print:m-0 print:max-w-none">
@@ -317,10 +424,25 @@ export default function App() {
             onBackToEdit={() => setActiveTab('invoice')}
             onDownloadPdf={handleDownloadPdf}
             onPrint={handlePrint}
+            onOpenCustomize={() => setIsCustomizeOpen(true)}
           />
         </div>
 
-        {/* 5. Complete Guide with Examples & Invoicing Knowledge Base */}
+        {/* 5. Invoice Template Library Section */}
+        <TemplatesLibrary
+          currentTemplateId={currentInvoice.customization.template}
+          onApplyLayout={handleApplyTemplateLayout}
+          onLoadFullProfession={(example) => {
+            handleLoadProfessionExample(example);
+            setToastMessage(`Loaded ${example.profession} invoice template!`);
+            setTimeout(() => setToastMessage(null), 4000);
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+          }}
+          onPreviewTemplate={handlePreviewTemplate}
+          onOpenSettingsWithTemplate={handleOpenSettingsWithTemplate}
+        />
+
+        {/* 6. Complete Guide with Examples & Invoicing Knowledge Base */}
         <div className="no-print">
           <CompleteGuide
             onLoadExample={handleLoadProfessionExample}
@@ -329,7 +451,7 @@ export default function App() {
         </div>
       </main>
 
-      {/* 6. Footer */}
+      {/* 7. Footer */}
       <Footer
         onOpenImportExport={() => setIsImportExportOpen(true)}
         onNewInvoice={handleNewInvoice}
