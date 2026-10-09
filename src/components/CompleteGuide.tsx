@@ -1,14 +1,256 @@
 import React from 'react';
 import { PROFESSION_EXAMPLES, ProfessionTemplateExample } from '../data/professionExamples';
+import { TOOL_GUIDES } from '../data/toolGuidesData';
 
 interface CompleteGuideProps {
+  toolSlug?: string;
   onLoadExample?: (example: ProfessionTemplateExample) => void;
   onOpenSettings?: () => void;
 }
 
 export const CompleteGuide: React.FC<CompleteGuideProps> = ({
+  toolSlug = 'invoice-generator',
   onLoadExample,
 }) => {
+  const customGuide = TOOL_GUIDES[toolSlug];
+
+  // If this tool has its own dedicated SEO guide (Receipt, Quote, Estimate, Credit Note, etc.), render it in the exact same format
+  if (customGuide) {
+    return (
+      <article
+        id="tool-complete-guide"
+        className="max-w-4xl mx-auto my-8 sm:my-10 bg-white border border-gray-200/90 rounded-2xl shadow-sm px-5 sm:px-10 md:px-14 py-8 sm:py-12 text-gray-800"
+      >
+        {/* Title */}
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+          {customGuide.h1}
+        </h1>
+
+        {/* Intro */}
+        {customGuide.introParagraphs.map((para, idx) => (
+          <p key={idx} className="mb-4 leading-relaxed text-gray-700">
+            {para}
+          </p>
+        ))}
+
+        {/* In this guide / Table of Contents */}
+        <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-3">
+          In this guide
+        </h2>
+        <ul className="list-disc pl-6 mb-8 space-y-1 text-gray-700">
+          {customGuide.tableOfContents.map((item) => (
+            <li key={item.id}>
+              <a href={`#${item.id}`} className="text-blue-600 hover:underline">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Section: What is this tool? */}
+        <h2 id={customGuide.tableOfContents[0]?.id || 'what-is-tool'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          {customGuide.whatIsTitle}
+        </h2>
+        <p className="mb-4 leading-relaxed text-gray-700">
+          {customGuide.whatIsDescription}
+        </p>
+        <p className="mb-2 font-medium text-gray-800">
+          It is a good fit if you are:
+        </p>
+        <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
+          {customGuide.goodFitList.map((fit, idx) => (
+            <li key={idx}>{fit}</li>
+          ))}
+        </ul>
+        <p className="mb-6 leading-relaxed text-gray-700">
+          Because there is no signup required, you can open the generator, draft your document with instant live preview, and download a print-ready searchable PDF in seconds.
+        </p>
+
+        {/* Section: Key features */}
+        <h2 id="key-features" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          Key features
+        </h2>
+        <div className="overflow-x-auto my-6">
+          <table className="w-full border-collapse border border-gray-300 text-sm text-left">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 p-3 font-semibold text-gray-900">Feature</th>
+                <th className="border border-gray-300 p-3 font-semibold text-gray-900">What it means for you</th>
+              </tr>
+            </thead>
+            <tbody>
+              {customGuide.featuresTable.map((row, idx) => (
+                <tr key={idx}>
+                  <td className="border border-gray-300 p-3 font-medium text-gray-900">{row.feature}</td>
+                  <td className="border border-gray-300 p-3 text-gray-700">{row.benefit}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Section: How to create in 7 steps */}
+        <h2 id={customGuide.tableOfContents[2]?.id || 'how-to-create'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          {customGuide.stepsTitle}
+        </h2>
+        <p className="mb-4 leading-relaxed text-gray-700">
+          Follow these simple steps to issue your document using this free online generator:
+        </p>
+        {customGuide.steps.map((step, idx) => (
+          <div key={idx} className="mb-4">
+            <h3 className="text-lg font-bold text-gray-900 mt-5 mb-2">{step.title}</h3>
+            <p className="mb-2 leading-relaxed text-gray-700">{step.description}</p>
+            {step.items && (
+              <ul className="list-disc pl-6 space-y-1 text-gray-700">
+                {step.items.map((it, itIdx) => (
+                  <li key={itIdx}>{it}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+
+        {/* Section: Choosing the right template */}
+        <h2 id="choosing-the-right-template" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          {customGuide.templatesSection.title}
+        </h2>
+        <p className="mb-4 leading-relaxed text-gray-700">
+          {customGuide.templatesSection.description}
+        </p>
+        <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
+          {customGuide.templatesSection.tips.map((tip, idx) => (
+            <li key={idx}>{tip}</li>
+          ))}
+        </ul>
+
+        {/* Section: Comparison if available */}
+        {customGuide.comparisonSection && (
+          <>
+            <h2 id={customGuide.tableOfContents.find(t => t.id.includes('vs'))?.id || 'document-differences'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+              {customGuide.comparisonSection.title}
+            </h2>
+            <p className="mb-4 leading-relaxed text-gray-700">
+              {customGuide.comparisonSection.description}
+            </p>
+            <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+              {customGuide.comparisonSection.items.map((it, idx) => (
+                <li key={idx}>
+                  <strong>{it.doc}:</strong> {it.difference}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {/* Section: Essential elements checklist */}
+        <h2 id={customGuide.tableOfContents.find(t => t.id.includes('essential'))?.id || 'essential-elements'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          {customGuide.keyElementsSection.title}
+        </h2>
+        <p className="mb-4 leading-relaxed text-gray-700">
+          {customGuide.keyElementsSection.description}
+        </p>
+        <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
+          {customGuide.keyElementsSection.checklist.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
+
+        {/* Section: Numbering schemes */}
+        <h2 id={customGuide.tableOfContents.find(t => t.id.includes('numbering'))?.id || 'numbering-schemes'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          {customGuide.numberingSection.title}
+        </h2>
+        <p className="mb-4 leading-relaxed text-gray-700">
+          {customGuide.numberingSection.description}
+        </p>
+        <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+          {customGuide.numberingSection.schemes.map((sch, idx) => (
+            <li key={idx}>
+              <strong>{sch.label}:</strong> {sch.desc}
+            </li>
+          ))}
+        </ul>
+
+        {/* Section: Examples if available */}
+        {customGuide.examplesSection && (
+          <>
+            <h2 id={customGuide.tableOfContents.find(t => t.id.includes('examples'))?.id || 'examples-section'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+              {customGuide.examplesSection.title}
+            </h2>
+            <p className="mb-6 leading-relaxed text-gray-700">
+              {customGuide.examplesSection.description}
+            </p>
+            <div className="space-y-6 mb-8">
+              {customGuide.examplesSection.examples.map((ex, idx) => (
+                <div key={idx} className="pb-6 border-b border-gray-200 last:border-b-0">
+                  <div className="flex items-baseline justify-between mb-1">
+                    <h3 className="text-lg font-bold text-gray-900">
+                      {ex.industry}: {ex.headline}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-2 italic">
+                    Currency: {ex.currency}
+                  </p>
+                  <p className="text-sm font-medium text-gray-800 mb-1">Sample line items:</p>
+                  <ul className="list-disc pl-6 text-sm text-gray-700 space-y-1">
+                    {ex.items.map((it, itIdx) => (
+                      <li key={itIdx}>
+                        {it.desc} &mdash; {it.qty} x ${it.rate.toLocaleString()} = ${it.total.toLocaleString()}
+                      </li>
+                    ))}
+                  </ul>
+                  {ex.notes && (
+                    <p className="text-xs text-gray-500 mt-2">
+                      <strong>Notes & terms:</strong> {ex.notes}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Section: Best practices */}
+        <h2 id={customGuide.tableOfContents.find(t => t.id.includes('tips') || t.id.includes('best-practices'))?.id || 'tips-section'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          {customGuide.bestPracticesSection.title}
+        </h2>
+        <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+          {customGuide.bestPracticesSection.tips.map((tip, idx) => (
+            <li key={idx}>
+              <strong>{tip.title}:</strong> {tip.desc}
+            </li>
+          ))}
+        </ul>
+
+        {/* Privacy Section */}
+        <h2 id="privacy-data-handling" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          Privacy: how your data is handled
+        </h2>
+        <p className="mb-4 leading-relaxed text-gray-700">
+          Invoiceo is built with privacy by design:
+        </p>
+        <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+          <li><strong>Runs entirely in your browser:</strong> Your client records, document items, and financial amounts are computed directly on your device.</li>
+          <li><strong>No server database:</strong> Your financial data is not transmitted to or stored on external servers or cloud accounts.</li>
+          <li><strong>Local storage:</strong> Saved documents reside in your browser's local memory. You have complete control and can export or wipe your data anytime.</li>
+        </ul>
+
+        {/* FAQs */}
+        <h2 id="faq" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+          Frequently Asked Questions (FAQ)
+        </h2>
+        <div className="space-y-4">
+          {customGuide.faqs.map((faq, idx) => (
+            <div key={idx}>
+              <h3 className="font-bold text-gray-900 mb-1">{faq.question}</h3>
+              <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+    );
+  }
+
+  // Fallback: Default Comprehensive Invoice Generator Guide with profession examples
   return (
     <article
       id="invoiceo-guide"

@@ -704,9 +704,10 @@ export default function App() {
             onOpenSettingsWithTemplate={handleOpenSettingsWithTemplate}
           />
 
-          {/* 6. Complete Guide with Examples & Invoicing Knowledge Base */}
+          {/* 6. Complete Guide with Examples & Document Knowledge Base */}
           <div className="no-print">
             <CompleteGuide
+              toolSlug={currentTool.slug}
               onLoadExample={handleLoadProfessionExample}
               onOpenSettings={() => setIsCustomizeOpen(true)}
             />
