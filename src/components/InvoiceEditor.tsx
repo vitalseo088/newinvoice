@@ -639,45 +639,12 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
         {/* Right column: Calculations and Totals with prominent typography */}
         <div className="lg:col-span-5 bg-[#F8FAFC] border border-gray-200 rounded-xl p-6 space-y-3.5">
           {/* Currency Switcher */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-gray-200">
-            <div className="flex items-center gap-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-600">
-                Currency
-              </label>
-              <div className="flex items-center gap-1">
-                {['PKR', 'USD', 'EUR', 'AED', 'SAR'].map((code) => {
-                  const isQuick = invoice.customization.currency === code;
-                  return (
-                    <button
-                      key={code}
-                      type="button"
-                      onClick={() => {
-                        const found = CURRENCIES.find((c) => c.code === code);
-                        if (found) {
-                          onChange({
-                            ...invoice,
-                            customization: {
-                              ...invoice.customization,
-                              currency: found.code,
-                              currencySymbol: found.symbol,
-                              currencyPosition: found.position,
-                            },
-                          });
-                        }
-                      }}
-                      className={`cursor-pointer px-1.5 py-0.5 rounded text-[11px] font-bold transition ${
-                        isQuick
-                          ? 'bg-[#1A3263] text-white shadow-2xs'
-                          : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:text-[#1A3263]'
-                      }`}
-                    >
-                      {code}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+          <div className="flex items-center justify-between gap-3 pb-3 border-b border-gray-200">
+            <label htmlFor="currency-select" className="text-xs font-bold uppercase tracking-wider text-gray-600 shrink-0">
+              Currency
+            </label>
             <select
+              id="currency-select"
               value={invoice.customization.currency}
               onChange={(e) => {
                 const selectedCode = e.target.value;
@@ -694,7 +661,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                   });
                 }
               }}
-              className="cursor-pointer text-xs sm:text-sm font-semibold bg-white border border-gray-300 text-gray-800 rounded-lg px-2.5 py-1.5 focus:border-[#1A3263] focus:ring-1 focus:ring-[#1A3263] outline-none max-w-[210px]"
+              className="cursor-pointer text-xs sm:text-sm font-semibold bg-white border border-gray-300 text-gray-800 rounded-lg px-2.5 py-1.5 focus:border-[#1A3263] focus:ring-1 focus:ring-[#1A3263] outline-none max-w-[210px] w-auto truncate shadow-2xs"
             >
               {CURRENCIES.map((curr) => (
                 <option key={curr.code} value={curr.code}>

@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
   // Close mobile menu on window resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false);
       }
     };
@@ -69,15 +69,17 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
 
-        {/* Desktop Navigation items: visible on md and up */}
-        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
+        {/* Desktop Navigation items: visible on lg and up */}
+        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
           {/* Invoice Generator */}
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="cursor-pointer flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
+            className="cursor-pointer flex items-center gap-2 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
           >
-            <FileText className="w-4 h-4 text-[#1A3263] stroke-[2.2]" />
+            <div className="w-7 h-7 rounded-lg bg-[#1A3263]/10 text-[#1A3263] flex items-center justify-center shrink-0">
+              <FileText className="w-3.5 h-3.5 stroke-[2.2]" />
+            </div>
             <span>Invoice Generator</span>
           </button>
 
@@ -85,10 +87,12 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onOpenTemplates}
-            className="cursor-pointer flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
+            className="cursor-pointer flex items-center gap-2 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
             title="Browse Invoice Templates & Layouts"
           >
-            <LayoutTemplate className="w-4 h-4 text-[#1A3263] stroke-[2.2]" />
+            <div className="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center shrink-0">
+              <LayoutTemplate className="w-3.5 h-3.5 stroke-[2.2]" />
+            </div>
             <span>Templates</span>
           </button>
 
@@ -96,9 +100,11 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onOpenMyInvoices}
-            className="cursor-pointer relative flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
+            className="cursor-pointer relative flex items-center gap-2 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
           >
-            <FolderOpen className="w-4 h-4 text-gray-600 stroke-[2]" />
+            <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
+              <FolderOpen className="w-3.5 h-3.5 stroke-[2]" />
+            </div>
             <span>My Invoices</span>
             {savedInvoicesCount > 0 && (
               <span className="ml-0.5 px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#1A3263] text-white leading-none">
@@ -111,9 +117,11 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onOpenImportExport}
-            className="cursor-pointer flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
+            className="cursor-pointer flex items-center gap-2 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
           >
-            <Database className="w-4 h-4 text-gray-600 stroke-[2]" />
+            <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center shrink-0">
+              <Database className="w-3.5 h-3.5 stroke-[2]" />
+            </div>
             <span>Import / Export</span>
           </button>
 
@@ -121,10 +129,12 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onOpenSettings}
-            className="cursor-pointer flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
+            className="cursor-pointer flex items-center gap-2 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
             title="Invoice Settings & Customization"
           >
-            <Sliders className="w-4 h-4 text-gray-600 stroke-[2]" />
+            <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+              <Sliders className="w-3.5 h-3.5 stroke-[2]" />
+            </div>
             <span>Settings</span>
           </button>
 
@@ -132,16 +142,18 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onNewInvoice}
-            className="cursor-pointer flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-[#1A3263] hover:bg-[#122448] active:bg-[#0d1a36] rounded-lg shadow-2xs border border-[#1A3263] transition ml-1"
+            className="cursor-pointer flex items-center gap-2 px-3 lg:px-4 py-1.5 text-xs lg:text-sm font-bold text-white bg-[#1A3263] hover:bg-[#122448] active:bg-[#0d1a36] rounded-lg shadow-2xs border border-[#1A3263] transition ml-1"
             title="Create a new invoice"
           >
-            <Plus className="w-4 h-4 text-white stroke-[2.8]" />
+            <div className="w-6 h-6 rounded-md bg-white/20 text-white flex items-center justify-center shrink-0">
+              <Plus className="w-3.5 h-3.5 text-white stroke-[2.8]" />
+            </div>
             <span>New Invoice</span>
           </button>
         </nav>
 
-        {/* Mobile controls: Quick New button + Hamburger Toggle (< md) */}
-        <div className="flex md:hidden items-center gap-2">
+        {/* Mobile & Tablet controls: Quick New button + Hamburger Toggle (< lg) */}
+        <div className="flex lg:hidden items-center gap-2">
           {/* Quick New button */}
           <button
             type="button"
@@ -170,12 +182,12 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer / Dropdown Menu & Scrim */}
+      {/* Mobile & Tablet Drawer / Dropdown Menu & Scrim */}
       {mobileMenuOpen && (
         <>
           {/* Backdrop Scrim */}
           <div
-            className="fixed inset-0 top-[62px] bg-black/40 backdrop-blur-xs z-40 md:hidden animate-in fade-in duration-150"
+            className="fixed inset-0 top-[62px] bg-black/40 backdrop-blur-xs z-40 lg:hidden animate-in fade-in duration-150"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
@@ -183,7 +195,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Dropdown Menu */}
           <div
             ref={mobileMenuRef}
-            className="absolute top-[62px] left-0 right-0 bg-white border-b border-gray-200 shadow-xl z-50 md:hidden animate-in slide-in-from-top-2 duration-150 py-3 px-4 max-h-[calc(100vh-75px)] overflow-y-auto"
+            className="absolute top-[62px] left-0 right-0 bg-white border-b border-gray-200 shadow-xl z-50 lg:hidden animate-in slide-in-from-top-2 duration-150 py-3 px-4 max-h-[calc(100vh-75px)] overflow-y-auto"
           >
             <div className="flex flex-col gap-1">
               {/* Invoice Generator */}
