@@ -1,0 +1,6 @@
+{
+  "name": "Invoiceo.online - Free Invoice Generator",
+  "description": "100% free professional invoice generator. Create, customize, autosave, and download high-quality searchable PDF invoices without signup or login.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

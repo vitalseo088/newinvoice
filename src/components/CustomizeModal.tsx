@@ -1,0 +1,347 @@
+import React, { useEffect } from 'react';
+import { X, Palette, Check, SlidersHorizontal } from 'lucide-react';
+import { InvoiceCustomization } from '../types/invoice';
+import { CURRENCIES } from '../utils/currency';
+import { PRESET_ACCENT_COLORS } from '../utils/templates';
+
+interface CustomizeModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  customization: InvoiceCustomization;
+  onChange: (customization: InvoiceCustomization) => void;
+}
+
+export const CustomizeModal: React.FC<CustomizeModalProps> = ({
+  isOpen,
+  onClose,
+  customization,
+  onChange,
+}) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  const update = <K extends keyof InvoiceCustomization>(key: K, value: InvoiceCustomization[K]) => {
+    onChange({
+      ...customization,
+      [key]: value,
+    });
+  };
+
+  const handleCurrencySelect = (code: string) => {
+    const found = CURRENCIES.find((c) => c.code === code);
+    if (found) {
+      onChange({
+        ...customization,
+        currency: found.code,
+        currencySymbol: found.symbol,
+        currencyPosition: found.position,
+      });
+    }
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs cursor-pointer animate-in fade-in duration-150"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="w-full max-w-4xl max-h-[90vh] flex flex-col rounded-xl bg-white shadow-2xl overflow-hidden cursor-auto animate-in zoom-in-95 duration-150 border border-gray-200"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4 bg-[#F8FAFC]">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-lg bg-[#1A3263]/15 flex items-center justify-center text-[#1A3263]">
+              <SlidersHorizontal className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 text-lg">Invoice Customization</h3>
+              <p className="text-xs sm:text-sm text-gray-500">
+                Configure branding colors, typography, currency, taxes, and visible fields
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close dialog"
+            className="cursor-pointer rounded-lg p-2 text-gray-400 hover:bg-gray-200 hover:text-gray-800 transition"
+          >
+            <X className="w-5 h-5 stroke-[2.5]" />
+          </button>
+        </div>
+
+        {/* Content body with scrolling */}
+        <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-8 text-sm">
+          {/* 1. Color & Branding */}
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2 mb-2">
+                <Palette className="w-4 h-4 text-[#1A3263]" /> Accent Color
+              </label>
+              <div className="flex items-center flex-wrap gap-2.5 mb-3">
+                {PRESET_ACCENT_COLORS.map((col) => (
+                  <button
+                    key={col}
+                    type="button"
+                    onClick={() => update('accentColor', col)}
+                    className="w-8 h-8 rounded-full border-2 border-white shadow-xs relative transition hover:scale-110"
+                    style={{ backgroundColor: col }}
+                    title={col}
+                  >
+                    {customization.accentColor.toLowerCase() === col.toLowerCase() && (
+                      <Check className="w-4 h-4 text-white absolute inset-0 m-auto stroke-[3]" />
+                    )}
+                  </button>
+                ))}
+              </div>
+              <div className="flex items-center gap-2.5">
+                <input
+                  type="color"
+                  value={customization.accentColor}
+                  onChange={(e) => update('accentColor', e.target.value)}
+                  className="w-10 h-10 p-0.5 border border-gray-300 rounded cursor-pointer"
+                />
+                <input
+                  type="text"
+                  value={customization.accentColor}
+                  onChange={(e) => update('accentColor', e.target.value)}
+                  placeholder="#1A3263"
+                  className="text-sm font-mono border border-gray-300 rounded-lg px-3 py-2 w-32 uppercase outline-none focus:border-[#1A3263]"
+                />
+                <span className="text-xs text-gray-400">Custom hex code</span>
+              </div>
+            </div>
+
+            <div>
+              <label className="text-sm sm:text-base font-bold text-gray-800 mb-2 block">
+                Logo Width ({customization.logoWidth}px)
+              </label>
+              <input
+                type="range"
+                min={80}
+                max={260}
+                step={10}
+                value={customization.logoWidth}
+                onChange={(e) => update('logoWidth', Number(e.target.value))}
+                className="w-full accent-[#1A3263]"
+              />
+              <div className="flex justify-between text-xs text-gray-400 mt-1.5 font-medium">
+                <span>Compact (80px)</span>
+                <span>Medium (150px)</span>
+                <span>Large (260px)</span>
+              </div>
+            </div>
+          </section>
+
+          {/* 3. Typography & Page Layout */}
+          <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-gray-200">
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Font Family</label>
+              <select
+                value={customization.fontFamily}
+                onChange={(e) => update('fontFamily', e.target.value as any)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
+              >
+                <option value="Inter">Inter (Clean Modern Sans)</option>
+                <option value="Roboto">Roboto (Geometric Sans)</option>
+                <option value="Playfair Display">Playfair Display (Serif Elegance)</option>
+                <option value="JetBrains Mono">JetBrains Mono (Monospace Tech)</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Font Size</label>
+              <select
+                value={customization.fontSize}
+                onChange={(e) => update('fontSize', e.target.value as any)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
+              >
+                <option value="small">Small (Dense)</option>
+                <option value="medium">Medium (Standard)</option>
+                <option value="large">Large (Relaxed)</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">PDF Page Size</label>
+              <select
+                value={customization.pageSize}
+                onChange={(e) => update('pageSize', e.target.value as any)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
+              >
+                <option value="a4">A4 (Standard Worldwide)</option>
+                <option value="letter">US Letter (North America)</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Page Margins</label>
+              <select
+                value={customization.pageMargins}
+                onChange={(e) => update('pageMargins', e.target.value as any)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
+              >
+                <option value="compact">Compact (28pt)</option>
+                <option value="normal">Normal (40pt)</option>
+                <option value="wide">Wide (54pt)</option>
+              </select>
+            </div>
+          </section>
+
+          {/* 4. Currency & Formatting */}
+          <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Currency</label>
+              <select
+                value={customization.currency}
+                onChange={(e) => handleCurrencySelect(e.target.value)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
+              >
+                {CURRENCIES.map((curr) => (
+                  <option key={curr.code} value={curr.code}>
+                    {curr.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Currency Symbol</label>
+              <input
+                type="text"
+                value={customization.currencySymbol}
+                onChange={(e) => update('currencySymbol', e.target.value)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 outline-none focus:border-[#FF8F70]"
+                placeholder="$"
+              />
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Date Format</label>
+              <select
+                value={customization.dateFormat}
+                onChange={(e) => update('dateFormat', e.target.value as any)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
+              >
+                <option value="YYYY-MM-DD">YYYY-MM-DD (2026-10-08)</option>
+                <option value="MM/DD/YYYY">MM/DD/YYYY (10/08/2026)</option>
+                <option value="DD/MM/YYYY">DD/MM/YYYY (08/10/2026)</option>
+                <option value="DD MMM YYYY">DD MMM YYYY (08 Oct 2026)</option>
+              </select>
+            </div>
+          </section>
+
+          {/* 5. Taxes & Discounts Defaults */}
+          <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-gray-200">
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Tax Label</label>
+              <input
+                type="text"
+                value={customization.taxLabel}
+                onChange={(e) => update('taxLabel', e.target.value)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 outline-none focus:border-[#FF8F70]"
+                placeholder="Tax / VAT / GST"
+              />
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Default Tax Rate (%)</label>
+              <input
+                type="number"
+                step="0.1"
+                min="0"
+                value={customization.taxRate}
+                onChange={(e) => update('taxRate', Number(e.target.value))}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 outline-none focus:border-[#FF8F70]"
+              />
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Default Discount</label>
+              <input
+                type="number"
+                step="0.5"
+                min="0"
+                value={customization.discountRate}
+                onChange={(e) => update('discountRate', Number(e.target.value))}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 outline-none focus:border-[#FF8F70]"
+              />
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">Discount Type</label>
+              <select
+                value={customization.discountType}
+                onChange={(e) => update('discountType', e.target.value as any)}
+                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
+              >
+                <option value="percent">Percentage (%)</option>
+                <option value="flat">Flat Amount</option>
+              </select>
+            </div>
+          </section>
+
+          {/* 6. Section Visibility Toggles */}
+          <section className="pt-4 border-t border-gray-200">
+            <label className="text-sm font-semibold text-gray-800 mb-3 block">
+              Optional Sections Visibility
+            </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {[
+                { key: 'showAmountPaid', label: 'Amount Paid & Balance Due' },
+                { key: 'showPaymentDetails', label: 'Payment & Bank Instructions' },
+                { key: 'showSignature', label: 'Signature Section' },
+                { key: 'showNotes', label: 'Notes and Terms' },
+                { key: 'showAttachments', label: 'Attachments & Receipts' },
+                { key: 'showCustomFields', label: 'Custom Project Fields' },
+              ].map(({ key, label }) => {
+                const isChecked = Boolean((customization as any)[key]);
+                return (
+                  <label
+                    key={key}
+                    className="flex items-center gap-2.5 p-2 rounded border border-gray-200 hover:bg-gray-50 cursor-pointer text-xs font-medium text-gray-700"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={(e) => update(key as any, e.target.checked)}
+                      className="rounded text-[#FF8F70] focus:ring-[#FF8F70] h-4 w-4"
+                    />
+                    <span>{label}</span>
+                  </label>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between border-t border-gray-200 px-6 py-4 bg-[#F8FAFC]">
+          <span className="text-xs sm:text-sm text-gray-500 font-medium">
+            Changes apply instantly to editor, preview, and PDF
+          </span>
+          <button
+            type="button"
+            onClick={onClose}
+            className="cursor-pointer px-6 py-2.5 text-sm font-bold text-white bg-[#1A3263] hover:bg-[#132549] rounded-lg shadow-sm transition"
+          >
+            Done Customizing
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
