@@ -8,7 +8,8 @@ import { CustomizeModal } from './components/CustomizeModal';
 import { MyInvoicesModal } from './components/MyInvoicesModal';
 import { ImportExportModal } from './components/ImportExportModal';
 import { SignatureModal } from './components/SignatureModal';
-import { SEOSection } from './components/SEOSection';
+import { CompleteGuide } from './components/CompleteGuide';
+import { ProfessionTemplateExample } from './data/professionExamples';
 import { Footer } from './components/Footer';
 import { InvoiceData } from './types/invoice';
 import {
@@ -132,6 +133,28 @@ export default function App() {
     setCurrentInvoice(newActive);
   };
 
+  // Load a profession example from guide
+  const handleLoadProfessionExample = (example: ProfessionTemplateExample) => {
+    const updated: InvoiceData = {
+      ...currentInvoice,
+      ...example.data,
+      id: currentInvoice.id,
+      customization: {
+        ...currentInvoice.customization,
+        template: example.template,
+        fontFamily: example.fontFamily,
+        accentColor: example.accentColor,
+        currency: example.suggestedCurrency,
+        currencySymbol: example.suggestedCurrencySymbol,
+      },
+      updatedAt: new Date().toISOString(),
+    };
+    saveInvoice(updated);
+    setCurrentInvoice(updated);
+    setAllInvoices(getAllInvoices());
+    setActiveTab('invoice');
+  };
+
   // Import invoices handler
   const handleImportInvoices = (imported: InvoiceData[], strategy: 'copy' | 'replace') => {
     let currentList = getAllInvoices();
@@ -216,7 +239,7 @@ export default function App() {
       />
 
       {/* 2. Main Centered Content Container */}
-      <main className="flex-1 max-w-[1320px] w-full mx-auto px-4 sm:px-6 pt-6 pb-12 print:p-0 print:m-0 print:max-w-none">
+      <main className="flex-1 max-w-[1320px] w-full mx-auto px-4 sm:px-6 pt-6 pb-4 print:p-0 print:m-0 print:max-w-none">
         {/* Page Heading & Information Banner with large font sizes */}
         <div className="mb-6 no-print">
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900">
@@ -294,9 +317,12 @@ export default function App() {
           />
         </div>
 
-        {/* 5. Educational / SEO Section */}
+        {/* 5. Complete Guide with Examples & Invoicing Knowledge Base */}
         <div className="no-print">
-          <SEOSection />
+          <CompleteGuide
+            onLoadExample={handleLoadProfessionExample}
+            onOpenSettings={() => setIsCustomizeOpen(true)}
+          />
         </div>
       </main>
 

@@ -5,6 +5,7 @@ import {
   FolderOpen,
   Database,
   Sliders,
+  BookOpen,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -46,6 +47,22 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <FileText className="w-4 h-4 text-[#1A3263] stroke-[2.2]" />
             <span className="hidden md:inline">Invoice Generator</span>
+          </button>
+
+          {/* Guide & Examples */}
+          <button
+            type="button"
+            onClick={() => {
+              const el = document.getElementById('invoiceo-guide');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="cursor-pointer flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
+            title="Read Complete Guide & Examples"
+          >
+            <BookOpen className="w-4 h-4 text-[#1A3263] stroke-[2.2]" />
+            <span className="hidden lg:inline">Guide & Examples</span>
           </button>
 
           {/* My Invoices */}

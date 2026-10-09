@@ -17,7 +17,7 @@ export const Footer: React.FC<FooterProps> = ({
   const [legalModal, setLegalModal] = useState<'privacy' | 'terms' | null>(null);
 
   return (
-    <footer className="bg-[#2D3139] text-gray-300 mt-20 border-t border-gray-700/60">
+    <footer className="bg-[#2D3139] text-gray-300 mt-6 sm:mt-8 border-t border-gray-700/60">
       {/* 4-column main footer */}
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -103,33 +103,42 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs text-gray-300">
               <li>
                 <a
-                  href="#how-to-create"
+                  href="#7-steps"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.scrollTo({ top: 900, behavior: 'smooth' });
+                    const el = document.getElementById('7-steps') || document.getElementById('invoiceo-guide');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="hover:text-white transition"
                 >
-                  How to Create an Invoice
+                  7-Step Invoice Guide
                 </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => setLegalModal('privacy')}
+                <a
+                  href="#examples-by-profession"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('examples-by-profession') || document.getElementById('invoiceo-guide');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="hover:text-white transition"
                 >
-                  Client Data Privacy Guide
-                </button>
+                  Profession Invoice Examples
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => setLegalModal('terms')}
+                <a
+                  href="#faq"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('faq') || document.getElementById('invoiceo-guide');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="hover:text-white transition"
                 >
-                  Standard Payment Terms
-                </button>
+                  Frequently Asked Questions (FAQ)
+                </a>
               </li>
             </ul>
           </div>
