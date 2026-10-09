@@ -113,7 +113,18 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
 
           {activeTab === 'invoice' ? (
             <>
-              {/* New Invoice button */}
+              {/* Customize Button (Settings) */}
+              <button
+                type="button"
+                onClick={onOpenCustomize}
+                className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
+                title="Invoice Settings & Customization"
+              >
+                <SlidersHorizontal className="w-4 h-4 text-[#1A3263]" />
+                Customize
+              </button>
+
+              {/* New Invoice button placed on the right side of Customize / Settings */}
               <button
                 type="button"
                 onClick={onNewInvoice}
@@ -123,16 +134,6 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 <Plus className="w-4 h-4 text-[#1A3263] stroke-[2.5]" />
                 <span className="hidden sm:inline">New Invoice</span>
                 <span className="sm:hidden">New</span>
-              </button>
-
-              {/* Customize Button */}
-              <button
-                type="button"
-                onClick={onOpenCustomize}
-                className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
-              >
-                <SlidersHorizontal className="w-4 h-4" />
-                Customize
               </button>
 
               {/* Print Button */}

@@ -2,6 +2,7 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { InvoiceData } from '../types/invoice';
 import { calculateInvoiceTotals, formatDate, formatMoney } from './currency';
+import { getPdfFontFamily } from './fonts';
 
 export async function generateInvoicePdf(
   invoice: InvoiceData
@@ -24,6 +25,7 @@ export async function generateInvoicePdf(
 
     const contentWidth = pageWidth - margin * 2;
     const totals = calculateInvoiceTotals(invoice);
+    const baseFont = getPdfFontFamily(invoice.customization.fontFamily);
     const accent = invoice.customization.accentColor || '#FF8F70';
 
     // Helper hex to RGB
@@ -55,13 +57,13 @@ export async function generateInvoicePdf(
     }
 
     doc.setTextColor(31, 41, 55);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.setFontSize(24);
     doc.text(invoice.title || 'INVOICE', pageWidth - margin, cursorY + 22, { align: 'right' });
 
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(baseFont, 'normal');
     doc.text(`# ${invoice.number}`, pageWidth - margin, cursorY + 38, { align: 'right' });
 
     cursorY += 60;
@@ -75,17 +77,17 @@ export async function generateInvoicePdf(
 
     // FROM Block
     doc.setTextColor(r, g, b);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.setFontSize(9);
     doc.text('FROM', fromX, cursorY);
 
     doc.setTextColor(31, 41, 55);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.setFontSize(11);
     cursorY += 14;
     doc.text(invoice.fromName || 'Your Business Name', fromX, cursorY);
 
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(baseFont, 'normal');
     doc.setTextColor(75, 85, 99);
     doc.setFontSize(9);
 
@@ -119,17 +121,17 @@ export async function generateInvoicePdf(
     // TO Block
     let toCursorY = startInfoY;
     doc.setTextColor(r, g, b);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.setFontSize(9);
     doc.text('BILL TO', toX, toCursorY);
 
     doc.setTextColor(31, 41, 55);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.setFontSize(11);
     toCursorY += 14;
     doc.text(invoice.toName || 'Client Name', toX, toCursorY);
 
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(baseFont, 'normal');
     doc.setTextColor(75, 85, 99);
     doc.setFontSize(9);
 
@@ -168,31 +170,31 @@ export async function generateInvoicePdf(
     // Invoice Date
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.text('INVOICE DATE', margin + 12, metaY);
     doc.setTextColor(31, 41, 55);
     doc.setFontSize(8.5);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(baseFont, 'normal');
     doc.text(formatDate(invoice.date, invoice.customization.dateFormat) || '-', margin + 12, metaY + 12);
 
     // Due Date
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.text('DUE DATE', margin + metaItemWidth + 6, metaY);
     doc.setTextColor(31, 41, 55);
     doc.setFontSize(8.5);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(baseFont, 'normal');
     doc.text(formatDate(invoice.dueDate, invoice.customization.dateFormat) || '-', margin + metaItemWidth + 6, metaY + 12);
 
     // Terms
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.text('PAYMENT TERMS', margin + metaItemWidth * 2 + 6, metaY);
     doc.setTextColor(31, 41, 55);
     doc.setFontSize(8.5);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(baseFont, 'normal');
     const termsMap: Record<string, string> = {
       on_receipt: 'On Receipt',
       net_7: 'Net 7 Days',
@@ -207,11 +209,11 @@ export async function generateInvoicePdf(
     // PO or Balance Due Quick Tag
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.text(invoice.poNumber ? 'P.O. NUMBER' : 'BALANCE DUE', margin + metaItemWidth * 3 + 6, metaY);
     doc.setTextColor(r, g, b);
     doc.setFontSize(8.5);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     if (invoice.poNumber) {
       doc.text(invoice.poNumber, margin + metaItemWidth * 3 + 6, metaY + 12);
     } else {
@@ -246,6 +248,7 @@ export async function generateInvoicePdf(
       body: tableBody,
       theme: 'grid',
       headStyles: {
+        font: baseFont,
         fillColor: [r, g, b],
         textColor: [255, 255, 255],
         fontStyle: 'bold',
@@ -253,6 +256,7 @@ export async function generateInvoicePdf(
         cellPadding: 7,
       },
       styles: {
+        font: baseFont,
         fontSize: 8.5,
         cellPadding: 6,
         textColor: [31, 41, 55],
@@ -280,10 +284,10 @@ export async function generateInvoicePdf(
     // Subtotal
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(8.5);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(baseFont, 'normal');
     doc.text('Subtotal:', totalsX, totalsY);
     doc.setTextColor(31, 41, 55);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.text(
       formatMoney(totals.subtotal, invoice.customization.currencySymbol, invoice.customization.currencyPosition),
       pageWidth - margin,
@@ -295,14 +299,14 @@ export async function generateInvoicePdf(
     if (totals.discountAmount > 0) {
       totalsY += 14;
       doc.setTextColor(100, 116, 139);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(baseFont, 'normal');
       doc.text(
         `Discount (${invoice.customization.discountType === 'percent' ? invoice.customization.discountRate + '%' : 'Flat'}):`,
         totalsX,
         totalsY
       );
       doc.setTextColor(220, 38, 38);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(baseFont, 'bold');
       doc.text(
         `-${formatMoney(totals.discountAmount, invoice.customization.currencySymbol, invoice.customization.currencyPosition)}`,
         pageWidth - margin,
@@ -315,14 +319,14 @@ export async function generateInvoicePdf(
     if (totals.taxAmount > 0) {
       totalsY += 14;
       doc.setTextColor(100, 116, 139);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(baseFont, 'normal');
       doc.text(
         `${invoice.customization.taxLabel || 'Tax'} (${invoice.customization.taxType === 'percent' ? invoice.customization.taxRate + '%' : 'Flat'}):`,
         totalsX,
         totalsY
       );
       doc.setTextColor(31, 41, 55);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(baseFont, 'bold');
       doc.text(
         formatMoney(totals.taxAmount, invoice.customization.currencySymbol, invoice.customization.currencyPosition),
         pageWidth - margin,
@@ -341,7 +345,7 @@ export async function generateInvoicePdf(
     totalsY += 14;
     doc.setTextColor(31, 41, 55);
     doc.setFontSize(10);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.text('Total:', totalsX, totalsY);
     doc.text(
       formatMoney(totals.total, invoice.customization.currencySymbol, invoice.customization.currencyPosition),
@@ -355,10 +359,10 @@ export async function generateInvoicePdf(
       totalsY += 14;
       doc.setTextColor(100, 116, 139);
       doc.setFontSize(8.5);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(baseFont, 'normal');
       doc.text('Amount Paid:', totalsX, totalsY);
       doc.setTextColor(16, 185, 129);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(baseFont, 'bold');
       doc.text(
         formatMoney(totals.amountPaid, invoice.customization.currencySymbol, invoice.customization.currencyPosition),
         pageWidth - margin,
@@ -373,7 +377,7 @@ export async function generateInvoicePdf(
     doc.roundedRect(totalsX, totalsY, totalsWidth, 26, 3, 3, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(9);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(baseFont, 'bold');
     doc.text('BALANCE DUE', totalsX + 10, totalsY + 17);
     doc.setFontSize(11);
     doc.text(
@@ -389,13 +393,13 @@ export async function generateInvoicePdf(
     if (invoice.customization.showNotes && invoice.notes) {
       doc.setTextColor(r, g, b);
       doc.setFontSize(8.5);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(baseFont, 'bold');
       doc.text('NOTES & TERMS', margin, leftY);
 
       leftY += 12;
       doc.setTextColor(75, 85, 99);
       doc.setFontSize(8);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(baseFont, 'normal');
       const splitNotes = doc.splitTextToSize(invoice.notes, contentWidth - totalsWidth - 30);
       doc.text(splitNotes, margin, leftY);
       leftY += splitNotes.length * 10 + 10;
@@ -404,13 +408,13 @@ export async function generateInvoicePdf(
     if (invoice.customization.showPaymentDetails && invoice.paymentDetails) {
       doc.setTextColor(r, g, b);
       doc.setFontSize(8.5);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(baseFont, 'bold');
       doc.text('PAYMENT INSTRUCTIONS', margin, leftY);
 
       leftY += 12;
       doc.setTextColor(75, 85, 99);
       doc.setFontSize(8);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(baseFont, 'normal');
       const splitPay = doc.splitTextToSize(invoice.paymentDetails, contentWidth - totalsWidth - 30);
       doc.text(splitPay, margin, leftY);
       leftY += splitPay.length * 10 + 10;
@@ -439,13 +443,13 @@ export async function generateInvoicePdf(
       if (invoice.signerName) {
         doc.setTextColor(31, 41, 55);
         doc.setFontSize(8.5);
-        doc.setFont('helvetica', 'bold');
+        doc.setFont(baseFont, 'bold');
         doc.text(invoice.signerName, margin, sigY + 16);
       }
       if (invoice.signerTitle) {
         doc.setTextColor(100, 116, 139);
         doc.setFontSize(7.5);
-        doc.setFont('helvetica', 'normal');
+        doc.setFont(baseFont, 'normal');
         doc.text(invoice.signerTitle, margin, sigY + 26);
       }
     }
@@ -455,7 +459,7 @@ export async function generateInvoicePdf(
     if (invoice.customization.showAttachments && pdfAttachments.length > 0) {
       doc.addPage();
       doc.setTextColor(31, 41, 55);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(baseFont, 'bold');
       doc.setFontSize(16);
       doc.text('Invoice Attachments & Receipts', margin, margin + 20);
 
@@ -466,7 +470,7 @@ export async function generateInvoicePdf(
           attY = margin + 20;
         }
         doc.setFontSize(10);
-        doc.setFont('helvetica', 'bold');
+        doc.setFont(baseFont, 'bold');
         doc.setTextColor(75, 85, 99);
         doc.text(att.name, margin, attY);
         attY += 12;

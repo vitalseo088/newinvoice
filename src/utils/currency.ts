@@ -8,6 +8,7 @@ export interface CurrencyOption {
 export const CURRENCIES: CurrencyOption[] = [
   // Top Global Reserve & Major Currencies
   { code: 'USD', name: 'US Dollar ($)', symbol: '$', position: 'before' },
+  { code: 'PKR', name: 'Pakistani Rupee (PKR - Rs)', symbol: 'Rs ', position: 'before' },
   { code: 'EUR', name: 'Euro (€)', symbol: '€', position: 'before' },
   { code: 'GBP', name: 'British Pound (£)', symbol: '£', position: 'before' },
   { code: 'CAD', name: 'Canadian Dollar (CA$)', symbol: 'CA$', position: 'before' },
@@ -16,8 +17,9 @@ export const CURRENCIES: CurrencyOption[] = [
   { code: 'CHF', name: 'Swiss Franc (CHF)', symbol: 'CHF ', position: 'before' },
   { code: 'CNY', name: 'Chinese Yuan (¥)', symbol: '¥', position: 'before' },
   { code: 'INR', name: 'Indian Rupee (₹)', symbol: '₹', position: 'before' },
-  { code: 'PKR', name: 'Pakistani Rupee (₨)', symbol: '₨ ', position: 'before' },
   { code: 'BDT', name: 'Bangladeshi Taka (৳)', symbol: '৳', position: 'before' },
+  { code: 'AED', name: 'UAE Dirham (AED)', symbol: 'AED ', position: 'before' },
+  { code: 'SAR', name: 'Saudi Riyal (SAR)', symbol: 'SAR ', position: 'before' },
   { code: 'SGD', name: 'Singapore Dollar (SG$)', symbol: 'SG$', position: 'before' },
   { code: 'NZD', name: 'New Zealand Dollar (NZ$)', symbol: 'NZ$', position: 'before' },
   { code: 'HKD', name: 'Hong Kong Dollar (HK$)', symbol: 'HK$', position: 'before' },

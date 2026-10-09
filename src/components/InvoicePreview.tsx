@@ -1,6 +1,7 @@
 import React from 'react';
 import { InvoiceData } from '../types/invoice';
 import { calculateInvoiceTotals, formatDate, formatMoney } from '../utils/currency';
+import { getFontCssFamily } from '../utils/fonts';
 import { ArrowLeft, Download, Printer } from 'lucide-react';
 
 interface InvoicePreviewProps {
@@ -18,20 +19,7 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 }) => {
   const totals = calculateInvoiceTotals(invoice);
   const accent = invoice.customization.accentColor || '#1A3263';
-
-  const getFontFamilyClass = () => {
-    switch (invoice.customization.fontFamily) {
-      case 'Playfair Display':
-        return 'font-serif';
-      case 'JetBrains Mono':
-        return 'font-mono';
-      case 'Roboto':
-        return 'font-sans';
-      case 'Inter':
-      default:
-        return 'font-sans';
-    }
-  };
+  const activeFontFamilyCss = getFontCssFamily(invoice.customization.fontFamily);
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -66,8 +54,8 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
       {/* The Actual Invoice Document Page with large typography */}
       <div
         id="invoice-print-area"
-        className={`w-full max-w-[960px] bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden print:shadow-none print:border-none print:max-w-none ${getFontFamilyClass()}`}
-        style={{ minHeight: '1100px' }}
+        className="w-full max-w-[960px] bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden print:shadow-none print:border-none print:max-w-none transition-all"
+        style={{ minHeight: '1100px', fontFamily: activeFontFamilyCss }}
       >
         <div className="p-8 sm:p-14 relative">
           {/* Header */}

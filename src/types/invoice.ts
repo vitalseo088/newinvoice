@@ -47,10 +47,25 @@ export interface CustomField {
   value: string;
 }
 
+export type InvoiceFontFamily =
+  | 'Manrope'
+  | 'Poppins'
+  | 'Lato'
+  | 'Roboto Slab'
+  | 'PT Sans'
+  | 'Inter'
+  | 'Roboto'
+  | 'Montserrat'
+  | 'Open Sans'
+  | 'Plus Jakarta Sans'
+  | 'Playfair Display'
+  | 'Raleway'
+  | 'JetBrains Mono';
+
 export interface InvoiceCustomization {
   template: TemplateId;
   accentColor: string;
-  fontFamily: 'Inter' | 'Roboto' | 'Playfair Display' | 'JetBrains Mono';
+  fontFamily: InvoiceFontFamily;
   fontSize: 'small' | 'medium' | 'large';
   logoWidth: number; // in pixels (e.g., 140)
   pageSize: PageSize;

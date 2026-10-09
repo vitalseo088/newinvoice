@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { X, Palette, Check, SlidersHorizontal } from 'lucide-react';
+import { X, Palette, Check, SlidersHorizontal, Type, DollarSign } from 'lucide-react';
 import { InvoiceCustomization } from '../types/invoice';
 import { CURRENCIES } from '../utils/currency';
 import { PRESET_ACCENT_COLORS } from '../utils/templates';
+import { INVOICE_FONTS } from '../utils/fonts';
 
 interface CustomizeModalProps {
   isOpen: boolean;
@@ -147,100 +148,168 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
           </section>
 
           {/* 3. Typography & Page Layout */}
-          <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-gray-200">
-            <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Font Family</label>
-              <select
-                value={customization.fontFamily}
-                onChange={(e) => update('fontFamily', e.target.value as any)}
-                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
-              >
-                <option value="Inter">Inter (Clean Modern Sans)</option>
-                <option value="Roboto">Roboto (Geometric Sans)</option>
-                <option value="Playfair Display">Playfair Display (Serif Elegance)</option>
-                <option value="JetBrains Mono">JetBrains Mono (Monospace Tech)</option>
-              </select>
+          <section className="space-y-4 pt-4 border-t border-gray-200">
+            <div className="flex items-center justify-between">
+              <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2">
+                <Type className="w-4 h-4 text-[#1A3263]" /> Typography & Document Sizing
+              </label>
+              <span className="text-xs text-gray-500 font-medium">
+                Active font: <strong className="text-[#1A3263]">{customization.fontFamily}</strong>
+              </span>
             </div>
 
-            <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Font Size</label>
-              <select
-                value={customization.fontSize}
-                onChange={(e) => update('fontSize', e.target.value as any)}
-                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
-              >
-                <option value="small">Small (Dense)</option>
-                <option value="medium">Medium (Standard)</option>
-                <option value="large">Large (Relaxed)</option>
-              </select>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <div>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">Font Family</label>
+                <select
+                  value={customization.fontFamily}
+                  onChange={(e) => update('fontFamily', e.target.value as any)}
+                  className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
+                >
+                  {INVOICE_FONTS.map((f) => (
+                    <option key={f.id} value={f.id} style={{ fontFamily: f.fontFamily }}>
+                      {f.name} — {f.category}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">Font Size</label>
+                <select
+                  value={customization.fontSize}
+                  onChange={(e) => update('fontSize', e.target.value as any)}
+                  className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
+                >
+                  <option value="small">Small (Dense)</option>
+                  <option value="medium">Medium (Standard)</option>
+                  <option value="large">Large (Relaxed)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">PDF Page Size</label>
+                <select
+                  value={customization.pageSize}
+                  onChange={(e) => update('pageSize', e.target.value as any)}
+                  className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
+                >
+                  <option value="a4">A4 (Standard Worldwide)</option>
+                  <option value="letter">US Letter (North America)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">Page Margins</label>
+                <select
+                  value={customization.pageMargins}
+                  onChange={(e) => update('pageMargins', e.target.value as any)}
+                  className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
+                >
+                  <option value="compact">Compact (28pt)</option>
+                  <option value="normal">Normal (40pt)</option>
+                  <option value="wide">Wide (54pt)</option>
+                </select>
+              </div>
             </div>
 
+            {/* Quick Font Selector Chips */}
             <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">PDF Page Size</label>
-              <select
-                value={customization.pageSize}
-                onChange={(e) => update('pageSize', e.target.value as any)}
-                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
-              >
-                <option value="a4">A4 (Standard Worldwide)</option>
-                <option value="letter">US Letter (North America)</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Page Margins</label>
-              <select
-                value={customization.pageMargins}
-                onChange={(e) => update('pageMargins', e.target.value as any)}
-                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
-              >
-                <option value="compact">Compact (28pt)</option>
-                <option value="normal">Normal (40pt)</option>
-                <option value="wide">Wide (54pt)</option>
-              </select>
+              <span className="text-xs text-gray-500 font-medium block mb-2">
+                Quick Font Switcher:
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {INVOICE_FONTS.map((f) => {
+                  const isActive = customization.fontFamily === f.id;
+                  return (
+                    <button
+                      key={f.id}
+                      type="button"
+                      onClick={() => update('fontFamily', f.id)}
+                      style={{ fontFamily: f.fontFamily }}
+                      className={`cursor-pointer px-3 py-1.5 rounded-lg text-xs font-medium transition-all border ${
+                        isActive
+                          ? 'bg-[#1A3263] text-white border-[#1A3263] shadow-xs scale-[1.02]'
+                          : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
+                      }`}
+                      title={f.description}
+                    >
+                      <span>{f.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </section>
 
           {/* 4. Currency & Formatting */}
-          <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-gray-200">
-            <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Currency</label>
-              <select
-                value={customization.currency}
-                onChange={(e) => handleCurrencySelect(e.target.value)}
-                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
-              >
-                {CURRENCIES.map((curr) => (
-                  <option key={curr.code} value={curr.code}>
-                    {curr.name}
-                  </option>
-                ))}
-              </select>
+          <section className="space-y-4 pt-4 border-t border-gray-200">
+            <div className="flex items-center justify-between">
+              <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2">
+                <DollarSign className="w-4 h-4 text-[#1A3263]" /> Currency & Formatting
+              </label>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs text-gray-500 font-medium">Quick pick:</span>
+                {['USD', 'PKR', 'EUR', 'GBP', 'AED', 'SAR', 'CAD', 'INR'].map((code) => {
+                  const isCurActive = customization.currency === code;
+                  return (
+                    <button
+                      key={code}
+                      type="button"
+                      onClick={() => handleCurrencySelect(code)}
+                      className={`cursor-pointer px-2 py-0.5 rounded text-xs font-bold transition ${
+                        isCurActive
+                          ? 'bg-[#1A3263] text-white shadow-2xs'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      {code}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
-            <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Currency Symbol</label>
-              <input
-                type="text"
-                value={customization.currencySymbol}
-                onChange={(e) => update('currencySymbol', e.target.value)}
-                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 outline-none focus:border-[#FF8F70]"
-                placeholder="$"
-              />
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">Currency</label>
+                <select
+                  value={customization.currency}
+                  onChange={(e) => handleCurrencySelect(e.target.value)}
+                  className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
+                >
+                  {CURRENCIES.map((curr) => (
+                    <option key={curr.code} value={curr.code}>
+                      {curr.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Date Format</label>
-              <select
-                value={customization.dateFormat}
-                onChange={(e) => update('dateFormat', e.target.value as any)}
-                className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
-              >
-                <option value="YYYY-MM-DD">YYYY-MM-DD (2026-10-08)</option>
-                <option value="MM/DD/YYYY">MM/DD/YYYY (10/08/2026)</option>
-                <option value="DD/MM/YYYY">DD/MM/YYYY (08/10/2026)</option>
-                <option value="DD MMM YYYY">DD MMM YYYY (08 Oct 2026)</option>
-              </select>
+              <div>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">Currency Symbol</label>
+                <input
+                  type="text"
+                  value={customization.currencySymbol}
+                  onChange={(e) => update('currencySymbol', e.target.value)}
+                  className="w-full text-xs sm:text-sm font-mono border border-gray-300 rounded-lg px-2.5 py-2 outline-none focus:border-[#1A3263]"
+                  placeholder="Rs / PKR / $"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">Date Format</label>
+                <select
+                  value={customization.dateFormat}
+                  onChange={(e) => update('dateFormat', e.target.value as any)}
+                  className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
+                >
+                  <option value="YYYY-MM-DD">YYYY-MM-DD (2026-10-08)</option>
+                  <option value="MM/DD/YYYY">MM/DD/YYYY (10/08/2026)</option>
+                  <option value="DD/MM/YYYY">DD/MM/YYYY (08/10/2026)</option>
+                  <option value="DD MMM YYYY">DD MMM YYYY (08 Oct 2026)</option>
+                </select>
+              </div>
             </div>
           </section>
 
