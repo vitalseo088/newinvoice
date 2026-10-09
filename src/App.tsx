@@ -241,13 +241,16 @@ export default function App() {
       {/* 2. Main Centered Content Container */}
       <main className="flex-1 max-w-[1320px] w-full mx-auto px-4 sm:px-6 pt-6 pb-4 print:p-0 print:m-0 print:max-w-none">
         {/* Page Heading & Information Banner with large font sizes */}
-        <div className="mb-6 no-print">
+        <div className="mb-6 no-print bg-white border border-gray-200/90 rounded-2xl shadow-xs p-5 sm:p-6">
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900">
             Invoice Generator
           </h1>
+          <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed max-w-4xl">
+            Create clean, professional invoices in seconds with Invoiceo, the 100% free online invoice generator trusted by freelancers, contractors, and small business owners worldwide. There is no signup required, no subscription fees, and absolutely no watermarks. Easily customize line items, taxes, discounts, and international currencies with live preview, then download print-ready, searchable PDF invoices instantly. Your sensitive billing data stays private and secure in your browser, helping you bill clients effortlessly and get paid on time.
+          </p>
 
           {/* Reference informational banner */}
-          <div className="mt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 sm:p-4 bg-white border border-[#1A3263]/15 rounded-xl text-sm sm:text-base text-gray-700 shadow-2xs">
+          <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 sm:p-4 bg-slate-50/80 border border-[#1A3263]/15 rounded-xl text-sm sm:text-base text-gray-700">
             <div className="flex items-center gap-2.5">
               <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
               <span className="font-medium">

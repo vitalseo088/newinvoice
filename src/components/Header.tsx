@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   FileText,
   Plus,
@@ -6,6 +6,8 @@ import {
   Database,
   Sliders,
   BookOpen,
+  Menu,
+  X,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -23,6 +25,31 @@ export const Header: React.FC<HeaderProps> = ({
   onNewInvoice,
   savedInvoicesCount,
 }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Close mobile menu on window resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <header className="h-[62px] bg-white text-gray-900 border-b border-gray-200 sticky top-0 z-40 select-none shadow-xs">
       <div className="max-w-[1320px] mx-auto h-full px-4 sm:px-6 flex items-center justify-between">
@@ -30,23 +57,26 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center">
           <button
             type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="cursor-pointer tracking-tight text-xl sm:text-2xl font-black text-[#1A3263] hover:opacity-90 transition leading-none select-none text-left"
           >
             Invoiceo<span className="text-gray-900 font-extrabold">.online</span>
           </button>
         </div>
 
-        {/* Navigation items: clean, solid, professional */}
-        <nav className="flex items-center gap-1.5 sm:gap-2">
-          {/* Invoice Generator: using same FileText icon as invoice */}
+        {/* Desktop Navigation items: visible on md and up */}
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
+          {/* Invoice Generator */}
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="cursor-pointer flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
           >
             <FileText className="w-4 h-4 text-[#1A3263] stroke-[2.2]" />
-            <span className="hidden md:inline">Invoice Generator</span>
+            <span>Invoice Generator</span>
           </button>
 
           {/* Guide & Examples */}
@@ -62,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({
             title="Read Complete Guide & Examples"
           >
             <BookOpen className="w-4 h-4 text-[#1A3263] stroke-[2.2]" />
-            <span className="hidden lg:inline">Guide & Examples</span>
+            <span>Guide & Examples</span>
           </button>
 
           {/* My Invoices */}
@@ -72,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="cursor-pointer relative flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
           >
             <FolderOpen className="w-4 h-4 text-gray-600 stroke-[2]" />
-            <span className="hidden sm:inline">My Invoices</span>
+            <span>My Invoices</span>
             {savedInvoicesCount > 0 && (
               <span className="ml-0.5 px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#1A3263] text-white leading-none">
                 {savedInvoicesCount}
@@ -87,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="cursor-pointer flex items-center gap-2 px-3 py-2 text-sm font-bold text-gray-800 hover:text-[#1A3263] hover:bg-gray-100/90 active:bg-gray-200 rounded-lg transition border border-transparent hover:border-gray-200"
           >
             <Database className="w-4 h-4 text-gray-600 stroke-[2]" />
-            <span className="hidden lg:inline">Import / Export</span>
+            <span>Import / Export</span>
           </button>
 
           {/* Settings */}
@@ -98,22 +128,195 @@ export const Header: React.FC<HeaderProps> = ({
             title="Invoice Settings & Customization"
           >
             <Sliders className="w-4 h-4 text-gray-600 stroke-[2]" />
-            <span className="hidden sm:inline">Settings</span>
+            <span>Settings</span>
           </button>
 
           {/* New Invoice option on the right side of Settings */}
           <button
             type="button"
             onClick={onNewInvoice}
-            className="cursor-pointer flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-sm font-bold text-white bg-[#1A3263] hover:bg-[#122448] active:bg-[#0d1a36] rounded-lg shadow-2xs border border-[#1A3263] transition ml-1"
+            className="cursor-pointer flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-[#1A3263] hover:bg-[#122448] active:bg-[#0d1a36] rounded-lg shadow-2xs border border-[#1A3263] transition ml-1"
             title="Create a new invoice"
           >
             <Plus className="w-4 h-4 text-white stroke-[2.8]" />
-            <span className="hidden sm:inline">New Invoice</span>
-            <span className="sm:hidden">New</span>
+            <span>New Invoice</span>
           </button>
         </nav>
+
+        {/* Mobile controls: Quick New button + Hamburger Toggle (< md) */}
+        <div className="flex md:hidden items-center gap-2">
+          {/* Quick New button */}
+          <button
+            type="button"
+            onClick={onNewInvoice}
+            className="cursor-pointer flex items-center gap-1 px-2.5 py-1.5 text-xs font-bold text-white bg-[#1A3263] hover:bg-[#122448] active:bg-[#0d1a36] rounded-lg shadow-2xs transition"
+            title="Create a new invoice"
+          >
+            <Plus className="w-3.5 h-3.5 text-white stroke-[2.8]" />
+            <span>New</span>
+          </button>
+
+          {/* Hamburger Menu Toggle Button */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="cursor-pointer p-2 rounded-lg text-gray-700 hover:text-[#1A3263] hover:bg-gray-100 border border-gray-200 transition focus:outline-none focus:ring-2 focus:ring-[#1A3263]/20"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5 text-gray-800 stroke-[2.5]" />
+            ) : (
+              <Menu className="w-5 h-5 text-gray-800 stroke-[2.5]" />
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Drawer / Dropdown Menu & Scrim */}
+      {mobileMenuOpen && (
+        <>
+          {/* Backdrop Scrim */}
+          <div
+            className="fixed inset-0 top-[62px] bg-black/40 backdrop-blur-xs z-40 md:hidden animate-in fade-in duration-150"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Dropdown Menu */}
+          <div
+            ref={mobileMenuRef}
+            className="absolute top-[62px] left-0 right-0 bg-white border-b border-gray-200 shadow-xl z-50 md:hidden animate-in slide-in-from-top-2 duration-150 py-3 px-4 max-h-[calc(100vh-75px)] overflow-y-auto"
+          >
+            <div className="flex flex-col gap-1">
+              {/* Invoice Generator */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="cursor-pointer flex items-center justify-between w-full p-2.5 rounded-xl hover:bg-gray-50 active:bg-gray-100 text-left text-gray-800 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#1A3263]/10 flex items-center justify-center text-[#1A3263]">
+                    <FileText className="w-4 h-4 stroke-[2.2]" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">Invoice Generator</div>
+                    <div className="text-xs text-gray-500">Create & edit your invoice</div>
+                  </div>
+                </div>
+              </button>
+
+              {/* Guide & Examples */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  const el = document.getElementById('invoiceo-guide');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="cursor-pointer flex items-center justify-between w-full p-2.5 rounded-xl hover:bg-gray-50 active:bg-gray-100 text-left text-gray-800 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                    <BookOpen className="w-4 h-4 stroke-[2.2]" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">Guide & Examples</div>
+                    <div className="text-xs text-gray-500">How-to guide and profession examples</div>
+                  </div>
+                </div>
+              </button>
+
+              {/* My Invoices */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenMyInvoices();
+                }}
+                className="cursor-pointer flex items-center justify-between w-full p-2.5 rounded-xl hover:bg-gray-50 active:bg-gray-100 text-left text-gray-800 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
+                    <FolderOpen className="w-4 h-4 stroke-[2]" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">My Invoices</div>
+                    <div className="text-xs text-gray-500">Saved browser invoices</div>
+                  </div>
+                </div>
+                {savedInvoicesCount > 0 ? (
+                  <span className="px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#1A3263] text-white">
+                    {savedInvoicesCount}
+                  </span>
+                ) : (
+                  <span className="text-xs text-gray-400 font-medium">0 saved</span>
+                )}
+              </button>
+
+              {/* Import / Export */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenImportExport();
+                }}
+                className="cursor-pointer flex items-center justify-between w-full p-2.5 rounded-xl hover:bg-gray-50 active:bg-gray-100 text-left text-gray-800 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center">
+                    <Database className="w-4 h-4 stroke-[2]" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">Import / Export Backup</div>
+                    <div className="text-xs text-gray-500">Backup, transfer or restore data</div>
+                  </div>
+                </div>
+              </button>
+
+              {/* Settings */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenSettings();
+                }}
+                className="cursor-pointer flex items-center justify-between w-full p-2.5 rounded-xl hover:bg-gray-50 active:bg-gray-100 text-left text-gray-800 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
+                    <Sliders className="w-4 h-4 stroke-[2]" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">Invoice Settings</div>
+                    <div className="text-xs text-gray-500">Colors, typography, taxes & layout</div>
+                  </div>
+                </div>
+              </button>
+
+              {/* New Invoice Button */}
+              <div className="pt-2 border-t border-gray-100 mt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onNewInvoice();
+                  }}
+                  className="cursor-pointer flex items-center justify-center gap-2 w-full p-3 rounded-xl bg-[#1A3263] hover:bg-[#122448] active:bg-[#0d1a36] text-white font-bold transition shadow-2xs"
+                >
+                  <Plus className="w-4 h-4 text-white stroke-[2.8]" />
+                  <span>Start New Invoice</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </header>
   );
 };

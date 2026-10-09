@@ -10,7 +10,10 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
   onLoadExample,
 }) => {
   return (
-    <article id="invoiceo-guide" className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-2 text-gray-800">
+    <article
+      id="invoiceo-guide"
+      className="max-w-4xl mx-auto my-8 sm:my-10 bg-white border border-gray-200/90 rounded-2xl shadow-sm px-5 sm:px-10 md:px-14 py-8 sm:py-12 text-gray-800"
+    >
       
       {/* Title */}
       <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">

@@ -148,7 +148,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
 
   return (
     <div
-      className="w-full bg-white rounded-xl border border-gray-200/90 shadow-sm p-6 sm:p-10 transition-all"
+      className="w-full bg-white rounded-xl border border-gray-200/90 shadow-sm p-4 sm:p-6 md:p-10 transition-all"
       style={{ fontFamily: getFontCssFamily(invoice.customization.fontFamily) }}
     >
       {/* 1. Header: Editable Title & Logo */}
@@ -256,7 +256,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">City, State</label>
               <input
@@ -279,7 +279,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Phone</label>
               <input
@@ -354,7 +354,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">City, State</label>
               <input
@@ -377,7 +377,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Phone</label>
               <input
@@ -400,7 +400,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Mobile (Optional)</label>
               <input
@@ -491,7 +491,10 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
 
       {/* 4. Line items table with larger fonts */}
       <div className="py-6 border-b border-gray-200">
-        <h4 className="text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide mb-3">Line Items</h4>
+        <div className="flex items-center justify-between mb-3">
+          <h4 className="text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide">Line Items</h4>
+          <span className="sm:hidden text-xs text-gray-400 font-medium">← Scroll table horizontally →</span>
+        </div>
 
         <div className="overflow-x-auto border border-gray-200 rounded-xl">
           <table className="w-full text-left border-collapse min-w-[650px]">

@@ -57,7 +57,7 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
         className="w-full max-w-[960px] bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden print:shadow-none print:border-none print:max-w-none transition-all"
         style={{ minHeight: '1100px', fontFamily: activeFontFamilyCss }}
       >
-        <div className="p-8 sm:p-14 relative">
+        <div className="p-4 sm:p-8 md:p-14 relative">
           {/* Header */}
           <div className="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 pb-8 border-b border-gray-200">
             <div>
@@ -181,8 +181,8 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
           </div>
 
           {/* LINE ITEMS TABLE */}
-          <div className="mt-8 overflow-hidden rounded-xl border border-gray-200">
-            <table className="w-full text-left border-collapse">
+          <div className="mt-8 overflow-x-auto rounded-xl border border-gray-200">
+            <table className="w-full text-left border-collapse min-w-[520px] sm:min-w-0">
               <thead>
                 <tr
                   className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white"

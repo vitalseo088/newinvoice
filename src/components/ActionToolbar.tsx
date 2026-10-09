@@ -58,13 +58,13 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
       {/* Horizontal Tabs & Actions bar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-white p-3 sm:p-3.5 rounded-xl border border-gray-200/90 shadow-sm">
         {/* Tab 1 (Invoice) & Tab 2 (Preview) Switcher with prominent active tab highlight */}
-        <div className="inline-flex p-1.5 bg-[#EAEFF8] rounded-xl gap-1.5 border border-[#1A3263]/15">
+        <div className="flex w-full sm:w-auto p-1.5 bg-[#EAEFF8] rounded-xl gap-1.5 border border-[#1A3263]/15">
           <button
             type="button"
             onClick={() => onTabChange('invoice')}
-            className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-bold tracking-wide transition-all ${
+            className={`flex-1 sm:flex-none justify-center inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-lg text-sm font-bold tracking-wide transition-all ${
               activeTab === 'invoice'
-                ? 'bg-[#1A3263] text-white shadow-md ring-2 ring-[#1A3263]/30 scale-[1.02]'
+                ? 'bg-[#1A3263] text-white shadow-md ring-2 ring-[#1A3263]/30 scale-[1.01]'
                 : 'text-gray-700 hover:text-[#1A3263] hover:bg-white/60'
             }`}
           >
@@ -78,9 +78,9 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
           <button
             type="button"
             onClick={() => onTabChange('preview')}
-            className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-bold tracking-wide transition-all ${
+            className={`flex-1 sm:flex-none justify-center inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-lg text-sm font-bold tracking-wide transition-all ${
               activeTab === 'preview'
-                ? 'bg-[#1A3263] text-white shadow-md ring-2 ring-[#1A3263]/30 scale-[1.02]'
+                ? 'bg-[#1A3263] text-white shadow-md ring-2 ring-[#1A3263]/30 scale-[1.01]'
                 : 'text-gray-700 hover:text-[#1A3263] hover:bg-white/60'
             }`}
           >

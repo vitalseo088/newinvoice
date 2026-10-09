@@ -150,13 +150,9 @@ export const Footer: React.FC<FooterProps> = ({
                 Invoiceo<span className="text-blue-300">.online</span>
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-4">
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
               A 100% free, private browser-based invoice generator. No sign up required, no tracking, and high-quality vector PDF output.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-800 text-xs text-gray-200 border border-gray-700">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-medium">Free to use forever</span>
-            </div>
           </div>
         </div>
       </div>
