@@ -33,28 +33,46 @@ import { ContactPage } from './pages/ContactPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { TermsPage } from './pages/TermsPage';
 import { ReportBugsPage } from './pages/ReportBugsPage';
+import { resolvePath, getLocalizedPath } from './config/routes.config';
+import { SUPPORTED_LANGUAGES } from './config/languages';
+import { SeoHead } from './components/SeoHead';
+import i18n from './utils/i18n';
 
 export type AppRoute =
-  | { type: 'tool'; slug: string }
-  | { type: 'info'; page: InfoPageSlug };
+  | { type: 'tool'; slug: string; id: string; lang: string }
+  | { type: 'info'; page: InfoPageSlug; id: string; lang: string };
 
 function parseRouteFromLocation(): AppRoute {
-  if (typeof window === 'undefined') return { type: 'tool', slug: 'invoice-generator' };
+  if (typeof window === 'undefined') {
+    return { type: 'tool', slug: 'invoice-generator', id: 'invoice-generator', lang: 'en' };
+  }
   const hash = window.location.hash.replace(/^#\/?/, '').trim().toLowerCase();
   const path = window.location.pathname.replace(/^\/+/, '').replace(/\/+$/, '').trim().toLowerCase();
   const raw = hash || path;
 
-  if (raw === 'about') return { type: 'info', page: 'about' };
-  if (raw === 'contact' || raw === 'contact-us') return { type: 'info', page: 'contact' };
-  if (raw === 'privacy' || raw === 'privacy-policy') return { type: 'info', page: 'privacy' };
-  if (raw === 'terms' || raw === 'terms-of-use' || raw === 'terms-and-conditions') return { type: 'info', page: 'terms' };
-  if (raw === 'bugs' || raw === 'report-bugs' || raw === 'bug-report') return { type: 'info', page: 'bugs' };
-
-  if (raw) {
-    const fromSlug = getToolBySlug(raw);
-    if (fromSlug) return { type: 'tool', slug: fromSlug.slug };
+  const resolved = resolvePath(raw);
+  
+  // Keep i18next language synchronized with the URL subfolder
+  if (resolved.lang && resolved.lang !== i18n.language) {
+    i18n.changeLanguage(resolved.lang);
   }
-  return { type: 'tool', slug: 'invoice-generator' };
+
+  if (resolved.type === 'info') {
+    return {
+      type: 'info',
+      page: resolved.id as InfoPageSlug,
+      id: resolved.id,
+      lang: resolved.lang,
+    };
+  }
+
+  const tool = getToolBySlug(resolved.id) || TOOLS_CONFIG[0];
+  return {
+    type: 'tool',
+    slug: tool.slug,
+    id: resolved.id,
+    lang: resolved.lang,
+  };
 }
 
 export default function App() {
@@ -126,44 +144,35 @@ export default function App() {
     };
   }, []);
 
-  // Update dynamic page title, meta description, and social meta tags per active route
-  useEffect(() => {
-    let title = currentTool.metaTitle;
-    let desc = currentTool.metaDescription;
+  // Localized SEO title and description
+  const activeLang = currentRoute.lang || 'en';
+  let seoTitle = currentTool.metaTitle;
+  let seoDesc = currentTool.metaDescription;
 
-    if (currentRoute.type === 'info') {
-      switch (currentRoute.page) {
-        case 'about':
-          title = 'About Us | Free & Private Invoice Suite - Invoiceo.online';
-          desc = 'Learn about Invoiceo.online: 100% free, private browser-based invoicing with zero subscriptions and 12 document tools.';
-          break;
-        case 'contact':
-          title = 'Contact Us | Support & Feedback - Invoiceo.online';
-          desc = 'Contact the Invoiceo.online team for support, feature suggestions, partnership inquiries, or general feedback.';
-          break;
-        case 'privacy':
-          title = 'Privacy Policy | 100% Client-Side Privacy - Invoiceo.online';
-          desc = 'Our strict privacy policy. Zero cloud databases, in-browser PDF rendering, and total user data ownership.';
-          break;
-        case 'terms':
-          title = 'Terms of Use | Free Invoicing Tools - Invoiceo.online';
-          desc = 'Terms of use and service agreement for Invoiceo.online free commercial invoicing and document generators.';
-          break;
-        case 'bugs':
-          title = 'Report a Bug | Issue & Glitch Tracker - Invoiceo.online';
-          desc = 'Report layout glitches, math/tax discrepancies, or PDF rendering bugs to Invoiceo developers.';
-          break;
-      }
+  if (currentRoute.type === 'tool') {
+    const locTitle = i18n.t(`seo:tools.${currentRoute.id}.metaTitle`, { lng: activeLang, defaultValue: '' });
+    const locDesc = i18n.t(`seo:tools.${currentRoute.id}.metaDescription`, { lng: activeLang, defaultValue: '' });
+    if (locTitle) seoTitle = locTitle;
+    if (locDesc) seoDesc = locDesc;
+  } else if (currentRoute.type === 'info') {
+    const locTitle = i18n.t(`seo:pages.${currentRoute.page}.title`, { lng: activeLang, defaultValue: '' });
+    const locDesc = i18n.t(`seo:pages.${currentRoute.page}.description`, { lng: activeLang, defaultValue: '' });
+    if (locTitle) seoTitle = locTitle;
+    if (locDesc) seoDesc = locDesc;
+  }
+
+  // Change active language and update URL seamlessly
+  const handleSelectLanguage = (newLang: string) => {
+    if (newLang === currentRoute.lang) return;
+    i18n.changeLanguage(newLang);
+    const newPath = getLocalizedPath(currentRoute.id, newLang);
+    try {
+      window.history.pushState(null, '', newPath);
+    } catch {
+      window.location.hash = `#${newPath}`;
     }
-
-    document.title = title;
-    const descEl = document.querySelector('meta[name="description"]');
-    if (descEl) descEl.setAttribute('content', desc);
-    const ogTitleEl = document.querySelector('meta[property="og:title"]');
-    if (ogTitleEl) ogTitleEl.setAttribute('content', title);
-    const ogDescEl = document.querySelector('meta[property="og:description"]');
-    if (ogDescEl) ogDescEl.setAttribute('content', desc);
-  }, [currentRoute, currentTool]);
+    setCurrentRoute((prev) => ({ ...prev, lang: newLang }));
+  };
 
   // Navigate to an individual tool's dedicated page
   const handleSelectTool = (slug: string) => {
@@ -172,17 +181,17 @@ export default function App() {
       saveTimerRef.current = null;
     }
     const tool = getToolBySlug(slug) || TOOLS_CONFIG[0];
-    setCurrentRoute({ type: 'tool', slug: tool.slug });
+    setCurrentRoute({ type: 'tool', slug: tool.slug, id: tool.slug, lang: currentRoute.lang });
 
-    // Update browser URL history seamlessly without reload
+    // Update browser URL history seamlessly with language subfolder support
     try {
-      const newPath = tool.slug === 'invoice-generator' ? '/' : `/${tool.slug}`;
+      const newPath = getLocalizedPath(tool.slug, currentRoute.lang);
       if (window.location.pathname !== newPath) {
         window.history.pushState(null, '', newPath);
       }
     } catch {
       try {
-        window.location.hash = `#/${tool.slug}`;
+        window.location.hash = `#${getLocalizedPath(tool.slug, currentRoute.lang)}`;
       } catch {}
     }
 
@@ -220,17 +229,16 @@ export default function App() {
       window.clearTimeout(saveTimerRef.current);
       saveTimerRef.current = null;
     }
-    setCurrentRoute({ type: 'info', page });
+    setCurrentRoute({ type: 'info', page, id: page, lang: currentRoute.lang });
 
-    const pathSlug = page === 'bugs' ? 'report-bugs' : page;
     try {
-      const newPath = `/${pathSlug}`;
+      const newPath = getLocalizedPath(page, currentRoute.lang);
       if (window.location.pathname !== newPath) {
         window.history.pushState(null, '', newPath);
       }
     } catch {
       try {
-        window.location.hash = `#/${pathSlug}`;
+        window.location.hash = `#${getLocalizedPath(page, currentRoute.lang)}`;
       } catch {}
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -283,15 +291,25 @@ export default function App() {
           found.title.toUpperCase().includes(t.shortName.toUpperCase())
       );
       if (matchingTool) {
-        setCurrentRoute({ type: 'tool', slug: matchingTool.slug });
+        setCurrentRoute({
+          type: 'tool',
+          slug: matchingTool.slug,
+          id: matchingTool.slug,
+          lang: currentRoute.lang,
+        });
         try {
-          const newPath = matchingTool.slug === 'invoice-generator' ? '/' : `/${matchingTool.slug}`;
+          const newPath = getLocalizedPath(matchingTool.slug, currentRoute.lang);
           if (window.location.pathname !== newPath) {
             window.history.pushState(null, '', newPath);
           }
         } catch {}
       } else {
-        setCurrentRoute({ type: 'tool', slug: 'invoice-generator' });
+        setCurrentRoute({
+          type: 'tool',
+          slug: 'invoice-generator',
+          id: 'invoice-generator',
+          lang: currentRoute.lang,
+        });
       }
     }
     setAllInvoices(invoices);
@@ -305,9 +323,15 @@ export default function App() {
     }
     const targetTool = currentRoute.type === 'tool' ? currentTool : TOOLS_CONFIG[0];
     if (currentRoute.type === 'info') {
-      setCurrentRoute({ type: 'tool', slug: 'invoice-generator' });
+      setCurrentRoute({
+        type: 'tool',
+        slug: 'invoice-generator',
+        id: 'invoice-generator',
+        lang: currentRoute.lang,
+      });
       try {
-        window.history.pushState(null, '', '/');
+        const homePath = getLocalizedPath('invoice-generator', currentRoute.lang);
+        window.history.pushState(null, '', homePath);
       } catch {}
     }
     const fresh = createNewDocument(targetTool.numberPrefix, targetTool.documentTitle);
@@ -519,7 +543,7 @@ export default function App() {
   const handleDownloadPdf = async () => {
     setIsDownloadingPdf(true);
     try {
-      const res = await downloadInvoicePdf(currentInvoice);
+      const res = await downloadInvoicePdf(currentInvoice, currentRoute.lang);
       if (!res.success) {
         setStorageErrorToast(res.error || 'Failed to generate PDF. Please try again.');
       }
@@ -549,12 +573,20 @@ export default function App() {
     } catch (e) {
       console.warn('Direct window.print encountered an error, trying fallback:', e);
       // Fallback: If window.print fails, we can trigger direct PDF autoPrint
-      printInvoicePdfDirect(currentInvoice);
+      printInvoicePdfDirect(currentInvoice, currentRoute.lang);
     }
   };
 
   return (
     <div className="min-h-screen bg-[#F3F4F6] text-[#1F2937] flex flex-col font-sans">
+      {/* Dynamic SEO Meta, Canonical & Hreflang Tags */}
+      <SeoHead
+        pageId={currentRoute.id}
+        lang={currentRoute.lang}
+        title={seoTitle}
+        description={seoDesc}
+      />
+
       {/* 1. Header Navigation */}
       <Header
         onOpenMyInvoices={() => setIsMyInvoicesOpen(true)}
@@ -564,6 +596,9 @@ export default function App() {
         onOpenTemplates={handleOpenTemplates}
         savedInvoicesCount={allInvoices.length}
         onSelectHome={() => handleSelectTool('invoice-generator')}
+        currentLang={currentRoute.lang}
+        currentRouteId={currentRoute.id}
+        onSelectLanguage={handleSelectLanguage}
       />
 
       {/* Floating or inline toast notification for template changes */}
@@ -708,6 +743,7 @@ export default function App() {
           <div className="no-print">
             <CompleteGuide
               toolSlug={currentTool.slug}
+              lang={currentRoute.lang}
               onLoadExample={handleLoadProfessionExample}
               onOpenSettings={() => setIsCustomizeOpen(true)}
             />
@@ -725,6 +761,9 @@ export default function App() {
         onSelectTool={handleSelectTool}
         onNavigatePage={handleNavigatePage}
         currentInfoPage={currentRoute.type === 'info' ? currentRoute.page : null}
+        currentLang={currentRoute.lang}
+        currentRouteId={currentRoute.id}
+        onSelectLanguage={handleSelectLanguage}
       />
 
       {/* Modals */}

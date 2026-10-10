@@ -1,5 +1,6 @@
 import React from 'react';
 import { TOOLS_CONFIG } from '../data/toolsConfig';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export type InfoPageSlug = 'about' | 'contact' | 'privacy' | 'terms' | 'bugs';
 
@@ -12,6 +13,9 @@ interface FooterProps {
   onSelectTool: (slug: string) => void;
   onNavigatePage: (page: InfoPageSlug) => void;
   currentInfoPage?: string | null;
+  currentLang?: string;
+  currentRouteId?: string;
+  onSelectLanguage?: (lang: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -19,6 +23,9 @@ export const Footer: React.FC<FooterProps> = ({
   onSelectTool,
   onNavigatePage,
   currentInfoPage,
+  currentLang = 'en',
+  currentRouteId = 'invoice-generator',
+  onSelectLanguage,
 }) => {
   return (
     <footer className="bg-[#2D3139] text-gray-300 mt-6 sm:mt-8 border-t border-gray-700/60 no-print">
@@ -189,9 +196,19 @@ export const Footer: React.FC<FooterProps> = ({
 
       {/* Separate Copyright bottom bar */}
       <div className="border-t border-gray-700/80 bg-[#22252B] py-5">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-gray-400">
-          <div>
-            © {new Date().getFullYear()} Invoiceo.online. All rights reserved. Free Invoice Generator.
+        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-400">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div>
+              © {new Date().getFullYear()} Invoiceo.online. All rights reserved. Free Invoice Generator.
+            </div>
+            <div className="sm:border-l sm:border-gray-700 sm:pl-3">
+              <LanguageSwitcher
+                currentLang={currentLang}
+                currentRouteId={currentRouteId}
+                onSelectLanguage={onSelectLanguage}
+                variant="footer"
+              />
+            </div>
           </div>
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <button

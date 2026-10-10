@@ -1,0 +1,122 @@
+{
+  "tools": {
+    "invoice-generator": {
+      "name": "Invoice Generator",
+      "shortName": "Invoice",
+      "h1": "Invoice Generator",
+      "metaTitle": "Free Invoice Generator - Create & Download PDF Invoices | Invoiceo.online",
+      "metaDescription": "100% free professional invoice generator. Create, customize, autosave, and download high-quality searchable PDF invoices without signup or login.",
+      "description": "Create clean, professional invoices in seconds with Invoiceo, the 100% free online invoice generator trusted by freelancers, contractors, and small business owners worldwide. No signup required, data saved in browser, instant searchable PDF download."
+    },
+    "receipt-generator": {
+      "name": "Receipt Generator",
+      "shortName": "Receipt",
+      "h1": "Receipt Generator",
+      "metaTitle": "Free Receipt Generator - Create & Download Payment Receipts | Invoiceo.online",
+      "metaDescription": "Free online payment receipt generator. Issue professional payment receipts with proof of payment, transaction IDs, tax calculations, and instant PDF download.",
+      "description": "Generate official payment receipts in seconds with our free online receipt generator. Itemize goods or services, taxes, transaction IDs, and download high-resolution PDFs without registration."
+    },
+    "quote-generator": {
+      "name": "Quote Generator",
+      "shortName": "Quote",
+      "h1": "Quote Generator",
+      "metaTitle": "Free Quote Generator - Create Professional Price Quotes | Invoiceo.online",
+      "metaDescription": "Create professional price quotes online for free. Custom line items, scope of work, validity dates, terms, and instant PDF export with no account needed.",
+      "description": "Win more client contracts with sleek, professional price quotes and commercial estimates. Built-in scope notes, deposit requirements, and PDF download."
+    },
+    "estimate-generator": {
+      "name": "Estimate Generator",
+      "shortName": "Estimate",
+      "h1": "Estimate Generator",
+      "metaTitle": "Free Estimate Generator - Create Contractor & Project Estimates | Invoiceo.online",
+      "metaDescription": "Free project and contractor estimate generator. Outline labor, materials, contingency costs, and terms with instant PDF download.",
+      "description": "Accurate, structured project estimates for contractors, tradespeople, and service professionals. Outline labor hours, equipment, materials, and contingency provisions."
+    },
+    "credit-note-generator": {
+      "name": "Credit Note Generator",
+      "shortName": "Credit Note",
+      "h1": "Credit Note Generator",
+      "metaTitle": "Free Credit Note Generator - Issue Professional Credit Memos | Invoiceo.online",
+      "metaDescription": "Generate professional credit notes and credit memos online for free. Issue refunds, return credits, and invoice adjustments with instant PDF download.",
+      "description": "Issue legally compliant credit notes and commercial memos to adjust previously invoiced sums, process returns, or credit customer accounts."
+    },
+    "purchase-order-generator": {
+      "name": "Purchase Order Generator",
+      "shortName": "Purchase Order",
+      "h1": "Purchase Order Generator",
+      "metaTitle": "Free Purchase Order Generator - Create Official POs Online | Invoiceo.online",
+      "metaDescription": "Generate official purchase orders online for free. Specify vendor information, delivery dates, shipping instructions, and download professional PDFs.",
+      "description": "Draft legally binding commercial purchase orders in seconds. Specify vendor details, required delivery dates, itemized SKUs, and authorization signatures."
+    },
+    "sales-order-generator": {
+      "name": "Sales Order Generator",
+      "shortName": "Sales Order",
+      "h1": "Sales Order Generator",
+      "metaTitle": "Free Sales Order Generator - Confirm Customer Orders | Invoiceo.online",
+      "metaDescription": "Free online sales order generator. Confirm accepted client orders, delivery commitments, payment terms, and export PDF documents instantly.",
+      "description": "Confirm customer orders and finalize fulfillment terms before delivery. Bridges accepted quotes and final invoices with crystal-clear order confirmations."
+    },
+    "proforma-invoice-generator": {
+      "name": "Proforma Invoice Generator",
+      "shortName": "Proforma Invoice",
+      "h1": "Proforma Invoice Generator",
+      "metaTitle": "Free Proforma Invoice Generator - Customs & Export Billing | Invoiceo.online",
+      "metaDescription": "Create free proforma invoices for customs, international trade, and advance payments. Professional layout, HS codes, currency formatting, and PDF export.",
+      "description": "Essential preliminary commercial documentation for international shipments, customs clearance, and advance payment arrangements."
+    },
+    "timesheet-generator": {
+      "name": "Timesheet Generator",
+      "shortName": "Timesheet",
+      "h1": "Timesheet Generator",
+      "metaTitle": "Free Timesheet Generator - Billable Hours & Freelance Billing | Invoiceo.online",
+      "metaDescription": "Free timesheet invoice generator. Log billable hours, project tasks, hourly rates, and total pay with instant PDF download for freelancers and contractors.",
+      "description": "Track hourly work, client consultations, and contractor engagements. Clear rate breakdowns, total hours calculation, and instant PDF download."
+    },
+    "work-order-generator": {
+      "name": "Work Order Generator",
+      "shortName": "Work Order",
+      "h1": "Work Order Generator",
+      "metaTitle": "Free Work Order Generator - Service & Maintenance Job Sheets | Invoiceo.online",
+      "metaDescription": "Free work order generator for maintenance, repairs, field service, and technicians. Itemize tasks, parts, technician notes, and download PDF sheets.",
+      "description": "Streamline job assignments, field repairs, and maintenance operations. Authorize technician tasks, bill materials, and capture customer sign-offs."
+    },
+    "account-statement-generator": {
+      "name": "Account Statement Generator",
+      "shortName": "Statement",
+      "h1": "Account Statement Generator",
+      "metaTitle": "Free Account Statement Generator - Client Billing History | Invoiceo.online",
+      "metaDescription": "Generate professional client account statements. Summarize outstanding invoices, payments received, running balances, and overdue notices in PDF.",
+      "description": "Provide clients with transparent summaries of recent transactions, settled invoices, payments made, and current outstanding balances."
+    },
+    "packing-slip-generator": {
+      "name": "Packing Slip Generator",
+      "shortName": "Packing Slip",
+      "h1": "Packing Slip Generator",
+      "metaTitle": "Free Packing Slip Generator - Shipping & Fulfillment Slips | Invoiceo.online",
+      "metaDescription": "Create free shipping packing slips and package manifests. Itemize carton contents, quantities, package weights, and export PDF slips instantly.",
+      "description": "Professional shipping manifests and carton packing slips to verify package contents, carrier tracking, and recipient fulfillment."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "About Us | Free & Private Invoice Suite - Invoiceo.online",
+      "description": "Learn about Invoiceo.online: 100% free, private browser-based invoicing with zero subscriptions and 12 document tools."
+    },
+    "contact": {
+      "title": "Contact Us | Support & Feedback - Invoiceo.online",
+      "description": "Contact the Invoiceo.online team for support, feature suggestions, partnership inquiries, or general feedback."
+    },
+    "privacy": {
+      "title": "Privacy Policy | 100% Client-Side Privacy - Invoiceo.online",
+      "description": "Our strict privacy policy. Zero cloud databases, in-browser PDF rendering, and total user data ownership."
+    },
+    "terms": {
+      "title": "Terms of Use | Free Invoicing Tools - Invoiceo.online",
+      "description": "Terms of use and service agreement for Invoiceo.online free commercial invoicing and document generators."
+    },
+    "bugs": {
+      "title": "Report a Bug | Issue & Glitch Tracker - Invoiceo.online",
+      "description": "Report layout glitches, math/tax discrepancies, or PDF rendering bugs to Invoiceo developers."
+    }
+  }
+}

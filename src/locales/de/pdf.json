@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "VON",
+    "billTo": "RECHNUNGSEMPFÄNGER",
+    "shipTo": "LIEFERADRESSE",
+    "invoiceDate": "RECHNUNGSDATUM",
+    "dueDate": "FÄLLIGKEITSDATUM",
+    "paymentTerms": "ZAHLUNGSBEDINGUNGEN",
+    "poNumber": "BESTELLNUMMER",
+    "balanceDue": "FÄLLIGER BETRAG",
+    "taxId": "STEUER-ID / UST-ID",
+    "paymentInstructions": "BANKVERBINDUNG",
+    "bank": "Bank",
+    "account": "Konto",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "terms": "AGB & BEDINGUNGEN",
+    "notes": "HINWEISE",
+    "subtotal": "ZWISCHENSUMME",
+    "discount": "RABATT",
+    "tax": "MWST",
+    "shipping": "VERSANDKOSTEN",
+    "total": "GESAMTBETRAG",
+    "amountPaid": "BEREITS BEZAHLT",
+    "tableItem": "POSITION / BESCHREIBUNG",
+    "tableQty": "MENGE",
+    "tableRate": "EINZELPREIS",
+    "tableTax": "MWST",
+    "tableAmount": "GESAMT"
+  },
+  "terms": {
+    "on_receipt": "Sofort fällig",
+    "net_7": "7 Tage netto",
+    "net_15": "15 Tage netto",
+    "net_30": "30 Tage netto",
+    "net_45": "45 Tage netto",
+    "net_60": "60 Tage netto",
+    "custom": "Individuelle Bedingungen"
+  }
+}

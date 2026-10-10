@@ -1,0 +1,122 @@
+{
+  "tools": {
+    "invoice-generator": {
+      "name": "Rechnungsgenerator",
+      "shortName": "Rechnung",
+      "h1": "Kostenlos Rechnung Schreiben Online",
+      "metaTitle": "Rechnung Schreiben Kostenlos - Rechnungsgenerator PDF | Invoiceo",
+      "metaDescription": "Kostenlos online Rechnung schreiben und als PDF herunterladen. Keine Anmeldung, GoBD-konform, automatische MwSt-Berechnung und 100% Datenschutz.",
+      "description": "Erstellen Sie professionelle Rechnungen in wenigen Sekunden ohne Registrierung. Ihre Firmendaten bleiben sicher im lokalen Browser."
+    },
+    "receipt-generator": {
+      "name": "Quittungsgenerator",
+      "shortName": "Quittung",
+      "h1": "Quittung Online Erstellen und Drucken",
+      "metaTitle": "Quittung Online Erstellen Kostenlos - Quittungsvorlage PDF | Invoiceo",
+      "metaDescription": "Erstellen Sie rechtsgültige Barquittungen und Zahlungsbestätigungen als PDF. Betrag in Worten, MwSt-Satz und Unterschriftenfeld ohne Anmeldung.",
+      "description": "Zahlungen sofort bestätigen mit rechtssicheren Quittungsvorlagen für Handwerker, Dienstleister und Vermieter."
+    },
+    "quote-generator": {
+      "name": "Angebotsgenerator",
+      "shortName": "Angebot",
+      "h1": "Angebot Erstellen mit Kostenloser Vorlage",
+      "metaTitle": "Angebot Erstellen Vorlage Kostenlos - PDF Angebot Online | Invoiceo",
+      "metaDescription": "Schreiben Sie professionelle Angebote für Kunden online. Gültigkeitsdauer, Leistungspositionen, Zahlungskonditionen und PDF-Download.",
+      "description": "Gewinnen Sie Kunden mit ansprechenden, transparent kalkulierten Angeboten inklusive Zahlungsbedingungen."
+    },
+    "estimate-generator": {
+      "name": "Kostenvoranschlagsgenerator",
+      "shortName": "Kostenvoranschlag",
+      "h1": "Kostenvoranschlag Muster und Vorlage",
+      "metaTitle": "Kostenvoranschlag Muster Kostenlos - Vorlage für Handwerker | Invoiceo",
+      "metaDescription": "Erstellen Sie unverbindliche Kostenvoranschläge für Reparaturen und Bauarbeiten als PDF. Aufschlüsselung von Arbeitszeit und Material.",
+      "description": "Präzise Vorabkalkulation für Bauhandwerker und Werkstätten zur transparenten Aufklärung der Auftraggeber."
+    },
+    "credit-note-generator": {
+      "name": "Gutschriftsgenerator",
+      "shortName": "Gutschrift",
+      "h1": "Gutschrift Erstellen nach Muster",
+      "metaTitle": "Gutschrift Muster Vorlage Kostenlos - PDF Rechnungskorrektur | Invoiceo",
+      "metaDescription": "Erstellen Sie steuerkonforme Gutschriften und Rechnungskorrekturen online als PDF. Erstattungen und Stornierungen einfach dokumentieren.",
+      "description": "Rechtssichere Rechnungskorrekturen und Gutschriften für Warenrücksendungen oder nachträgliche Preisnachlässe."
+    },
+    "purchase-order-generator": {
+      "name": "Bestellscheingenerator",
+      "shortName": "Bestellung",
+      "h1": "Bestellschein und Einkaufsauftrag Erstellen",
+      "metaTitle": "Bestellschein Vorlage Kostenlos - Bestellung als PDF | Invoiceo",
+      "metaDescription": "Erstellen Sie verbindliche Bestellscheine an Lieferanten. Lieferadresse, Artikelnummern, Fristen und Unterschriftsfeld.",
+      "description": "Strukturierte Einkaufsbelege zur Vermeidung von Fehlbestellungen und Klärung aller Lieferdetails."
+    },
+    "sales-order-generator": {
+      "name": "Auftragsbestätigung",
+      "shortName": "Auftrag",
+      "h1": "Auftragsbestätigung Online Erstellen",
+      "metaTitle": "Auftragsbestätigung Muster Kostenlos - PDF Vorlage | Invoiceo",
+      "metaDescription": "Bestätigen Sie Kundenaufträge verbindlich als PDF. Lieferkonditionen, Termine und verbindliche Leistungsbeschreibung.",
+      "description": "Schließen Sie den Vertrag nach Angebotsannahme mit einer lückenlosen schriftlichen Auftragsbestätigung ab."
+    },
+    "proforma-invoice-generator": {
+      "name": "Proforma-Rechnung",
+      "shortName": "Proforma",
+      "h1": "Proforma-Rechnung für Zoll und Export",
+      "metaTitle": "Proforma-Rechnung Vorlage Kostenlos - Zoll & Export PDF | Invoiceo",
+      "metaDescription": "Erstellen Sie kostenlose Proforma-Rechnungen für Zollabfertigung und Auslandslieferungen in beliebigen Währungen.",
+      "description": "Unverzichtbares Begleitdokument für Ausfuhrsendungen, Musterlieferungen und Vorkassegeschäfte."
+    },
+    "timesheet-generator": {
+      "name": "Stundenzettelgenerator",
+      "shortName": "Stundenzettel",
+      "h1": "Stundenzettel Online Ausfüllen und Abrechnen",
+      "metaTitle": "Stundenzettel Ausfüllen Kostenlos - Stundennachweis PDF | Invoiceo",
+      "metaDescription": "Erfassen Sie Arbeitsstunden für Freelancer und Handwerker. Stundensatz, Tätigkeiten und Gesamtbetrag als PDF abrechnen.",
+      "description": "Genaue Abrechnung von Beratungs- und Dienstleistungsstunden mit nachvollziehbarer Aufstellung aller Arbeitstage."
+    },
+    "work-order-generator": {
+      "name": "Arbeitsauftragsgenerator",
+      "shortName": "Arbeitsauftrag",
+      "h1": "Arbeitsauftrag und Montagebericht Erstellen",
+      "metaTitle": "Arbeitsauftrag Vorlage Kostenlos - Werkstatt & Montage PDF | Invoiceo",
+      "metaDescription": "Erstellen Sie Arbeitsaufträge und Serviceberichte für Techniker und Monteure als PDF mit Abnahmeunterschrift.",
+      "description": "Detaillierte Werkstatt- und Reparaturaufträge für eine reibungslose Auftragsabwicklung vor Ort."
+    },
+    "account-statement-generator": {
+      "name": "Kontoauszugsgenerator",
+      "shortName": "Kontoauszug",
+      "h1": "Kunden-Kontoauszug und Zahlungsübersicht",
+      "metaTitle": "Kontoauszug Vorlage Privat & Gewerbe - Kundenkonto PDF | Invoiceo",
+      "metaDescription": "Erstellen Sie übersichtliche Saldenbestätigungen und Abrechnungsübersichten offener Posten für Kunden als PDF.",
+      "description": "Behalten Sie offene Rechnungen und Zahlungseingänge im Blick und erleichtern Sie Kunden die Begleichung von Außenständen."
+    },
+    "packing-slip-generator": {
+      "name": "Lieferscheingenerator",
+      "shortName": "Lieferschein",
+      "h1": "Kostenlosen Lieferschein als PDF Erstellen",
+      "metaTitle": "Lieferschein Vorlage PDF Kostenlos - Warenbegleitschein | Invoiceo",
+      "metaDescription": "Erstellen Sie standardisierte Lieferscheine ohne Preisangabe als PDF. Packstückliste, Empfänger und Empfangsbestätigung.",
+      "description": "Begleiten Sie Warensendungen mit ordnungsgemäßen Lieferscheinen zur Quittierung der Warenannahme."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Über Uns | Kostenlose und Private Rechnungsstellung - Invoiceo.online",
+      "description": "Erfahren Sie mehr über Invoiceo: 100% kostenlose, private Dokumentengeneratoren im Browser ohne Abonnement."
+    },
+    "contact": {
+      "title": "Kontakt & Kundenservice - Invoiceo.online",
+      "description": "Nehmen Sie Kontakt mit dem Team von Invoiceo auf für Fragen, Feedback und Support."
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung | Keine Datenspeicherung - Invoiceo.online",
+      "description": "Ihre Firmendaten und Kundendaten verlassen Ihren Rechner niemals. 100% clientseitige Speicherung."
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen - Invoiceo.online",
+      "description": "Rechtliche Bedingungen für die kostenfreie Nutzung der Online-Generatoren von Invoiceo."
+    },
+    "bugs": {
+      "title": "Fehler Melden | Support-Ticket - Invoiceo.online",
+      "description": "Melden Sie technische Probleme bei der PDF-Erstellung oder Rechenfehler direkt an die Entwickler."
+    }
+  }
+}

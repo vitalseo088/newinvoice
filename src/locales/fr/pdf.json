@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "DE",
+    "billTo": "FACTURÉ À",
+    "shipTo": "LIVRÉ À",
+    "invoiceDate": "DATE DE FACTURE",
+    "dueDate": "DATE D'ÉCHÉANCE",
+    "paymentTerms": "CONDITIONS DE PAIEMENT",
+    "poNumber": "BON DE COMMANDE",
+    "balanceDue": "SOLDE DÛ",
+    "taxId": "N° TVA / SIRET",
+    "paymentInstructions": "COORDONNÉES BANCAIRES",
+    "bank": "Banque",
+    "account": "Compte",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "terms": "CONDITIONS GÉNÉRALES",
+    "notes": "REMARQUES",
+    "subtotal": "SOUS-TOTAL",
+    "discount": "REMISE",
+    "tax": "TVA",
+    "shipping": "FRAIS DE PORT",
+    "total": "TOTAL TTC",
+    "amountPaid": "ACOMPTE VERSÉ",
+    "tableItem": "DÉSIGNATION / PRESTATION",
+    "tableQty": "QTÉ",
+    "tableRate": "PRIX UNITAIRE",
+    "tableTax": "TVA",
+    "tableAmount": "TOTAL HT"
+  },
+  "terms": {
+    "on_receipt": "À Réception",
+    "net_7": "À 7 Jours",
+    "net_15": "À 15 Jours",
+    "net_30": "À 30 Jours",
+    "net_45": "À 45 Jours",
+    "net_60": "À 60 Jours",
+    "custom": "Conditions Personnalisées"
+  }
+}

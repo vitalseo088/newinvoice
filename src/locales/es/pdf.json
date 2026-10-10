@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "DE",
+    "billTo": "FACTURAR A",
+    "shipTo": "ENVIAR A",
+    "invoiceDate": "FECHA DE FACTURA",
+    "dueDate": "FECHA DE VENCIMIENTO",
+    "paymentTerms": "CONDICIONES DE PAGO",
+    "poNumber": "N.º DE PEDIDO",
+    "balanceDue": "SALDO PENDIENTE",
+    "taxId": "NIF / CIF / RFC",
+    "paymentInstructions": "DATOS DE PAGO",
+    "bank": "Banco",
+    "account": "Cuenta",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "TÉRMINOS Y CONDICIONES",
+    "notes": "NOTAS",
+    "subtotal": "SUBTOTAL",
+    "discount": "DESCUENTO",
+    "tax": "IVA / IMPUESTO",
+    "shipping": "ENVÍO",
+    "total": "TOTAL",
+    "amountPaid": "IMPORTE PAGADO",
+    "tableItem": "CONCEPTO / DESCRIPCIÓN",
+    "tableQty": "CANT.",
+    "tableRate": "PRECIO",
+    "tableTax": "IVA",
+    "tableAmount": "IMPORTE"
+  },
+  "terms": {
+    "on_receipt": "Al Recibir",
+    "net_7": "A 7 Días",
+    "net_15": "A 15 Días",
+    "net_30": "A 30 Días",
+    "net_45": "A 45 Días",
+    "net_60": "A 60 Días",
+    "custom": "Términos Personalizados"
+  }
+}

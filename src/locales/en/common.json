@@ -1,0 +1,40 @@
+{
+  "brand": "Invoiceo.online",
+  "nav": {
+    "invoiceGenerator": "Invoice Generator",
+    "templates": "Templates",
+    "savedInvoices": "My Invoices",
+    "new": "New",
+    "importExport": "Data",
+    "settings": "Settings"
+  },
+  "toolbar": {
+    "downloadPdf": "Download PDF",
+    "print": "Print",
+    "templates": "Templates",
+    "customize": "Customize",
+    "myInvoices": "Saved ({{count}})",
+    "newInvoice": "New",
+    "importExport": "Data",
+    "saved": "Saved",
+    "saving": "Saving...",
+    "error": "Error"
+  },
+  "footer": {
+    "toolsColumn1": "Free Generator Tools",
+    "toolsColumn2": "More Document Tools",
+    "quickLinks": "Quick Links",
+    "security": "Security & Privacy",
+    "about": "About Invoiceo",
+    "contact": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "bugs": "Report Bugs",
+    "browserOnlyNote": "Zero server storage. 100% client-side privacy. Your invoices stay securely inside your browser.",
+    "allRightsReserved": "All rights reserved. Free online document generators."
+  },
+  "language": {
+    "selectLanguage": "Select Language",
+    "currentLanguage": "Language: {{language}}"
+  }
+}

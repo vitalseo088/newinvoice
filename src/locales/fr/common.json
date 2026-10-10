@@ -1,0 +1,40 @@
+{
+  "brand": "Invoiceo.online",
+  "nav": {
+    "invoiceGenerator": "Générateur de Factures",
+    "templates": "Modèles",
+    "savedInvoices": "Mes Factures",
+    "new": "Nouveau",
+    "importExport": "Données",
+    "settings": "Paramètres"
+  },
+  "toolbar": {
+    "downloadPdf": "Télécharger PDF",
+    "print": "Imprimer",
+    "templates": "Modèles",
+    "customize": "Personnaliser",
+    "myInvoices": "Enregistrées ({{count}})",
+    "newInvoice": "Nouveau",
+    "importExport": "Données",
+    "saved": "Enregistré",
+    "saving": "Enregistrement...",
+    "error": "Erreur"
+  },
+  "footer": {
+    "toolsColumn1": "Générateurs Gratuits",
+    "toolsColumn2": "Autres Documents",
+    "quickLinks": "Liens Rapides",
+    "security": "Sécurité et Confidentialité",
+    "about": "À Propos",
+    "contact": "Contactez-nous",
+    "privacy": "Confidentialité",
+    "terms": "Conditions d'utilisation",
+    "bugs": "Signaler un Bug",
+    "browserOnlyNote": "Aucun stockage sur serveur. Vos données restent dans votre navigateur.",
+    "allRightsReserved": "Tous droits réservés. Outils de facturation gratuits."
+  },
+  "language": {
+    "selectLanguage": "Choisir la Langue",
+    "currentLanguage": "Langue : {{language}}"
+  }
+}

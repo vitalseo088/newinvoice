@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "FROM",
+    "billTo": "BILL TO",
+    "shipTo": "SHIP TO",
+    "invoiceDate": "INVOICE DATE",
+    "dueDate": "DUE DATE",
+    "paymentTerms": "PAYMENT TERMS",
+    "poNumber": "P.O. NUMBER",
+    "balanceDue": "BALANCE DUE",
+    "taxId": "TAX ID / VAT",
+    "paymentInstructions": "PAYMENT INSTRUCTIONS",
+    "bank": "Bank",
+    "account": "Account",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "TERMS & CONDITIONS",
+    "notes": "NOTES",
+    "subtotal": "SUBTOTAL",
+    "discount": "DISCOUNT",
+    "tax": "TAX",
+    "shipping": "SHIPPING",
+    "total": "TOTAL",
+    "amountPaid": "AMOUNT PAID",
+    "tableItem": "ITEM / DESCRIPTION",
+    "tableQty": "QTY",
+    "tableRate": "RATE",
+    "tableTax": "TAX",
+    "tableAmount": "AMOUNT"
+  },
+  "terms": {
+    "on_receipt": "Due on Receipt",
+    "net_7": "Net 7 Days",
+    "net_15": "Net 15 Days",
+    "net_30": "Net 30 Days",
+    "net_45": "Net 45 Days",
+    "net_60": "Net 60 Days",
+    "custom": "Custom Terms"
+  }
+}

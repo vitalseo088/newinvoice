@@ -3,9 +3,12 @@ import autoTable from 'jspdf-autotable';
 import { InvoiceData } from '../types/invoice';
 import { calculateInvoiceTotals, formatDate, formatMoney } from './currency';
 import { getPdfFontFamily } from './fonts';
+import { formatLocalizedDate } from './formatters';
+import i18n from './i18n';
 
 export async function generateInvoicePdf(
-  invoice: InvoiceData
+  invoice: InvoiceData,
+  lang: string = i18n.language || 'en'
 ): Promise<{ success: boolean; error?: string; doc?: jsPDF; filename?: string }> {
   try {
     const isLetter = invoice.customization.pageSize === 'letter';
@@ -17,6 +20,11 @@ export async function generateInvoicePdf(
 
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
+
+    // Get localized strings for PDF
+    const tPdf = (key: string, defaultText: string) => {
+      return i18n.t(`pdf:${key}`, { lng: lang, defaultValue: defaultText });
+    };
 
     // Margins
     let margin = 40;
@@ -65,7 +73,7 @@ export async function generateInvoicePdf(
       doc.setTextColor(255, 255, 255);
       doc.setFont(baseFont, 'bold');
       doc.setFontSize(22);
-      doc.text(invoice.title || 'INVOICE', pageWidth - margin, 38, { align: 'right' });
+      doc.text(invoice.title || tPdf('labels.title', 'INVOICE'), pageWidth - margin, 38, { align: 'right' });
 
       doc.setTextColor(240, 240, 240);
       doc.setFontSize(10);
@@ -84,7 +92,7 @@ export async function generateInvoicePdf(
       doc.setTextColor(31, 41, 55);
       doc.setFont(baseFont, 'bold');
       doc.setFontSize(24);
-      doc.text(invoice.title || 'INVOICE', pageWidth - margin, cursorY + 22, { align: 'right' });
+      doc.text(invoice.title || tPdf('labels.title', 'INVOICE'), pageWidth - margin, cursorY + 22, { align: 'right' });
 
       doc.setTextColor(100, 116, 139);
       doc.setFontSize(10);
@@ -105,7 +113,7 @@ export async function generateInvoicePdf(
     doc.setTextColor(r, g, b);
     doc.setFont(baseFont, 'bold');
     doc.setFontSize(9);
-    doc.text('FROM', fromX, cursorY);
+    doc.text(tPdf('labels.from', 'FROM'), fromX, cursorY);
 
     doc.setTextColor(31, 41, 55);
     doc.setFont(baseFont, 'bold');
@@ -135,7 +143,7 @@ export async function generateInvoicePdf(
     }
     if (invoice.fromTaxId) {
       cursorY += 12;
-      doc.text(`Tax ID: ${invoice.fromTaxId}`, fromX, cursorY);
+      doc.text(`${tPdf('labels.taxId', 'Tax ID')}: ${invoice.fromTaxId}`, fromX, cursorY);
     }
     if (invoice.fromAdditional) {
       cursorY += 12;
@@ -149,7 +157,7 @@ export async function generateInvoicePdf(
     doc.setTextColor(r, g, b);
     doc.setFont(baseFont, 'bold');
     doc.setFontSize(9);
-    doc.text('BILL TO', toX, toCursorY);
+    doc.text(tPdf('labels.billTo', 'BILL TO'), toX, toCursorY);
 
     doc.setTextColor(31, 41, 55);
     doc.setFont(baseFont, 'bold');
@@ -179,7 +187,7 @@ export async function generateInvoicePdf(
     }
     if (invoice.toTaxId) {
       toCursorY += 12;
-      doc.text(`Tax ID / VAT: ${invoice.toTaxId}`, toX, toCursorY);
+      doc.text(`${tPdf('labels.taxId', 'Tax ID / VAT')}: ${invoice.toTaxId}`, toX, toCursorY);
     }
 
     const maxInfoY = Math.max(fromEndY, toCursorY) + 18;
@@ -197,46 +205,40 @@ export async function generateInvoicePdf(
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
     doc.setFont(baseFont, 'bold');
-    doc.text('INVOICE DATE', margin + 12, metaY);
+    doc.text(tPdf('labels.invoiceDate', 'INVOICE DATE'), margin + 12, metaY);
     doc.setTextColor(31, 41, 55);
     doc.setFontSize(8.5);
     doc.setFont(baseFont, 'normal');
-    doc.text(formatDate(invoice.date, invoice.customization.dateFormat) || '-', margin + 12, metaY + 12);
+    const formattedInvoiceDate = invoice.date ? formatLocalizedDate(invoice.date, lang, 'medium') : '-';
+    doc.text(formattedInvoiceDate || formatDate(invoice.date, invoice.customization.dateFormat) || '-', margin + 12, metaY + 12);
 
     // Due Date
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
     doc.setFont(baseFont, 'bold');
-    doc.text('DUE DATE', margin + metaItemWidth + 6, metaY);
+    doc.text(tPdf('labels.dueDate', 'DUE DATE'), margin + metaItemWidth + 6, metaY);
     doc.setTextColor(31, 41, 55);
     doc.setFontSize(8.5);
     doc.setFont(baseFont, 'normal');
-    doc.text(formatDate(invoice.dueDate, invoice.customization.dateFormat) || '-', margin + metaItemWidth + 6, metaY + 12);
+    const formattedDueDate = invoice.dueDate ? formatLocalizedDate(invoice.dueDate, lang, 'medium') : '-';
+    doc.text(formattedDueDate || formatDate(invoice.dueDate, invoice.customization.dateFormat) || '-', margin + metaItemWidth + 6, metaY + 12);
 
     // Terms
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
     doc.setFont(baseFont, 'bold');
-    doc.text('PAYMENT TERMS', margin + metaItemWidth * 2 + 6, metaY);
+    doc.text(tPdf('labels.paymentTerms', 'PAYMENT TERMS'), margin + metaItemWidth * 2 + 6, metaY);
     doc.setTextColor(31, 41, 55);
     doc.setFontSize(8.5);
     doc.setFont(baseFont, 'normal');
-    const termsMap: Record<string, string> = {
-      on_receipt: 'On Receipt',
-      net_7: 'Net 7 Days',
-      net_15: 'Net 15 Days',
-      net_30: 'Net 30 Days',
-      net_45: 'Net 45 Days',
-      net_60: 'Net 60 Days',
-      custom: 'Custom Terms',
-    };
-    doc.text(termsMap[invoice.paymentTerms] || 'Due on Receipt', margin + metaItemWidth * 2 + 6, metaY + 12);
+    const localizedTerm = tPdf(`terms.${invoice.paymentTerms}`, 'Due on Receipt');
+    doc.text(localizedTerm, margin + metaItemWidth * 2 + 6, metaY + 12);
 
     // PO or Balance Due Quick Tag
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
     doc.setFont(baseFont, 'bold');
-    doc.text(invoice.poNumber ? 'P.O. NUMBER' : 'BALANCE DUE', margin + metaItemWidth * 3 + 6, metaY);
+    doc.text(invoice.poNumber ? tPdf('labels.poNumber', 'P.O. NUMBER') : tPdf('labels.balanceDue', 'BALANCE DUE'), margin + metaItemWidth * 3 + 6, metaY);
     doc.setTextColor(r, g, b);
     doc.setFontSize(8.5);
     doc.setFont(baseFont, 'bold');
@@ -270,7 +272,12 @@ export async function generateInvoicePdf(
     autoTable(doc, {
       startY: cursorY,
       margin: { left: margin, right: margin },
-      head: [['DESCRIPTION', 'QTY', 'RATE', 'AMOUNT']],
+      head: [[
+        tPdf('labels.tableItem', 'DESCRIPTION'),
+        tPdf('labels.tableQty', 'QTY'),
+        tPdf('labels.tableRate', 'RATE'),
+        tPdf('labels.tableAmount', 'AMOUNT')
+      ]],
       body: tableBody,
       theme: 'grid',
       headStyles: {
@@ -311,7 +318,7 @@ export async function generateInvoicePdf(
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(8.5);
     doc.setFont(baseFont, 'normal');
-    doc.text('Subtotal:', totalsX, totalsY);
+    doc.text(`${tPdf('labels.subtotal', 'Subtotal')}:`, totalsX, totalsY);
     doc.setTextColor(31, 41, 55);
     doc.setFont(baseFont, 'bold');
     doc.text(
@@ -327,7 +334,7 @@ export async function generateInvoicePdf(
       doc.setTextColor(100, 116, 139);
       doc.setFont(baseFont, 'normal');
       doc.text(
-        `Discount (${invoice.customization.discountType === 'percent' ? invoice.customization.discountRate + '%' : 'Flat'}):`,
+        `${tPdf('labels.discount', 'Discount')} (${invoice.customization.discountType === 'percent' ? invoice.customization.discountRate + '%' : 'Flat'}):`,
         totalsX,
         totalsY
       );
@@ -347,7 +354,7 @@ export async function generateInvoicePdf(
       doc.setTextColor(100, 116, 139);
       doc.setFont(baseFont, 'normal');
       doc.text(
-        `${invoice.customization.taxLabel || 'Tax'} (${invoice.customization.taxType === 'percent' ? invoice.customization.taxRate + '%' : 'Flat'}):`,
+        `${invoice.customization.taxLabel || tPdf('labels.tax', 'Tax')} (${invoice.customization.taxType === 'percent' ? invoice.customization.taxRate + '%' : 'Flat'}):`,
         totalsX,
         totalsY
       );
@@ -372,7 +379,7 @@ export async function generateInvoicePdf(
     doc.setTextColor(31, 41, 55);
     doc.setFontSize(10);
     doc.setFont(baseFont, 'bold');
-    doc.text('Total:', totalsX, totalsY);
+    doc.text(`${tPdf('labels.total', 'Total')}:`, totalsX, totalsY);
     doc.text(
       formatMoney(totals.total, invoice.customization.currencySymbol, invoice.customization.currencyPosition),
       pageWidth - margin,
@@ -386,7 +393,7 @@ export async function generateInvoicePdf(
       doc.setTextColor(100, 116, 139);
       doc.setFontSize(8.5);
       doc.setFont(baseFont, 'normal');
-      doc.text('Amount Paid:', totalsX, totalsY);
+      doc.text(`${tPdf('labels.amountPaid', 'Amount Paid')}:`, totalsX, totalsY);
       doc.setTextColor(16, 185, 129);
       doc.setFont(baseFont, 'bold');
       doc.text(
@@ -404,7 +411,7 @@ export async function generateInvoicePdf(
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(9);
     doc.setFont(baseFont, 'bold');
-    doc.text('BALANCE DUE', totalsX + 10, totalsY + 17);
+    doc.text(tPdf('labels.balanceDue', 'BALANCE DUE'), totalsX + 10, totalsY + 17);
     doc.setFontSize(11);
     doc.text(
       formatMoney(totals.balanceDue, invoice.customization.currencySymbol, invoice.customization.currencyPosition),
@@ -420,7 +427,7 @@ export async function generateInvoicePdf(
       doc.setTextColor(r, g, b);
       doc.setFontSize(8.5);
       doc.setFont(baseFont, 'bold');
-      doc.text('NOTES & TERMS', margin, leftY);
+      doc.text(tPdf('labels.notes', 'NOTES & TERMS'), margin, leftY);
 
       leftY += 12;
       doc.setTextColor(75, 85, 99);
@@ -435,7 +442,7 @@ export async function generateInvoicePdf(
       doc.setTextColor(r, g, b);
       doc.setFontSize(8.5);
       doc.setFont(baseFont, 'bold');
-      doc.text('PAYMENT INSTRUCTIONS', margin, leftY);
+      doc.text(tPdf('labels.paymentInstructions', 'PAYMENT INSTRUCTIONS'), margin, leftY);
 
       leftY += 12;
       doc.setTextColor(75, 85, 99);
@@ -522,9 +529,12 @@ export async function generateInvoicePdf(
   }
 }
 
-export async function downloadInvoicePdf(invoice: InvoiceData): Promise<{ success: boolean; error?: string }> {
+export async function downloadInvoicePdf(
+  invoice: InvoiceData,
+  lang?: string
+): Promise<{ success: boolean; error?: string }> {
   try {
-    const res = await generateInvoicePdf(invoice);
+    const res = await generateInvoicePdf(invoice, lang);
     if (!res.success || !res.doc) {
       return { success: false, error: res.error || 'Failed to generate PDF' };
     }
@@ -535,43 +545,28 @@ export async function downloadInvoicePdf(invoice: InvoiceData): Promise<{ succes
   }
 }
 
-export async function printInvoicePdfDirect(invoice: InvoiceData): Promise<{ success: boolean; error?: string }> {
+export async function printInvoicePdfDirect(
+  invoice: InvoiceData,
+  lang?: string
+): Promise<{ success: boolean; error?: string }> {
   try {
-    const res = await generateInvoicePdf(invoice);
+    const res = await generateInvoicePdf(invoice, lang);
     if (!res.success || !res.doc) {
-      return { success: false, error: res.error || 'Failed to generate PDF' };
+      return { success: false, error: res.error || 'Failed to print PDF' };
     }
-
-    // Embed auto-print script into jsPDF
-    res.doc.autoPrint();
-
-    // Create a Blob and open direct print in iframe or data url
-    const blob = res.doc.output('blob');
-    const blobUrl = URL.createObjectURL(blob);
-
-    // Try hidden iframe print
+    const blobUrl = res.doc.output('bloburl');
     const printFrame = document.createElement('iframe');
-    printFrame.style.position = 'fixed';
-    printFrame.style.right = '0';
-    printFrame.style.bottom = '0';
-    printFrame.style.width = '0';
-    printFrame.style.height = '0';
-    printFrame.style.border = '0';
-    printFrame.src = blobUrl;
-
+    printFrame.style.display = 'none';
+    printFrame.src = String(blobUrl);
     document.body.appendChild(printFrame);
-
     printFrame.onload = () => {
-      setTimeout(() => {
-        try {
-          printFrame.contentWindow?.focus();
-          printFrame.contentWindow?.print();
-        } catch (e) {
-          console.warn('iframe print blocked, opening in blob popup or fallback', e);
-        }
-      }, 250);
+      try {
+        printFrame.contentWindow?.focus();
+        printFrame.contentWindow?.print();
+      } catch (e) {
+        console.error('Direct print failed', e);
+      }
     };
-
     return { success: true };
   } catch (err: any) {
     return { success: false, error: err?.message || 'Print failed' };

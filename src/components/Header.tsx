@@ -9,6 +9,8 @@ import {
   Menu,
   X,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface HeaderProps {
   onOpenMyInvoices: () => void;
@@ -18,6 +20,9 @@ interface HeaderProps {
   onOpenTemplates: () => void;
   savedInvoicesCount: number;
   onSelectHome?: () => void;
+  currentLang?: string;
+  currentRouteId?: string;
+  onSelectLanguage?: (lang: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -28,7 +33,11 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenTemplates,
   savedInvoicesCount,
   onSelectHome,
+  currentLang = 'en',
+  currentRouteId = 'invoice-generator',
+  onSelectLanguage,
 }) => {
+  const { t } = useTranslation('common');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
@@ -146,6 +155,16 @@ export const Header: React.FC<HeaderProps> = ({
             <span>Settings</span>
           </button>
 
+          {/* Language Switcher */}
+          <div className="ml-1">
+            <LanguageSwitcher
+              currentLang={currentLang}
+              currentRouteId={currentRouteId}
+              onSelectLanguage={onSelectLanguage}
+              variant="header"
+            />
+          </div>
+
           {/* New Invoice option on the right side of Settings */}
           <button
             type="button"
@@ -160,8 +179,14 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </nav>
 
-        {/* Mobile & Tablet controls: Quick New button + Hamburger Toggle (< lg) */}
+        {/* Mobile & Tablet controls: Language Switcher + Quick New button + Hamburger Toggle (< lg) */}
         <div className="flex lg:hidden items-center gap-2">
+          <LanguageSwitcher
+            currentLang={currentLang}
+            currentRouteId={currentRouteId}
+            onSelectLanguage={onSelectLanguage}
+            variant="header"
+          />
           {/* Quick New button */}
           <button
             type="button"

@@ -1,18 +1,27 @@
 import React from 'react';
 import { PROFESSION_EXAMPLES, ProfessionTemplateExample } from '../data/professionExamples';
 import { TOOL_GUIDES } from '../data/toolGuidesData';
+import { getLocalizedGuide } from '../data/localizedToolGuides';
 
 interface CompleteGuideProps {
   toolSlug?: string;
+  lang?: string;
   onLoadExample?: (example: ProfessionTemplateExample) => void;
   onOpenSettings?: () => void;
 }
 
 export const CompleteGuide: React.FC<CompleteGuideProps> = ({
   toolSlug = 'invoice-generator',
+  lang = 'en',
   onLoadExample,
 }) => {
-  const customGuide = TOOL_GUIDES[toolSlug];
+  const baseGuide = TOOL_GUIDES[toolSlug];
+  const localizedOverride = getLocalizedGuide(toolSlug, lang);
+
+  const customGuide = baseGuide ? {
+    ...baseGuide,
+    ...(localizedOverride || {}),
+  } : undefined;
 
   // If this tool has its own dedicated SEO guide (Receipt, Quote, Estimate, Credit Note, etc.), render it in the exact same format
   if (customGuide) {
@@ -250,30 +259,32 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
     );
   }
 
-  // Fallback: Default Comprehensive Invoice Generator Guide with profession examples
+  // Localized override for default invoice guide if language is not English
+  const locDefault = getLocalizedGuide('invoice-generator', lang);
+
+  const defaultH1 = locDefault?.h1 || 'Free Invoice Generator (No Signup, No Watermark): Complete Guide with Examples';
+  const defaultIntros = locDefault?.introParagraphs || [
+    'Getting paid starts with a clear, professional invoice. Yet many invoice tools make you create an account, limit you to a few invoices a month, or stamp a watermark across the page you send to your client.',
+    'Invoiceo is a free invoice generator online that works differently. There is no login, no registration and no watermark. You fill in a simple form, watch a live preview update, and download a clean, searchable PDF invoice in seconds. Your data is saved in your own browser, so you can come back and edit or reuse invoices later.',
+    'This guide explains what the tool does, walks you through creating your first invoice step by step, and shows ready-to-copy examples for freelancers, consultants, contractors, plumbers, photographers, cleaners and handymen.',
+  ];
+
   return (
     <article
       id="invoiceo-guide"
       className="max-w-4xl mx-auto my-8 sm:my-10 bg-white border border-gray-200/90 rounded-2xl shadow-sm px-5 sm:px-10 md:px-14 py-8 sm:py-12 text-gray-800"
     >
-      
       {/* Title */}
       <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-        Free Invoice Generator (No Signup, No Watermark): Complete Guide with Examples
+        {defaultH1}
       </h1>
 
       {/* Intro */}
-      <p className="mb-4 leading-relaxed text-gray-700">
-        Getting paid starts with a clear, professional invoice. Yet many invoice tools make you create an account, limit you to a few invoices a month, or stamp a watermark across the page you send to your client.
-      </p>
-
-      <p className="mb-4 leading-relaxed text-gray-700">
-        Invoiceo is a free invoice generator online that works differently. There is no login, no registration and no watermark. You fill in a simple form, watch a live preview update, and download a clean, searchable PDF invoice in seconds. Your data is saved in your own browser, so you can come back and edit or reuse invoices later.
-      </p>
-
-      <p className="mb-6 leading-relaxed text-gray-700">
-        This guide explains what the tool does, walks you through creating your first invoice step by step, and shows ready-to-copy examples for freelancers, consultants, contractors, plumbers, photographers, cleaners and handymen.
-      </p>
+      {defaultIntros.map((p, idx) => (
+        <p key={idx} className="mb-4 leading-relaxed text-gray-700">
+          {p}
+        </p>
+      ))}
 
       {/* In this guide */}
       <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-3">

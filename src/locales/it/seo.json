@@ -1,0 +1,122 @@
+{
+  "tools": {
+    "invoice-generator": {
+      "name": "Generatore di Fatture",
+      "shortName": "Fattura",
+      "h1": "Creare Fattura Gratis Online",
+      "metaTitle": "Creare Fattura Gratis Online - Modello e PDF Senza Registrazione | Invoiceo",
+      "metaDescription": "Crea e scarica fatture commerciali in PDF gratis senza registrazione. Partita IVA, codice fiscale, calcolo IVA, sconti e totale immediato.",
+      "description": "Crea fatture pulite e professionali in pochi secondi con Invoiceo. I tuoi dati sensibili rimangono al sicuro nella memoria locale del tuo browser."
+    },
+    "receipt-generator": {
+      "name": "Generatore di Ricevute",
+      "shortName": "Ricevuta",
+      "h1": "Ricevuta di Pagamento Facile Online",
+      "metaTitle": "Ricevuta di Pagamento Facile Gratis - Modello PDF | Invoiceo",
+      "metaDescription": "Genera ricevute di pagamento e quietanze liberatorie in PDF. Quietanza di saldo, marca da bollo virtuale e scaricamento immediato.",
+      "description": "Attesta l'avvenuto pagamento con ricevute formali adatte a liberi professionisti, canoni di locazione e prestazioni occasionali."
+    },
+    "quote-generator": {
+      "name": "Generatore di Preventivi",
+      "shortName": "Preventivo",
+      "h1": "Preventivo Gratuito Online per Professionisti",
+      "metaTitle": "Preventivo Gratuito Online - Modello PDF Senza Account | Invoiceo",
+      "metaDescription": "Crea preventivi chiari e professionali per i tuoi clienti online gratis. Voci dettagliate, scadenza proposta e scaricamento PDF.",
+      "description": "Fai proposte commerciali impeccabili specificando acconti, tempi di consegna e modalità di pagamento."
+    },
+    "estimate-generator": {
+      "name": "Computo Metrico e Stima",
+      "shortName": "Stima",
+      "h1": "Computo Metrico e Stima Costi Lavori",
+      "metaTitle": "Computo Metrico Stima Costi Gratis - Modello Lavori PDF | Invoiceo",
+      "metaDescription": "Calcola preventivi di massima e stime dei costi per lavori edili e ristrutturazioni. Manodopera, materiali e margine in formato PDF.",
+      "description": "Stime ordinate e trasparenti per artigiani e tecnici dell'edilizia prima dell'avvio del cantiere."
+    },
+    "credit-note-generator": {
+      "name": "Nota di Credito",
+      "shortName": "Nota di Credito",
+      "h1": "Nota di Credito Semplice Online",
+      "metaTitle": "Nota di Credito Semplice Gratis - Modello di Rettifica PDF | Invoiceo",
+      "metaDescription": "Emetti note di credito e documenti di storno in PDF gratis. Rettifica somme già fatturate e gestisci resi con facilità.",
+      "description": "Rettifica importi precedentemente fatturati in conformità alla normativa contabile e documenta i rimborsi."
+    },
+    "purchase-order-generator": {
+      "name": "Ordine di Acquisto",
+      "shortName": "Ordine Acquisto",
+      "h1": "Modulo Ordine di Acquisto Fornitori",
+      "metaTitle": "Ordine di Acquisto Modulo Gratis - Modello in PDF | Invoiceo",
+      "metaDescription": "Compila ordini d'acquisto formali per i tuoi fornitori in PDF. Luogo di consegna, codici articolo, prezzi concordati e firma.",
+      "description": "Formalizza le commissioni ai fornitori per evitare malintesi sui tempi di consegna o sulle specifiche richieste."
+    },
+    "sales-order-generator": {
+      "name": "Conferma d'Ordine",
+      "shortName": "Conferma",
+      "h1": "Conferma d'Ordine di Vendita",
+      "metaTitle": "Conferma Ordine Vendita Gratuita - Modello PDF | Invoiceo",
+      "metaDescription": "Conferma gli ordini dei clienti con riepiloghi d'ordine formali in PDF. Termini di evasione e dettagli concordati.",
+      "description": "Riepiloga gli accordi commerciali e formalizza le condizioni di evasione prima della consegna effettiva."
+    },
+    "proforma-invoice-generator": {
+      "name": "Fattura Proforma",
+      "shortName": "Proforma",
+      "h1": "Fattura Proforma Facile per Dogana ed Export",
+      "metaTitle": "Fattura Proforma Facile Gratis - Modello per Estero in PDF | Invoiceo",
+      "metaDescription": "Genera fatture proforma internazionali gratuite in PDF. Valute estere, voci doganali e condizioni di fornitura anticipata.",
+      "description": "Documento preliminare essenziale per operazioni doganali, esportazioni o accordi con pagamento anticipato."
+    },
+    "timesheet-generator": {
+      "name": "Foglio Ore Lavoro",
+      "shortName": "Foglio Ore",
+      "h1": "Foglio Ore Lavoro Mensile e Prestazioni",
+      "metaTitle": "Foglio Ore Lavoro Mensile Gratis - Rendicontazione Ore PDF | Invoiceo",
+      "metaDescription": "Traccia e fattura le ore lavorate per freelance e consulenti. Tariffa oraria, calcolo automatico del totale e PDF pronto.",
+      "description": "Rendiconta le giornate e le ore dedicate a ciascun committente con estrema chiarezza contabile."
+    },
+    "work-order-generator": {
+      "name": "Rapportino di Intervento",
+      "shortName": "Intervento",
+      "h1": "Ordine di Lavoro e Rapportino Tecnico",
+      "metaTitle": "Ordine di Lavoro Riparazione Gratis - Rapportino PDF | Invoiceo",
+      "metaDescription": "Crea rapportini di lavoro e schede di riparazione tecnica in PDF. Ricambi impiegati, ore lavorate e firma del cliente.",
+      "description": "Ideale per tecnici e installatori per raccogliere l'approvazione del committente al termine dell'intervento."
+    },
+    "account-statement-generator": {
+      "name": "Estratto Conto Cliente",
+      "shortName": "Estratto Conto",
+      "h1": "Estratto Conto e Situazione Contabile Cliente",
+      "metaTitle": "Estratto Conto Cliente Gratis - Prospetto Saldi in PDF | Invoiceo",
+      "metaDescription": "Riepiloga fatture emesse, incassi ricevuti e crediti residui dei clienti in un prospetto contabile PDF ordinato.",
+      "description": "Agevola i pagamenti fornendo ai clienti un quadro immediato e trasparente delle partite contabili aperte."
+    },
+    "packing-slip-generator": {
+      "name": "Documento di Trasporto (DDT)",
+      "shortName": "DDT",
+      "h1": "Bolla di Accompagnamento e DDT Gratis",
+      "metaTitle": "Bolla di Accompagnamento DDT Gratis - Modello PDF | Invoiceo",
+      "metaDescription": "Compila documenti di trasporto e bolle di consegna gratis in PDF. Numero colli, causale di trasporto e firma per ricevuta.",
+      "description": "Accompagna le merci spedite con documenti di trasporto chiari per attestare la corretta consegna a destino."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Chi Siamo | Suite di Fatturazione Gratuita e Privata - Invoiceo.online",
+      "description": "Scopri Invoiceo: 12 strumenti gratuiti per la gestione documentale e fatturazione senza registrazione con privacy locale."
+    },
+    "contact": {
+      "title": "Contatti e Assistenza - Invoiceo.online",
+      "description": "Scrivi al team di Invoiceo per chiarimenti, suggerimenti di sviluppo o assistenza tecnica."
+    },
+    "privacy": {
+      "title": "Informativa sulla Privacy | Dati Solo nel Browser - Invoiceo.online",
+      "description": "I tuoi dati non vengono mai inviati a server remoti. Privacy e sicurezza garantite al 100%."
+    },
+    "terms": {
+      "title": "Termini di Servizio - Invoiceo.online",
+      "description": "Condizioni generali per l'utilizzo gratuito degli strumenti e generatori di Invoiceo."
+    },
+    "bugs": {
+      "title": "Segnala un Bug o Malfunzionamento - Invoiceo.online",
+      "description": "Segnala ai programmatori qualsiasi anomalia grafica, errore di calcolo o problema di esportazione PDF."
+    }
+  }
+}

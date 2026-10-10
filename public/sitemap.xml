@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://invoiceo.online/sitemap-en.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://invoiceo.online/sitemap-es.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://invoiceo.online/sitemap-fr.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://invoiceo.online/sitemap-de.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://invoiceo.online/sitemap-pt.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://invoiceo.online/sitemap-it.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+  </sitemap>
+</sitemapindex>

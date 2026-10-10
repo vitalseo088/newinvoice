@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://invoiceo.online/sitemap.xml
+Sitemap: https://invoiceo.online/sitemap-en.xml
+Sitemap: https://invoiceo.online/sitemap-es.xml
+Sitemap: https://invoiceo.online/sitemap-fr.xml
+Sitemap: https://invoiceo.online/sitemap-de.xml
+Sitemap: https://invoiceo.online/sitemap-pt.xml
+Sitemap: https://invoiceo.online/sitemap-it.xml

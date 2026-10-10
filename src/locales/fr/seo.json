@@ -1,0 +1,122 @@
+{
+  "tools": {
+    "invoice-generator": {
+      "name": "Générateur de Factures",
+      "shortName": "Facture",
+      "h1": "Créer une Facture Gratuite en Ligne",
+      "metaTitle": "Facture Gratuite en Ligne - Modèle et PDF Sans Inscription | Invoiceo",
+      "metaDescription": "Créez et téléchargez vos factures gratuites en PDF sans inscription. Mentions légales, TVA, remises et logo personnalisable en 2 minutes.",
+      "description": "Créez des factures professionnelles en ligne gratuitement et sans filigrane. Vos données restent privées dans votre navigateur."
+    },
+    "receipt-generator": {
+      "name": "Générateur de Reçus",
+      "shortName": "Reçu",
+      "h1": "Générateur de Reçu de Paiement Gratuit",
+      "metaTitle": "Reçu de Paiement Gratuit - Télécharger Modèle PDF | Invoiceo",
+      "metaDescription": "Éditez des reçus de paiement et quittances professionnelles en PDF. Mention acquittée, mode de règlement et calculs automatiques.",
+      "description": "Justifiez les paiements reçus avec des reçus officiels prêts à imprimer ou à envoyer par email."
+    },
+    "quote-generator": {
+      "name": "Générateur de Devis",
+      "shortName": "Devis",
+      "h1": "Devis Gratuit en Ligne Sans Inscription",
+      "metaTitle": "Créer un Devis Gratuit en Ligne - Modèle PDF Conforme | Invoiceo",
+      "metaDescription": "Créez des devis professionnels gratuitement en ligne. Conditions de validité, acompte, détail des prestations et export PDF immédiat.",
+      "description": "Séduisez vos clients avec des devis clairs, détaillés et conformes aux obligations légales françaises."
+    },
+    "estimate-generator": {
+      "name": "Estimation de Travaux",
+      "shortName": "Estimation",
+      "h1": "Estimation de Travaux et Devis Prévisionnel",
+      "metaTitle": "Estimation Travaux Devis Gratuit - Calcul et Modèle PDF | Invoiceo",
+      "metaDescription": "Chiffrez vos travaux et chantiers facilement. Main-d'œuvre, matériaux, TVA bâtiment et export PDF sans inscription.",
+      "description": "Outil idéal pour artisans et professionnels du bâtiment pour établir des estimations claires avant signature du marché."
+    },
+    "credit-note-generator": {
+      "name": "Facture d'Avoir",
+      "shortName": "Avoir",
+      "h1": "Créer une Facture d'Avoir Gratuite en Ligne",
+      "metaTitle": "Facture Avoir Gratuit - Modèle Conforme et Téléchargement PDF | Invoiceo",
+      "metaDescription": "Générez des factures d'avoir conformes en PDF. Remboursements, remises après facturation et annulations de facture simplifiées.",
+      "description": "Émettez des avoirs comptables conformes pour régulariser des factures antérieures ou constater des retours de marchandises."
+    },
+    "purchase-order-generator": {
+      "name": "Bon de Commande",
+      "shortName": "Commande",
+      "h1": "Générateur de Bon de Commande Gratuit",
+      "metaTitle": "Bon de Commande Modèle Gratuit - Téléchargement PDF | Invoiceo",
+      "metaDescription": "Rédigez des bons de commande officiels en ligne. Références articles, adresse de livraison et signature client en PDF.",
+      "description": "Formalisez vos achats auprès de fournisseurs avec des bons de commande clairs comportant toutes les conditions de livraison."
+    },
+    "sales-order-generator": {
+      "name": "Confirmation de Commande",
+      "shortName": "Bon de Livraison",
+      "h1": "Confirmation de Commande et Bon de Vente",
+      "metaTitle": "Bon de Commande Vente - Confirmation Client en PDF | Invoiceo",
+      "metaDescription": "Confirmez les commandes de vos clients avec des récapitulatifs de vente professionnels en PDF.",
+      "description": "Validez les commandes reçues et fixez les délais d'exécution avant la livraison définitive."
+    },
+    "proforma-invoice-generator": {
+      "name": "Facture Proforma",
+      "shortName": "Proforma",
+      "h1": "Facture Proforma Gratuite pour Douane et Export",
+      "metaTitle": "Facture Proforma Modèle Gratuit - Exportation et Douanes | Invoiceo",
+      "metaDescription": "Créez une facture proforma internationale gratuite en PDF. Codes douaniers, devises étrangères et mentions d'exportation.",
+      "description": "Document indispensable pour l'expédition internationale, le dédouanement et les demandes de crédit documentaire."
+    },
+    "timesheet-generator": {
+      "name": "Feuille de Temps",
+      "shortName": "Heures",
+      "h1": "Feuille de Temps et Relevé d'Heures de Travail",
+      "metaTitle": "Feuille de Temps Travail Gratuite - Suivi d'Heures en PDF | Invoiceo",
+      "metaDescription": "Suivez vos heures facturables pour freelances et prestataires. Taux horaire, total automatique et facture en PDF.",
+      "description": "Enregistrez le temps passé sur chaque mission et justifiez vos facturations d'heures en toute transparence."
+    },
+    "work-order-generator": {
+      "name": "Bon d'Intervention",
+      "shortName": "Intervention",
+      "h1": "Bon d'Intervention et Ordre de Travail",
+      "metaTitle": "Bon d'Intervention Modèle Gratuit - Rapport de Réparation PDF | Invoiceo",
+      "metaDescription": "Générez des rapports et bons d'intervention technique en PDF. Détail des pièces, main-d'œuvre et signature du client.",
+      "description": "Idéal pour techniciens et dépanneurs afin de faire signer au client le rapport de fin d'intervention sur site."
+    },
+    "account-statement-generator": {
+      "name": "Relevé de Compte Client",
+      "shortName": "Relevé",
+      "h1": "Générateur de Relevé de Compte Client",
+      "metaTitle": "Relevé de Compte Client Gratuit - Récapitulatif Factures PDF | Invoiceo",
+      "metaDescription": "Éditez des états de compte et récapitulatifs de facturation clairs en PDF pour relancer les impayés et suivre les règlements.",
+      "description": "Facilitez le suivi des paiements avec une vue d'ensemble des factures réglées et des soldes restants dus."
+    },
+    "packing-slip-generator": {
+      "name": "Bon de Livraison",
+      "shortName": "Livraison",
+      "h1": "Bon de Livraison Gratuit en Ligne",
+      "metaTitle": "Bon de Livraison Gratuit - Modèle et Bordereau PDF | Invoiceo",
+      "metaDescription": "Créez des bordereaux d'expédition et bons de livraison en PDF. Liste des colis, quantités et émargement de réception.",
+      "description": "Accompagnez vos expéditions de marchandises d'un bon de livraison officiel pour attester de la bonne réception du colis."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "À Propos | Facturation Gratuite et Confidentielle - Invoiceo.online",
+      "description": "Découvrez Invoiceo : suite complète de 12 outils de facturation gratuits sans inscription avec confidentialité locale."
+    },
+    "contact": {
+      "title": "Contact et Support Utilisateur - Invoiceo.online",
+      "description": "Contactez l'équipe Invoiceo pour vos questions, suggestions ou besoins d'assistance."
+    },
+    "privacy": {
+      "title": "Confidentialité | Aucune Donnée sur Serveur - Invoiceo.online",
+      "description": "Vos données financières restent sur votre appareil. 100% de respect de votre vie privée."
+    },
+    "terms": {
+      "title": "Conditions Générales d'Utilisation - Invoiceo.online",
+      "description": "Conditions d'utilisation du service de génération de factures et de documents gratuits Invoiceo."
+    },
+    "bugs": {
+      "title": "Signaler un Bug ou Problème Technique - Invoiceo.online",
+      "description": "Signalez un dysfonctionnement d'affichage ou un problème de génération de PDF à nos développeurs."
+    }
+  }
+}

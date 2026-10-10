@@ -1,0 +1,122 @@
+{
+  "tools": {
+    "invoice-generator": {
+      "name": "Gerador de Faturas",
+      "shortName": "Fatura",
+      "h1": "Gerador de Nota Fiscal e Fatura Grátis",
+      "metaTitle": "Gerador de Nota Fiscal Grátis - Criar Fatura em PDF | Invoiceo",
+      "metaDescription": "Crie e baixe faturas comerciais e notas em PDF grátis sem cadastro. Adicione logotipo, impostos, descontos e salve direto no navegador.",
+      "description": "Crie faturas comerciais e recibos de cobrança profissionais em segundos. Total privacidade dos dados da sua empresa no seu próprio navegador."
+    },
+    "receipt-generator": {
+      "name": "Gerador de Recibos",
+      "shortName": "Recibo",
+      "h1": "Gerador de Recibo de Pagamento Simples",
+      "metaTitle": "Recibo de Pagamento Simples Grátis - Modelo e PDF | Invoiceo",
+      "metaDescription": "Emita recibos de pagamento e quitações em PDF grátis. Comprovante de recebimento, forma de pagamento e assinatura sem mensalidade.",
+      "description": "Comprove recebimentos e pagamentos com recibos profissionais prontos para imprimir ou enviar por WhatsApp e email."
+    },
+    "quote-generator": {
+      "name": "Gerador de Orçamentos",
+      "shortName": "Orçamento",
+      "h1": "Gerador de Orçamento Rápido Online",
+      "metaTitle": "Gerador de Orçamento Rápido - Modelo de Proposta Comercial PDF | Invoiceo",
+      "metaDescription": "Faça orçamentos de serviços e produtos online grátis. Prazos de validade, condições de pagamento e download de PDF sem conta.",
+      "description": "Apresente propostas comerciais de alto impacto que conquistam clientes e esclarecem escopo de trabalho e valores."
+    },
+    "estimate-generator": {
+      "name": "Estimativa de Custos",
+      "shortName": "Estimativa",
+      "h1": "Estimativa de Custos e Orçamento de Obra",
+      "metaTitle": "Estimativa de Custos de Obra Grátis - Planilha e PDF | Invoiceo",
+      "metaDescription": "Calcule custos de reformas e serviços técnicos. Mão de obra, materiais e margem de contingência em formato PDF claro.",
+      "description": "Ferramenta essencial para prestadores de serviços da construção civil e manutenção estimarem custos prévios."
+    },
+    "credit-note-generator": {
+      "name": "Nota de Crédito",
+      "shortName": "Nota de Crédito",
+      "h1": "Gerador de Nota de Crédito Comercial",
+      "metaTitle": "Nota de Crédito Comercial Grátis - Emissão em PDF | Invoiceo",
+      "metaDescription": "Emita notas de crédito e comprovantes de estorno em PDF. Ajuste valores faturados e registre devoluções sem complicações.",
+      "description": "Formalize estornos, descontos concedidos após faturamento e devoluções de mercadoria com documentos claros."
+    },
+    "purchase-order-generator": {
+      "name": "Ordem de Compra",
+      "shortName": "Ordem de Compra",
+      "h1": "Gerador de Ordem de Compra Padrão",
+      "metaTitle": "Ordem de Compra Padrão Grátis - Modelo em PDF | Invoiceo",
+      "metaDescription": "Crie ordens de compra e pedidos de fornecedor em PDF grátis. Dados de entrega, itens, preços e autorização de compra.",
+      "description": "Formalize aquisições com fornecedores garantindo clareza nas especificações técnicas, quantidades e prazos de entrega."
+    },
+    "sales-order-generator": {
+      "name": "Pedido de Venda",
+      "shortName": "Pedido",
+      "h1": "Gerador de Pedido de Venda Rápido",
+      "metaTitle": "Pedido de Venda Rápido - Confirmação de Venda em PDF | Invoiceo",
+      "metaDescription": "Emita pedidos de venda e confirmações de compra para clientes em PDF. Confirme prazos de envio e condições comerciais.",
+      "description": "Garanta alinhamento total com seus clientes formalizando os pedidos aceitos antes do faturamento final."
+    },
+    "proforma-invoice-generator": {
+      "name": "Fatura Proforma",
+      "shortName": "Proforma",
+      "h1": "Fatura Proforma para Exportação e Aduana",
+      "metaTitle": "Fatura Proforma Exportação - Modelo em PDF Grátis | Invoiceo",
+      "metaDescription": "Gere faturas proforma internacionais gratuitas em PDF. Moedas estrangeiras, códigos NCM/HS e condições de comércio exterior.",
+      "description": "Documento preliminar fundamental para despachos aduaneiros, operações de câmbio e remessas internacionais."
+    },
+    "timesheet-generator": {
+      "name": "Folha de Ponto",
+      "shortName": "Ponto",
+      "h1": "Folha de Ponto e Controle de Horas Trabalhadas",
+      "metaTitle": "Folha de Ponto Individual Grátis - Cálculo de Horas PDF | Invoiceo",
+      "metaDescription": "Controle horas trabalhadas e faturáveis de freelancers e prestadores. Valor da hora e total em PDF pronto para cobrança.",
+      "description": "Facilite o acerto de contas de honorários e prestação de serviços com demonstrativos detalhados de horas."
+    },
+    "work-order-generator": {
+      "name": "Ordem de Serviço",
+      "shortName": "Ordem de Serviço",
+      "h1": "Gerador de Ordem de Serviço Simples",
+      "metaTitle": "Ordem de Serviço Simples Grátis - Modelo de OS em PDF | Invoiceo",
+      "metaDescription": "Crie ordens de serviço (OS) para oficinas e técnicos em PDF. Peças, mão de obra, laudo e assinatura de conclusão.",
+      "description": "Controle intervenções técnicas, manutenções e reparos mecânicos com comprovantes de execução detalhados."
+    },
+    "account-statement-generator": {
+      "name": "Extrato de Conta",
+      "shortName": "Extrato",
+      "h1": "Extrato de Conta Corrente e Faturamento de Cliente",
+      "metaTitle": "Extrato de Conta Corrente de Cliente - Relatório PDF | Invoiceo",
+      "metaDescription": "Gere extratos financeiros de clientes em PDF. Resumo de faturas emitidas, valores quitados e saldos em aberto.",
+      "description": "Simplifique a cobrança e a prestação de contas com relatórios organizados de débitos e créditos de cada cliente."
+    },
+    "packing-slip-generator": {
+      "name": "Romaneio de Carga",
+      "shortName": "Romaneio",
+      "h1": "Gerador de Romaneio de Carga e Remessa",
+      "metaTitle": "Romaneio de Carga Padrão Grátis - Modelo em PDF | Invoiceo",
+      "metaDescription": "Crie romaneios de expedição e guias de remessa de produtos em PDF. Relação de volumes, produtos e canhoto de entrega.",
+      "description": "Acompanhe entregas e fretes com listas de conferência de mercadorias para evitar divergências no recebimento."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Sobre Nós | Faturamento Gratuito e Seguro - Invoiceo.online",
+      "description": "Conheça o Invoiceo: conjunto completo de 12 geradores de documentos comerciais 100% gratuitos com privacidade local."
+    },
+    "contact": {
+      "title": "Fale Conosco e Suporte - Invoiceo.online",
+      "description": "Entre em contato com nossa equipe para dúvidas, sugestões e suporte aos usuários."
+    },
+    "privacy": {
+      "title": "Política de Privacidade | Zero Dados em Nuvem - Invoiceo.online",
+      "description": "Nenhum dado financeiro sai do seu navegador. 100% de privacidade garantida."
+    },
+    "terms": {
+      "title": "Termos de Uso - Invoiceo.online",
+      "description": "Termos e condições de uso das ferramentas gratuitas de faturamento e geração de PDF do Invoiceo."
+    },
+    "bugs": {
+      "title": "Reportar Erro ou Bug no Sistema - Invoiceo.online",
+      "description": "Informe erros de cálculo ou problemas na renderização de PDFs diretamente para os nossos desenvolvedores."
+    }
+  }
+}

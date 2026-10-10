@@ -1,0 +1,122 @@
+{
+  "tools": {
+    "invoice-generator": {
+      "name": "Generador de Facturas",
+      "shortName": "Factura",
+      "h1": "Generador de Facturas Gratis en Línea",
+      "metaTitle": "Generador de Facturas Gratis - Crear y Descargar Factura en PDF | Invoiceo",
+      "metaDescription": "Crea facturas profesionales gratis en PDF sin registrarte. Personaliza impuestos, descuentos, logotipo y descarga al instante sin marcas de agua.",
+      "description": "Crea facturas limpias y profesionales en segundos con Invoiceo, el generador de facturas 100% gratuito preferido por autónomos y pymes. Sin registro y con privacidad total en tu navegador."
+    },
+    "receipt-generator": {
+      "name": "Generador de Recibos",
+      "shortName": "Recibo",
+      "h1": "Generador de Recibos de Pago en Línea",
+      "metaTitle": "Crear Recibo de Pago Gratis - Plantilla y PDF al Instante | Invoiceo",
+      "metaDescription": "Genera justificantes y recibos de pago profesionales en PDF. Añade número de transacción, forma de pago e impuestos al instante sin registro.",
+      "description": "Emite justificantes de pago oficiales en segundos. Ideal para profesionales independientes, alquileres y comercios que necesitan comprobantes claros."
+    },
+    "quote-generator": {
+      "name": "Generador de Presupuestos",
+      "shortName": "Presupuesto",
+      "h1": "Hacer Presupuesto Online Gratis",
+      "metaTitle": "Generador de Presupuestos Gratis - Crear Presupuestos en PDF | Invoiceo",
+      "metaDescription": "Crea presupuestos comerciales profesionales online gratis. Validez, conceptos detallados, condiciones y descarga en PDF sin coste ni cuenta.",
+      "description": "Cierra más acuerdos comerciales con presupuestos profesionales bien estructurados con condiciones de pago y anticipos claros."
+    },
+    "estimate-generator": {
+      "name": "Generador de Estimaciones",
+      "shortName": "Estimación",
+      "h1": "Estimación de Costos y Presupuesto de Obra",
+      "metaTitle": "Estimación de Costos Gratis - Plantilla de Presupuesto Técnico | Invoiceo",
+      "metaDescription": "Calcula y presenta estimaciones de costes de proyectos y obras. Desglosa mano de obra, materiales y margen en un PDF limpio y descargable.",
+      "description": "Estimaciones claras y detalladas para técnicos, instaladores y contratistas de reformas y proyectos."
+    },
+    "credit-note-generator": {
+      "name": "Generador de Notas de Crédito",
+      "shortName": "Nota de Crédito",
+      "h1": "Crear Nota de Crédito en Línea Gratis",
+      "metaTitle": "Generador de Notas de Crédito - Factura Rectificativa en PDF | Invoiceo",
+      "metaDescription": "Genera notas de crédito y facturas rectificativas oficiales en PDF gratis. Modifica importes y gestiona devoluciones fácilmente sin registrarte.",
+      "description": "Emite notas de crédito y facturas rectificativas conformes a la normativa para corregir facturas emitidas o aplicar reembolsos."
+    },
+    "purchase-order-generator": {
+      "name": "Generador de Órdenes de Compra",
+      "shortName": "Orden de Compra",
+      "h1": "Generar Orden de Compra Gratis en PDF",
+      "metaTitle": "Formato de Orden de Compra Gratis - Generar en PDF al Instante | Invoiceo",
+      "metaDescription": "Crea órdenes de compra oficiales en PDF gratis. Añade proveedor, dirección de entrega, condiciones comerciales y artículos detallados.",
+      "description": "Formaliza pedidos a proveedores con documentos comerciales limpios, fechas de entrega y firmas de autorización."
+    },
+    "sales-order-generator": {
+      "name": "Generador de Notas de Pedido",
+      "shortName": "Nota de Pedido",
+      "h1": "Nota de Pedido de Ventas Online",
+      "metaTitle": "Generador de Notas de Pedido - Confirmación de Ventas en PDF | Invoiceo",
+      "metaDescription": "Crea notas de pedido y confirmaciones de venta profesionales en PDF. Confirma compras de clientes con plazos de entrega y condiciones.",
+      "description": "Confirma los pedidos recibidos de clientes antes de la facturación y el envío con total claridad jurídica y comercial."
+    },
+    "proforma-invoice-generator": {
+      "name": "Factura Proforma Online",
+      "shortName": "Factura Proforma",
+      "h1": "Generador de Facturas Proforma Gratis",
+      "metaTitle": "Factura Proforma Online Gratis - Modelo y Descarga en PDF | Invoiceo",
+      "metaDescription": "Crea facturas proforma para comercio internacional y aduanas gratis. Códigos arancelarios, multidivisa y exportación directa en PDF.",
+      "description": "Documentación previa indispensable para trámites de aduana, exportaciones o anticipos bancarios antes de emitir la factura final."
+    },
+    "timesheet-generator": {
+      "name": "Hoja de Horas Trabajadas",
+      "shortName": "Hoja de Horas",
+      "h1": "Generador de Hojas de Horas y Control de Tiempo",
+      "metaTitle": "Hoja de Horas Trabajadas Gratis - Plantilla y Factura en PDF | Invoiceo",
+      "metaDescription": "Registra horas facturables y tareas para clientes. Calcula tarifas por hora e importes totales con descarga directa en PDF.",
+      "description": "Controla el tiempo dedicado a cada cliente o proyecto y factura tus horas con total transparencia y precisión."
+    },
+    "work-order-generator": {
+      "name": "Orden de Trabajo de Servicio",
+      "shortName": "Orden de Trabajo",
+      "h1": "Generador de Órdenes de Trabajo para Taller y Servicios",
+      "metaTitle": "Orden de Trabajo Gratis en PDF - Hoja de Intervención Técnica | Invoiceo",
+      "metaDescription": "Genera partes de trabajo y órdenes de servicio técnico en PDF gratis. Anota mano de obra, piezas empleadas y firma de conformidad.",
+      "description": "Organiza reparaciones, instalaciones y servicios a domicilio con partes de intervención claros y firmables."
+    },
+    "account-statement-generator": {
+      "name": "Estado de Cuenta de Clientes",
+      "shortName": "Estado de Cuenta",
+      "h1": "Generador de Estado de Cuenta para Clientes",
+      "metaTitle": "Estado de Cuenta de Cliente Gratis - Resumen de Saldos en PDF | Invoiceo",
+      "metaDescription": "Genera extractos y estados de cuenta comerciales en PDF gratis. Resume facturas cobradas, pagos pendientes y saldos actuales.",
+      "description": "Facilita la conciliación con tus clientes resumiendo los cobros realizados y las facturas pendientes de vencimiento."
+    },
+    "packing-slip-generator": {
+      "name": "Albarán de Entrega",
+      "shortName": "Albarán",
+      "h1": "Generador de Albaranes de Entrega Gratis en PDF",
+      "metaTitle": "Albarán de Entrega Gratis - Generar Remisión en PDF | Invoiceo",
+      "metaDescription": "Crea albaranes de entrega y remisiones comerciales gratis en PDF. Detalla mercancías enviadas, bultos y casillas de firma de entrega.",
+      "description": "Comprueba envíos y entregas de mercancía con albaranes oficiales listos para imprimir y firmar en destino."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Sobre Nosotros | Facturación Privada y Gratuita - Invoiceo.online",
+      "description": "Descubre Invoiceo: generador de facturas y documentos comerciales 100% gratuito y privado en tu navegador."
+    },
+    "contact": {
+      "title": "Contacto y Soporte - Invoiceo.online",
+      "description": "Ponte en contacto con el equipo de Invoiceo para resolver dudas, sugerencias o soporte técnico."
+    },
+    "privacy": {
+      "title": "Política de Privacidad | Privacidad Total - Invoiceo.online",
+      "description": "Tus datos nunca salen de tu dispositivo. Almacenamiento 100% local en tu navegador."
+    },
+    "terms": {
+      "title": "Términos de Uso | Herramientas Gratuitas - Invoiceo.online",
+      "description": "Condiciones del servicio y términos legales para el uso de los generadores de Invoiceo."
+    },
+    "bugs": {
+      "title": "Reportar un Error o Fallo Técnico - Invoiceo.online",
+      "description": "Comunica cualquier error visual, fallo de cálculo o problema con la descarga del PDF a nuestro equipo."
+    }
+  }
+}

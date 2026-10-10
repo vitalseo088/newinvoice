@@ -8,7 +8,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "i18n:check": "tsx scripts/check-i18n.ts",
+    "sitemaps": "tsx scripts/generate-sitemaps.ts",
+    "build": "vite build && tsx scripts/generate-sitemaps.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
@@ -16,12 +19,15 @@
     "@vitejs/plugin-react": "^6.1.1",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
+    "i18next": "^26.4.2",
+    "i18next-browser-languagedetector": "^8.2.1",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.8",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
+    "react-i18next": "^17.0.16",
     "vite": "^8.3.0"
   },
   "devDependencies": {

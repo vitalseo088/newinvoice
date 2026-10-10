@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "DA",
+    "billTo": "FATTURATO A",
+    "shipTo": "SPEDITO A",
+    "invoiceDate": "DATA FATTURA",
+    "dueDate": "DATA SCADENZA",
+    "paymentTerms": "TERMINI DI PAGAMENTO",
+    "poNumber": "NUMERO D'ORDINE",
+    "balanceDue": "IMPORTO DA SALDARE",
+    "taxId": "P.IVA / CODICE FISCALE",
+    "paymentInstructions": "DETTAGLI DI PAGAMENTO",
+    "bank": "Banca",
+    "account": "Conto Corrente",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "TERMINI E CONDIZIONI",
+    "notes": "NOTE",
+    "subtotal": "IMPONIBILE",
+    "discount": "SCONTO",
+    "tax": "IVA",
+    "shipping": "SPESE SPEDIZIONE",
+    "total": "TOTALE",
+    "amountPaid": "ACCONTO VERSATO",
+    "tableItem": "DESCRIZIONE",
+    "tableQty": "Q.TÀ",
+    "tableRate": "PREZZO UNITARIO",
+    "tableTax": "IVA",
+    "tableAmount": "TOTALE"
+  },
+  "terms": {
+    "on_receipt": "Vista fattura",
+    "net_7": "7 giorni",
+    "net_15": "15 giorni",
+    "net_30": "30 giorni",
+    "net_45": "45 giorni",
+    "net_60": "60 giorni",
+    "custom": "Termini personalizzati"
+  }
+}
