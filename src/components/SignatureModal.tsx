@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { X, Check, RotateCcw, Upload, PenTool } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface SignatureModalProps {
   isOpen: boolean;
@@ -18,6 +19,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
   currentName = '',
   currentTitle = '',
 }) => {
+  const { t } = useTranslation('common');
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [hasDrawn, setHasDrawn] = useState(false);
@@ -136,7 +138,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
       >
         <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4 bg-[#F8FAFC]">
           <h3 className="font-bold text-gray-900 text-base sm:text-lg flex items-center gap-2">
-            <PenTool className="w-5 h-5 text-[#1A3263]" /> Add Signature
+            <PenTool className="w-5 h-5 text-[#1A3263]" /> {t('signature.title', 'Add Signature')}
           </h3>
           <button
             type="button"
@@ -159,7 +161,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
                   : 'border-transparent text-gray-500 hover:text-gray-800'
               }`}
             >
-              Draw Signature
+              {t('signature.drawTab', 'Draw Signature')}
             </button>
             <button
               onClick={() => setTab('upload')}
@@ -169,7 +171,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
                   : 'border-transparent text-gray-500 hover:text-gray-800'
               }`}
             >
-              Upload Image
+              {t('signature.uploadTab', 'Upload Image')}
             </button>
           </div>
 
@@ -191,7 +193,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
                 />
                 {!hasDrawn && (
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none text-gray-400 text-sm font-medium">
-                    Sign above using mouse, pen, or touch
+                    {t('signature.drawPlaceholder', 'Sign above using mouse, pen, or touch')}
                   </div>
                 )}
               </div>
@@ -201,7 +203,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
                   onClick={clearCanvas}
                   className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-gray-600 hover:text-gray-900 transition"
                 >
-                  <RotateCcw className="w-4 h-4" /> Clear canvas
+                  <RotateCcw className="w-4 h-4" /> {t('signature.clear', 'Clear')}
                 </button>
               </div>
             </div>
@@ -209,7 +211,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
             <div>
               <label className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-xl p-7 bg-gray-50 cursor-pointer hover:bg-gray-100 hover:border-[#1A3263] transition">
                 <Upload className="w-8 h-8 text-gray-400 mb-2" />
-                <span className="text-base font-bold text-gray-800">Choose signature image file</span>
+                <span className="text-base font-bold text-gray-800">{t('signature.uploadPrompt', 'Choose signature image file')}</span>
                 <span className="text-xs text-gray-500 mt-1">PNG with transparent background recommended</span>
                 <input
                   type="file"
@@ -227,7 +229,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
                     onClick={() => setUploadedUrl('')}
                     className="text-xs sm:text-sm font-semibold text-red-600 hover:underline"
                   >
-                    Remove
+                    {t('editor.removeLogo', 'Remove')}
                   </button>
                 </div>
               )}
@@ -237,22 +239,22 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
           {/* Printed name and title */}
           <div className="grid grid-cols-2 gap-3.5 pt-2 border-t border-gray-100">
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Signer's Full Name</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{t('signature.signerName', "Signer's Full Name")}</label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. John Doe"
+                placeholder={t('signature.signerNamePlaceholder', 'e.g. John Doe')}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2 focus:border-[#1A3263] outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Signer's Title</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{t('signature.signerTitle', "Signer's Title")}</label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="e.g. Managing Director"
+                placeholder={t('signature.signerTitlePlaceholder', 'e.g. Managing Director')}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2 focus:border-[#1A3263] outline-none"
               />
             </div>
@@ -264,13 +266,13 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
             onClick={onClose}
             className="px-4 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-200 rounded-lg transition"
           >
-            Cancel
+            {t('signature.cancel', 'Cancel')}
           </button>
           <button
             onClick={handleSave}
             className="inline-flex items-center gap-2 px-5 py-2 text-sm font-bold text-white bg-[#1A3263] hover:bg-[#132549] rounded-lg shadow-sm transition"
           >
-            <Check className="w-4 h-4" /> Apply Signature
+            <Check className="w-4 h-4" /> {t('signature.save', 'Apply Signature')}
           </button>
         </div>
       </div>

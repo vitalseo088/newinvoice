@@ -11,6 +11,7 @@ import {
   AlertTriangle,
   FolderOpen,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { InvoiceData } from '../types/invoice';
 import { calculateInvoiceTotals, formatDate, formatMoney } from '../utils/currency';
 import { generateInvoicePdf } from '../utils/pdfGenerator';
@@ -38,6 +39,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
   onDeleteInvoice,
   onExportSingle,
 }) => {
+  const { t } = useTranslation('common');
   const [search, setSearch] = useState('');
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
 
@@ -83,9 +85,9 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
               <FolderOpen className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 text-lg">My Saved Invoices</h3>
+              <h3 className="font-bold text-gray-900 text-lg">{t('myInvoices.title', 'My Saved Invoices')}</h3>
               <p className="text-xs sm:text-sm text-gray-500">
-                All invoices stored safely in your browser ({invoices.length} total)
+                {t('myInvoices.subtitle', 'All invoices stored safely in your browser ({{count}} total)', { count: invoices.length })}
               </p>
             </div>
           </div>
@@ -107,7 +109,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search by invoice # or client..."
+              placeholder={t('myInvoices.searchPlaceholder', 'Search by invoice # or client...')}
               className="w-full pl-10 pr-3.5 py-2 text-sm border border-gray-300 rounded-lg focus:border-[#1A3263] outline-none"
             />
           </div>
@@ -120,7 +122,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
             }}
             className="cursor-pointer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-bold text-white bg-[#1A3263] hover:bg-[#132549] rounded-lg shadow-sm transition"
           >
-            <Plus className="w-4 h-4 stroke-[2.5]" /> New Invoice
+            <Plus className="w-4 h-4 stroke-[2.5]" /> {t('myInvoices.newInvoice', 'New Invoice')}
           </button>
         </div>
 
@@ -129,7 +131,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
           {filtered.length === 0 ? (
             <div className="py-12 text-center text-gray-400">
               <FolderOpen className="w-12 h-12 mx-auto mb-2 opacity-40" />
-              <p className="text-base font-medium">No invoices found matching "{search}"</p>
+              <p className="text-base font-medium">{t('myInvoices.noInvoices', 'No invoices found matching "{{query}}"', { query: search })}</p>
             </div>
           ) : (
             filtered.map((inv) => {
@@ -146,15 +148,15 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2.5 mb-1.5">
                       <span className="font-bold text-base text-gray-900">
-                        {inv.number || 'Untitled'}
+                        {inv.number || t('myInvoices.untitled', 'Untitled')}
                       </span>
                       {isCurrent && (
                         <span className="px-2 py-0.5 rounded text-xs font-extrabold bg-[#1A3263] text-white">
-                          ACTIVE
+                          {t('myInvoices.active', 'ACTIVE')}
                         </span>
                       )}
                       <span className="text-sm text-gray-500 font-medium truncate">
-                        • {inv.toName ? `Client: ${inv.toName}` : 'No Client Named'}
+                        • {inv.toName ? t('myInvoices.client', 'Client: {{name}}', { name: inv.toName }) : t('myInvoices.noClient', 'No Client Named')}
                       </span>
                     </div>
 
@@ -164,7 +166,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
                         {formatDate(inv.date, 'YYYY-MM-DD')}
                       </span>
                       <span>
-                        Total:{' '}
+                        {t('myInvoices.total', 'Total:')}{' '}
                         <strong className="text-gray-900 font-semibold font-mono">
                           {formatMoney(
                             totals.total,
@@ -174,7 +176,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
                         </strong>
                       </span>
                       <span>
-                        Due:{' '}
+                        {t('myInvoices.due', 'Due:')}{' '}
                         <strong className="text-[#1A3263] font-bold font-mono">
                           {formatMoney(
                             totals.balanceDue,
@@ -195,16 +197,16 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
                           onClose();
                         }}
                         className="px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-100 rounded-lg transition flex items-center gap-1.5"
-                        title="Open Invoice"
+                        title={t('myInvoices.open', 'Open')}
                       >
-                        <ExternalLink className="w-3.5 h-3.5 text-gray-500" /> Open
+                        <ExternalLink className="w-3.5 h-3.5 text-gray-500" /> {t('myInvoices.open', 'Open')}
                       </button>
                     )}
 
                     <button
                       onClick={() => onDuplicateInvoice(inv.id)}
                       className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
-                      title="Duplicate"
+                      title={t('myInvoices.duplicate', 'Duplicate')}
                     >
                       <Copy className="w-4 h-4" />
                     </button>
@@ -212,7 +214,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
                     <button
                       onClick={() => generateInvoicePdf(inv)}
                       className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
-                      title="Download PDF"
+                      title={t('toolbar.downloadPdf', 'Download PDF')}
                     >
                       <FileDown className="w-4 h-4" />
                     </button>
@@ -220,7 +222,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
                     <button
                       onClick={() => onExportSingle(inv)}
                       className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition text-xs font-mono font-bold"
-                      title="Export JSON"
+                      title={t('myInvoices.export', 'Export JSON')}
                     >
                       JSON
                     </button>
@@ -228,7 +230,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
                     <button
                       onClick={() => setDeleteConfirmId(inv.id)}
                       className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition"
-                      title="Delete"
+                      title={t('myInvoices.delete', 'Delete')}
                       disabled={invoices.length <= 1}
                     >
                       <Trash2 className="w-4 h-4" />
@@ -246,17 +248,17 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
             <div className="bg-white rounded-xl p-6 max-w-sm w-full shadow-2xl">
               <div className="flex items-center gap-2.5 text-red-600 mb-2.5">
                 <AlertTriangle className="w-5 h-5" />
-                <h4 className="font-bold text-base">Delete Invoice?</h4>
+                <h4 className="font-bold text-base">{t('myInvoices.confirmDeleteTitle', 'Delete Invoice?')}</h4>
               </div>
               <p className="text-sm text-gray-600 mb-5 leading-relaxed">
-                Are you sure you want to delete this invoice? This action cannot be undone.
+                {t('myInvoices.confirmDeleteDesc', 'Are you sure you want to delete this invoice? This action cannot be undone.')}
               </p>
               <div className="flex justify-end gap-2.5">
                 <button
                   onClick={() => setDeleteConfirmId(null)}
                   className="px-4 py-2 text-xs sm:text-sm text-gray-600 hover:bg-gray-100 rounded-lg font-medium"
                 >
-                  Cancel
+                  {t('myInvoices.deleteCancel', 'Cancel')}
                 </button>
                 <button
                   onClick={() => {
@@ -265,7 +267,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
                   }}
                   className="px-4 py-2 text-xs sm:text-sm font-bold text-white bg-red-600 hover:bg-red-700 rounded-lg shadow-sm"
                 >
-                  Delete
+                  {t('myInvoices.deleteYes', 'Delete')}
                 </button>
               </div>
             </div>
@@ -278,7 +280,7 @@ export const MyInvoicesModal: React.FC<MyInvoicesModalProps> = ({
             onClick={onClose}
             className="px-5 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 rounded-lg transition"
           >
-            Close
+            {t('myInvoices.deleteCancel', 'Close')}
           </button>
         </div>
       </div>

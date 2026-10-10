@@ -1,6 +1,8 @@
 export const FORM_TRANSLATIONS: Record<string, Record<string, string>> = {
   en: {
     optional: 'Optional',
+    fromBusiness: 'From (Your Business)',
+    billToClient: 'Bill To (Client)',
     businessName: 'Business name', email: 'Email address', street: 'Street address', city: 'City / region', postal: 'Postal code',
     phone: 'Phone', taxId: 'Tax or business ID', website: 'Website / additional info', clientName: 'Client / company name',
     clientEmail: 'Client email', clientTaxId: 'Client tax ID', mobile: 'Mobile (optional)', fax: 'Fax (optional)',
@@ -17,6 +19,8 @@ export const FORM_TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   es: {
     optional: 'Opcional',
+    fromBusiness: 'De (Tu Empresa)',
+    billToClient: 'Facturar a (Cliente)',
     businessName: 'Nombre del negocio', email: 'Correo electrónico', street: 'Dirección', city: 'Ciudad / provincia', postal: 'Código postal',
     phone: 'Teléfono', taxId: 'NIF u otro ID fiscal', website: 'Web / información adicional', clientName: 'Nombre del cliente o empresa',
     clientEmail: 'Correo del cliente', clientTaxId: 'NIF del cliente', mobile: 'Móvil (opcional)', fax: 'Fax (opcional)',
@@ -33,6 +37,8 @@ export const FORM_TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   fr: {
     optional: 'Facultatif',
+    fromBusiness: 'De (Votre Entreprise)',
+    billToClient: 'Facturer à (Client)',
     businessName: 'Nom de l’entreprise', email: 'Adresse e-mail', street: 'Adresse postale', city: 'Ville / région', postal: 'Code postal',
     phone: 'Téléphone', taxId: 'Identifiant fiscal ou entreprise', website: 'Site web / informations complémentaires', clientName: 'Nom du client ou de l’entreprise',
     clientEmail: 'E-mail du client', clientTaxId: 'Identifiant fiscal du client', mobile: 'Mobile (facultatif)', fax: 'Fax (facultatif)',
@@ -49,6 +55,8 @@ export const FORM_TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   de: {
     optional: 'Optional',
+    fromBusiness: 'Von (Ihr Unternehmen)',
+    billToClient: 'Rechnung an (Kunde)',
     businessName: 'Name des Unternehmens', email: 'E-Mail-Adresse', street: 'Straße und Hausnummer', city: 'Ort / Region', postal: 'Postleitzahl',
     phone: 'Telefon', taxId: 'Steuer- oder Unternehmensnummer', website: 'Website / weitere Angaben', clientName: 'Kunden- oder Firmenname',
     clientEmail: 'E-Mail des Kunden', clientTaxId: 'Steuernummer des Kunden', mobile: 'Mobiltelefon (optional)', fax: 'Fax (optional)',
@@ -65,6 +73,8 @@ export const FORM_TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   pt: {
     optional: 'Opcional',
+    fromBusiness: 'De (Sua Empresa)',
+    billToClient: 'Faturar para (Cliente)',
     businessName: 'Nome da empresa', email: 'E-mail', street: 'Endereço', city: 'Cidade / estado', postal: 'CEP',
     phone: 'Telefone', taxId: 'CNPJ, CPF ou inscrição fiscal', website: 'Site / informações adicionais', clientName: 'Nome do cliente ou empresa',
     clientEmail: 'E-mail do cliente', clientTaxId: 'CNPJ ou CPF do cliente', mobile: 'Celular (opcional)', fax: 'Fax (opcional)',
@@ -81,6 +91,8 @@ export const FORM_TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   it: {
     optional: 'Facoltativo',
+    fromBusiness: 'Da (La Tua Azienda)',
+    billToClient: 'Fattura a (Cliente)',
     businessName: 'Nome dell’attività', email: 'Indirizzo e-mail', street: 'Indirizzo', city: 'Città / provincia', postal: 'CAP',
     phone: 'Telefono', taxId: 'Partita IVA o codice fiscale', website: 'Sito web / altre informazioni', clientName: 'Nome del cliente o dell’azienda',
     clientEmail: 'E-mail del cliente', clientTaxId: 'Partita IVA del cliente', mobile: 'Cellulare (facoltativo)', fax: 'Fax (facoltativo)',
@@ -95,4 +107,4 @@ export const FORM_TRANSLATIONS: Record<string, Record<string, string>> = {
     businessNameExample: 'Studio Aurora', clientNameExample: 'Caffè Navigli',
     clientPhoneExample: '+39 02 1234 5679', businessTaxExample: 'Partita IVA di esempio', clientTaxExample: 'Partita IVA di esempio',
   },
-};
+};;

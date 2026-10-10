@@ -12,6 +12,7 @@ import {
   Sparkles,
   HeartHandshake,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { TOOLS_CONFIG } from '../data/toolsConfig';
 
 interface AboutPageProps {
@@ -20,6 +21,8 @@ interface AboutPageProps {
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onSelectTool }) => {
+  const { t } = useTranslation('common');
+
   return (
     <div className="space-y-8 animate-in fade-in duration-200">
       {/* Breadcrumb & Navigation */}
@@ -29,10 +32,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onSelectTo
           onClick={onNavigateHome}
           className="hover:text-[#1A3263] transition font-medium cursor-pointer"
         >
-          Home
+          {t('footer.quickLinks', 'Home')}
         </button>
         <span>/</span>
-        <span className="text-gray-900 font-semibold">About Us</span>
+        <span className="text-gray-900 font-semibold">{t('about.breadcrumb', 'About Us')}</span>
       </nav>
 
       {/* Hero Header */}
@@ -41,18 +44,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onSelectTo
         
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold bg-[#1A3263]/10 text-[#1A3263] border border-[#1A3263]/15 mb-3">
           <Info className="w-3.5 h-3.5" />
-          <span>About Invoiceo.online</span>
+          <span>{t('about.badge', 'About Invoiceo.online')}</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 max-w-3xl leading-tight">
-          Empowering small businesses with free, private, and instant commercial invoicing.
+          {t('about.title', 'Empowering small businesses with free, private, and instant commercial invoicing.')}
         </h1>
 
         <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl">
-          <strong>Invoiceo.online</strong> is an open-access web application built for freelancers,
-          contractors, tradespeople, consultants, and independent business owners worldwide. We
-          eliminate the subscription fees, forced account registrations, and intrusive watermarks
-          common in modern invoicing software.
+          {t('about.subtitle', 'Invoiceo.online is an open-access web application built for freelancers, contractors, tradespeople, consultants, and independent business owners worldwide. We eliminate the subscription fees, forced account registrations, and intrusive watermarks common in modern invoicing software.')}
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -61,14 +61,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onSelectTo
             onClick={onNavigateHome}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1A3263] hover:bg-[#132549] text-white rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition cursor-pointer"
           >
-            <span>Create an Invoice Now</span>
+            <span>{t('about.createInvoiceBtn', 'Create an Invoice Now')}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
           <a
             href="#tools"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-sm font-semibold transition cursor-pointer"
           >
-            <span>View All 12 Document Tools</span>
+            <span>{t('about.viewToolsBtn', 'View All 12 Document Tools')}</span>
           </a>
         </div>
       </div>
@@ -79,10 +79,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onSelectTo
           <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1A3263] flex items-center justify-center mb-4">
             <Lock className="w-6 h-6 stroke-[2.2]" />
           </div>
-          <h2 className="text-lg font-bold text-gray-900 mb-2">100% Private & Client-Side</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-2">{t('about.privateTitle', '100% Private & Client-Side')}</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Your billing records, client addresses, and rates stay strictly inside your browser’s
-            local storage. We operate zero databases or remote tracking servers.
+            {t('about.privateDesc', 'Your billing records, client addresses, and rates stay strictly inside your browser’s local storage. We operate zero databases or remote tracking servers.')}
           </p>
         </div>
 
@@ -90,10 +89,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onSelectTo
           <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4">
             <Zap className="w-6 h-6 stroke-[2.2]" />
           </div>
-          <h2 className="text-lg font-bold text-gray-900 mb-2">No Sign-Up or Paywalls</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-2">{t('about.noSignTitle', 'No Sign-Up or Paywalls')}</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Open the site and start typing immediately. There are no credit cards, registration forms,
-            monthly invoices to pay, or limits on how many documents you can generate.
+            {t('about.noSignDesc', 'Open the site and start typing immediately. There are no credit cards, registration forms, monthly invoices to pay, or limits on how many documents you can generate.')}
           </p>
         </div>
 
@@ -101,48 +99,47 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onSelectTo
           <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-4">
             <Download className="w-6 h-6 stroke-[2.2]" />
           </div>
-          <h2 className="text-lg font-bold text-gray-900 mb-2">Crisp Vector PDFs</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-2">{t('about.vectorTitle', 'Crisp Vector PDFs')}</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Every document is rendered using true vector PDF technology with selectable text, clean
-            borders, signature integration, and printable layouts.
+            {t('about.vectorDesc', 'Every document is rendered using true vector PDF technology with selectable text, clean borders, signature integration, and printable layouts.')}
           </p>
         </div>
       </div>
 
       {/* Our Core Commitments */}
       <div className="bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-8 shadow-xs space-y-6">
-        <h2 className="text-2xl font-bold text-gray-900">Our Guiding Principles</h2>
+        <h2 className="text-2xl font-bold text-gray-900">{t('about.principlesTitle', 'Our Guiding Principles')}</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
           <div className="flex items-start gap-3.5">
             <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-gray-900 block mb-1">Zero Watermarks on Output</strong>
-              <p>Your business documents should look 100% professional. We never stamp promotional watermarks, vendor URLs, or branding onto your client PDFs.</p>
+              <strong className="text-gray-900 block mb-1">{t('about.principle1Title', 'Zero Watermarks on Output')}</strong>
+              <p>{t('about.principle1Desc', 'Your business documents should look 100% professional. We never stamp promotional watermarks, vendor URLs, or branding onto your client PDFs.')}</p>
             </div>
           </div>
 
           <div className="flex items-start gap-3.5">
             <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-gray-900 block mb-1">Global Currency & Multi-Tax Support</strong>
-              <p>Over 35 international currencies and customizable tax, discount, and shipping calculations to comply with global business standards.</p>
+              <strong className="text-gray-900 block mb-1">{t('about.principle2Title', 'Global Currency & Multi-Tax Support')}</strong>
+              <p>{t('about.principle2Desc', 'Over 35 international currencies and customizable tax, discount, and shipping calculations to comply with global business standards.')}</p>
             </div>
           </div>
 
           <div className="flex items-start gap-3.5">
             <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-gray-900 block mb-1">Data Portability with JSON Backup</strong>
-              <p>Easily export all your invoices and settings into an encrypted-ready JSON file and restore it on any computer or browser anytime.</p>
+              <strong className="text-gray-900 block mb-1">{t('about.principle3Title', 'Data Portability with JSON Backup')}</strong>
+              <p>{t('about.principle3Desc', 'Easily export all your invoices and settings into an encrypted-ready JSON file and restore it on any computer or browser anytime.')}</p>
             </div>
           </div>
 
           <div className="flex items-start gap-3.5">
             <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-gray-900 block mb-1">Accessible Everywhere</strong>
-              <p>Engineered for high performance on desktops, laptops, tablets, and smartphones without demanding bloated software downloads.</p>
+              <strong className="text-gray-900 block mb-1">{t('about.principle4Title', 'Accessible Everywhere')}</strong>
+              <p>{t('about.principle4Desc', 'Engineered for high performance on desktops, laptops, tablets, and smartphones without demanding bloated software downloads.')}</p>
             </div>
           </div>
         </div>
@@ -152,15 +149,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onSelectTo
       <div id="tools" className="bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">12 Commercial Document Generators</h2>
-            <p className="text-sm text-gray-600 mt-1">Each tailored with standard prefixes, document layouts, and fields.</p>
+            <h2 className="text-2xl font-bold text-gray-900">{t('about.generatorsTitle', '12 Commercial Document Generators')}</h2>
+            <p className="text-sm text-gray-600 mt-1">{t('about.generatorsSubtitle', 'Each tailored with standard prefixes, document layouts, and fields.')}</p>
           </div>
           <button
             type="button"
             onClick={onNavigateHome}
             className="text-xs font-bold text-[#1A3263] hover:underline cursor-pointer"
           >
-            Go to Primary Invoice Generator →
+            {t('about.primaryGeneratorLink', 'Go to Primary Invoice Generator →')}
           </button>
         </div>
 

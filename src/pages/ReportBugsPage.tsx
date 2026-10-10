@@ -10,12 +10,14 @@ import {
   ArrowRight,
   HelpCircle,
 } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 
 interface ReportBugsPageProps {
   onNavigateHome: () => void;
 }
 
 export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }) => {
+  const { t } = useTranslation('common');
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('PDF Export');
   const [severity, setSeverity] = useState('Medium');
@@ -86,25 +88,24 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
           onClick={onNavigateHome}
           className="hover:text-[#1A3263] transition font-medium cursor-pointer"
         >
-          Home
+          {t('footer.quickLinks', 'Home')}
         </button>
         <span>/</span>
-        <span className="text-gray-900 font-semibold">Report Bugs</span>
+        <span className="text-gray-900 font-semibold">{t('reportBugs.breadcrumb', 'Report Bugs')}</span>
       </nav>
 
       {/* Header */}
       <div className="bg-white border border-gray-200/90 rounded-2xl shadow-xs p-6 sm:p-10 relative overflow-hidden">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold bg-amber-50 text-amber-900 border border-amber-200 mb-3">
           <Bug className="w-3.5 h-3.5 text-amber-700" />
-          <span>Issue & Glitch Tracker</span>
+          <span>{t('reportBugs.badge', 'Issue & Glitch Tracker')}</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 leading-tight">
-          Report a Bug or Calculation Issue
+          {t('reportBugs.title', 'Report a Bug or Calculation Issue')}
         </h1>
         <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-3xl leading-relaxed">
-          Spotted a PDF rendering flaw, formatting anomaly, or math discrepancy? Your bug reports help
-          ensure Invoiceo.online remains fast, accurate, and completely dependable for thousands of businesses.
+          {t('reportBugs.subtitle', 'Spotted a PDF rendering flaw, formatting anomaly, or math discrepancy? Your bug reports help ensure Invoiceo.online remains fast, accurate, and completely dependable for thousands of businesses.')}
         </p>
       </div>
 
@@ -116,11 +117,14 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
               <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-10 h-10 stroke-[2.5]" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Bug Report Recorded!</h2>
+              <h2 className="text-2xl font-bold text-gray-900">{t('reportBugs.submittedTitle', 'Bug Report Recorded!')}</h2>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Thank you for helping us maintain Invoiceo's quality. Your report reference ID is{' '}
-                <strong className="text-gray-900 font-mono">{bugRef}</strong>. Our engineering team reviews
-                reported reproduction steps daily.
+                <Trans
+                  i18nKey="reportBugs.submittedDesc"
+                  values={{ bugRef }}
+                  components={{ 1: <strong className="text-gray-900 font-mono" /> }}
+                  defaults="Thank you for helping us maintain Invoiceo's quality. Your report reference ID is <1>{{bugRef}}</1>. Our engineering team reviews reported reproduction steps daily."
+                />
               </p>
               <div className="pt-4 flex justify-center gap-3">
                 <button
@@ -128,14 +132,14 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
                   onClick={handleReset}
                   className="px-4 py-2 border border-gray-300 hover:bg-gray-50 rounded-xl text-xs font-bold text-gray-700 transition cursor-pointer"
                 >
-                  Submit Another Bug
+                  {t('reportBugs.submitAnother', 'Submit Another Bug')}
                 </button>
                 <button
                   type="button"
                   onClick={onNavigateHome}
                   className="px-4 py-2 bg-[#1A3263] hover:bg-[#132549] rounded-xl text-xs font-bold text-white transition cursor-pointer inline-flex items-center gap-1.5"
                 >
-                  <span>Return to Invoicing</span>
+                  <span>{t('reportBugs.returnToInvoicing', 'Return to Invoicing')}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -144,12 +148,12 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="flex items-center gap-2 pb-2 border-b border-gray-100">
                 <AlertTriangle className="w-5 h-5 text-amber-600" />
-                <h2 className="text-lg font-bold text-gray-900">Describe the Issue</h2>
+                <h2 className="text-lg font-bold text-gray-900">{t('reportBugs.formTitle', 'Describe the Issue')}</h2>
               </div>
 
               <div>
                 <label htmlFor="bug-title" className="block text-xs font-bold text-gray-700 mb-1.5">
-                  Issue Summary / Title <span className="text-red-500">*</span>
+                  {t('reportBugs.issueTitle', 'Issue Summary / Title')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="bug-title"
@@ -157,7 +161,7 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
                   required
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="e.g. PDF logo blurry on mobile export, or Tax not calculating on shipping"
+                  placeholder={t('reportBugs.issueTitlePlaceholder', 'e.g. PDF logo blurry on mobile export, or Tax not calculating on shipping')}
                   className="w-full text-sm border border-gray-300 rounded-xl px-3.5 py-2.5 outline-none focus:border-[#1A3263] focus:ring-1 focus:ring-[#1A3263] transition"
                 />
               </div>
@@ -165,7 +169,7 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="bug-category" className="block text-xs font-bold text-gray-700 mb-1.5">
-                    Category
+                    {t('reportBugs.category', 'Category')}
                   </label>
                   <select
                     id="bug-category"
@@ -173,19 +177,19 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
                     onChange={(e) => setCategory(e.target.value)}
                     className="w-full text-sm border border-gray-300 rounded-xl px-3.5 py-2.5 outline-none focus:border-[#1A3263] focus:ring-1 focus:ring-[#1A3263] bg-white transition"
                   >
-                    <option value="PDF Export">PDF Export / Vector Quality</option>
-                    <option value="Calculation">Calculation / Math / Currency</option>
-                    <option value="UI & Layout">UI & Visual Layout / Overflow</option>
-                    <option value="Mobile / Tablet">Mobile or Tablet Display</option>
-                    <option value="Storage & Backup">Saved Invoices / JSON Import-Export</option>
-                    <option value="Templates">Templates & Customization Styles</option>
-                    <option value="Other">Other</option>
+                    <option value="PDF Export">{t('reportBugs.catPdf', 'PDF Export / Vector Quality')}</option>
+                    <option value="Calculation">{t('reportBugs.catCalc', 'Calculation / Math / Currency')}</option>
+                    <option value="UI & Layout">{t('reportBugs.catUi', 'UI & Visual Layout / Overflow')}</option>
+                    <option value="Mobile / Tablet">{t('reportBugs.catMobile', 'Mobile or Tablet Display')}</option>
+                    <option value="Storage & Backup">{t('reportBugs.catStorage', 'Saved Invoices / JSON Import-Export')}</option>
+                    <option value="Templates">{t('reportBugs.catTemplates', 'Templates & Customization Styles')}</option>
+                    <option value="Other">{t('reportBugs.catOther', 'Other')}</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="bug-severity" className="block text-xs font-bold text-gray-700 mb-1.5">
-                    Severity
+                    {t('reportBugs.severity', 'Severity')}
                   </label>
                   <select
                     id="bug-severity"
@@ -193,17 +197,17 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
                     onChange={(e) => setSeverity(e.target.value)}
                     className="w-full text-sm border border-gray-300 rounded-xl px-3.5 py-2.5 outline-none focus:border-[#1A3263] focus:ring-1 focus:ring-[#1A3263] bg-white transition"
                   >
-                    <option value="Low">Low (Typo, minor cosmetic issue)</option>
-                    <option value="Medium">Medium (Awkward layout, workaround available)</option>
-                    <option value="High">High (Feature not functioning as expected)</option>
-                    <option value="Critical">Critical (PDF export failed or data error)</option>
+                    <option value="Low">{t('reportBugs.sevLow', 'Low (Typo, minor cosmetic issue)')}</option>
+                    <option value="Medium">{t('reportBugs.sevMed', 'Medium (Awkward layout, workaround available)')}</option>
+                    <option value="High">{t('reportBugs.sevHigh', 'High (Feature not functioning as expected)')}</option>
+                    <option value="Critical">{t('reportBugs.sevCrit', 'Critical (PDF export failed or data error)')}</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label htmlFor="bug-steps" className="block text-xs font-bold text-gray-700 mb-1.5">
-                  Steps to Reproduce <span className="text-red-500">*</span>
+                  {t('reportBugs.stepsToReproduce', 'Steps to Reproduce')} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   id="bug-steps"
@@ -211,35 +215,35 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
                   required
                   value={steps}
                   onChange={(e) => setSteps(e.target.value)}
-                  placeholder="1. Go to Receipt Generator&#10;2. Add item with 15% discount&#10;3. Click Download PDF&#10;4. Observe discrepancy"
+                  placeholder={t('reportBugs.stepsPlaceholder', '1. Go to Receipt Generator\n2. Add item with 15% discount\n3. Click Download PDF\n4. Observe discrepancy')}
                   className="w-full text-sm font-mono text-xs sm:text-sm border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#1A3263] focus:ring-1 focus:ring-[#1A3263] transition"
                 />
               </div>
 
               <div>
                 <label htmlFor="bug-expected" className="block text-xs font-bold text-gray-700 mb-1.5">
-                  Expected vs. Actual Result <span className="text-gray-400 font-normal">(optional)</span>
+                  {t('reportBugs.expectedVsActual', 'Expected vs. Actual Result')} <span className="text-gray-400 font-normal">{t('contact.optional', '(optional)')}</span>
                 </label>
                 <textarea
                   id="bug-expected"
                   rows={2}
                   value={expected}
                   onChange={(e) => setExpected(e.target.value)}
-                  placeholder="Expected discount to deduct $15, but it deducted $10..."
+                  placeholder={t('reportBugs.expectedPlaceholder', 'Expected discount to deduct $15, but it deducted $10...')}
                   className="w-full text-sm border border-gray-300 rounded-xl p-3 outline-none focus:border-[#1A3263] focus:ring-1 focus:ring-[#1A3263] transition"
                 />
               </div>
 
               <div>
                 <label htmlFor="bug-email" className="block text-xs font-bold text-gray-700 mb-1.5">
-                  Your Email <span className="text-gray-400 font-normal">(optional, if you’d like follow-up confirmation)</span>
+                  {t('reportBugs.emailLabel', 'Your Email')} <span className="text-gray-400 font-normal">{t('reportBugs.emailHint', '(optional, if you’d like follow-up confirmation)')}</span>
                 </label>
                 <input
                   id="bug-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@company.com"
+                  placeholder={t('reportBugs.emailPlaceholder', 'you@company.com')}
                   className="w-full text-sm border border-gray-300 rounded-xl px-3.5 py-2.5 outline-none focus:border-[#1A3263] focus:ring-1 focus:ring-[#1A3263] transition"
                 />
               </div>
@@ -255,18 +259,21 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
                 />
                 <label htmlFor="include-specs" className="text-xs text-gray-600 cursor-pointer">
                   <span className="font-bold text-gray-900 block mb-0.5">
-                    Include detected technical diagnostics
+                    {t('reportBugs.includeSpecs', 'Include detected technical diagnostics')}
                   </span>
                   <span>
-                    Auto-attaches browser ({systemInfo.browser} on {systemInfo.os}) and viewport (
-                    {systemInfo.viewport}) to accelerate reproduction.
+                    {t('reportBugs.includeSpecsDesc', 'Auto-attaches browser ({{browser}} on {{os}}) and viewport ({{viewport}}) to accelerate reproduction.', {
+                      browser: systemInfo.browser,
+                      os: systemInfo.os,
+                      viewport: systemInfo.viewport,
+                    })}
                   </span>
                 </label>
               </div>
 
               <div className="flex items-center justify-between pt-2">
                 <span className="text-xs text-gray-500">
-                  Bug reports are reviewed directly by developers.
+                  {t('reportBugs.footerNotice', 'Bug reports are reviewed directly by developers.')}
                 </span>
                 <button
                   type="submit"
@@ -274,7 +281,7 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
                   className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#1A3263] hover:bg-[#132549] disabled:opacity-50 text-white rounded-xl text-sm font-bold shadow-sm transition cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Submit Bug Report</span>
+                  <span>{t('reportBugs.submitBtn', 'Submit Bug Report')}</span>
                 </button>
               </div>
             </form>
@@ -285,31 +292,31 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
         <div className="space-y-6">
           <div className="bg-white border border-gray-200/90 rounded-2xl p-6 shadow-xs space-y-4">
             <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">
-              Quick Self-Fix Checklist
+              {t('reportBugs.selfFixTitle', 'Quick Self-Fix Checklist')}
             </h3>
 
             <div className="space-y-3.5 text-xs text-gray-600">
               <div className="flex items-start gap-2.5">
                 <RefreshCw className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 block mb-0.5">Force Browser Reload:</strong>
-                  <span>Press <kbd className="bg-gray-100 px-1 py-0.5 rounded border">Ctrl</kbd> + <kbd className="bg-gray-100 px-1 py-0.5 rounded border">Shift</kbd> + <kbd className="bg-gray-100 px-1 py-0.5 rounded border">R</kbd> to ensure you have the latest build.</span>
+                  <strong className="text-gray-900 block mb-0.5">{t('reportBugs.fix1Title', 'Force Browser Reload:')}</strong>
+                  <span>{t('reportBugs.fix1Desc', 'Press Ctrl + Shift + R to ensure you have the latest build.')}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5">
                 <Monitor className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 block mb-0.5">Ad-Blocker Notice:</strong>
-                  <span>Some aggressive privacy extensions block canvas rendering used for PDF creation. Try whitelisting the site.</span>
+                  <strong className="text-gray-900 block mb-0.5">{t('reportBugs.fix2Title', 'Ad-Blocker Notice:')}</strong>
+                  <span>{t('reportBugs.fix2Desc', 'Some aggressive privacy extensions block canvas rendering used for PDF creation. Try whitelisting the site.')}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5">
                 <HelpCircle className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 block mb-0.5">Direct Developer Mail:</strong>
-                  <span>For critical issues, email developer support directly at <a href="mailto:bugs@invoiceo.online" className="text-[#1A3263] font-bold underline">bugs@invoiceo.online</a>.</span>
+                  <strong className="text-gray-900 block mb-0.5">{t('reportBugs.fix3Title', 'Direct Developer Mail:')}</strong>
+                  <span>{t('reportBugs.fix3Desc', 'For critical issues, email developer support directly at bugs@invoiceo.online.')}</span>
                 </div>
               </div>
             </div>

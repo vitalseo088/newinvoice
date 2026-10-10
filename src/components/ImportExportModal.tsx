@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   Copy,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { InvoiceData } from '../types/invoice';
 
 interface ImportExportModalProps {
@@ -26,6 +27,7 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
   allInvoices,
   onImportInvoices,
 }) => {
+  const { t } = useTranslation('common');
   const [importError, setImportError] = useState<string | null>(null);
   const [importSuccess, setImportSuccess] = useState<string | null>(null);
   const [pendingImport, setPendingImport] = useState<{
@@ -107,16 +109,16 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
           } else if (parsed.items && (parsed.number || parsed.id)) {
             importedList = [parsed];
           } else {
-            throw new Error('Unrecognized JSON format. File does not contain valid invoice data.');
+            throw new Error(t('importExport.errorParse', 'Unrecognized JSON format. File does not contain valid invoice data.'));
           }
         } else {
-          throw new Error('Invalid JSON file format.');
+          throw new Error(t('importExport.errorInvalid', 'Invalid JSON file format.'));
         }
 
         // Validate basic invoice schema
         for (const inv of importedList) {
           if (!inv || typeof inv !== 'object' || !Array.isArray(inv.items)) {
-            throw new Error('One or more invoices has invalid structure or missing line items.');
+            throw new Error(t('importExport.errorStructure', 'One or more invoices has invalid structure or missing line items.'));
           }
         }
 
@@ -139,13 +141,13 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
           });
         } else {
           onImportInvoices(importedList, 'copy');
-          setImportSuccess(`Successfully imported ${importedList.length} invoice(s)!`);
+          setImportSuccess(t('importExport.success', 'Successfully imported {{count}} invoice(s)!', { count: importedList.length }));
         }
       } catch (err: any) {
-        setImportError(err.message || 'Failed to read or parse JSON file.');
+        setImportError(err.message || t('importExport.errorRead', 'Failed to read or parse JSON file.'));
       }
     };
-    reader.onerror = () => setImportError('Error reading file.');
+    reader.onerror = () => setImportError(t('importExport.errorRead', 'Failed to read or parse JSON file.'));
     reader.readAsText(file);
     // Reset input
     e.target.value = '';
@@ -171,10 +173,10 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
             </div>
             <div>
               <h3 id="import-export-title" className="font-extrabold text-gray-900 text-lg">
-                Import & Export Invoices
+                {t('importExport.title', 'Import & Export Invoices')}
               </h3>
               <p className="text-xs sm:text-sm text-gray-500">
-                100% private in-browser backup and data portability
+                {t('importExport.subtitle', '100% private in-browser backup and data portability')}
               </p>
             </div>
           </div>
@@ -192,7 +194,7 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
           {/* Export Section */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-gray-600 mb-3">
-              Export Invoice Data
+              {t('importExport.exportData', 'Export Invoice Data')}
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <button
@@ -204,9 +206,9 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
                   <FileJson className="w-6 h-6 text-[#1A3263]" />
                   <Download className="w-4 h-4 text-gray-400 group-hover:text-[#1A3263]" />
                 </div>
-                <h5 className="font-bold text-base text-gray-900">Current Invoice</h5>
+                <h5 className="font-bold text-base text-gray-900">{t('importExport.exportCurrent', 'Export Current Invoice (JSON)')}</h5>
                 <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                  Export #{currentInvoice.number} as a standalone JSON file with all settings.
+                  {t('importExport.exportCurrentDesc', 'Download active invoice file for sharing or archiving')} (#{currentInvoice.number})
                 </p>
               </button>
 
@@ -219,9 +221,9 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
                   <DatabaseBackup className="w-6 h-6 text-[#1A3263]" />
                   <Download className="w-4 h-4 text-gray-400 group-hover:text-[#1A3263]" />
                 </div>
-                <h5 className="font-bold text-base text-gray-900">Full Invoices Backup</h5>
+                <h5 className="font-bold text-base text-gray-900">{t('importExport.exportAll', 'Backup All Saved Invoices (JSON)')}</h5>
                 <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                  Download all {allInvoices.length} invoices in one comprehensive JSON archive.
+                  {t('importExport.exportAllDesc', 'Export complete database backup containing all your saved invoices')} ({allInvoices.length})
                 </p>
               </button>
             </div>
@@ -230,16 +232,16 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
           {/* Import Section */}
           <div className="pt-4 border-t border-gray-200">
             <h4 className="text-xs font-bold uppercase tracking-wider text-gray-600 mb-3">
-              Import Invoices From JSON
+              {t('importExport.importData', 'Import Invoice Data')}
             </h4>
 
             <label className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-xl p-6 bg-gray-50 cursor-pointer hover:bg-gray-100 hover:border-[#1A3263] transition">
               <Upload className="w-8 h-8 text-gray-400 mb-2" />
               <span className="text-base font-bold text-gray-800">
-                Click to browse or drop JSON file
+                {t('importExport.dropOrBrowse', 'Drop invoice JSON or backup file here, or click to browse')}
               </span>
               <span className="text-xs sm:text-sm text-gray-500 mt-1">
-                Supports single invoice JSON or full Invoiceo backup archive
+                {t('importExport.supportedFormats', 'Supports single invoice JSON or multi-invoice backup files')}
               </span>
               <input
                 type="file"
@@ -269,11 +271,10 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
               <div className="mt-4 p-4 border border-amber-200 bg-amber-50 rounded-xl">
                 <div className="flex items-center gap-2 text-amber-900 font-bold text-sm mb-1.5">
                   <AlertTriangle className="w-5 h-5 text-amber-600" />
-                  Duplicate Invoice Detected ({pendingImport.conflictingNumbers.join(', ')})
+                  {t('importExport.conflictTitle', 'Import Conflicts Detected')} ({pendingImport.conflictingNumbers.join(', ')})
                 </div>
                 <p className="text-xs sm:text-sm text-amber-800 mb-3.5 leading-relaxed">
-                  The file contains invoice numbers that already exist in your local storage.
-                  Choose how you'd like to handle them:
+                  {t('importExport.conflictDesc', 'Some imported invoices have IDs or invoice numbers that already exist in your saved invoices.')}
                 </p>
 
                 <div className="flex flex-wrap gap-2.5">
@@ -286,7 +287,7 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
                     }}
                     className="cursor-pointer inline-flex items-center gap-2 px-3.5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-xs sm:text-sm font-semibold transition"
                   >
-                    <Copy className="w-4 h-4" /> Import as Copies (New IDs)
+                    <Copy className="w-4 h-4" /> {t('importExport.copyAsNew', 'Keep Both (Save as Copies)')}
                   </button>
 
                   <button
@@ -298,7 +299,7 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
                     }}
                     className="cursor-pointer inline-flex items-center gap-2 px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs sm:text-sm font-semibold transition"
                   >
-                    Replace Existing
+                    {t('importExport.replaceExisting', 'Replace Existing Invoices')}
                   </button>
 
                   <button
@@ -306,7 +307,7 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
                     onClick={() => setPendingImport(null)}
                     className="cursor-pointer px-3.5 py-2 text-xs sm:text-sm font-medium text-gray-700 hover:bg-amber-100 rounded-lg transition"
                   >
-                    Cancel Import
+                    {t('importExport.cancel', 'Cancel')}
                   </button>
                 </div>
               </div>
@@ -321,7 +322,7 @@ export const ImportExportModal: React.FC<ImportExportModalProps> = ({
             onClick={handleClose}
             className="cursor-pointer px-6 py-2.5 text-sm font-bold text-gray-700 bg-white hover:bg-gray-100 hover:text-gray-900 border border-gray-300 rounded-lg transition shadow-2xs"
           >
-            Close
+            {t('importExport.cancel', 'Close')}
           </button>
         </div>
       </div>

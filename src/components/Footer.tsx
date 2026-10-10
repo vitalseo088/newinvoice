@@ -189,21 +189,10 @@ export const Footer: React.FC<FooterProps> = ({
                 Invoiceo<span className="text-blue-300">.online</span>
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-4">
               {tr('common:footer.browserOnlyNote')}
             </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Separate Copyright bottom bar */}
-      <div className="border-t border-gray-700/80 bg-[#22252B] py-5">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-400">
-          <div className="flex flex-col sm:flex-row items-center gap-3">
             <div>
-              © {new Date().getFullYear()} Invoiceo.online. {tr('common:footer.allRightsReserved')}
-            </div>
-            <div className="sm:border-l sm:border-gray-700 sm:pl-3">
               <LanguageSwitcher
                 currentLang={currentLang}
                 currentRouteId={currentRouteId}
@@ -211,6 +200,15 @@ export const Footer: React.FC<FooterProps> = ({
                 variant="footer"
               />
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Separate Copyright bottom bar */}
+      <div className="border-t border-gray-700/80 bg-[#22252B] py-5">
+        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-400">
+          <div>
+            © {new Date().getFullYear()} Invoiceo.online. {tr('common:footer.allRightsReserved')}
           </div>
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <button

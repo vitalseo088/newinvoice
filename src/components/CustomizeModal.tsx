@@ -7,9 +7,9 @@ import {
   Type,
   DollarSign,
   LayoutTemplate,
-  Sparkles,
 } from 'lucide-react';
-import { InvoiceCustomization, TemplateId } from '../types/invoice';
+import { useTranslation } from 'react-i18next';
+import { InvoiceCustomization } from '../types/invoice';
 import { CURRENCIES } from '../utils/currency';
 import { PRESET_ACCENT_COLORS, TEMPLATES } from '../utils/templates';
 import { INVOICE_FONTS } from '../utils/fonts';
@@ -27,6 +27,8 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
   customization,
   onChange,
 }) => {
+  const { t } = useTranslation('common');
+
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -77,9 +79,9 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
               <SlidersHorizontal className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 text-lg">Invoice Customization</h3>
+              <h3 className="font-bold text-gray-900 text-lg">{t('customize.title', 'Invoice Customization')}</h3>
               <p className="text-xs sm:text-sm text-gray-500">
-                Configure branding colors, typography, currency, taxes, and visible fields
+                {t('customize.subtitle', 'Configure branding colors, typography, currency, taxes, and visible fields')}
               </p>
             </div>
           </div>
@@ -99,10 +101,10 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
           <section className="space-y-3">
             <div className="flex items-center justify-between">
               <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2">
-                <LayoutTemplate className="w-4 h-4 text-[#1A3263]" /> Template Layout Design
+                <LayoutTemplate className="w-4 h-4 text-[#1A3263]" /> {t('customize.templateLayout', 'Template Layout Design')}
               </label>
               <span className="text-xs text-gray-500 font-medium">
-                Active: <strong className="text-[#1A3263]">{TEMPLATES.find((t) => t.id === customization.template)?.name || customization.template}</strong>
+                {t('customize.active', 'Active:')} <strong className="text-[#1A3263]">{TEMPLATES.find((t) => t.id === customization.template)?.name || customization.template}</strong>
               </span>
             </div>
 
@@ -158,7 +160,7 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
           <section className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-gray-200">
             <div>
               <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2 mb-2">
-                <Palette className="w-4 h-4 text-[#1A3263]" /> Accent Color
+                <Palette className="w-4 h-4 text-[#1A3263]" /> {t('customize.colorBranding', 'Accent Color')}
               </label>
               <div className="flex items-center flex-wrap gap-2.5 mb-3">
                 {PRESET_ACCENT_COLORS.map((col) => (
@@ -190,13 +192,13 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
                   placeholder="#1A3263"
                   className="text-sm font-mono border border-gray-300 rounded-lg px-3 py-2 w-32 uppercase outline-none focus:border-[#1A3263]"
                 />
-                <span className="text-xs text-gray-400">Custom hex code</span>
+                <span className="text-xs text-gray-400">{t('customize.customHex', 'Custom hex code')}</span>
               </div>
             </div>
 
             <div>
               <label className="text-sm sm:text-base font-bold text-gray-800 mb-2 block">
-                Logo Width ({customization.logoWidth}px)
+                {t('customize.logoWidth', 'Logo Width')} ({customization.logoWidth}px)
               </label>
               <input
                 type="range"
@@ -208,9 +210,9 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
                 className="w-full accent-[#1A3263]"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1.5 font-medium">
-                <span>Compact (80px)</span>
-                <span>Medium (150px)</span>
-                <span>Large (260px)</span>
+                <span>{t('customize.compact', 'Compact')} (80px)</span>
+                <span>{t('customize.medium', 'Medium')} (150px)</span>
+                <span>{t('customize.large', 'Large')} (260px)</span>
               </div>
             </div>
           </section>
@@ -219,16 +221,16 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
           <section className="space-y-4 pt-4 border-t border-gray-200">
             <div className="flex items-center justify-between">
               <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2">
-                <Type className="w-4 h-4 text-[#1A3263]" /> Typography & Document Sizing
+                <Type className="w-4 h-4 text-[#1A3263]" /> {t('customize.typography', 'Typography & Document Sizing')}
               </label>
               <span className="text-xs text-gray-500 font-medium">
-                Active font: <strong className="text-[#1A3263]">{customization.fontFamily}</strong>
+                {t('customize.activeFont', 'Active font:')} <strong className="text-[#1A3263]">{customization.fontFamily}</strong>
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               <div>
-                <label className="text-xs font-semibold text-gray-700 mb-1 block">Font Family</label>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.fontFamily', 'Font Family')}</label>
                 <select
                   value={customization.fontFamily}
                   onChange={(e) => update('fontFamily', e.target.value as any)}
@@ -243,40 +245,40 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-gray-700 mb-1 block">Font Size</label>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.fontSize', 'Font Size')}</label>
                 <select
                   value={customization.fontSize}
                   onChange={(e) => update('fontSize', e.target.value as any)}
                   className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
                 >
-                  <option value="small">Small (Dense)</option>
-                  <option value="medium">Medium (Standard)</option>
-                  <option value="large">Large (Relaxed)</option>
+                  <option value="small">{t('customize.fontSizeSmall', 'Small (Dense)')}</option>
+                  <option value="medium">{t('customize.fontSizeMedium', 'Medium (Standard)')}</option>
+                  <option value="large">{t('customize.fontSizeLarge', 'Large (Relaxed)')}</option>
                 </select>
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-gray-700 mb-1 block">PDF Page Size</label>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.pageSize', 'PDF Page Size')}</label>
                 <select
                   value={customization.pageSize}
                   onChange={(e) => update('pageSize', e.target.value as any)}
                   className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
                 >
-                  <option value="a4">A4 (Standard Worldwide)</option>
-                  <option value="letter">US Letter (North America)</option>
+                  <option value="a4">{t('customize.pageSizeA4', 'A4 (Standard Worldwide)')}</option>
+                  <option value="letter">{t('customize.pageSizeLetter', 'US Letter (North America)')}</option>
                 </select>
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-gray-700 mb-1 block">Page Margins</label>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.pageMargins', 'Page Margins')}</label>
                 <select
                   value={customization.pageMargins}
                   onChange={(e) => update('pageMargins', e.target.value as any)}
                   className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-2 bg-white outline-none focus:border-[#1A3263]"
                 >
-                  <option value="compact">Compact (28pt)</option>
-                  <option value="normal">Normal (40pt)</option>
-                  <option value="wide">Wide (54pt)</option>
+                  <option value="compact">{t('customize.marginCompact', 'Compact (28pt)')}</option>
+                  <option value="normal">{t('customize.marginNormal', 'Normal (40pt)')}</option>
+                  <option value="wide">{t('customize.marginWide', 'Wide (54pt)')}</option>
                 </select>
               </div>
             </div>
@@ -284,7 +286,7 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
             {/* Quick Font Selector Chips */}
             <div>
               <span className="text-xs text-gray-500 font-medium block mb-2">
-                Quick Font Switcher:
+                {t('customize.quickFontSwitcher', 'Quick Font Switcher:')}
               </span>
               <div className="flex flex-wrap gap-2">
                 {INVOICE_FONTS.map((f) => {
@@ -314,10 +316,10 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
           <section className="space-y-4 pt-4 border-t border-gray-200">
             <div className="flex items-center justify-between">
               <label className="text-sm sm:text-base font-bold text-gray-800 flex items-center gap-2">
-                <DollarSign className="w-4 h-4 text-[#1A3263]" /> Currency & Formatting
+                <DollarSign className="w-4 h-4 text-[#1A3263]" /> {t('customize.currencyFormatting', 'Currency & Formatting')}
               </label>
               <div className="flex items-center gap-1.5">
-                <span className="text-xs text-gray-500 font-medium">Quick pick:</span>
+                <span className="text-xs text-gray-500 font-medium">{t('customize.quickPick', 'Quick pick:')}</span>
                 {['USD', 'PKR', 'EUR', 'GBP', 'AED', 'SAR', 'CAD', 'INR'].map((code) => {
                   const isCurActive = customization.currency === code;
                   return (
@@ -340,7 +342,7 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="text-xs font-semibold text-gray-700 mb-1 block">Currency</label>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.currency', 'Currency')}</label>
                 <select
                   value={customization.currency}
                   onChange={(e) => handleCurrencySelect(e.target.value)}
@@ -355,7 +357,7 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-gray-700 mb-1 block">Currency Symbol</label>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.currencySymbol', 'Currency Symbol')}</label>
                 <input
                   type="text"
                   value={customization.currencySymbol}
@@ -366,7 +368,7 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-gray-700 mb-1 block">Date Format</label>
+                <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.dateFormat', 'Date Format')}</label>
                 <select
                   value={customization.dateFormat}
                   onChange={(e) => update('dateFormat', e.target.value as any)}
@@ -384,7 +386,7 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
           {/* 5. Taxes & Discounts Defaults */}
           <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-gray-200">
             <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Tax Label</label>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.taxLabel', 'Tax Label')}</label>
               <input
                 type="text"
                 value={customization.taxLabel}
@@ -395,7 +397,7 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Default Tax Rate (%)</label>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.defaultTaxRate', 'Default Tax Rate (%)')}</label>
               <input
                 type="number"
                 step="0.1"
@@ -407,7 +409,7 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Default Discount</label>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.defaultDiscount', 'Default Discount')}</label>
               <input
                 type="number"
                 step="0.5"
@@ -419,14 +421,14 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-gray-700 mb-1 block">Discount Type</label>
+              <label className="text-xs font-semibold text-gray-700 mb-1 block">{t('customize.discountType', 'Discount Type')}</label>
               <select
                 value={customization.discountType}
                 onChange={(e) => update('discountType', e.target.value as any)}
                 className="w-full text-xs border border-gray-300 rounded px-2.5 py-2 bg-white outline-none focus:border-[#FF8F70]"
               >
-                <option value="percent">Percentage (%)</option>
-                <option value="flat">Flat Amount</option>
+                <option value="percent">{t('customize.discountPercent', 'Percentage (%)')}</option>
+                <option value="flat">{t('customize.discountFlat', 'Flat Amount')}</option>
               </select>
             </div>
           </section>
@@ -434,16 +436,16 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
           {/* 6. Section Visibility Toggles */}
           <section className="pt-4 border-t border-gray-200">
             <label className="text-sm font-semibold text-gray-800 mb-3 block">
-              Optional Sections Visibility
+              {t('customize.optionalSections', 'Optional Sections Visibility')}
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {[
-                { key: 'showAmountPaid', label: 'Amount Paid & Balance Due' },
-                { key: 'showPaymentDetails', label: 'Payment & Bank Instructions' },
-                { key: 'showSignature', label: 'Signature Section' },
-                { key: 'showNotes', label: 'Notes and Terms' },
-                { key: 'showAttachments', label: 'Attachments & Receipts' },
-                { key: 'showCustomFields', label: 'Custom Project Fields' },
+                { key: 'showAmountPaid', label: t('customize.showAmountPaid', 'Amount Paid & Balance Due') },
+                { key: 'showPaymentDetails', label: t('customize.showPaymentDetails', 'Payment & Bank Instructions') },
+                { key: 'showSignature', label: t('customize.showSignature', 'Signature Section') },
+                { key: 'showNotes', label: t('customize.showNotes', 'Notes and Terms') },
+                { key: 'showAttachments', label: t('customize.showAttachments', 'Attachments & Receipts') },
+                { key: 'showCustomFields', label: t('customize.showCustomFields', 'Custom Project Fields') },
               ].map(({ key, label }) => {
                 const isChecked = Boolean((customization as any)[key]);
                 return (
@@ -468,14 +470,14 @@ export const CustomizeModal: React.FC<CustomizeModalProps> = ({
         {/* Footer */}
         <div className="flex items-center justify-between border-t border-gray-200 px-6 py-4 bg-[#F8FAFC]">
           <span className="text-xs sm:text-sm text-gray-500 font-medium">
-            Changes apply instantly to editor, preview, and PDF
+            {t('customize.instantApply', 'Changes apply instantly to editor, preview, and PDF')}
           </span>
           <button
             type="button"
             onClick={onClose}
             className="cursor-pointer px-6 py-2.5 text-sm font-bold text-white bg-[#1A3263] hover:bg-[#132549] rounded-lg shadow-sm transition"
           >
-            Done Customizing
+            {t('customize.done', 'Done Customizing')}
           </button>
         </div>
       </div>

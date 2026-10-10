@@ -14,6 +14,7 @@ import {
   FileCheck2,
   DollarSign,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { TemplateId, InvoiceData, InvoiceFontFamily } from '../types/invoice';
 import { TEMPLATES, TemplateMeta } from '../utils/templates';
 import { PROFESSION_EXAMPLES, ProfessionTemplateExample } from '../data/professionExamples';
@@ -36,6 +37,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
   onPreviewTemplate,
   onOpenSettingsWithTemplate,
 }) => {
+  const { t } = useTranslation('common');
   const [filterCategory, setFilterCategory] = useState<FilterCategory>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProfessionModal, setSelectedProfessionModal] = useState<ProfessionTemplateExample | null>(null);
@@ -77,19 +79,19 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A3263]/10 text-[#1A3263] text-xs font-bold uppercase tracking-wider mb-2">
               <LayoutTemplate className="w-3.5 h-3.5" />
-              <span>Invoice Template Library</span>
+              <span>{t('templates.badge')}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-              Professional Layouts & Industry Templates
+              {t('templates.title')}
             </h2>
             <p className="mt-1.5 text-sm sm:text-base text-gray-600 max-w-2xl leading-relaxed">
-              Choose from 12 distinctive visual layouts and industry-tailored invoice formats. Switch styles instantly without losing any entered data, with full preview and settings integration.
+              {t('templates.subtitle')}
             </p>
           </div>
 
           {/* Quick Active Template pill */}
           <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-xs sm:text-sm text-gray-700 shrink-0">
-            <span className="text-gray-500 font-medium">Active Layout:</span>
+            <span className="text-gray-500 font-medium">{t('templates.activeLayout')}</span>
             <span className="font-bold text-[#1A3263]">
               {TEMPLATES.find((t) => t.id === currentTemplateId)?.name || 'Classic Professional'}
             </span>
@@ -110,7 +112,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              All Templates ({TEMPLATES.length + PROFESSION_EXAMPLES.length})
+              {t('templates.allTemplates')} ({TEMPLATES.length + PROFESSION_EXAMPLES.length})
             </button>
             <button
               type="button"
@@ -122,7 +124,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>Layout Styles ({TEMPLATES.length})</span>
+              <span>{t('templates.layoutStyles')} ({TEMPLATES.length})</span>
             </button>
             <button
               type="button"
@@ -134,7 +136,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
               }`}
             >
               <Briefcase className="w-3.5 h-3.5" />
-              <span>By Profession ({PROFESSION_EXAMPLES.length})</span>
+              <span>{t('templates.byProfession')} ({PROFESSION_EXAMPLES.length})</span>
             </button>
           </div>
 
@@ -145,7 +147,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search layout, industry, font..."
+              placeholder={t('templates.searchPlaceholder')}
               className="w-full text-xs sm:text-sm pl-9 pr-3.5 py-2 border border-gray-300 rounded-xl bg-white outline-none focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/10"
             />
             {searchQuery && (
@@ -154,7 +156,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                 onClick={() => setSearchQuery('')}
                 className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400 hover:text-gray-700"
               >
-                Clear
+                {t('templates.clear')}
               </button>
             )}
           </div>
@@ -167,17 +169,17 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
               <div className="flex items-center gap-2">
                 <Layers className="w-5 h-5 text-[#1A3263]" />
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900">
-                  Invoice Layout Designs
+                  {t('templates.layoutDesignsTitle')}
                 </h3>
               </div>
               <span className="text-xs sm:text-sm text-gray-500 font-medium">
-                12 Distinct Layout Archetypes
+                {t('templates.layoutDesignsSubtitle')}
               </span>
             </div>
 
             {filteredLayouts.length === 0 ? (
               <div className="text-center py-10 bg-gray-50 rounded-xl border border-dashed border-gray-300">
-                <p className="text-gray-500 text-sm">No layout styles match "{searchQuery}"</p>
+                <p className="text-gray-500 text-sm">{t('templates.noLayoutsMatch')} "{searchQuery}"</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -287,7 +289,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                         {/* Active Badge floating top right */}
                         {isActive && (
                           <div className="absolute top-2 right-2 flex items-center gap-1 bg-[#1A3263] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-xs">
-                            <Check className="w-3 h-3 stroke-[3]" /> Active
+                            <Check className="w-3 h-3 stroke-[3]" /> {t('templates.active')}
                           </div>
                         )}
                       </div>
@@ -339,11 +341,11 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                             {isActive ? (
                               <>
                                 <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                                <span>Applied</span>
+                                <span>{t('templates.applied')}</span>
                               </>
                             ) : (
                               <>
-                                <span>Use Layout</span>
+                                <span>{t('templates.useLayout')}</span>
                               </>
                             )}
                           </button>
@@ -382,17 +384,17 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
               <div className="flex items-center gap-2">
                 <Briefcase className="w-5 h-5 text-[#1A3263]" />
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900">
-                  Profession-Tailored Invoice Templates
+                  {t('templates.professionsTitle')}
                 </h3>
               </div>
               <span className="text-xs sm:text-sm text-gray-500 font-medium">
-                Curated items, rates, terms & layout pairing
+                {t('templates.professionsSubtitle')}
               </span>
             </div>
 
             {filteredProfessions.length === 0 ? (
               <div className="text-center py-10 bg-gray-50 rounded-xl border border-dashed border-gray-300">
-                <p className="text-gray-500 text-sm">No professions match "{searchQuery}"</p>
+                <p className="text-gray-500 text-sm">{t('templates.noProfessionsMatch')} "{searchQuery}"</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -440,7 +442,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                           {/* Sample Items preview box */}
                           <div className="bg-gray-50 rounded-lg p-2.5 border border-gray-200/80 mb-3 space-y-1">
                             <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider block mb-1">
-                              Sample Line Items:
+                              {t('templates.sampleLineItems')}
                             </span>
                             {prof.data.items?.slice(0, 2).map((item, idx) => (
                               <div
@@ -460,7 +462,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                           <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
                             <span className="flex items-center gap-1">
                               <LayoutTemplate className="w-3.5 h-3.5 text-gray-400" />
-                              <span>Layout: <strong>{matchingLayout?.name || prof.template}</strong></span>
+                              <span>{t('templates.layoutLabel')} <strong>{matchingLayout?.name || prof.template}</strong></span>
                             </span>
                             <span className="flex items-center gap-1">
                               <Type className="w-3.5 h-3.5 text-gray-400" />
@@ -476,7 +478,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                             onClick={() => setSelectedProfessionModal(prof)}
                             className="cursor-pointer flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-[#1A3263] hover:bg-[#122448] text-white transition flex items-center justify-center gap-1 shadow-2xs"
                           >
-                            <span>Use Template</span>
+                            <span>{t('templates.useTemplate')}</span>
                             <ArrowRight className="w-3.5 h-3.5" />
                           </button>
 
@@ -529,13 +531,13 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                   {selectedProfessionModal.profession}
                 </h3>
                 <p className="text-xs text-gray-500">
-                  How would you like to apply this template?
+                  {t('templates.modalTitle')}
                 </p>
               </div>
             </div>
 
             <p className="text-xs sm:text-sm text-gray-600 mb-5 leading-relaxed">
-              You can load the entire ready-to-copy sample invoice with pre-written line items, rates, and bank instructions, or just apply this template's layout style to your existing invoice content.
+              {t('templates.modalDesc')}
             </p>
 
             <div className="space-y-3">
@@ -550,10 +552,10 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
               >
                 <div>
                   <div className="text-sm font-extrabold text-[#1A3263]">
-                    Load Complete Profession Template
+                    {t('templates.loadFullTemplate')}
                   </div>
                   <div className="text-xs text-gray-600 mt-0.5">
-                    Includes sample line items, rates, payment instructions & {selectedProfessionModal.suggestedCurrency}
+                    {t('templates.loadFullTemplateDesc')} {selectedProfessionModal.suggestedCurrency}
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-[#1A3263] shrink-0 ml-2" />
@@ -574,10 +576,10 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
               >
                 <div>
                   <div className="text-sm font-bold text-gray-900">
-                    Apply Layout & Styling Only
+                    {t('templates.applyLayoutOnly')}
                   </div>
                   <div className="text-xs text-gray-500 mt-0.5">
-                    Keeps your current invoice data; updates template structure, font, and accent color
+                    {t('templates.applyLayoutOnlyDesc')}
                   </div>
                 </div>
                 <Layers className="w-4 h-4 text-gray-400 shrink-0 ml-2" />
@@ -590,7 +592,7 @@ export const TemplatesLibrary: React.FC<TemplatesLibraryProps> = ({
                 onClick={() => setSelectedProfessionModal(null)}
                 className="cursor-pointer px-4 py-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
               >
-                Cancel
+                {t('templates.cancel')}
               </button>
             </div>
           </div>

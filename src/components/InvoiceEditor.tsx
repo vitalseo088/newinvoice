@@ -225,7 +225,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide pb-1 border-b border-gray-100">
             <Building2 className="w-4 h-4 text-[#1A3263]" />
-            From (Your Business)
+            {x.fromBusiness}
           </div>
 
           <div>
@@ -323,7 +323,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide pb-1 border-b border-gray-100">
             <User className="w-4 h-4 text-[#1A3263]" />
-            Bill To (Client)
+            {x.billToClient}
           </div>
 
           <div>
