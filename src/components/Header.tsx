@@ -97,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="w-7 h-7 rounded-lg bg-[#1A3263]/10 text-[#1A3263] flex items-center justify-center shrink-0">
               <FileText className="w-3.5 h-3.5 stroke-[2.2]" />
             </div>
-            <span>Invoice Generator</span>
+            <span>{t('nav.invoiceGenerator')}</span>
           </button>
 
           {/* Templates */}
@@ -110,7 +110,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center shrink-0">
               <LayoutTemplate className="w-3.5 h-3.5 stroke-[2.2]" />
             </div>
-            <span>Templates</span>
+            <span>{t('nav.templates')}</span>
           </button>
 
           {/* My Invoices */}
@@ -122,7 +122,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
               <FolderOpen className="w-3.5 h-3.5 stroke-[2]" />
             </div>
-            <span>My Invoices</span>
+            <span>{t('nav.savedInvoices')}</span>
             {savedInvoicesCount > 0 && (
               <span className="ml-0.5 px-2 py-0.5 rounded-full text-xs font-extrabold bg-[#1A3263] text-white leading-none">
                 {savedInvoicesCount}
@@ -139,7 +139,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center shrink-0">
               <Database className="w-3.5 h-3.5 stroke-[2]" />
             </div>
-            <span>Import / Export</span>
+            <span>{t('nav.importExport')}</span>
           </button>
 
           {/* Settings */}
@@ -152,7 +152,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
               <Sliders className="w-3.5 h-3.5 stroke-[2]" />
             </div>
-            <span>Settings</span>
+            <span>{t('nav.settings')}</span>
           </button>
 
           {/* Language Switcher */}
@@ -175,7 +175,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="w-6 h-6 rounded-md bg-white/20 text-white flex items-center justify-center shrink-0">
               <Plus className="w-3.5 h-3.5 text-white stroke-[2.8]" />
             </div>
-            <span>New Invoice</span>
+            <span>{t('nav.new')}</span>
           </button>
         </nav>
 
@@ -195,7 +195,7 @@ export const Header: React.FC<HeaderProps> = ({
             title="Create a new invoice"
           >
             <Plus className="w-3.5 h-3.5 text-white stroke-[2.8]" />
-            <span>New</span>
+            <span>{t('nav.new')}</span>
           </button>
 
           {/* Hamburger Menu Toggle Button */}
@@ -242,7 +242,7 @@ export const Header: React.FC<HeaderProps> = ({
                     <FileText className="w-4 h-4 stroke-[2.2]" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900">Invoice Generator</div>
+                    <div className="text-sm font-bold text-gray-900">{t('nav.invoiceGenerator')}</div>
                     <div className="text-xs text-gray-500">Create & edit your invoice</div>
                   </div>
                 </div>
@@ -262,7 +262,7 @@ export const Header: React.FC<HeaderProps> = ({
                     <LayoutTemplate className="w-4 h-4 stroke-[2.2]" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900">Templates Library</div>
+                    <div className="text-sm font-bold text-gray-900">{t('nav.templates')}</div>
                     <div className="text-xs text-gray-500">12 layouts & profession templates</div>
                   </div>
                 </div>
@@ -282,7 +282,7 @@ export const Header: React.FC<HeaderProps> = ({
                     <FolderOpen className="w-4 h-4 stroke-[2]" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900">My Invoices</div>
+                    <div className="text-sm font-bold text-gray-900">{t('nav.savedInvoices')}</div>
                     <div className="text-xs text-gray-500">Saved browser invoices</div>
                   </div>
                 </div>
@@ -309,7 +309,7 @@ export const Header: React.FC<HeaderProps> = ({
                     <Database className="w-4 h-4 stroke-[2]" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900">Import / Export Backup</div>
+                    <div className="text-sm font-bold text-gray-900">{t('nav.importExport')}</div>
                     <div className="text-xs text-gray-500">Backup, transfer or restore data</div>
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export const Header: React.FC<HeaderProps> = ({
                     <Sliders className="w-4 h-4 stroke-[2]" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900">Invoice Settings</div>
+                    <div className="text-sm font-bold text-gray-900">{t('nav.settings')}</div>
                     <div className="text-xs text-gray-500">Colors, typography, taxes & layout</div>
                   </div>
                 </div>
@@ -346,7 +346,7 @@ export const Header: React.FC<HeaderProps> = ({
                   className="cursor-pointer flex items-center justify-center gap-2 w-full p-3 rounded-xl bg-[#1A3263] hover:bg-[#122448] active:bg-[#0d1a36] text-white font-bold transition shadow-2xs"
                 >
                   <Plus className="w-4 h-4 text-white stroke-[2.8]" />
-                  <span>Start New Invoice</span>
+                  <span>{t('nav.new')}</span>
                 </button>
               </div>
             </div>
