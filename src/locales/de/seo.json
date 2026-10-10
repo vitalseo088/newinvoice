@@ -1,4 +1,9 @@
 {
+  "site": {
+    "toolTrustLine": "100 % kostenlos • Keine Anmeldung • Hochauflösendes PDF",
+    "backupNotice": "Ihre Dokumente werden automatisch in diesem Browser gespeichert. Exportieren Sie eine Sicherungskopie.",
+    "exportBackup": "Sicherung exportieren"
+  },
   "tools": {
     "invoice-generator": {
       "name": "Rechnungsgenerator",

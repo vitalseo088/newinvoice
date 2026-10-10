@@ -1,4 +1,5 @@
 import React from 'react';
+import i18n from '../utils/i18n';
 import { TOOLS_CONFIG } from '../data/toolsConfig';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -27,6 +28,7 @@ export const Footer: React.FC<FooterProps> = ({
   currentRouteId = 'invoice-generator',
   onSelectLanguage,
 }) => {
+  const tr = (key: string) => i18n.t(key, { lng: currentLang, defaultValue: key });
   return (
     <footer className="bg-[#2D3139] text-gray-300 mt-6 sm:mt-8 border-t border-gray-700/60 no-print">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 py-12">
@@ -34,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 1: Tools Part 1 (6 tools) */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Free Generator Tools
+              {tr('common:footer.toolsColumn1')}
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-300">
               {TOOLS_CONFIG.slice(0, 6).map((tool) => {
@@ -49,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({
                       }`}
                     >
                       <span className="group-hover:translate-x-0.5 transition-transform">
-                        {tool.name}
+                        {i18n.t(`seo:tools.${tool.id}.shortName`, { lng: currentLang, defaultValue: tool.name })}
                       </span>
                       {isActive && (
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 ml-1.5" />
@@ -64,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 2: Tools Part 2 (6 tools) */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              More Document Tools
+              {tr('common:footer.toolsColumn2')}
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-300">
               {TOOLS_CONFIG.slice(6, 12).map((tool) => {
@@ -79,7 +81,7 @@ export const Footer: React.FC<FooterProps> = ({
                       }`}
                     >
                       <span className="group-hover:translate-x-0.5 transition-transform">
-                        {tool.name}
+                        {i18n.t(`seo:tools.${tool.id}.shortName`, { lng: currentLang, defaultValue: tool.name })}
                       </span>
                       {isActive && (
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 ml-1.5" />
@@ -94,7 +96,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 3: Quick Links */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Quick Links
+              {tr('common:footer.quickLinks')}
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-300">
               <li>
@@ -106,7 +108,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }`}
                 >
                   <span className="group-hover:translate-x-0.5 transition-transform inline-block">
-                    About
+                    {tr('common:footer.about')}
                   </span>
                   {currentInfoPage === 'about' && (
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 ml-1.5" />
@@ -122,7 +124,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }`}
                 >
                   <span className="group-hover:translate-x-0.5 transition-transform inline-block">
-                    Contact
+                    {tr('common:footer.contact')}
                   </span>
                   {currentInfoPage === 'contact' && (
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 ml-1.5" />
@@ -138,7 +140,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }`}
                 >
                   <span className="group-hover:translate-x-0.5 transition-transform inline-block">
-                    Privacy
+                    {tr('common:footer.privacy')}
                   </span>
                   {currentInfoPage === 'privacy' && (
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 ml-1.5" />
@@ -154,7 +156,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }`}
                 >
                   <span className="group-hover:translate-x-0.5 transition-transform inline-block">
-                    Terms of Use
+                    {tr('common:footer.terms')}
                   </span>
                   {currentInfoPage === 'terms' && (
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 ml-1.5" />
@@ -170,7 +172,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }`}
                 >
                   <span className="group-hover:translate-x-0.5 transition-transform inline-block">
-                    Report Bugs
+                    {tr('common:footer.bugs')}
                   </span>
                   {currentInfoPage === 'bugs' && (
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 ml-1.5" />
@@ -188,7 +190,7 @@ export const Footer: React.FC<FooterProps> = ({
               </span>
             </div>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-              A 100% free, private browser-based invoice and commercial document generator suite. No sign up required, no tracking, and high-quality vector PDF output.
+              {tr('common:footer.browserOnlyNote')}
             </p>
           </div>
         </div>
@@ -199,7 +201,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-400">
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <div>
-              © {new Date().getFullYear()} Invoiceo.online. All rights reserved. Free Invoice Generator.
+              © {new Date().getFullYear()} Invoiceo.online. {tr('common:footer.allRightsReserved')}
             </div>
             <div className="sm:border-l sm:border-gray-700 sm:pl-3">
               <LanguageSwitcher
@@ -218,7 +220,7 @@ export const Footer: React.FC<FooterProps> = ({
                 currentInfoPage === 'about' ? 'text-white font-bold' : ''
               }`}
             >
-              About
+              {tr('common:footer.about')}
             </button>
             <button
               type="button"
@@ -227,7 +229,7 @@ export const Footer: React.FC<FooterProps> = ({
                 currentInfoPage === 'contact' ? 'text-white font-bold' : ''
               }`}
             >
-              Contact
+              {tr('common:footer.contact')}
             </button>
             <button
               type="button"
@@ -236,7 +238,7 @@ export const Footer: React.FC<FooterProps> = ({
                 currentInfoPage === 'bugs' ? 'text-amber-300 font-bold' : ''
               }`}
             >
-              Report Bugs
+              {tr('common:footer.bugs')}
             </button>
           </div>
         </div>

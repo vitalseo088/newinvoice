@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { InvoiceData } from '../types/invoice';
 import { calculateInvoiceTotals, formatDate, formatMoney } from '../utils/currency';
 import { getFontCssFamily } from '../utils/fonts';
@@ -31,6 +32,7 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
   onPrint,
   onOpenCustomize,
 }) => {
+  const { t } = useTranslation('common');
   const totals = calculateInvoiceTotals(invoice);
   const accent = invoice.customization.accentColor || '#1A3263';
   const activeFontFamilyCss = getFontCssFamily(invoice.customization.fontFamily);
@@ -47,12 +49,12 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
             onClick={onBackToEdit}
             className="cursor-pointer inline-flex items-center gap-2 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 px-4 py-2 rounded-lg shadow-2xs transition"
           >
-            <ArrowLeft className="w-4 h-4" /> Back to Edit
+            <ArrowLeft className="w-4 h-4" /> {t('preview.backToEdit')}
           </button>
 
           {/* Active template layout badge */}
           <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 text-xs text-gray-600 shadow-2xs">
-            <span className="text-gray-400 font-medium">Layout:</span>
+            <span className="text-gray-400 font-medium">{t('preview.layout')}</span>
             <span className="font-bold text-[#1A3263]">
               {activeTemplateMeta?.name || templateId}
             </span>
@@ -61,9 +63,9 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
                 type="button"
                 onClick={onOpenCustomize}
                 className="cursor-pointer text-[#1A3263] hover:underline ml-1 font-semibold flex items-center gap-0.5"
-                title="Change layout in Settings"
+                title={t('preview.change')}
               >
-                <Sliders className="w-3 h-3 inline" /> Change
+                <Sliders className="w-3 h-3 inline" /> {t('preview.change')}
               </button>
             )}
           </div>
@@ -75,14 +77,14 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
             onClick={onPrint}
             className="cursor-pointer inline-flex items-center gap-2 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 px-4 py-2 rounded-lg transition shadow-2xs"
           >
-            <Printer className="w-4 h-4 text-[#1A3263]" /> Print
+            <Printer className="w-4 h-4 text-[#1A3263]" /> {t('preview.print')}
           </button>
           <button
             type="button"
             onClick={onDownloadPdf}
             className="cursor-pointer inline-flex items-center gap-2 text-sm font-bold text-white bg-[#1A3263] hover:bg-[#132549] px-5 py-2 rounded-lg shadow-sm transition"
           >
-            <Download className="w-4 h-4" /> Download PDF
+            <Download className="w-4 h-4" /> {t('preview.downloadPdf')}
           </button>
         </div>
       </div>
@@ -720,10 +722,10 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
                 }`}
                 style={!isMinimal ? { backgroundColor: accent } : undefined}
               >
-                <th className="py-3.5 px-5">Description</th>
-                <th className="py-3.5 px-4 text-right w-28">Rate</th>
-                <th className="py-3.5 px-4 text-right w-24">Qty</th>
-                <th className="py-3.5 px-5 text-right w-36">Amount</th>
+                <th className="py-3.5 px-5">{t('preview.description')}</th>
+                <th className="py-3.5 px-4 text-right w-28">{t('preview.rate')}</th>
+                <th className="py-3.5 px-4 text-right w-24">{t('preview.qty')}</th>
+                <th className="py-3.5 px-5 text-right w-36">{t('preview.amount')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 text-sm sm:text-base">
@@ -816,7 +818,7 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
           {/* Calculations Breakdown (Right) */}
           <div className="w-full sm:w-96 space-y-3 text-sm sm:text-base">
             <div className="flex justify-between text-gray-700">
-              <span>Subtotal:</span>
+              <span>{t('preview.subtotal')}:</span>
               <span className="font-bold text-gray-900 font-mono">
                 {formatMoney(
                   totals.subtotal,
@@ -857,7 +859,7 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
             )}
 
             <div className="border-t-2 border-gray-200 pt-3 flex justify-between font-extrabold text-base sm:text-lg text-gray-900">
-              <span>Total:</span>
+              <span>{t('preview.total')}:</span>
               <span className="font-mono">
                 {formatMoney(
                   totals.total,
@@ -869,7 +871,7 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 
             {invoice.customization.showAmountPaid && totals.amountPaid > 0 && (
               <div className="flex justify-between text-emerald-600 font-semibold text-sm sm:text-base">
-                <span>Amount Paid:</span>
+                <span>{t('preview.amountPaid')}:</span>
                 <span className="font-mono">
                   {formatMoney(
                     totals.amountPaid,
@@ -884,7 +886,7 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({
               className="mt-4 p-4 rounded-xl text-white flex justify-between items-center shadow-md"
               style={{ backgroundColor: accent }}
             >
-              <span className="font-bold uppercase tracking-wider text-xs sm:text-sm">Balance Due</span>
+              <span className="font-bold uppercase tracking-wider text-xs sm:text-sm">{t('preview.balanceDue')}</span>
               <span className="font-extrabold text-xl sm:text-2xl font-mono">
                 {formatMoney(
                   totals.balanceDue,

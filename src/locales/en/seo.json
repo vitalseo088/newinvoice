@@ -1,4 +1,9 @@
 {
+  "site": {
+    "toolTrustLine": "100% Free • No Signup Required • High-Resolution PDF",
+    "backupNotice": "Your documents are saved automatically in this browser. Export a backup to keep your data safe.",
+    "exportBackup": "Export Backup"
+  },
   "tools": {
     "invoice-generator": {
       "name": "Invoice Generator",

@@ -1,4 +1,9 @@
 {
+  "site": {
+    "toolTrustLine": "100% grátis • Sem cadastro • PDF em alta resolução",
+    "backupNotice": "Seus documentos são salvos automaticamente neste navegador. Exporte uma cópia de segurança para guardá-los.",
+    "exportBackup": "Exportar cópia de segurança"
+  },
   "tools": {
     "invoice-generator": {
       "name": "Gerador de Faturas",

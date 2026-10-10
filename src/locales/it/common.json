@@ -18,7 +18,10 @@
     "importExport": "Dati",
     "saved": "Salvato",
     "saving": "Salvataggio...",
-    "error": "Errore"
+    "error": "Errore",
+    "duplicate": "Duplica documento",
+    "reset": "Ripristina i valori",
+    "moreActions": "Altre azioni"
   },
   "editor": {
     "clickTitleToEdit": "Clicca sul titolo in alto per modificare (es. Fattura, Ricevuta, Preventivo)",
@@ -59,6 +62,7 @@
     "fieldValue": "Valore (es. FASE 1)"
   },
   "preview": {
+    "previewTab": "Anteprima",
     "backToEdit": "Torna alla Modifica",
     "layout": "Modello:",
     "change": "Cambia",

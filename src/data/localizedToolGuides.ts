@@ -1,4 +1,5 @@
 import { ToolGuideData, TOOL_GUIDES } from './toolGuidesData';
+import { buildLocalizedToolGuide } from './toolGuideLocalization';
 
 export const LOCALIZED_TOOL_GUIDES: Record<string, Record<string, Partial<ToolGuideData>>> = {
   // Spanish guides
@@ -418,5 +419,6 @@ export const LOCALIZED_TOOL_GUIDES: Record<string, Record<string, Partial<ToolGu
  */
 export function getLocalizedGuide(toolSlug: string, lang: string): Partial<ToolGuideData> | undefined {
   if (lang === 'en') return undefined;
-  return LOCALIZED_TOOL_GUIDES[lang]?.[toolSlug];
+  const generated = buildLocalizedToolGuide(toolSlug, lang);
+  return { ...generated, ...LOCALIZED_TOOL_GUIDES[lang]?.[toolSlug] };
 }

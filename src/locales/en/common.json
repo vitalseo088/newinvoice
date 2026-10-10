@@ -18,7 +18,10 @@
     "importExport": "Data",
     "saved": "Saved",
     "saving": "Saving...",
-    "error": "Error"
+    "error": "Error",
+    "duplicate": "Duplicate current",
+    "reset": "Reset to defaults",
+    "moreActions": "More actions"
   },
   "editor": {
     "clickTitleToEdit": "Click title above to edit (e.g. Tax Invoice, Bill, Receipt)",
@@ -59,6 +62,7 @@
     "fieldValue": "Value (e.g. Phase 1)"
   },
   "preview": {
+    "previewTab": "Preview",
     "backToEdit": "Back to Edit",
     "layout": "Layout:",
     "change": "Change",

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Upload,
   Plus,
@@ -12,6 +13,8 @@ import { InvoiceData, LineItem, PaymentTerms } from '../types/invoice';
 import { calculateInvoiceTotals, computeDueDate, formatMoney, CURRENCIES } from '../utils/currency';
 import { compressImage } from '../utils/storage';
 import { getFontCssFamily } from '../utils/fonts';
+import { FORM_TRANSLATIONS } from '../data/formTranslations';
+import i18n from '../utils/i18n';
 
 interface InvoiceEditorProps {
   invoice: InvoiceData;
@@ -24,6 +27,8 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
   onChange,
   onOpenSignatureModal,
 }) => {
+  const { t } = useTranslation('common');
+  const x = FORM_TRANSLATIONS[i18n.language] || FORM_TRANSLATIONS.en;
   const logoInputRef = useRef<HTMLInputElement | null>(null);
   const photoInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -159,10 +164,10 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
             value={invoice.title}
             onChange={(e) => updateField('title', e.target.value)}
             className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 border-b-2 border-dashed border-gray-300 hover:border-gray-400 focus:border-[#1A3263] focus:ring-0 outline-none w-full sm:w-auto uppercase py-1"
-            placeholder="INVOICE"
+            placeholder={i18n.t('seo:tools.invoice-generator.shortName')}
           />
           <div className="text-xs sm:text-sm text-gray-500 mt-1.5 flex items-center gap-1.5 font-medium">
-            <span>Click title above to edit (e.g. Tax Invoice, Bill, Receipt)</span>
+            <span>{t('editor.clickTitleToEdit')}</span>
           </div>
         </div>
 
@@ -200,8 +205,8 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
               className="w-48 h-24 border-2 border-dashed border-gray-300 hover:border-[#1A3263] hover:bg-[#1A3263]/5 rounded-xl flex flex-col items-center justify-center text-gray-600 hover:text-[#1A3263] transition group"
             >
               <Upload className="w-6 h-6 mb-1 text-gray-400 group-hover:text-[#1A3263]" />
-              <span className="text-sm font-bold">+ Add Logo</span>
-              <span className="text-xs text-gray-400">PNG, JPG, WebP</span>
+              <span className="text-sm font-bold">{x.addLogo}</span>
+              <span className="text-xs text-gray-400">{x.logoTypes}</span>
             </button>
           )}
           <input
@@ -224,56 +229,56 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Business Name</label>
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.businessName}</label>
             <input
               type="text"
               value={invoice.fromName}
               onChange={(e) => updateField('fromName', e.target.value)}
-              placeholder="e.g. Acme Corporation"
+              placeholder={x.businessName}
               className="w-full text-sm sm:text-base font-medium border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
             />
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Email Address</label>
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.email}</label>
             <input
               type="email"
               value={invoice.fromEmail}
               onChange={(e) => updateField('fromEmail', e.target.value)}
-              placeholder="billing@acme.com"
+              placeholder={x.emailExample}
               className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
             />
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Street Address</label>
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.street}</label>
             <input
               type="text"
               value={invoice.fromAddress}
               onChange={(e) => updateField('fromAddress', e.target.value)}
-              placeholder="123 Business Way, Suite 400"
+              placeholder={x.street}
               className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">City, State</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.city}</label>
               <input
                 type="text"
                 value={invoice.fromCityState}
                 onChange={(e) => updateField('fromCityState', e.target.value)}
-                placeholder="New York, NY"
+                placeholder={x.city}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">ZIP / Postal Code</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.postal}</label>
               <input
                 type="text"
                 value={invoice.fromZip}
                 onChange={(e) => updateField('fromZip', e.target.value)}
-                placeholder="10001"
+                placeholder={x.postal}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
@@ -281,34 +286,34 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Phone</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.phone}</label>
               <input
                 type="text"
                 value={invoice.fromPhone}
                 onChange={(e) => updateField('fromPhone', e.target.value)}
-                placeholder="+1 (555) 000-0000"
+                placeholder={x.phoneExample}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Tax ID / Business #</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.taxId}</label>
               <input
                 type="text"
                 value={invoice.fromTaxId}
                 onChange={(e) => updateField('fromTaxId', e.target.value)}
-                placeholder="EIN / VAT / GST"
+                placeholder={x.taxId}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Website / Additional Info</label>
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.website}</label>
             <input
               type="text"
               value={invoice.fromAdditional}
               onChange={(e) => updateField('fromAdditional', e.target.value)}
-              placeholder="e.g. www.acme.com"
+              placeholder={x.websiteExample}
               className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
             />
           </div>
@@ -322,56 +327,56 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Client / Company Name</label>
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.clientName}</label>
             <input
               type="text"
               value={invoice.toName}
               onChange={(e) => updateField('toName', e.target.value)}
-              placeholder="e.g. John Doe / Global Tech Inc."
+              placeholder={x.clientName}
               className="w-full text-sm sm:text-base font-medium border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
             />
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Client Email</label>
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.clientEmail}</label>
             <input
               type="email"
               value={invoice.toEmail}
               onChange={(e) => updateField('toEmail', e.target.value)}
-              placeholder="accounts@client.com"
+              placeholder={x.clientEmailExample}
               className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
             />
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Street Address</label>
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.street}</label>
             <input
               type="text"
               value={invoice.toAddress}
               onChange={(e) => updateField('toAddress', e.target.value)}
-              placeholder="456 Client Plaza"
+              placeholder={x.street}
               className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">City, State</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.city}</label>
               <input
                 type="text"
                 value={invoice.toCityState}
                 onChange={(e) => updateField('toCityState', e.target.value)}
-                placeholder="Los Angeles, CA"
+                placeholder={x.city}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">ZIP / Postal Code</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.postal}</label>
               <input
                 type="text"
                 value={invoice.toZip}
                 onChange={(e) => updateField('toZip', e.target.value)}
-                placeholder="90001"
+                placeholder={x.postal}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
@@ -379,22 +384,22 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Phone</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.phone}</label>
               <input
                 type="text"
                 value={invoice.toPhone}
                 onChange={(e) => updateField('toPhone', e.target.value)}
-                placeholder="+1 (555) 987-6543"
+                placeholder={x.phoneExample}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Client Tax ID / VAT</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.clientTaxId}</label>
               <input
                 type="text"
                 value={invoice.toTaxId || ''}
                 onChange={(e) => updateField('toTaxId', e.target.value)}
-                placeholder="Optional Client Tax ID"
+                placeholder={x.clientTaxId}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
@@ -402,22 +407,22 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Mobile (Optional)</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.mobile}</label>
               <input
                 type="text"
                 value={invoice.toMobile || ''}
                 onChange={(e) => updateField('toMobile', e.target.value)}
-                placeholder="Mobile number"
+                placeholder={x.mobile}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
             <div>
-              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">Fax (Optional)</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">{x.fax}</label>
               <input
                 type="text"
                 value={invoice.toFax || ''}
                 onChange={(e) => updateField('toFax', e.target.value)}
-                placeholder="Fax number"
+                placeholder={x.fax}
                 className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 focus:border-[#1A3263] focus:ring-2 focus:ring-[#1A3263]/20 outline-none transition"
               />
             </div>
@@ -429,18 +434,18 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
       <div className="py-6 border-b border-gray-200">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">Invoice Number</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">{x.documentNumber}</label>
             <input
               type="text"
               value={invoice.number}
               onChange={(e) => updateField('number', e.target.value)}
-              placeholder="INV-0001"
+              placeholder={x.docNoExample}
               className="w-full text-sm sm:text-base font-bold border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 bg-gray-50/50 focus:bg-white focus:border-[#1A3263] outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">Invoice Date</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">{t('editor.invoiceDate')}</label>
             <input
               type="date"
               value={invoice.date}
@@ -450,24 +455,24 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">Payment Terms</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">{t('editor.paymentTerms')}</label>
             <select
               value={invoice.paymentTerms}
               onChange={(e) => handleTermsChange(e.target.value as PaymentTerms)}
               className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3 py-2.5 bg-white focus:border-[#1A3263] outline-none font-medium"
             >
-              <option value="on_receipt">On Receipt</option>
-              <option value="net_7">Net 7 Days</option>
-              <option value="net_15">Net 15 Days</option>
-              <option value="net_30">Net 30 Days</option>
-              <option value="net_45">Net 45 Days</option>
-              <option value="net_60">Net 60 Days</option>
-              <option value="custom">Custom Due Date</option>
+              <option value="on_receipt">{t('pdf:terms.on_receipt')}</option>
+              <option value="net_7">{t('pdf:terms.net_7')}</option>
+              <option value="net_15">{t('pdf:terms.net_15')}</option>
+              <option value="net_30">{t('pdf:terms.net_30')}</option>
+              <option value="net_45">{t('pdf:terms.net_45')}</option>
+              <option value="net_60">{t('pdf:terms.net_60')}</option>
+              <option value="custom">{t('pdf:terms.custom')}</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">Due Date</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">{t('editor.dueDate')}</label>
             <input
               type="date"
               value={invoice.dueDate}
@@ -477,12 +482,12 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           </div>
 
           <div className="col-span-2 sm:col-span-1">
-            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">P.O. Number (Opt.)</label>
+              <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">{t('editor.poNumber')} ({x.optional})</label>
             <input
               type="text"
               value={invoice.poNumber || ''}
               onChange={(e) => updateField('poNumber', e.target.value)}
-              placeholder="PO-8823"
+              placeholder={x.poNoExample}
               className="w-full text-sm sm:text-base border border-[#B8C0CC] rounded-lg px-3.5 py-2.5 bg-white focus:border-[#1A3263] outline-none"
             />
           </div>
@@ -492,8 +497,8 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
       {/* 4. Line items table with larger fonts */}
       <div className="py-6 border-b border-gray-200">
         <div className="flex items-center justify-between mb-3">
-          <h4 className="text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide">Line Items</h4>
-          <span className="sm:hidden text-xs text-gray-400 font-medium">← Scroll table horizontally →</span>
+          <h4 className="text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide">{t('editor.items')}</h4>
+          <span className="sm:hidden text-xs text-gray-400 font-medium">← {x.scroll} →</span>
         </div>
 
         <div className="overflow-x-auto border border-gray-200 rounded-xl">
@@ -501,10 +506,10 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
             <thead>
               <tr className="bg-[#F8FAFC] border-b border-gray-200 text-xs sm:text-sm font-bold text-gray-700">
                 <th className="py-3 px-3.5 w-12 text-center">#</th>
-                <th className="py-3 px-4">Description</th>
-                <th className="py-3 px-4 w-32 text-right">Rate</th>
-                <th className="py-3 px-4 w-28 text-right">Qty</th>
-                <th className="py-3 px-4 w-36 text-right">Amount</th>
+                <th className="py-3 px-4">{t('editor.itemDesc')}</th>
+                <th className="py-3 px-4 w-32 text-right">{t('editor.rate')}</th>
+                <th className="py-3 px-4 w-28 text-right">{t('editor.qty')}</th>
+                <th className="py-3 px-4 w-36 text-right">{t('editor.amount')}</th>
                 <th className="py-3 px-3 w-12 text-center"></th>
               </tr>
             </thead>
@@ -523,14 +528,14 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                         type="text"
                         value={item.description}
                         onChange={(e) => handleUpdateItem(item.id, 'description', e.target.value)}
-                        placeholder="Item or service description"
+                        placeholder={x.itemPlaceholder}
                         className="w-full text-sm sm:text-base font-medium border border-gray-300 rounded-lg px-3 py-2 focus:border-[#1A3263] outline-none mb-2"
                       />
                       <textarea
                         value={item.details || ''}
                         onChange={(e) => handleUpdateItem(item.id, 'details', e.target.value)}
                         rows={1}
-                        placeholder="Additional item notes, specifications, or details (optional)"
+                        placeholder={x.detailsPlaceholder}
                         className="w-full text-xs sm:text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 focus:border-[#1A3263] outline-none resize-y"
                       />
                     </td>
@@ -576,7 +581,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                         type="button"
                         onClick={() => handleRemoveItem(item.id)}
                         className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition"
-                        title="Remove item"
+                        title={x.removeItem}
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -594,7 +599,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
             onClick={handleAddItem}
             className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-[#1A3263] bg-[#1A3263]/5 hover:bg-[#1A3263]/10 border border-[#1A3263]/30 rounded-lg transition shadow-2xs"
           >
-            <Plus className="w-4 h-4" /> Add Line Item
+            <Plus className="w-4 h-4" /> {t('editor.addItem')}
           </button>
         </div>
       </div>
@@ -606,7 +611,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <label className="text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide">
-                Notes & Terms
+                {t('editor.notes')}
               </label>
               <span className="text-xs text-gray-400 font-medium">{invoice.notes.length}/1000</span>
             </div>
@@ -615,7 +620,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
               maxLength={1000}
               value={invoice.notes}
               onChange={(e) => updateField('notes', e.target.value)}
-              placeholder="Notes - any relevant information not covered, additional terms and conditions"
+              placeholder={t('editor.notesPlaceholder')}
               className="w-full text-sm sm:text-base text-gray-700 border border-[#B8C0CC] rounded-lg p-3.5 focus:border-[#1A3263] outline-none leading-relaxed"
             />
           </div>
@@ -623,13 +628,13 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           {invoice.customization.showPaymentDetails && (
             <div>
               <label className="block text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide mb-1.5">
-                Payment Instructions / Bank Wire Info
+                {t('editor.paymentDetails')}
               </label>
               <textarea
                 rows={3}
                 value={invoice.paymentDetails}
                 onChange={(e) => updateField('paymentDetails', e.target.value)}
-                placeholder="Bank Name, Routing Number, Account Number, SWIFT/BIC, or PayPal link..."
+                placeholder={t('editor.paymentDetailsPlaceholder')}
                 className="w-full text-sm sm:text-base text-gray-700 border border-[#B8C0CC] rounded-lg p-3.5 focus:border-[#1A3263] outline-none font-mono"
               />
             </div>
@@ -641,7 +646,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           {/* Currency Switcher */}
           <div className="flex items-center justify-between gap-3 pb-3 border-b border-gray-200">
             <label htmlFor="currency-select" className="text-xs font-bold uppercase tracking-wider text-gray-600 shrink-0">
-              Currency
+               {t('editor.currency')}
             </label>
             <select
               id="currency-select"
@@ -673,7 +678,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
 
           {/* Subtotal */}
           <div className="flex justify-between items-center text-sm sm:text-base">
-            <span className="text-gray-600 font-medium">Subtotal</span>
+            <span className="text-gray-600 font-medium">{t('editor.subtotal')}</span>
             <span className="font-bold text-gray-900">
               {formatMoney(
                 totals.subtotal,
@@ -686,7 +691,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           {/* Discount row */}
           <div className="flex items-center justify-between gap-2 text-sm sm:text-base pt-2 border-t border-gray-200/70">
             <div className="flex items-center gap-2">
-              <span className="text-gray-600 font-medium">Discount</span>
+              <span className="text-gray-600 font-medium">{t('editor.discount')}</span>
               <div className="flex items-center border border-gray-300 rounded-lg bg-white overflow-hidden">
                 <input
                   type="number"
@@ -727,7 +732,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                 value={invoice.customization.taxLabel}
                 onChange={(e) => updateCustomization('taxLabel', e.target.value)}
                 className="w-24 text-sm font-semibold border-b border-dashed border-gray-400 outline-none text-gray-800 bg-transparent"
-                placeholder="Tax"
+                placeholder={t('editor.taxRate')}
               />
               <div className="flex items-center border border-gray-300 rounded-lg bg-white overflow-hidden">
                 <input
@@ -763,7 +768,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
 
           {/* Total */}
           <div className="flex justify-between items-center text-base sm:text-lg font-extrabold text-gray-900 pt-3 border-t-2 border-gray-300">
-            <span>Total</span>
+            <span>{t('editor.total')}</span>
             <span className="text-lg sm:text-xl font-bold font-mono">
               {formatMoney(
                 totals.total,
@@ -776,7 +781,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           {/* Amount Paid if enabled */}
           {invoice.customization.showAmountPaid && (
             <div className="flex items-center justify-between gap-2 text-sm sm:text-base pt-2 border-t border-gray-200/70">
-              <span className="text-gray-600 font-medium">Amount Paid</span>
+              <span className="text-gray-600 font-medium">{t('editor.amountPaid')}</span>
               <div className="flex items-center border border-gray-300 rounded-lg bg-white overflow-hidden">
                 <span className="px-2 text-gray-400 text-sm">
                   {invoice.customization.currencySymbol}
@@ -795,7 +800,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
 
           {/* Balance Due highlight banner in #1A3263 */}
           <div className="mt-4 p-4 rounded-xl bg-[#1A3263] text-white flex items-center justify-between shadow-md">
-            <span className="font-bold text-sm uppercase tracking-wider text-gray-200">Balance Due</span>
+            <span className="font-bold text-sm uppercase tracking-wider text-gray-200">{t('editor.balanceDue')}</span>
             <span className="font-extrabold text-xl sm:text-2xl font-mono text-white">
               {formatMoney(
                 totals.balanceDue,
@@ -814,7 +819,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
           <div className="border border-gray-200 rounded-xl p-5 bg-gray-50/50">
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs sm:text-sm font-bold text-gray-800 uppercase tracking-wide flex items-center gap-2">
-                <PenTool className="w-4 h-4 text-[#1A3263]" /> Signature
+                <PenTool className="w-4 h-4 text-[#1A3263]" /> {t('editor.signature')}
               </span>
               {invoice.signatureUrl && (
                 <button
@@ -822,7 +827,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                   onClick={() => updateField('signatureUrl', '')}
                   className="text-xs sm:text-sm text-red-600 font-semibold hover:underline"
                 >
-                  Remove
+                  {t('editor.removeLogo')}
                 </button>
               )}
             </div>
@@ -849,8 +854,8 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                 className="w-full py-6 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-600 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-white transition"
               >
                 <PenTool className="w-5 h-5 mb-1.5" />
-                <span className="text-sm font-bold">+ Add Authorized Signature</span>
-                <span className="text-xs text-gray-400">Draw with cursor/finger or upload file</span>
+                <span className="text-sm font-bold">{x.addSignature}</span>
+                <span className="text-xs text-gray-400">{x.signatureHelp}</span>
               </button>
             )}
           </div>
@@ -878,8 +883,8 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                 className="py-6 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-600 hover:border-[#1A3263] hover:text-[#1A3263] cursor-pointer hover:bg-white transition"
               >
                 <Upload className="w-5 h-5 mb-1.5 text-gray-400" />
-                <span className="text-sm font-bold">Upload photos, receipts, or proof of work</span>
-                <span className="text-xs text-gray-400">PNG, JPG, WebP (auto-compressed)</span>
+                <span className="text-sm font-bold">{x.uploadProof}</span>
+                <span className="text-xs text-gray-400">{x.photoTypes}</span>
               </div>
             ) : (
               <div className="space-y-2.5">
@@ -908,7 +913,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                           }}
                           className="rounded text-[#1A3263] focus:ring-[#1A3263] h-4 w-4"
                         />
-                        <span>In PDF</span>
+                        <span>{x.inPdf}</span>
                       </label>
 
                       <button
@@ -920,7 +925,7 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
                           );
                         }}
                         className="text-red-500 hover:text-red-700 p-1"
-                        title="Delete photo"
+                        title={x.removeItem}
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>

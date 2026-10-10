@@ -1,7 +1,9 @@
 import React from 'react';
 import { PROFESSION_EXAMPLES, ProfessionTemplateExample } from '../data/professionExamples';
-import { TOOL_GUIDES } from '../data/toolGuidesData';
+import { TOOL_GUIDES, ToolGuideData } from '../data/toolGuidesData';
 import { getLocalizedGuide } from '../data/localizedToolGuides';
+import { getGuideUi } from '../data/toolGuideLocalization';
+import i18n from '../utils/i18n';
 
 interface CompleteGuideProps {
   toolSlug?: string;
@@ -17,11 +19,17 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
 }) => {
   const baseGuide = TOOL_GUIDES[toolSlug];
   const localizedOverride = getLocalizedGuide(toolSlug, lang);
+  const localizedToolName = i18n.t(`seo:tools.${toolSlug}.name`, {
+    lng: lang,
+    defaultValue: toolSlug.replace(/-generator$/, '').replaceAll('-', ' '),
+  });
+  const guideUi = getGuideUi(lang, localizedToolName);
 
-  const customGuide = baseGuide ? {
-    ...baseGuide,
-    ...(localizedOverride || {}),
-  } : undefined;
+  const customGuide = baseGuide
+    ? { ...baseGuide, ...(localizedOverride || {}) }
+    : localizedOverride
+      ? ({ toolId: toolSlug, slug: toolSlug, ...localizedOverride } as ToolGuideData)
+      : undefined;
 
   // If this tool has its own dedicated SEO guide (Receipt, Quote, Estimate, Credit Note, etc.), render it in the exact same format
   if (customGuide) {
@@ -44,7 +52,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
 
         {/* In this guide / Table of Contents */}
         <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-3">
-          In this guide
+          {guideUi.contents}
         </h2>
         <ul className="list-disc pl-6 mb-8 space-y-1 text-gray-700">
           {customGuide.tableOfContents.map((item) => (
@@ -64,27 +72,23 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
           {customGuide.whatIsDescription}
         </p>
         <p className="mb-2 font-medium text-gray-800">
-          It is a good fit if you are:
+          {guideUi.fit}
         </p>
         <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
           {customGuide.goodFitList.map((fit, idx) => (
             <li key={idx}>{fit}</li>
           ))}
         </ul>
-        <p className="mb-6 leading-relaxed text-gray-700">
-          Because there is no signup required, you can open the generator, draft your document with instant live preview, and download a print-ready searchable PDF in seconds.
-        </p>
-
         {/* Section: Key features */}
         <h2 id="key-features" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
-          Key features
+          {guideUi.features}
         </h2>
         <div className="overflow-x-auto my-6">
           <table className="w-full border-collapse border border-gray-300 text-sm text-left">
             <thead className="bg-gray-100">
               <tr>
-                <th className="border border-gray-300 p-3 font-semibold text-gray-900">Feature</th>
-                <th className="border border-gray-300 p-3 font-semibold text-gray-900">What it means for you</th>
+                <th className="border border-gray-300 p-3 font-semibold text-gray-900">{guideUi.feature}</th>
+                <th className="border border-gray-300 p-3 font-semibold text-gray-900">{guideUi.benefit}</th>
               </tr>
             </thead>
             <tbody>
@@ -103,7 +107,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
           {customGuide.stepsTitle}
         </h2>
         <p className="mb-4 leading-relaxed text-gray-700">
-          Follow these simple steps to issue your document using this free online generator:
+          {guideUi.stepsLead}
         </p>
         {customGuide.steps.map((step, idx) => (
           <div key={idx} className="mb-4">
@@ -196,20 +200,20 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
                       {ex.industry}: {ex.headline}
                     </h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2 italic">
-                    Currency: {ex.currency}
+                    <p className="text-sm text-gray-600 mb-2 italic">
+                      {guideUi.currency}: {ex.currency}
                   </p>
-                  <p className="text-sm font-medium text-gray-800 mb-1">Sample line items:</p>
+                    <p className="text-sm font-medium text-gray-800 mb-1">{guideUi.sampleItems}:</p>
                   <ul className="list-disc pl-6 text-sm text-gray-700 space-y-1">
                     {ex.items.map((it, itIdx) => (
                       <li key={itIdx}>
-                        {it.desc} &mdash; {it.qty} x ${it.rate.toLocaleString()} = ${it.total.toLocaleString()}
+                        {it.desc} &mdash; {it.qty} × {new Intl.NumberFormat(lang === 'pt' ? 'pt-BR' : `${lang}-${lang === 'es' ? 'ES' : lang === 'fr' ? 'FR' : lang === 'de' ? 'DE' : lang === 'it' ? 'IT' : 'US'}`, { style: 'currency', currency: ex.currency }).format(it.rate)} = {new Intl.NumberFormat(lang === 'pt' ? 'pt-BR' : `${lang}-${lang === 'es' ? 'ES' : lang === 'fr' ? 'FR' : lang === 'de' ? 'DE' : lang === 'it' ? 'IT' : 'US'}`, { style: 'currency', currency: ex.currency }).format(it.total)}
                       </li>
                     ))}
                   </ul>
                   {ex.notes && (
                     <p className="text-xs text-gray-500 mt-2">
-                      <strong>Notes & terms:</strong> {ex.notes}
+                      <strong>{guideUi.notes}:</strong> {ex.notes}
                     </p>
                   )}
                 </div>
@@ -232,20 +236,18 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
 
         {/* Privacy Section */}
         <h2 id="privacy-data-handling" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
-          Privacy: how your data is handled
+          {guideUi.privacyTitle}
         </h2>
         <p className="mb-4 leading-relaxed text-gray-700">
-          Invoiceo is built with privacy by design:
+          {guideUi.privacyDescription}
         </p>
         <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
-          <li><strong>Runs entirely in your browser:</strong> Your client records, document items, and financial amounts are computed directly on your device.</li>
-          <li><strong>No server database:</strong> Your financial data is not transmitted to or stored on external servers or cloud accounts.</li>
-          <li><strong>Local storage:</strong> Saved documents reside in your browser's local memory. You have complete control and can export or wipe your data anytime.</li>
+          {guideUi.privacyPoints.map((point, index) => <li key={index}>{point}</li>)}
         </ul>
 
         {/* FAQs */}
         <h2 id="faq" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
-          Frequently Asked Questions (FAQ)
+          {guideUi.faq}
         </h2>
         <div className="space-y-4">
           {customGuide.faqs.map((faq, idx) => (

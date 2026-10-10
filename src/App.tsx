@@ -161,6 +161,23 @@ export default function App() {
     if (locDesc) seoDesc = locDesc;
   }
 
+  const localizedToolName = i18n.t(`seo:tools.${currentRoute.id}.name`, {
+    lng: activeLang,
+    defaultValue: currentTool.name,
+  });
+  const localizedToolShortName = i18n.t(`seo:tools.${currentRoute.id}.shortName`, {
+    lng: activeLang,
+    defaultValue: currentTool.shortName,
+  });
+  const localizedToolHeading = i18n.t(`seo:tools.${currentRoute.id}.h1`, {
+    lng: activeLang,
+    defaultValue: currentTool.h1,
+  });
+  const localizedToolDescription = i18n.t(`seo:tools.${currentRoute.id}.description`, {
+    lng: activeLang,
+    defaultValue: currentTool.description,
+  });
+
   // Change active language and update URL seamlessly
   const handleSelectLanguage = (newLang: string) => {
     if (newLang === currentRoute.lang) return;
@@ -639,17 +656,17 @@ export default function App() {
           <div className="mb-6 no-print bg-white border border-gray-200/90 rounded-2xl shadow-xs p-5 sm:p-6">
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span className="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-[#1A3263]/10 text-[#1A3263] border border-[#1A3263]/15">
-                {currentTool.badgeText}
+                {localizedToolName}
               </span>
               <span className="text-xs text-gray-500 font-medium">
-                100% Free • No Signup Required • High-Resolution PDF
+              {i18n.t('seo:site.toolTrustLine', { lng: activeLang, defaultValue: '100% Free • No Signup Required • High-Resolution PDF' })}
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900">
-              {currentTool.h1}
+              {localizedToolHeading}
             </h1>
             <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed max-w-4xl">
-              {currentTool.description}
+              {localizedToolDescription}
             </p>
 
             {/* Reference informational banner */}
@@ -657,7 +674,7 @@ export default function App() {
               <div className="flex items-center gap-2.5">
                 <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
                 <span className="font-medium">
-                  Your documents are saved automatically in this browser. Export a backup to keep your data safe.
+                  {i18n.t('seo:site.backupNotice', { lng: activeLang, defaultValue: 'Your documents are saved automatically in this browser. Export a backup to keep your data safe.' })}
                 </span>
               </div>
               <button
@@ -665,7 +682,7 @@ export default function App() {
                 onClick={() => setIsImportExportOpen(true)}
                 className="cursor-pointer text-sm font-bold text-[#1A3263] hover:text-[#132549] underline underline-offset-4 shrink-0 transition"
               >
-                Export Backup
+                {i18n.t('seo:site.exportBackup', { lng: activeLang, defaultValue: 'Export Backup' })}
               </button>
             </div>
           </div>
@@ -700,7 +717,7 @@ export default function App() {
               onDuplicateInvoice={() => handleDuplicateInvoice()}
               onResetInvoice={handleResetInvoice}
               isDownloadingPdf={isDownloadingPdf}
-              documentTypeLabel={currentTool.shortName}
+              documentTypeLabel={localizedToolShortName}
             />
           </div>
 

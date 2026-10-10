@@ -18,7 +18,10 @@
     "importExport": "Daten",
     "saved": "Gespeichert",
     "saving": "Speichert...",
-    "error": "Fehler"
+    "error": "Fehler",
+    "duplicate": "Dokument duplizieren",
+    "reset": "Auf Standardwerte zurücksetzen",
+    "moreActions": "Weitere Aktionen"
   },
   "editor": {
     "clickTitleToEdit": "Klicken Sie zum Bearbeiten auf den Titel (z. B. Rechnung, Quittung, Angebot)",
@@ -59,6 +62,7 @@
     "fieldValue": "Wert (z. B. Phase 1)"
   },
   "preview": {
+    "previewTab": "Vorschau",
     "backToEdit": "Zurück zur Bearbeitung",
     "layout": "Vorlage:",
     "change": "Ändern",

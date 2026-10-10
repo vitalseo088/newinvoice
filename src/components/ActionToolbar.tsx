@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   FileText,
   Eye,
@@ -42,6 +43,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
   isDownloadingPdf = false,
   documentTypeLabel = 'Invoice',
 }) => {
+  const { t } = useTranslation('common');
   const [moreOpen, setMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement | null>(null);
 
@@ -87,7 +89,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
             }`}
           >
             <Eye className={`w-4 h-4 ${activeTab === 'preview' ? 'text-white' : 'text-gray-500'}`} />
-            <span>Preview</span>
+            <span>{t('preview.previewTab')}</span>
             {activeTab === 'preview' && (
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
             )}
@@ -101,14 +103,14 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
             {saveStatus === 'saving' ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin text-[#1A3263]" />
-                <span className="font-semibold text-gray-700">Saving...</span>
+                <span className="font-semibold text-gray-700">{t('toolbar.saving')}</span>
               </>
             ) : saveStatus === 'error' ? (
-              <span className="text-red-600 font-semibold">Storage full</span>
+              <span className="text-red-600 font-semibold">{t('toolbar.error')}</span>
             ) : (
               <>
                 <Check className="w-4 h-4 text-emerald-600 stroke-[3]" />
-                <span className="font-semibold text-gray-700">Saved</span>
+                <span className="font-semibold text-gray-700">{t('toolbar.saved')}</span>
               </>
             )}
           </div>
@@ -120,10 +122,10 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 type="button"
                 onClick={onOpenCustomize}
                 className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
-                title={`${documentTypeLabel} Settings & Customization`}
+                title={`${documentTypeLabel} · ${t('toolbar.customize')}`}
               >
                 <SlidersHorizontal className="w-4 h-4 text-[#1A3263]" />
-                Customize
+                {t('toolbar.customize')}
               </button>
 
               {/* New Invoice button placed on the right side of Customize / Settings */}
@@ -131,11 +133,11 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 type="button"
                 onClick={onNewInvoice}
                 className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
-                title={`Create a new ${documentTypeLabel.toLowerCase()}`}
+                title={`${t('toolbar.newInvoice')} ${documentTypeLabel.toLowerCase()}`}
               >
                 <Plus className="w-4 h-4 text-[#1A3263] stroke-[2.5]" />
-                <span className="hidden sm:inline">New {documentTypeLabel}</span>
-                <span className="sm:hidden">New</span>
+                <span className="hidden sm:inline">{t('toolbar.newInvoice')} {documentTypeLabel}</span>
+                <span className="sm:hidden">{t('toolbar.newInvoice')}</span>
               </button>
 
               {/* Print Button */}
@@ -143,10 +145,10 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 type="button"
                 onClick={onPrint}
                 className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
-                title="Print this invoice"
+                title={t('toolbar.print')}
               >
                 <Printer className="w-4 h-4 text-[#1A3263]" />
-                <span className="hidden sm:inline">Print</span>
+                <span className="hidden sm:inline">{t('toolbar.print')}</span>
               </button>
 
               {/* Download PDF button */}
@@ -161,7 +163,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 ) : (
                   <Download className="w-4 h-4" />
                 )}
-                Download PDF
+                {t('toolbar.downloadPdf')}
               </button>
 
               {/* More Actions Dropdown */}
@@ -170,7 +172,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                   type="button"
                   onClick={() => setMoreOpen(!moreOpen)}
                   className="cursor-pointer p-2.5 text-gray-600 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
-                  title="More actions"
+                  title={t('toolbar.moreActions')}
                 >
                   <MoreVertical className="w-4 h-4" />
                 </button>
@@ -185,7 +187,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                       }}
                       className="cursor-pointer w-full px-4 py-2.5 text-left hover:bg-gray-50 flex items-center gap-2.5 font-medium"
                     >
-                      <Plus className="w-4 h-4 text-gray-500" /> New Invoice
+                      <Plus className="w-4 h-4 text-gray-500" /> {t('toolbar.newInvoice')} {documentTypeLabel}
                     </button>
                     <button
                       type="button"
@@ -195,7 +197,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                       }}
                       className="cursor-pointer w-full px-4 py-2.5 text-left hover:bg-gray-50 flex items-center gap-2.5 font-medium"
                     >
-                      <Printer className="w-4 h-4 text-gray-500" /> Print Invoice
+                      <Printer className="w-4 h-4 text-gray-500" /> {t('toolbar.print')} {documentTypeLabel}
                     </button>
                     <button
                       type="button"
@@ -205,7 +207,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                       }}
                       className="w-full px-4 py-2.5 text-left hover:bg-gray-50 flex items-center gap-2.5 font-medium"
                     >
-                      <Copy className="w-4 h-4 text-gray-500" /> Duplicate Current
+                      <Copy className="w-4 h-4 text-gray-500" /> {t('toolbar.duplicate')}
                     </button>
                     <div className="my-1 border-t border-gray-100" />
                     <button
@@ -216,7 +218,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                       }}
                       className="w-full px-4 py-2.5 text-left text-red-600 hover:bg-red-50 flex items-center gap-2.5 font-medium"
                     >
-                      <RotateCcw className="w-4 h-4" /> Reset to Defaults
+                      <RotateCcw className="w-4 h-4" /> {t('toolbar.reset')}
                     </button>
                   </div>
                 )}
@@ -231,7 +233,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
               >
                 <ArrowLeft className="w-4 h-4" />
-                Back to Invoice
+                {t('preview.backToEdit')}
               </button>
 
               <button
@@ -240,7 +242,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-800 bg-white border border-gray-300 hover:border-[#1A3263] hover:text-[#1A3263] hover:bg-gray-50 rounded-lg transition shadow-2xs"
               >
                 <Printer className="w-4 h-4 text-[#1A3263]" />
-                Print Invoice
+                {t('toolbar.print')} {documentTypeLabel}
               </button>
 
               <button
@@ -254,7 +256,7 @@ export const ActionToolbar: React.FC<ActionToolbarProps> = ({
                 ) : (
                   <FileDown className="w-4 h-4" />
                 )}
-                Download PDF
+                {t('toolbar.downloadPdf')}
               </button>
             </>
           )}
