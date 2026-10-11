@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100 % Gratis • Ingen registrering krävs • Högupplöst PDF",
+    "backupNotice": "Dina dokument sparas automatiskt i webbläsaren. Exportera en säkerhetskopia för att skydda dina uppgifter.",
+    "exportBackup": "Exportera Säkerhetskopia"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Fakturagenerator",
+      "shortName": "Faktura",
+      "h1": "Skapa Faktura Gratis Online",
+      "metaTitle": "Skapa Faktura Gratis Online - Ladda ner PDF | Invoiceo.online",
+      "metaDescription": "100 % gratis professionell fakturagenerator. Skapa, anpassa och ladda ner PDF-fakturor direkt utan registrering.",
+      "description": "Skapa tydliga och professionella fakturor på några sekunder med Invoiceo för frilansare och småföretagare."
+    },
+    "receipt-generator": {
+      "name": "Kvitto Generator",
+      "shortName": "Kvitto",
+      "h1": "Skapa Kvitto och Betalningsbevis Online",
+      "metaTitle": "Skapa Kvitto Gratis Online - PDF Mall | Invoiceo.online",
+      "metaDescription": "Utfärda officiella kvitton och betalningsbevis i PDF-format med momsberäkning och transaktionsnummer.",
+      "description": "Generera officiella kvitton snabbt och enkelt utan inloggning."
+    },
+    "quote-generator": {
+      "name": "Offert Generator",
+      "shortName": "Offert",
+      "h1": "Skapa Professionell Offert Online",
+      "metaTitle": "Skapa Offert Gratis Online - PDF Mall | Invoiceo.online",
+      "metaDescription": "Upprätta tydliga offerter med giltighetstid, villkor och specifikationer i ett snyggt PDF-dokument.",
+      "description": "Vinn fler affärer med genomarbetade och eleganta offertmallar."
+    },
+    "estimate-generator": {
+      "name": "Kostnadskalkyl / Kostnadsberäkning",
+      "shortName": "Kostnadskalkyl",
+      "h1": "Upprätta Kostnadskalkyl och Prisuppskattning",
+      "metaTitle": "Kostnadskalkyl och Prisuppskattning PDF | Invoiceo.online",
+      "metaDescription": "Ställ samman arbete, material och tillkommande kostnader i en överskådlig kalkyl för dina kunder.",
+      "description": "Noggranna projektkalkyler för entreprenörer och hantverkare."
+    },
+    "credit-note-generator": {
+      "name": "Kreditfaktura Generator",
+      "shortName": "Kreditfaktura",
+      "h1": "Skapa Kreditfaktura Online Gratis",
+      "metaTitle": "Skapa Kreditfaktura Gratis PDF | Invoiceo.online",
+      "metaDescription": "Skapa korrekta kreditnotor och kreditfakturor för returer eller justeringar av tidigare fakturor.",
+      "description": "Officiella kreditfakturor för smidig korrigering och återbetalning."
+    },
+    "purchase-order-generator": {
+      "name": "Inköpsorder (PO) Generator",
+      "shortName": "Inköpsorder",
+      "h1": "Skapa Inköpsorder till Leverantör",
+      "metaTitle": "Inköpsorder Mall PDF Gratis | Invoiceo.online",
+      "metaDescription": "Skapa formella inköpsordrar till dina leverantörer med specifikationer, priser och leveransvillkor.",
+      "description": "Tydlig dokumentation av ditt företags varuinköp."
+    },
+    "sales-order-generator": {
+      "name": "Orderbekräftelse Generator",
+      "shortName": "Orderbekräftelse",
+      "h1": "Skapa Orderbekräftelse Online",
+      "metaTitle": "Skapa Orderbekräftelse PDF Mall | Invoiceo.online",
+      "metaDescription": "Bekräfta kundens beställning, leveransdatum och betalningsvillkor före slutlig fakturering.",
+      "description": "En trygg länk mellan godkänd offert och leverans."
+    },
+    "proforma-invoice-generator": {
+      "name": "Proformafaktura Generator",
+      "shortName": "Proforma",
+      "h1": "Skapa Proformafaktura för Tull och Export",
+      "metaTitle": "Proformafaktura Mall PDF Gratis | Invoiceo.online",
+      "metaDescription": "Skapa proformafakturor för internationell handel, tullhantering och förskottsbetalningar.",
+      "description": "Nödvändig preliminär handelsfaktura för export och tull."
+    },
+    "timesheet-generator": {
+      "name": "Tidrapport & Timfakturering",
+      "shortName": "Tidrapport",
+      "h1": "Fakturera Arbetade Timmar Online",
+      "metaTitle": "Tidrapport och Timfaktura PDF Mall | Invoiceo.online",
+      "metaDescription": "Specificera arbetade timmar, timtaxa och arbetsmoment för frilansare och konsulter.",
+      "description": "Överskådlig tidredovisning och timdebitering för självständiga yrkesverksamma."
+    },
+    "work-order-generator": {
+      "name": "Arbetsorder / Servicesedel",
+      "shortName": "Arbetsorder",
+      "h1": "Skapa Arbetsorder och Serviceprotokoll",
+      "metaTitle": "Arbetsorder och Servicesedel PDF Mall | Invoiceo.online",
+      "metaDescription": "Skapa arbetsorder för fältarbeten, reparationer och service med kundsignatur.",
+      "description": "Effektivisera serviceteknikers uppdrag med tydliga arbetsordrar."
+    },
+    "account-statement-generator": {
+      "name": "Kontoutdrag / Kundreskontra",
+      "shortName": "Kontoutdrag",
+      "h1": "Skapa Kundreskontra och Saldobesked",
+      "metaTitle": "Kontoutdrag och Kundreskontra PDF | Invoiceo.online",
+      "metaDescription": "Sammanfatta obetalda fakturor, inbetalningar och aktuellt saldo i en professionell sammanställning.",
+      "description": "Tydlig avstämning av kundens skulder och inbetalningar."
+    },
+    "packing-slip-generator": {
+      "name": "Följesedel / Packsedel",
+      "shortName": "Följesedel",
+      "h1": "Skapa Följesedel och Packsedel Online",
+      "metaTitle": "Skapa Följesedel Gratis PDF Mall | Invoiceo.online",
+      "metaDescription": "Skapa följesedlar för paket och leveranser med kollinnehåll och antal för säker transport.",
+      "description": "Säkerställ att rätt varor packas och levereras till kunden."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Om Oss | Gratis och Säker Fakturering - Invoiceo.online",
+      "description": "Läs mer om Invoiceo.online: 100 % gratis fakturering i webbläsaren utan dolda avgifter eller kontokrav."
+    },
+    "contact": {
+      "title": "Kontakta Oss | Support och Feedback - Invoiceo.online",
+      "description": "Kontakta Invoiceo-teamet för support, funktionsförslag eller allmänna frågor."
+    },
+    "privacy": {
+      "title": "Integritetspolicy | Data Lokalt på Din Enhet - Invoiceo.online",
+      "description": "Inga molndatabaser, PDF-generering i webbläsaren och fullständig dataintegritet."
+    },
+    "terms": {
+      "title": "Användarvillkor | Kostnadsfria Företagsverktyg - Invoiceo.online",
+      "description": "Användarvillkor för de kostnadsfria dokumentverktygen på Invoiceo.online."
+    },
+    "bugs": {
+      "title": "Rapportera Fel | Felspårning - Invoiceo.online",
+      "description": "Rapportera layoutproblem eller matematiska fel direkt till utvecklarna."
+    }
+  }
+}

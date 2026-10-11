@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% Libre • Walang Sign-up • Mataas na Kalidad na PDF",
+    "backupNotice": "Awtomatikong nakaimbak ang iyong mga dokumento sa browser na ito. Mag-export ng backup para protektado ang iyong datos.",
+    "exportBackup": "I-export ang Backup"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Libreng Tagagawa ng Invoice / Resibo",
+      "shortName": "Invoice",
+      "h1": "Libreng Online Invoice Generator",
+      "metaTitle": "Libreng Gumawa ng Invoice Online - I-download ang PDF | Invoiceo.online",
+      "metaDescription": "100% libreng propesyonal na invoice generator. Gumawa, mag-customize, at mag-download agad ng PDF na walang pag-login.",
+      "description": "Gumawa ng malinis at propesyonal na mga invoice sa ilang segundo gamit ang Invoiceo para sa freelancers at negosyo."
+    },
+    "receipt-generator": {
+      "name": "Tagagawa ng Opisyal na Resibo",
+      "shortName": "Resibo",
+      "h1": "Gumawa ng Resibo sa Pagbabayad Online",
+      "metaTitle": "Libreng Tagagawa ng Resibo PDF | Invoiceo.online",
+      "metaDescription": "Mag-isyu ng opisyal na patunay ng pagbabayad na may breakdown ng buwis at detalye ng transaksyon.",
+      "description": "Madaling makagawa ng opisyal na resibo nang hindi na kailangang magrehistro."
+    },
+    "quote-generator": {
+      "name": "Tagagawa ng Price Quotation",
+      "shortName": "Quotation",
+      "h1": "Gumawa ng Propesyonal na Quotation Online",
+      "metaTitle": "Libreng Price Quotation Generator PDF | Invoiceo.online",
+      "metaDescription": "Ihanda ang pormal na quotation para sa iyong mga kliyente na may mga breakdown ng presyo at bisa.",
+      "description": "Magwagi ng higit pang mga kontrata gamit ang malinaw na quotation."
+    },
+    "estimate-generator": {
+      "name": "Tagagawa ng Cost Estimate",
+      "shortName": "Estimate",
+      "h1": "Kalkulasyon ng Gastusin sa Proyekto",
+      "metaTitle": "Libreng Cost Estimate Generator PDF | Invoiceo.online",
+      "metaDescription": "Ilatag ang labor, materyales, at iba pang gastusin para sa mga kliyente sa isang malinis na PDF.",
+      "description": "Tumpak na pagtatantya ng gastos para sa mga contractor at service providers."
+    },
+    "credit-note-generator": {
+      "name": "Tagagawa ng Credit Note",
+      "shortName": "Credit Note",
+      "h1": "Gumawa ng Credit Note at Refund Memo",
+      "metaTitle": "Libreng Credit Note Generator PDF | Invoiceo.online",
+      "metaDescription": "Mag-isyu ng credit notes para sa mga ibinalik na produkto, diskwento, o pagwawasto sa invoice.",
+      "description": "Pormal na dokumento para sa pagbawas o pag-aayos ng naunang siningil."
+    },
+    "purchase-order-generator": {
+      "name": "Purchase Order (PO) Maker",
+      "shortName": "Purchase Order",
+      "h1": "Gumawa ng Purchase Order para sa Supplier",
+      "metaTitle": "Libreng Purchase Order (PO) PDF Maker | Invoiceo.online",
+      "metaDescription": "Gumawa ng opisyal na purchase order na may listahan ng produkto, presyo, at lagda ng awtorisasyon.",
+      "description": "Mabilis na idokumento ang mga pambiling komersyal ng iyong negosyo."
+    },
+    "sales-order-generator": {
+      "name": "Kumpirmasyon ng Sales Order",
+      "shortName": "Sales Order",
+      "h1": "Kumpirmasyon ng Order ng Kustomer",
+      "metaTitle": "Sales Order Confirmation PDF Maker | Invoiceo.online",
+      "metaDescription": "Kumpirmahin ang tinanggap na order ng kliyente bago ang pagpapadala at pinal na pagsingil.",
+      "description": "Tulay sa pagitan ng tinanggap na quotation at pinal na invoice."
+    },
+    "proforma-invoice-generator": {
+      "name": "Tagagawa ng Proforma Invoice",
+      "shortName": "Proforma",
+      "h1": "Proforma Invoice para sa Export at Customs",
+      "metaTitle": "Libreng Proforma Invoice Generator PDF | Invoiceo.online",
+      "metaDescription": "Gumawa ng proforma invoice para sa internasyonal na kalakalan, customs clearance, at paunang bayad.",
+      "description": "Mahalagang panimulang dokumento sa kalakalan sa ibang bansa."
+    },
+    "timesheet-generator": {
+      "name": "Timesheet at Orasang Singil",
+      "shortName": "Timesheet",
+      "h1": "Orasang Singil para sa Freelancers",
+      "metaTitle": "Timesheet at Hourly Invoice PDF Maker | Invoiceo.online",
+      "metaDescription": "Ilista ang mga oras ng trabaho, hourly rate, at gawain para singilin ang kliyente.",
+      "description": "Makatwirang pagsingil base sa oras para sa mga propesyonal."
+    },
+    "work-order-generator": {
+      "name": "Tagagawa ng Work Order / Job Order",
+      "shortName": "Work Order",
+      "h1": "Form ng Serbisyong Teknikal at Pag-aayos",
+      "metaTitle": "Libreng Work Order Form Maker PDF | Invoiceo.online",
+      "metaDescription": "Idokumento ang mga serbisyo sa field, pagkukumpuni, at pagpapanatili na may lagda ng kliyente.",
+      "description": "Ayusin ang mga utos sa serbisyo gamit ang malinaw na work order."
+    },
+    "account-statement-generator": {
+      "name": "Statement of Account (SOA)",
+      "shortName": "SOA",
+      "h1": "Statement of Account at Balanse ng Kliyente",
+      "metaTitle": "Statement of Account Generator PDF | Invoiceo.online",
+      "metaDescription": "Ibuod ang mga hindi pa nababayarang invoice, natanggap na bayad, at kasalukuyang balanse.",
+      "description": "Ibigay sa mga kliyente ang malinaw na ulat ng kanilang mga transaksyon."
+    },
+    "packing-slip-generator": {
+      "name": "Packing Slip at Delivery Receipt",
+      "shortName": "Packing Slip",
+      "h1": "Gumawa ng Delivery at Packing Slip Online",
+      "metaTitle": "Libreng Packing Slip Maker PDF | Invoiceo.online",
+      "metaDescription": "Ilista ang mga nilalaman ng package at dami para sa maayos na pagpapadala at pagtanggap.",
+      "description": "Propesyonal na listahan para sa sigurado at tumpak na pagpapadala ng gamit."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Tungkol sa Amin | Libre at Ligtas na Pagsingil - Invoiceo.online",
+      "description": "Alamin ang tungkol sa Invoiceo.online: 100% libre, gumagana sa browser, walang subscription."
+    },
+    "contact": {
+      "title": "Makipag-ugnayan | Suporta at Komento - Invoiceo.online",
+      "description": "Ipadala ang iyong mga tanong o mungkahi sa team ng Invoiceo."
+    },
+    "privacy": {
+      "title": "Patakaran sa Pagkapribado | Ligtas sa Iyong Device - Invoiceo.online",
+      "description": "Walang cloud database, sa browser mismong ginagawa ang PDF para sa lubos na proteksyon."
+    },
+    "terms": {
+      "title": "Mga Tuntunin sa Paggamit | Libreng Negosyo Tools - Invoiceo.online",
+      "description": "Mga alituntunin at kondisyon sa paggamit ng mga libreng tool ng Invoiceo.online."
+    },
+    "bugs": {
+      "title": "Mag-ulat ng Problema | Bug Tracker - Invoiceo.online",
+      "description": "Ipagbigay-alam ang anumang sira sa layout o pagkakamali sa kalkulasyon sa mga developer."
+    }
+  }
+}

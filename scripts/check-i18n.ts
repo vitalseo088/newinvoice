@@ -3,7 +3,13 @@ import path from 'path';
 
 const LOCALES_DIR = path.resolve(process.cwd(), 'src/locales');
 const BASE_LANG = 'en';
-const TARGET_LANGS = ['es', 'fr', 'de', 'pt', 'it'];
+const TARGET_LANGS = [
+  'es', 'fr', 'de', 'pt', 'it',
+  'nl', 'pl', 'tr', 'id', 'vi',
+  'ru', 'ar', 'ur', 'hi', 'ja',
+  'ko', 'fil', 'sv', 'da', 'no',
+  'fi', 'cs', 'ro', 'hu', 'el'
+];
 
 function getKeys(obj: any, prefix = ''): string[] {
   let keys: string[] = [];

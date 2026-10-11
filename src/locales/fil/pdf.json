@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "MULA KAY (NAGBENTA)",
+    "billTo": "SINGILIN KAY (KUSTOMER)",
+    "shipTo": "LUGAR NG PAGPADALA",
+    "invoiceDate": "PETSA NG RESIBO",
+    "dueDate": "PETSA NG PAGBAYAD",
+    "paymentTerms": "KONDISYON SA PAGBAYAD",
+    "poNumber": "P.O. NUMBER",
+    "balanceDue": "NATITIRANG BALANSE",
+    "taxId": "TIN / BIR REGISTRATION",
+    "paymentInstructions": "IMPORMASYON SA PAGBABAYAD",
+    "bank": "Bangko",
+    "account": "Account Number",
+    "iban": "Pangalan sa Account",
+    "swift": "SWIFT / BIC",
+    "terms": "MGA TUNTUNIN AT KONDISYON",
+    "notes": "MGA TALA",
+    "subtotal": "SUBTOTAL",
+    "discount": "DISKUWENTO",
+    "tax": "BUWIS (VAT)",
+    "shipping": "BAYAD SA PAGPAPADALA",
+    "total": "KABUUANG HALAGA",
+    "amountPaid": "BAYAD NA",
+    "tableItem": "PAGLALARAWAN NG ITEM / SERBISYO",
+    "tableQty": "DAMI (QTY)",
+    "tableRate": "PRESYO",
+    "tableTax": "BUWIS",
+    "tableAmount": "HALAGA"
+  },
+  "terms": {
+    "on_receipt": "Bayaran agad sa pagtanggap",
+    "net_7": "Sa loob ng 7 araw",
+    "net_15": "Sa loob ng 15 araw",
+    "net_30": "Sa loob ng 30 araw",
+    "net_45": "Sa loob ng 45 araw",
+    "net_60": "Sa loob ng 60 araw",
+    "custom": "Espesyal na kasunduan"
+  }
+}

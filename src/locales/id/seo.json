@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% Gratis • Tanpa Registrasi • PDF Resolusi Tinggi",
+    "backupNotice": "Dokumen Anda tersimpan otomatis di browser ini. Ekspor cadangan agar data tetap aman.",
+    "exportBackup": "Ekspor Cadangan"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Pembuat Faktur / Invoice",
+      "shortName": "Invoice",
+      "h1": "Pembuat Invoice Online Gratis",
+      "metaTitle": "Buat Invoice Online Gratis - Download PDF | Invoiceo.online",
+      "metaDescription": "Pembuat faktur profesional 100% gratis. Buat, sesuaikan, dan unduh invoice PDF instan tanpa daftar.",
+      "description": "Buat faktur rapi dan profesional dalam hitungan detik dengan Invoiceo, dipercaya pekerja lepas dan UMKM."
+    },
+    "receipt-generator": {
+      "name": "Pembuat Kuitansi Pembayaran",
+      "shortName": "Kuitansi",
+      "h1": "Buat Kuitansi Pembayaran Online Gratis",
+      "metaTitle": "Pembuat Kuitansi Online Gratis - Download PDF | Invoiceo.online",
+      "metaDescription": "Cetak kuitansi pembayaran resmi online. Tambahkan nomor transaksi, rincian biaya, dan unduh PDF.",
+      "description": "Buat kuitansi dan bukti pembayaran resmi instan tanpa registrasi."
+    },
+    "quote-generator": {
+      "name": "Pembuat Surat Penawaran Harga",
+      "shortName": "Penawaran",
+      "h1": "Buat Surat Penawaran Harga Online",
+      "metaTitle": "Contoh Surat Penawaran Harga PDF | Invoiceo.online",
+      "metaDescription": "Buat penawaran harga profesional untuk klien Anda dengan rincian biaya dan masa berlaku.",
+      "description": "Dapatkan lebih banyak proyek dengan surat penawaran harga yang jelas dan meyakinkan."
+    },
+    "estimate-generator": {
+      "name": "Pembuat Estimasi Biaya (RAB)",
+      "shortName": "Estimasi Biaya",
+      "h1": "Rancangan Anggaran Biaya (RAB) Online",
+      "metaTitle": "Pembuat Estimasi Biaya & RAB PDF | Invoiceo.online",
+      "metaDescription": "Rancang estimasi biaya proyek, upah kerja, dan material dalam format PDF yang rapi.",
+      "description": "Perhitungan biaya akurat untuk kontraktor, teknisi, dan penyedia jasa."
+    },
+    "credit-note-generator": {
+      "name": "Pembuat Nota Kredit",
+      "shortName": "Nota Kredit",
+      "h1": "Buat Nota Kredit / Retur Online",
+      "metaTitle": "Pembuat Nota Kredit Online PDF | Invoiceo.online",
+      "metaDescription": "Buat nota kredit dan penyesuaian faktur dengan mudah untuk retur barang atau pengembalian dana.",
+      "description": "Sesuaikan faktur sebelumnya dengan nota kredit resmi."
+    },
+    "purchase-order-generator": {
+      "name": "Surat Pesanan Pembelian (PO)",
+      "shortName": "Pesanan (PO)",
+      "h1": "Pembuat Purchase Order (PO) Online Gratis",
+      "metaTitle": "Format Surat Pesanan Barang (PO) PDF | Invoiceo.online",
+      "metaDescription": "Terbitkan purchase order resmi untuk pemasok dengan daftar barang dan syarat pengiriman.",
+      "description": "Dokumentasikan pesanan pembelian bisnis Anda dalam sekejap."
+    },
+    "sales-order-generator": {
+      "name": "Konfirmasi Pesanan Penjualan",
+      "shortName": "Order Penjualan",
+      "h1": "Surat Konfirmasi Pesanan Online",
+      "metaTitle": "Konfirmasi Pesanan Penjualan PDF | Invoiceo.online",
+      "metaDescription": "Konfirmasikan pesanan pelanggan sebelum pengiriman dan penagihan akhir.",
+      "description": "Jembatan antara penawaran yang disetujui dan faktur penagihan akhir."
+    },
+    "proforma-invoice-generator": {
+      "name": "Pembuat Proforma Invoice",
+      "shortName": "Proforma",
+      "h1": "Buat Proforma Invoice Online Gratis",
+      "metaTitle": "Proforma Invoice Ekspor & Bea Cukai PDF | Invoiceo.online",
+      "metaDescription": "Buat proforma invoice untuk perdagangan internasional, bea cukai, dan pembayaran di muka.",
+      "description": "Dokumen komersial awal penting untuk pengiriman luar negeri dan pembayaran DP."
+    },
+    "timesheet-generator": {
+      "name": "Lembar Jam Kerja & Tagihan",
+      "shortName": "Jam Kerja",
+      "h1": "Tagihan Jam Kerja Freelancer Online",
+      "metaTitle": "Faktur Jam Kerja & Timesheet PDF | Invoiceo.online",
+      "metaDescription": "Catat jam kerja, tarif per jam, dan tugas proyek untuk pekerja lepas dan konsultan.",
+      "description": "Penagihan berbasis jam kerja transparan untuk para profesional independen."
+    },
+    "work-order-generator": {
+      "name": "Surat Perintah Kerja (SPK)",
+      "shortName": "Perintah Kerja",
+      "h1": "Surat Perintah Kerja / Formulir Servis",
+      "metaTitle": "Format Surat Perintah Kerja (SPK) PDF | Invoiceo.online",
+      "metaDescription": "Buat formulir kerja teknis, servis lapangan, dan perbaikan lengkap dengan tanda tangan.",
+      "description": "Permudah instruksi kerja dan perawatan teknis dengan SPK profesional."
+    },
+    "account-statement-generator": {
+      "name": "Rekening Koran / Mutasi Klien",
+      "shortName": "Rekening Klien",
+      "h1": "Laporan Mutasi & Saldo Tagihan Klien",
+      "metaTitle": "Rekening Koran Klien & Saldo Tagihan PDF | Invoiceo.online",
+      "metaDescription": "Ringkas faktur yang belum lunas, riwayat pembayaran, dan saldo berjalan pelanggan.",
+      "description": "Berikan transparansi transaksi dan saldo tagihan terkini kepada mitra bisnis Anda."
+    },
+    "packing-slip-generator": {
+      "name": "Surat Jalan / Packing Slip",
+      "shortName": "Surat Jalan",
+      "h1": "Pembuat Surat Jalan Barang Online",
+      "metaTitle": "Format Surat Jalan Pengiriman Barang PDF | Invoiceo.online",
+      "metaDescription": "Buat surat jalan dan daftar isi paket pengiriman barang instan dalam format PDF.",
+      "description": "Verifikasi isi paket dan kelancaran pengiriman barang pelanggan."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Tentang Kami | Solusi Faktur Gratis & Aman - Invoiceo.online",
+      "description": "Pelajari Invoiceo.online: Aplikasi pembuat faktur 100% gratis berbasis browser tanpa biaya tersembunyi."
+    },
+    "contact": {
+      "title": "Hubungi Kami | Bantuan & Masukan - Invoiceo.online",
+      "description": "Hubungi tim Invoiceo untuk dukungan teknis, saran fitur baru, atau pertanyaan umum."
+    },
+    "privacy": {
+      "title": "Kebijakan Privasi | Data Aman di Perangkat Anda - Invoiceo.online",
+      "description": "Tanpa database cloud, pembuatan PDF di browser, dan kepemilikan data penuh milik Anda."
+    },
+    "terms": {
+      "title": "Syarat & Ketentuan | Penggunaan Gratis - Invoiceo.online",
+      "description": "Ketentuan penggunaan alat pembuatan dokumen komersial Invoiceo.online."
+    },
+    "bugs": {
+      "title": "Laporkan Masalah | Pelacak Bug - Invoiceo.online",
+      "description": "Laporkan kendala tampilan atau perhitungan langsung kepada tim pengembang kami."
+    }
+  }
+}

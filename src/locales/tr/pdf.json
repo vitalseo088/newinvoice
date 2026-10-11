@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "GÖNDEREN",
+    "billTo": "SAYIN (ALICI)",
+    "shipTo": "TESLİMAT ADRESİ",
+    "invoiceDate": "FATURA TARİHİ",
+    "dueDate": "VADE TARİHİ",
+    "paymentTerms": "ÖDEME KOŞULLARI",
+    "poNumber": "SİPARİŞ NO (PO)",
+    "balanceDue": "ÖDENECEK TUTAR",
+    "taxId": "VKN / TCKN",
+    "paymentInstructions": "ÖDEME BİLGİLERİ",
+    "bank": "Banka",
+    "account": "Hesap No",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "ŞARTLAR VE KOŞULLAR",
+    "notes": "NOTLAR",
+    "subtotal": "ARA TOPLAM",
+    "discount": "İNDİRİM",
+    "tax": "KDV",
+    "shipping": "KARGO / NAKLİYE",
+    "total": "GENEL TOPLAM",
+    "amountPaid": "ÖDENEN TUTAR",
+    "tableItem": "ÜRÜN / HİZMET AÇIKLAMASI",
+    "tableQty": "MİKTAR",
+    "tableRate": "BİRİM FİYAT",
+    "tableTax": "KDV",
+    "tableAmount": "TUTAR"
+  },
+  "terms": {
+    "on_receipt": "Teslimde Peşin",
+    "net_7": "7 Gün Vade",
+    "net_15": "15 Gün Vade",
+    "net_30": "30 Gün Vade",
+    "net_45": "45 Gün Vade",
+    "net_60": "60 Gün Vade",
+    "custom": "Özel Vade Koşulları"
+  }
+}

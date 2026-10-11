@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "DODAVATEL",
+    "billTo": "ODBĚRATEL",
+    "shipTo": "DODACÍ ADRESA",
+    "invoiceDate": "DATUM VYSTAVENÍ",
+    "dueDate": "DATUM SPLATNOSTI",
+    "paymentTerms": "PLATEBNÍ PODMÍNKY",
+    "poNumber": "ČÍSLO OBJEDNÁVKY",
+    "balanceDue": "K ÚHRADĚ CELKEM",
+    "taxId": "IČO / DIČ",
+    "paymentInstructions": "PLATEBNÍ ÚDAJE",
+    "bank": "Banka",
+    "account": "Číslo účtu / Kód banky",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "OBCHODNÍ PODMÍNKY",
+    "notes": "POZNÁMKA",
+    "subtotal": "ZÁKLAD DANĚ (MEZISOUČET)",
+    "discount": "SLEVA",
+    "tax": "DPH",
+    "shipping": "DOPRAVA / POŠTOVNÉ",
+    "total": "CELKEM S DPH",
+    "amountPaid": "UHRAZENO",
+    "tableItem": "POPIS POLOŽKY / SLUŽBY",
+    "tableQty": "MNOŽSTVÍ",
+    "tableRate": "CENA ZA JEDN.",
+    "tableTax": "DPH %",
+    "tableAmount": "ČÁSTKA"
+  },
+  "terms": {
+    "on_receipt": "Ihned při převzetí",
+    "net_7": "Splatnost 7 dní",
+    "net_15": "Splatnost 15 dní",
+    "net_30": "Splatnost 30 dní",
+    "net_45": "Splatnost 45 dní",
+    "net_60": "Splatnost 60 dní",
+    "custom": "Dle dohody"
+  }
+}

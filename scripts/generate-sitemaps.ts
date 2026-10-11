@@ -4,8 +4,14 @@ import path from 'path';
 // Define base URL
 const BASE_URL = 'https://invoiceo.online';
 
-// Languages in Phase 1
-const LANGUAGES = ['en', 'es', 'fr', 'de', 'pt', 'it'];
+// All 26 languages
+const LANGUAGES = [
+  'en', 'es', 'fr', 'de', 'pt', 'it',
+  'nl', 'pl', 'tr', 'id', 'vi',
+  'ru', 'ar', 'ur', 'hi', 'ja',
+  'ko', 'fil', 'sv', 'da', 'no',
+  'fi', 'cs', 'ro', 'hu', 'el'
+];
 
 // Pages config
 const ROUTES = [

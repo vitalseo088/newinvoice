@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "AFSENDER (VIRKSOMHED)",
+    "billTo": "FAKTURERES TIL (KUNDE)",
+    "shipTo": "LEVERINGSADRESSE",
+    "invoiceDate": "FAKTURADATO",
+    "dueDate": "FORFALDSDATO",
+    "paymentTerms": "BETALINGSBETINGELSER",
+    "poNumber": "INDMELDINGS- / ORDRENR.",
+    "balanceDue": "TIL BETALING",
+    "taxId": "CVR-NUMMER / MOMS-NR.",
+    "paymentInstructions": "BETALINGSOPLYSNINGER",
+    "bank": "Bank / Reg.nr.",
+    "account": "Kontonummer",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "terms": "VILKÅR & BETINGELSER",
+    "notes": "BEMÆRKNINGER",
+    "subtotal": "SUBTOTAL (EKSKL. MOMS)",
+    "discount": "RABAT",
+    "tax": "MOMS (25%)",
+    "shipping": "FRAGT",
+    "total": "TOTALT (INKL. MOMS)",
+    "amountPaid": "BETALT BELØB",
+    "tableItem": "BESKRIVELSE / YDELSE",
+    "tableQty": "ANTAL",
+    "tableRate": "STK.-PRIS",
+    "tableTax": "MOMS",
+    "tableAmount": "BELØB"
+  },
+  "terms": {
+    "on_receipt": "Netto kontant ved modtagelse",
+    "net_7": "Netto 7 dage",
+    "net_15": "Netto 15 dage",
+    "net_30": "Netto 30 dage",
+    "net_45": "Netto 45 dage",
+    "net_60": "Netto 60 dage",
+    "custom": "Særlige betingelser"
+  }
+}

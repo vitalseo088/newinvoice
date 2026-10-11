@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "ĐƠN VỊ PHÁT HÀNH",
+    "billTo": "KHÁCH HÀNG / NGƯỜI NHẬN",
+    "shipTo": "ĐỊA CHỈ GIAO HÀNG",
+    "invoiceDate": "NGÀY HÓA ĐƠN",
+    "dueDate": "HẠN THANH TOÁN",
+    "paymentTerms": "ĐIỀU KHOẢN THANH TOÁN",
+    "poNumber": "SỐ ĐƠN HÀNG (PO)",
+    "balanceDue": "SỐ TIỀN CẦN THANH TOÁN",
+    "taxId": "MÃ SỐ THUẾ",
+    "paymentInstructions": "THÔNG TIN CHUYỂN KHOẢN",
+    "bank": "Ngân hàng",
+    "account": "Số tài khoản",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "ĐIỀU KHOẢN VÀ QUY ĐỊNH",
+    "notes": "GHI CHÚ",
+    "subtotal": "TỔNG TIỀN HÀNG",
+    "discount": "CHIẾT KHẤU",
+    "tax": "THUẾ (VAT)",
+    "shipping": "PHÍ VẬN CHUYỂN",
+    "total": "TỔNG CỘNG",
+    "amountPaid": "ĐÃ THANH TOÁN",
+    "tableItem": "MẶT HÀNG / DỊCH VỤ",
+    "tableQty": "SL",
+    "tableRate": "ĐƠN GIÁ",
+    "tableTax": "THUẾ",
+    "tableAmount": "THÀNH TIỀN"
+  },
+  "terms": {
+    "on_receipt": "Thanh toán ngay khi nhận",
+    "net_7": "Trong vòng 7 ngày",
+    "net_15": "Trong vòng 15 ngày",
+    "net_30": "Trong vòng 30 ngày",
+    "net_45": "Trong vòng 45 ngày",
+    "net_60": "Trong vòng 60 ngày",
+    "custom": "Điều khoản riêng"
+  }
+}

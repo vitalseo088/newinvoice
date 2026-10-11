@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "%100 Ücretsiz • Kayıt Gerektirmez • Yüksek Çözünürlüklü PDF",
+    "backupNotice": "Belgeleriniz tarayıcınızda otomatik olarak saklanır. Verilerinizi korumak için yedek indirin.",
+    "exportBackup": "Yedek İndir"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Fatura Oluşturucu",
+      "shortName": "Fatura",
+      "h1": "Ücretsiz Online Fatura Oluşturucu",
+      "metaTitle": "Ücretsiz Fatura Oluştur - PDF Fatura İndir | Invoiceo.online",
+      "metaDescription": "%100 ücretsiz profesyonel fatura hazırlama aracı. Üye olmadan anında PDF fatura oluşturun ve indirin.",
+      "description": "Serbest çalışanlar ve işletmeler için saniyeler içinde şık ve profesyonel faturalar hazırlayın."
+    },
+    "receipt-generator": {
+      "name": "Makbuz Oluşturucu",
+      "shortName": "Makbuz",
+      "h1": "Ücretsiz Tahsilat Makbuzu Hazırla",
+      "metaTitle": "Online Makbuz ve Ödeme Belgesi PDF | Invoiceo.online",
+      "metaDescription": "Ödeme ve tahsilat makbuzlarını kolayca oluşturun. İşlem numarası ve vergi detaylarıyla anında PDF indirin.",
+      "description": "Resmi ödeme makbuzlarını kayıt olmadan saniyeler içinde oluşturun."
+    },
+    "quote-generator": {
+      "name": "Fiyat Teklifi Oluşturucu",
+      "shortName": "Teklif",
+      "h1": "Ücretsiz Online Fiyat Teklifi Hazırla",
+      "metaTitle": "Fiyat Teklifi Şablonu ve PDF İndir | Invoiceo.online",
+      "metaDescription": "Müşterileriniz için profesyonel ticari teklifler hazırlayın. Geçerlilik süresi ve şartlar dahil.",
+      "description": "Şık teklif şablonlarıyla daha fazla müşteri kazanın."
+    },
+    "estimate-generator": {
+      "name": "Maliyet Tahmini / Keşif Özeti",
+      "shortName": "Keşif Özeti",
+      "h1": "Ücretsiz Keşif ve Maliyet Hesabı Şablonu",
+      "metaTitle": "Maliyet Tahmini ve Proje Keşif PDF | Invoiceo.online",
+      "metaDescription": "İşçilik ve malzeme kalemlerini belirterek detaylı proje ve tadilat maliyet özetleri oluşturun.",
+      "description": "Usta ve müteahhitler için şeffaf maliyet dökümü."
+    },
+    "credit-note-generator": {
+      "name": "İade / Alacak Dekontu Oluşturucu",
+      "shortName": "Alacak Dekontu",
+      "h1": "Ücretsiz Alacak Dekontu Hazırla",
+      "metaTitle": "Kredi Notu ve İade Dekontu PDF | Invoiceo.online",
+      "metaDescription": "Fatura düzeltmeleri ve iadeler için alacak dekontu düzenleyin.",
+      "description": "Önceki faturaları düzeltmek veya müşteri hesaplarına alacak kaydetmek için idealdir."
+    },
+    "purchase-order-generator": {
+      "name": "Satın Alma Siparişi (PO)",
+      "shortName": "Sipariş Formu",
+      "h1": "Ücretsiz Satın Alma Sipariş Formu Oluştur",
+      "metaTitle": "Satın Alma Siparişi Hazırla PDF | Invoiceo.online",
+      "metaDescription": "Tedarikçileriniz için ürün, teslimat şartları ve yetkili imza içeren sipariş formları hazırlayın.",
+      "description": "Ticari satın alma siparişlerinizi hızla belgeleyin."
+    },
+    "sales-order-generator": {
+      "name": "Satış Siparişi Onayı",
+      "shortName": "Sipariş Onayı",
+      "h1": "Online Satış Siparişi Teyit Belgesi",
+      "metaTitle": "Satış Sipariş Onay Formu PDF | Invoiceo.online",
+      "metaDescription": "Alınan müşteri siparişlerini teslimat ve ödeme şartlarıyla teyit edin.",
+      "description": "Fatura öncesi sipariş teyidi için profesyonel belge."
+    },
+    "proforma-invoice-generator": {
+      "name": "Proforma Fatura Oluşturucu",
+      "shortName": "Proforma",
+      "h1": "Ücretsiz Proforma Fatura Hazırla",
+      "metaTitle": "Proforma Fatura Şablonu ve PDF | Invoiceo.online",
+      "metaDescription": "İhracat, gümrük ve ön ödemeler için uluslararası proforma fatura düzenleyin.",
+      "description": "Dış ticaret ve peşin ödemeler için zorunlu ön ticari belge."
+    },
+    "timesheet-generator": {
+      "name": "Çalışma Saati / Puantaj Faturası",
+      "shortName": "Puantaj",
+      "h1": "Serbest Çalışan Saatlik Ücret Faturası",
+      "metaTitle": "Çalışma Saati ve Puantaj PDF | Invoiceo.online",
+      "metaDescription": "Saatlik ücret, proje görevleri ve çalışma sürelerini listeleyerek faturalandırın.",
+      "description": "Danışmanlar ve freelancerlar için saatlik çalışma dökümü."
+    },
+    "work-order-generator": {
+      "name": "İş Emri / Servis Formu",
+      "shortName": "İş Emri",
+      "h1": "Teknik Servis ve Bakım İş Emri Formu",
+      "metaTitle": "İş Emri ve Servis Raporu PDF | Invoiceo.online",
+      "metaDescription": "Saha tamir ve bakım ekipleri için imzalı iş emri ve servis formları hazırlayın.",
+      "description": "Teknik servis iş akışını net iş emirleriyle düzenleyin."
+    },
+    "account-statement-generator": {
+      "name": "Müşteri Cari Hesap Özeti",
+      "shortName": "Cari Hesap",
+      "h1": "Müşteri Cari Hesap Ekstresi Hazırla",
+      "metaTitle": "Cari Hesap Ekstresi ve Bakiye Özeti PDF | Invoiceo.online",
+      "metaDescription": "Müşterilerinizin açık faturalarını, ödemelerini ve güncel bakiyelerini listeleyin.",
+      "description": "Şeffaf hesap mutabakatı ve bakiye takibi için pratik ekstre."
+    },
+    "packing-slip-generator": {
+      "name": "İrsaliye / Çeki Listesi",
+      "shortName": "Çeki Listesi",
+      "h1": "Koli ve Sevkiyat İrsaliyesi Oluştur",
+      "metaTitle": "Koli Çeki Listesi ve Sevk İrsaliyesi PDF | Invoiceo.online",
+      "metaDescription": "Kargo ve sevkiyatlar için paket içeriklerini ve adetlerini gösteren sevk belgesi.",
+      "description": "Kusursuz teslimat ve kargo takibi için profesyonel liste."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Hakkımızda | Ücretsiz & Güvenli Fatura Çözümü - Invoiceo.online",
+      "description": "Invoiceo.online hakkında bilgi edinin: Aboneliksiz, tarayıcıda çalışan %100 ücretsiz 12 belge aracı."
+    },
+    "contact": {
+      "title": "İletişim | Destek ve Geri Bildirim - Invoiceo.online",
+      "description": "Destek, özellik talepleri veya sorularınız için Invoiceo ekibiyle iletişime geçin."
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası | Cihazınızda Güvende - Invoiceo.online",
+      "description": "Bulut veritabanı yok, tarayıcı içi PDF üretimi ve verilerinizin mutlak mülkiyeti."
+    },
+    "terms": {
+      "title": "Kullanım Koşulları | Ücretsiz Ticari Araçlar - Invoiceo.online",
+      "description": "Invoiceo.online kullanım şartları ve yasal bilgiler."
+    },
+    "bugs": {
+      "title": "Hata Bildir | Teknik Destek - Invoiceo.online",
+      "description": "Görsel veya hesaplama hatalarını doğrudan geliştirici ekibimize bildirin."
+    }
+  }
+}

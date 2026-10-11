@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "VAN",
+    "billTo": "FACTUREREN AAN",
+    "shipTo": "VERZENDEN NAAR",
+    "invoiceDate": "FACTUURDATUM",
+    "dueDate": "VERVALDATUM",
+    "paymentTerms": "BETALINGSVOORWAARDEN",
+    "poNumber": "INKOOPORDER (PO)",
+    "balanceDue": "OPENSTAAND SALDO",
+    "taxId": "BTW / KVK-NUMMER",
+    "paymentInstructions": "BETALINGSINSTRUCTIES",
+    "bank": "Bank",
+    "account": "Rekeningnummer",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "terms": "VOORWAARDEN",
+    "notes": "NOTITIES",
+    "subtotal": "SUBTOTAAL",
+    "discount": "KORTING",
+    "tax": "BTW",
+    "shipping": "VERZENDKOSTEN",
+    "total": "TOTAAL",
+    "amountPaid": "BETAALD BEDRAG",
+    "tableItem": "OMSCHRIJVING / ARTIKEL",
+    "tableQty": "AANTAL",
+    "tableRate": "TARIEF",
+    "tableTax": "BTW",
+    "tableAmount": "BEDRAG"
+  },
+  "terms": {
+    "on_receipt": "Direct bij ontvangst",
+    "net_7": "Binnen 7 dagen",
+    "net_15": "Binnen 15 dagen",
+    "net_30": "Binnen 30 dagen",
+    "net_45": "Binnen 45 dagen",
+    "net_60": "Binnen 60 dagen",
+    "custom": "Aangepaste voorwaarden"
+  }
+}

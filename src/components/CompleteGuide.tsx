@@ -25,14 +25,18 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
   });
   const guideUi = getGuideUi(lang, localizedToolName);
 
-  const customGuide = baseGuide
-    ? { ...baseGuide, ...(localizedOverride || {}) }
-    : localizedOverride
-      ? ({ toolId: toolSlug, slug: toolSlug, ...localizedOverride } as ToolGuideData)
-      : undefined;
+  const isEnglishInvoice = toolSlug === 'invoice-generator' && lang === 'en';
+  const customGuide = (!isEnglishInvoice && (baseGuide || (localizedOverride?.introParagraphs && localizedOverride?.tableOfContents)))
+    ? ({
+        ...(baseGuide || {}),
+        ...(localizedOverride || {}),
+        toolId: toolSlug,
+        slug: toolSlug,
+      } as ToolGuideData)
+    : undefined;
 
   // If this tool has its own dedicated SEO guide (Receipt, Quote, Estimate, Credit Note, etc.), render it in the exact same format
-  if (customGuide) {
+  if (customGuide && customGuide.introParagraphs && customGuide.tableOfContents) {
     return (
       <article
         id="tool-complete-guide"
@@ -44,7 +48,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         </h1>
 
         {/* Intro */}
-        {customGuide.introParagraphs.map((para, idx) => (
+        {customGuide.introParagraphs?.map((para, idx) => (
           <p key={idx} className="mb-4 leading-relaxed text-gray-700">
             {para}
           </p>
@@ -55,7 +59,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
           {guideUi.contents}
         </h2>
         <ul className="list-disc pl-6 mb-8 space-y-1 text-gray-700">
-          {customGuide.tableOfContents.map((item) => (
+          {customGuide.tableOfContents?.map((item) => (
             <li key={item.id}>
               <a href={`#${item.id}`} className="text-blue-600 hover:underline">
                 {item.label}
@@ -65,7 +69,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         </ul>
 
         {/* Section: What is this tool? */}
-        <h2 id={customGuide.tableOfContents[0]?.id || 'what-is-tool'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+        <h2 id={customGuide.tableOfContents?.[0]?.id || 'what-is-tool'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
           {customGuide.whatIsTitle}
         </h2>
         <p className="mb-4 leading-relaxed text-gray-700">
@@ -75,7 +79,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
           {guideUi.fit}
         </p>
         <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
-          {customGuide.goodFitList.map((fit, idx) => (
+          {customGuide.goodFitList?.map((fit, idx) => (
             <li key={idx}>{fit}</li>
           ))}
         </ul>
@@ -92,7 +96,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
               </tr>
             </thead>
             <tbody>
-              {customGuide.featuresTable.map((row, idx) => (
+              {customGuide.featuresTable?.map((row, idx) => (
                 <tr key={idx}>
                   <td className="border border-gray-300 p-3 font-medium text-gray-900">{row.feature}</td>
                   <td className="border border-gray-300 p-3 text-gray-700">{row.benefit}</td>
@@ -103,13 +107,13 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         </div>
 
         {/* Section: How to create in 7 steps */}
-        <h2 id={customGuide.tableOfContents[2]?.id || 'how-to-create'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+        <h2 id={customGuide.tableOfContents?.[2]?.id || 'how-to-create'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
           {customGuide.stepsTitle}
         </h2>
         <p className="mb-4 leading-relaxed text-gray-700">
           {guideUi.stepsLead}
         </p>
-        {customGuide.steps.map((step, idx) => (
+        {customGuide.steps?.map((step, idx) => (
           <div key={idx} className="mb-4">
             <h3 className="text-lg font-bold text-gray-900 mt-5 mb-2">{step.title}</h3>
             <p className="mb-2 leading-relaxed text-gray-700">{step.description}</p>
@@ -124,29 +128,33 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         ))}
 
         {/* Section: Choosing the right template */}
-        <h2 id="choosing-the-right-template" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
-          {customGuide.templatesSection.title}
-        </h2>
-        <p className="mb-4 leading-relaxed text-gray-700">
-          {customGuide.templatesSection.description}
-        </p>
-        <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
-          {customGuide.templatesSection.tips.map((tip, idx) => (
-            <li key={idx}>{tip}</li>
-          ))}
-        </ul>
+        {customGuide.templatesSection && (
+          <>
+            <h2 id="choosing-the-right-template" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+              {customGuide.templatesSection.title}
+            </h2>
+            <p className="mb-4 leading-relaxed text-gray-700">
+              {customGuide.templatesSection.description}
+            </p>
+            <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
+              {customGuide.templatesSection.tips?.map((tip, idx) => (
+                <li key={idx}>{tip}</li>
+              ))}
+            </ul>
+          </>
+        )}
 
         {/* Section: Comparison if available */}
         {customGuide.comparisonSection && (
           <>
-            <h2 id={customGuide.tableOfContents.find(t => t.id.includes('vs'))?.id || 'document-differences'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+            <h2 id={customGuide.tableOfContents?.find(t => t.id?.includes('vs'))?.id || 'document-differences'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
               {customGuide.comparisonSection.title}
             </h2>
             <p className="mb-4 leading-relaxed text-gray-700">
               {customGuide.comparisonSection.description}
             </p>
             <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
-              {customGuide.comparisonSection.items.map((it, idx) => (
+              {customGuide.comparisonSection.items?.map((it, idx) => (
                 <li key={idx}>
                   <strong>{it.doc}:</strong> {it.difference}
                 </li>
@@ -156,44 +164,52 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         )}
 
         {/* Section: Essential elements checklist */}
-        <h2 id={customGuide.tableOfContents.find(t => t.id.includes('essential'))?.id || 'essential-elements'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
-          {customGuide.keyElementsSection.title}
-        </h2>
-        <p className="mb-4 leading-relaxed text-gray-700">
-          {customGuide.keyElementsSection.description}
-        </p>
-        <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
-          {customGuide.keyElementsSection.checklist.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
+        {customGuide.keyElementsSection && (
+          <>
+            <h2 id={customGuide.tableOfContents?.find(t => t.id?.includes('essential'))?.id || 'essential-elements'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+              {customGuide.keyElementsSection.title}
+            </h2>
+            <p className="mb-4 leading-relaxed text-gray-700">
+              {customGuide.keyElementsSection.description}
+            </p>
+            <ul className="list-disc pl-6 mb-6 space-y-1.5 text-gray-700">
+              {customGuide.keyElementsSection.checklist?.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </>
+        )}
 
         {/* Section: Numbering schemes */}
-        <h2 id={customGuide.tableOfContents.find(t => t.id.includes('numbering'))?.id || 'numbering-schemes'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
-          {customGuide.numberingSection.title}
-        </h2>
-        <p className="mb-4 leading-relaxed text-gray-700">
-          {customGuide.numberingSection.description}
-        </p>
-        <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
-          {customGuide.numberingSection.schemes.map((sch, idx) => (
-            <li key={idx}>
-              <strong>{sch.label}:</strong> {sch.desc}
-            </li>
-          ))}
-        </ul>
+        {customGuide.numberingSection && (
+          <>
+            <h2 id={customGuide.tableOfContents?.find(t => t.id?.includes('numbering'))?.id || 'numbering-schemes'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+              {customGuide.numberingSection.title}
+            </h2>
+            <p className="mb-4 leading-relaxed text-gray-700">
+              {customGuide.numberingSection.description}
+            </p>
+            <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+              {customGuide.numberingSection.schemes?.map((sch, idx) => (
+                <li key={idx}>
+                  <strong>{sch.label}:</strong> {sch.desc}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         {/* Section: Examples if available */}
         {customGuide.examplesSection && (
           <>
-            <h2 id={customGuide.tableOfContents.find(t => t.id.includes('examples'))?.id || 'examples-section'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+            <h2 id={customGuide.tableOfContents?.find(t => t.id?.includes('examples'))?.id || 'examples-section'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
               {customGuide.examplesSection.title}
             </h2>
             <p className="mb-6 leading-relaxed text-gray-700">
               {customGuide.examplesSection.description}
             </p>
             <div className="space-y-6 mb-8">
-              {customGuide.examplesSection.examples.map((ex, idx) => (
+              {customGuide.examplesSection.examples?.map((ex, idx) => (
                 <div key={idx} className="pb-6 border-b border-gray-200 last:border-b-0">
                   <div className="flex items-baseline justify-between mb-1">
                     <h3 className="text-lg font-bold text-gray-900">
@@ -205,7 +221,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
                   </p>
                     <p className="text-sm font-medium text-gray-800 mb-1">{guideUi.sampleItems}:</p>
                   <ul className="list-disc pl-6 text-sm text-gray-700 space-y-1">
-                    {ex.items.map((it, itIdx) => (
+                    {ex.items?.map((it, itIdx) => (
                       <li key={itIdx}>
                         {it.desc} &mdash; {it.qty} × {new Intl.NumberFormat(lang === 'pt' ? 'pt-BR' : `${lang}-${lang === 'es' ? 'ES' : lang === 'fr' ? 'FR' : lang === 'de' ? 'DE' : lang === 'it' ? 'IT' : 'US'}`, { style: 'currency', currency: ex.currency }).format(it.rate)} = {new Intl.NumberFormat(lang === 'pt' ? 'pt-BR' : `${lang}-${lang === 'es' ? 'ES' : lang === 'fr' ? 'FR' : lang === 'de' ? 'DE' : lang === 'it' ? 'IT' : 'US'}`, { style: 'currency', currency: ex.currency }).format(it.total)}
                       </li>
@@ -223,16 +239,20 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         )}
 
         {/* Section: Best practices */}
-        <h2 id={customGuide.tableOfContents.find(t => t.id.includes('tips') || t.id.includes('best-practices'))?.id || 'tips-section'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
-          {customGuide.bestPracticesSection.title}
-        </h2>
-        <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
-          {customGuide.bestPracticesSection.tips.map((tip, idx) => (
-            <li key={idx}>
-              <strong>{tip.title}:</strong> {tip.desc}
-            </li>
-          ))}
-        </ul>
+        {customGuide.bestPracticesSection && (
+          <>
+            <h2 id={customGuide.tableOfContents?.find(t => t.id?.includes('tips') || t.id?.includes('best-practices'))?.id || 'tips-section'} className="text-2xl font-bold text-gray-900 mt-10 mb-3">
+              {customGuide.bestPracticesSection.title}
+            </h2>
+            <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+              {customGuide.bestPracticesSection.tips?.map((tip, idx) => (
+                <li key={idx}>
+                  <strong>{tip.title}:</strong> {tip.desc}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         {/* Privacy Section */}
         <h2 id="privacy-data-handling" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
@@ -242,7 +262,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
           {guideUi.privacyDescription}
         </p>
         <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
-          {guideUi.privacyPoints.map((point, index) => <li key={index}>{point}</li>)}
+          {guideUi.privacyPoints?.map((point, index) => <li key={index}>{point}</li>)}
         </ul>
 
         {/* FAQs */}
@@ -250,7 +270,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
           {guideUi.faq}
         </h2>
         <div className="space-y-4">
-          {customGuide.faqs.map((faq, idx) => (
+          {customGuide.faqs?.map((faq, idx) => (
             <div key={idx}>
               <h3 className="font-bold text-gray-900 mb-1">{faq.question}</h3>
               <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
@@ -282,7 +302,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
       </h1>
 
       {/* Intro */}
-      {defaultIntros.map((p, idx) => (
+      {defaultIntros?.map((p, idx) => (
         <p key={idx} className="mb-4 leading-relaxed text-gray-700">
           {p}
         </p>

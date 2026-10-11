@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100 % Gratis • Ingen registrering nødvendig • Høyoppløselig PDF",
+    "backupNotice": "Dine dokumenter lagres automatisk i nettleseren. Eksporter en sikkerhetskopi for å ta vare på dataene dine.",
+    "exportBackup": "Eksporter Sikkerhetskopi"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Faktura Generator",
+      "shortName": "Faktura",
+      "h1": "Lag Faktura Gratis Online",
+      "metaTitle": "Lag Faktura Gratis Online - Last ned PDF | Invoiceo.online",
+      "metaDescription": "100 % gratis profesjonell fakturagenerator. Lag, tilpass og last ned PDF-fakturaer direkte uten registrering.",
+      "description": "Lag oversiktlige og profesjonelle fakturaer på sekunder med Invoiceo for frilansere og småbedrifter."
+    },
+    "receipt-generator": {
+      "name": "Kvittering Generator",
+      "shortName": "Kvittering",
+      "h1": "Lag Betalingskvittering Online",
+      "metaTitle": "Gratis Kvittering Mal PDF | Invoiceo.online",
+      "metaDescription": "Utsted offisielle kvitteringer og betalingsbevis i PDF-format med MVA og transaksjonsnummer.",
+      "description": "Generer offisielle kvitteringer raskt og enkelt uten innlogging."
+    },
+    "quote-generator": {
+      "name": "Tilbud Generator",
+      "shortName": "Tilbud",
+      "h1": "Lag Profesjonelt Pristilbud Online",
+      "metaTitle": "Gratis Pristilbud Mal PDF | Invoiceo.online",
+      "metaDescription": "Sett opp ryddige tilbud med gyldighetsperiode, spesifikasjoner og vilkår til kundene dine.",
+      "description": "Vinn flere oppdrag med ryddige og elegante tilbudsdokumenter."
+    },
+    "estimate-generator": {
+      "name": "Kostnadsoverslag / Prisoverslag",
+      "shortName": "Overslag",
+      "h1": "Beregn Kostnadsoverslag og Prosjektpris",
+      "metaTitle": "Kostnadsoverslag Mal PDF Gratis | Invoiceo.online",
+      "metaDescription": "Oversikt over timeverk, materialer og tilleggskostnader i et ryddig PDF-overslag til kunden.",
+      "description": "Nøyaktige overslag for håndverkere og tjenesteytere."
+    },
+    "credit-note-generator": {
+      "name": "Kreditnota Generator",
+      "shortName": "Kreditnota",
+      "h1": "Lag Kreditnota Online Gratis",
+      "metaTitle": "Gratis Kreditnota Mal PDF | Invoiceo.online",
+      "metaDescription": "Lag korrekte kreditnotaer for returer eller justeringer av tidligere utstedte fakturaer.",
+      "description": "Lovmessig og ryddig korrigering av fakturabeløp."
+    },
+    "purchase-order-generator": {
+      "name": "Innkjøpsordre (PO) Generator",
+      "shortName": "Innkjøpsordre",
+      "h1": "Lag Innkjøpsordre til Leverandør",
+      "metaTitle": "Innkjøpsordre Mal PDF Gratis | Invoiceo.online",
+      "metaDescription": "Uted formelle innkjøpsordrer til leverandører med varelinjer, priser og leveringsbetingelser.",
+      "description": "Dokumenter bedriftens vareinnkjøp på en trygg og ryddig måte."
+    },
+    "sales-order-generator": {
+      "name": "Ordrebekreftelse Generator",
+      "shortName": "Ordrebekreftelse",
+      "h1": "Lag Ordrebekreftelse til Kunde",
+      "metaTitle": "Ordrebekreftelse Mal PDF Gratis | Invoiceo.online",
+      "metaDescription": "Bekreft kundens bestilling, leveringsdato og betingelser før levering og fakturering.",
+      "description": "En sikker bro mellom akseptert tilbud og endelig levering."
+    },
+    "proforma-invoice-generator": {
+      "name": "Proforma Faktura Generator",
+      "shortName": "Proforma",
+      "h1": "Lag Proforma Faktura for Eksport og Toll",
+      "metaTitle": "Proforma Faktura Mal PDF Gratis | Invoiceo.online",
+      "metaDescription": "Lag proforma fakturaer for internasjonal handel, tollbehandling og forskuddsbetalinger.",
+      "description": "Nødvendig handelsdokument for internasjonal forsendelse og toll."
+    },
+    "timesheet-generator": {
+      "name": "Timeliste & Timefakturering",
+      "shortName": "Timeliste",
+      "h1": "Fakturer Arbeidstimer Online",
+      "metaTitle": "Timeliste og Timefaktura PDF Mal | Invoiceo.online",
+      "metaDescription": "Spesifiser arbeidstimer, timepris og oppgaver for frilansere og konsulenter.",
+      "description": "Oversiktlig timeavregning for selvstendig næringsdrivende."
+    },
+    "work-order-generator": {
+      "name": "Arbeidsordre / Serviceseddel",
+      "shortName": "Arbeidsordre",
+      "h1": "Lag Arbeidsordre for Serviceoppdrag",
+      "metaTitle": "Arbeidsordre og Serviceblankett PDF | Invoiceo.online",
+      "metaDescription": "Lag arbeidsordrer for feltarbeid, reparasjoner og service med plass til kundens signatur.",
+      "description": "Få god oversikt over tekniske oppdrag med ryddige arbeidsordrer."
+    },
+    "account-statement-generator": {
+      "name": "Kontoutskrift / Kundekonto Oversikt",
+      "shortName": "Kontoutskrift",
+      "h1": "Lag Kontoutskrift og Saldoliste for Kunder",
+      "metaTitle": "Kunde Kontoutskrift og Saldobrev PDF | Invoiceo.online",
+      "metaDescription": "Oppsummer ubetalte fakturaer, innbetalinger og utestående saldo i en ryddig oversikt.",
+      "description": "Tydelig avstemming av kundens mellomværende og saldo."
+    },
+    "packing-slip-generator": {
+      "name": "Følgeseddel / Pakkseddel",
+      "shortName": "Følgeseddel",
+      "h1": "Lag Følgeseddel og Pakkseddel Online",
+      "metaTitle": "Gratis Følgeseddel Mal PDF | Invoiceo.online",
+      "metaDescription": "Lag pakksedler og følgesedler med kolliinnhold og antall for sikker forsendelse.",
+      "description": "Sørger for riktig levering og enkel varemottakskontroll for kunden."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Om Oss | Gratis og Sikker Fakturering - Invoiceo.online",
+      "description": "Les mer om Invoiceo.online: 100 % gratis fakturering i nettleseren uten abonnementer."
+    },
+    "contact": {
+      "title": "Kontakt Oss | Brukerstøtte og Tilbakemeldinger - Invoiceo.online",
+      "description": "Ta kontakt med Invoiceo-teamet for spørsmål, forslag eller teknisk støtte."
+    },
+    "privacy": {
+      "title": "Personvernerklæring | Dine Data Lagres Lokalt - Invoiceo.online",
+      "description": "Ingen skydatabaser, PDF-generering i nettleseren og full databeskyttelse."
+    },
+    "terms": {
+      "title": "Bruksvilkår | Gratis Næringslivsverktøy - Invoiceo.online",
+      "description": "Vilkår for bruk av de kostnadsfrie dokumentverktøyene på Invoiceo.online."
+    },
+    "bugs": {
+      "title": "Rapporter Feil | Feilsporing - Invoiceo.online",
+      "description": "Meld fra om visningsfeil eller regnefeil direkte til utviklerne."
+    }
+  }
+}

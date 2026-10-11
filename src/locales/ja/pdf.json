@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "発行元（ご請求者）",
+    "billTo": "ご請求先（御中 / 様）",
+    "shipTo": "納品先住所",
+    "invoiceDate": "請求日",
+    "dueDate": "お支払期日",
+    "paymentTerms": "お支払条件",
+    "poNumber": "発注番号 (P.O.)",
+    "balanceDue": "ご請求金額（差引残高）",
+    "taxId": "適格請求書登録番号 / T番号",
+    "paymentInstructions": "お振込先口座情報",
+    "bank": "金融機関名",
+    "account": "口座番号",
+    "iban": "支店名 / 口座種別",
+    "swift": "SWIFT / コード",
+    "terms": "備考およびお取引条件",
+    "notes": "特記事項",
+    "subtotal": "小計（税抜）",
+    "discount": "値引額",
+    "tax": "消費税（10% / 8%）",
+    "shipping": "送料",
+    "total": "合計金額（税込）",
+    "amountPaid": "お受領済額",
+    "tableItem": "品名 / 項目",
+    "tableQty": "数量",
+    "tableRate": "単価",
+    "tableTax": "税率",
+    "tableAmount": "金額"
+  },
+  "terms": {
+    "on_receipt": "受領時即時払い",
+    "net_7": "受領後 7日以内",
+    "net_15": "受領後 15日以内",
+    "net_30": "翌月末払い（30日）",
+    "net_45": "受領後 45日以内",
+    "net_60": "翌々月末払い（60日）",
+    "custom": "指定条件"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% Miễn phí • Không cần đăng ký • Xuất PDF độ nét cao",
+    "backupNotice": "Hóa đơn được lưu tự động trên trình duyệt này. Hãy xuất file sao lưu để bảo vệ dữ liệu.",
+    "exportBackup": "Xuất Sao Lưu"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Tạo Hóa Đơn Trực Tuyến",
+      "shortName": "Hóa Đơn",
+      "h1": "Phần Mềm Tạo Hóa Đơn Online Miễn Phí",
+      "metaTitle": "Tạo Hóa Đơn Miễn Phí - Xuất PDF Chuyên Nghiệp | Invoiceo.online",
+      "metaDescription": "Công cụ tạo hóa đơn bán hàng chuyên nghiệp 100% miễn phí. Tạo, tùy chỉnh và tải ngay hóa đơn PDF không cần đăng ký tài khoản.",
+      "description": "Tạo hóa đơn chuyên nghiệp trong vài giây cùng Invoiceo, giải pháp tin cậy cho freelancer và doanh nghiệp nhỏ."
+    },
+    "receipt-generator": {
+      "name": "Tạo Biên Lai / Phiếu Thu",
+      "shortName": "Biên Lai",
+      "h1": "Tạo Phiếu Thu & Biên Lai Thanh Toán",
+      "metaTitle": "Mẫu Biên Lai Thanh Toán PDF Miễn Phí | Invoiceo.online",
+      "metaDescription": "Tạo phiếu thu tiền, biên nhận thanh toán trực tuyến chuyên nghiệp. Tải PDF tức thì có đầy đủ thuế và mã giao dịch.",
+      "description": "Phát hành biên lai thanh toán chính thức nhanh chóng, dễ dàng."
+    },
+    "quote-generator": {
+      "name": "Tạo Báo Giá Trực Tuyến",
+      "shortName": "Báo Giá",
+      "h1": "Tạo Bảng Báo Giá Chuyên Nghiệp Online",
+      "metaTitle": "Mẫu Báo Giá Miễn Phí - Xuất PDF | Invoiceo.online",
+      "metaDescription": "Lập bảng báo giá kinh doanh đẹp mắt, chi tiết từng hạng mục và điều khoản để gửi đối tác.",
+      "description": "Chốt thêm hợp đồng với bảng báo giá rõ ràng, chuyên nghiệp và đầy đủ thông tin."
+    },
+    "estimate-generator": {
+      "name": "Dự Toán Chi Phí Dự Án",
+      "shortName": "Dự Toán",
+      "h1": "Bảng Dự Toán Chi Phí & Nhân Công Online",
+      "metaTitle": "Mẫu Dự Toán Chi Phí PDF Miễn Phí | Invoiceo.online",
+      "metaDescription": "Lập dự toán công trình, vật tư và nhân công minh bạch cho khách hàng bằng file PDF.",
+      "description": "Công cụ tính toán chi phí chính xác cho nhà thầu, thợ kỹ thuật và đơn vị thi công."
+    },
+    "credit-note-generator": {
+      "name": "Hóa Đơn Điều Chỉnh / Báo Có",
+      "shortName": "Điều Chỉnh",
+      "h1": "Tạo Hóa Đơn Điều Chỉnh Giảm Online",
+      "metaTitle": "Mẫu Hóa Đơn Điều Chỉnh Giảm PDF | Invoiceo.online",
+      "metaDescription": "Lập hóa đơn điều chỉnh và giấy báo có để xử lý hoàn tiền, trả hàng hoặc điều chỉnh giá bán.",
+      "description": "Điều chỉnh các hóa đơn đã phát hành một cách hợp lệ và chuyên nghiệp."
+    },
+    "purchase-order-generator": {
+      "name": "Đơn Đặt Hàng (PO)",
+      "shortName": "Đơn Mua Hàng",
+      "h1": "Tạo Đơn Đặt Hàng Nhà Cung Cấp (PO)",
+      "metaTitle": "Mẫu Đơn Đặt Hàng Mua Sắm PDF | Invoiceo.online",
+      "metaDescription": "Lập đơn đặt hàng chính thức gửi nhà cung cấp kèm danh mục sản phẩm, đơn giá và chữ ký duyệt.",
+      "description": "Soạn thảo đơn đặt hàng thương mại chuẩn chỉnh chỉ trong chớp mắt."
+    },
+    "sales-order-generator": {
+      "name": "Xác Nhận Đơn Hàng Bán",
+      "shortName": "Xác Nhận Đơn",
+      "h1": "Tạo Giấy Xác Nhận Đơn Hàng Online",
+      "metaTitle": "Mẫu Xác Nhận Đơn Hàng PDF | Invoiceo.online",
+      "metaDescription": "Xác nhận đơn đặt hàng của khách hàng trước khi giao hàng và xuất hóa đơn chính thức.",
+      "description": "Cầu nối tin cậy giữa báo giá được duyệt và hóa đơn thanh toán sau cùng."
+    },
+    "proforma-invoice-generator": {
+      "name": "Hóa Đơn Chiếu Lệ (Proforma)",
+      "shortName": "Proforma",
+      "h1": "Tạo Hóa Đơn Chiếu Lệ Xuất Khẩu Online",
+      "metaTitle": "Mẫu Hóa Đơn Proforma Invoice PDF | Invoiceo.online",
+      "metaDescription": "Lập hóa đơn chiếu lệ cho thủ tục hải quan, thương mại quốc tế và đặt cọc thanh toán.",
+      "description": "Chứng từ sơ bộ thiết yếu cho xuất nhập khẩu và giao dịch xuyên biên giới."
+    },
+    "timesheet-generator": {
+      "name": "Bảng Kê Giờ Làm Việc",
+      "shortName": "Giờ Làm",
+      "h1": "Hóa Đơn Tính Giờ Làm Cho Freelancer",
+      "metaTitle": "Bảng Kê Giờ Làm & Tính Phí PDF | Invoiceo.online",
+      "metaDescription": "Ghi nhận giờ làm việc, mức thù lao theo giờ và nhiệm vụ dự án để tính phí khách hàng.",
+      "description": "Giải pháp tính phí minh bạch theo thời gian dành cho chuyên gia và cộng tác viên."
+    },
+    "work-order-generator": {
+      "name": "Phiếu Giao Việc / Lệnh Sửa Chữa",
+      "shortName": "Lệnh Công Việc",
+      "h1": "Tạo Phiếu Yêu Cầu Dịch Vụ & Sửa Chữa",
+      "metaTitle": "Mẫu Phiếu Công Tác & Lệnh Sửa Chữa PDF | Invoiceo.online",
+      "metaDescription": "Lập phiếu công tác, sửa chữa bảo dưỡng hiện trường kèm chữ ký xác nhận của khách hàng.",
+      "description": "Tối ưu hóa quy trình bảo trì và dịch vụ kỹ thuật bằng phiếu công việc rõ ràng."
+    },
+    "account-statement-generator": {
+      "name": "Bảng Đối Chiếu Công Nợ",
+      "shortName": "Công Nợ",
+      "h1": "Bảng Tổng Hợp Công Nợ Khách Hàng",
+      "metaTitle": "Bảng Sao Kê Công Nợ & Thanh Toán PDF | Invoiceo.online",
+      "metaDescription": "Tổng hợp các hóa đơn chưa thanh toán, số tiền đã nhận và số dư nợ hiện tại của đối tác.",
+      "description": "Báo cáo công nợ minh bạch và tiện lợi cho việc đối soát tài chính."
+    },
+    "packing-slip-generator": {
+      "name": "Phiếu Đóng Gói / Giao Hàng",
+      "shortName": "Phiếu Giao Hàng",
+      "h1": "Tạo Phiếu Đóng Gói Hàng Hóa Online",
+      "metaTitle": "Mẫu Phiếu Đóng Gói & Xuất Kho PDF | Invoiceo.online",
+      "metaDescription": "Tạo phiếu đóng gói kiện hàng, danh mục mặt hàng và số lượng phục vụ vận chuyển logistics.",
+      "description": "Kiểm soát hàng hóa giao nhận chính xác và chuyên nghiệp."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Giới Thiệu | Hóa Đơn Miễn Phí & Bảo Mật - Invoiceo.online",
+      "description": "Khám phá Invoiceo.online: Nền tảng tạo hóa đơn miễn phí 100% trên trình duyệt không cần tài khoản."
+    },
+    "contact": {
+      "title": "Liên Hệ | Hỗ Trợ & Góp Ý - Invoiceo.online",
+      "description": "Liên hệ đội ngũ Invoiceo để nhận hỗ trợ, đề xuất tính năng mới hoặc đóng góp ý kiến."
+    },
+    "privacy": {
+      "title": "Chính Sách Bảo Mật | Dữ Liệu Lưu Cục Bộ - Invoiceo.online",
+      "description": "Không lưu trữ đám mây, kết xuất PDF trực tiếp trên trình duyệt, bảo vệ quyền riêng tư tuyệt đối."
+    },
+    "terms": {
+      "title": "Điều Khoản Sử Dụng | Dịch Vụ Miễn Phí - Invoiceo.online",
+      "description": "Các điều khoản và quy định sử dụng công cụ tạo chứng từ của Invoiceo.online."
+    },
+    "bugs": {
+      "title": "Báo Lỗi | Bộ Phận Kỹ Thuật - Invoiceo.online",
+      "description": "Báo cáo sự cố hiển thị hoặc lỗi tính toán trực tiếp đến đội ngũ lập trình viên của chúng tôi."
+    }
+  }
+}

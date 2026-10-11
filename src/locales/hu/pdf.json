@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "KIÁLLÍTÓ (SZÁLLÍTÓ)",
+    "billTo": "VEVŐ (MEGRENDELŐ)",
+    "shipTo": "SZÁLLÍTÁSI CÍM",
+    "invoiceDate": "SZÁMLA KELTE",
+    "dueDate": "FIZETÉSI HATÁRIDŐ",
+    "paymentTerms": "FIZETÉSI FELTÉTELEK",
+    "poNumber": "RENDELÉSSZÁM (PO)",
+    "balanceDue": "FIZETENDŐ VÉGÖSSZEG",
+    "taxId": "ADÓSZÁM / CÉGJEGYZÉKSZÁM",
+    "paymentInstructions": "BANKI ÁTUTALÁSI ADATOK",
+    "bank": "Bank neve",
+    "account": "Bankszámlaszám",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "SZERZŐDÉSI FELTÉTELEK",
+    "notes": "MEGJEGYZÉS",
+    "subtotal": "NETTÓ RÉSZÖSSZEG",
+    "discount": "KEDVEZMÉNY",
+    "tax": "ÁFA",
+    "shipping": "SZÁLLÍTÁSI KÖLTSÉG",
+    "total": "BRUTTÓ VÉGÖSSZEG",
+    "amountPaid": "KIEGYENLÍTETT ÖSSZEG",
+    "tableItem": "TERMÉK / SZOLGÁLTATÁS MEGNEVEZÉSE",
+    "tableQty": "MENNY.",
+    "tableRate": "EGYSÉGÁR",
+    "tableTax": "ÁFA %",
+    "tableAmount": "NETTÓ ÉRTÉK"
+  },
+  "terms": {
+    "on_receipt": "Átvételkor azonnal fizetendő",
+    "net_7": "7 napos átutalás",
+    "net_15": "15 napos átutalás",
+    "net_30": "30 napos átutalás",
+    "net_45": "45 napos átutalás",
+    "net_60": "60 napos átutalás",
+    "custom": "Egyedi megállapodás szerint"
+  }
+}

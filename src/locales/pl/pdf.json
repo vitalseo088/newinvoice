@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "SPRZEDAWCA",
+    "billTo": "NABYWCA",
+    "shipTo": "ODBIORCA DOSTAWY",
+    "invoiceDate": "DATA WYSTAWIENIA",
+    "dueDate": "TERMIN PŁATNOŚCI",
+    "paymentTerms": "WARUNKI PŁATNOŚCI",
+    "poNumber": "NUMER ZAMÓWIENIA",
+    "balanceDue": "DO ZAPŁATY",
+    "taxId": "NIP / REGON",
+    "paymentInstructions": "DANE DO PŁATNOŚCI",
+    "bank": "Bank",
+    "account": "Numer konta",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "WARUNKI I UWAGI",
+    "notes": "UWAGI",
+    "subtotal": "SUMA NETTO",
+    "discount": "RABAT",
+    "tax": "VAT",
+    "shipping": "KOSZT DOSTAWY",
+    "total": "RAZEM BRUTTO",
+    "amountPaid": "ZAPŁACONO",
+    "tableItem": "NAZWA TOWARU / USŁUGI",
+    "tableQty": "ILOŚĆ",
+    "tableRate": "CENA JEDN.",
+    "tableTax": "STAWKA VAT",
+    "tableAmount": "WARTOŚĆ"
+  },
+  "terms": {
+    "on_receipt": "Płatne przy odbiorze",
+    "net_7": "Termin 7 dni",
+    "net_15": "Termin 15 dni",
+    "net_30": "Termin 30 dni",
+    "net_45": "Termin 45 dni",
+    "net_60": "Termin 60 dni",
+    "custom": "Warunki niestandardowe"
+  }
+}

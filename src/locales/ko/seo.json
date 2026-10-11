@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% 무료 • 회원가입 불필요 • 고해상도 벡터 PDF",
+    "backupNotice": "작성하신 문서는 브라우저에 자동 저장됩니다. 데이터 보관을 위해 백업을 다운로드하세요.",
+    "exportBackup": "백업 내보내기"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "무료 전자세금계산서 / 청구서 생성기",
+      "shortName": "청구서",
+      "h1": "무료 온라인 청구서 및 인보이스 만들기",
+      "metaTitle": "무료 청구서 양식 생성기 - PDF 즉시 다운로드 | Invoiceo.online",
+      "metaDescription": "가입 없이 바로 쓰는 100% 무료 청구서/인보이스 작성 툴. 부가세 계산, 로고 삽입, 깔끔한 PDF 즉시 저장.",
+      "description": "프리랜서, 1인 사업자, 소상공인을 위한 무료 전문 인보이스 작성 플랫폼."
+    },
+    "receipt-generator": {
+      "name": "간이영수증 / 대금영수증 생성기",
+      "shortName": "영수증",
+      "h1": "온라인 대금 수납 및 간이영수증 작성",
+      "metaTitle": "무료 간이영수증 양식 PDF 다운로드 | Invoiceo.online",
+      "metaDescription": "거래번호와 부가세액이 기재된 공식 결제 영수증 및 입금확인증을 온라인에서 즉시 발행하세요.",
+      "description": "회원가입 없이 즉시 발급 가능한 공식 대금 수납 영수증."
+    },
+    "quote-generator": {
+      "name": "견적서 생성기",
+      "shortName": "견적서",
+      "h1": "프로페셔널 온라인 견적서 양식 작성",
+      "metaTitle": "무료 견적서 작성 프로그램 PDF | Invoiceo.online",
+      "metaDescription": "유효기간, 단가 명세, 공급조건을 깔끔하게 정리한 비즈니스 견적서를 무료로 작성하세요.",
+      "description": "거래 성사율을 높여주는 신뢰도 높은 표준 견적서 양식."
+    },
+    "estimate-generator": {
+      "name": "공사 / 프로젝트 견적 원가 계산서",
+      "shortName": "원가계산",
+      "h1": "공사비 및 제작 프로젝트 견적 산출",
+      "metaTitle": "공사 견적서 및 원가 내역서 PDF | Invoiceo.online",
+      "metaDescription": "인건비, 자재비, 경비 내역을 투명하게 산출하여 신뢰감을 주는 상세 견적서 작성.",
+      "description": "인테리어, 시공, 기술 용역 전문 정밀 견적 도구."
+    },
+    "credit-note-generator": {
+      "name": "수정세금계산서 / 마이너스 청구서",
+      "shortName": "수정청구",
+      "h1": "반품 및 감액 수정청구서 온라인 작성",
+      "metaTitle": "크레딧 노트 및 마이너스 인보이스 PDF | Invoiceo.online",
+      "metaDescription": "반품, 계약 취소, 대금 감액 시 발행하는 수정 청구서 및 환불 내역서.",
+      "description": "기존 청구서의 금액 정정 및 환불 처리를 위한 공식 문서."
+    },
+    "purchase-order-generator": {
+      "name": "발주서 / 구매주문서 (PO)",
+      "shortName": "발주서",
+      "h1": "공급업체 발주서 양식 온라인 작성",
+      "metaTitle": "표준 발주서 양식 PDF 무료 생성 | Invoiceo.online",
+      "metaDescription": "품목, 수량, 납기일, 공급단가, 승인 직인란이 포함된 공식 발주서 작성.",
+      "description": "원활한 구매 및 조달 거래를 위한 비즈니스 발주서."
+    },
+    "sales-order-generator": {
+      "name": "주문확인서 / 수주확인서",
+      "shortName": "주문확인",
+      "h1": "고객 주문 접수 및 수주확인서 작성",
+      "metaTitle": "주문확인서 양식 PDF 무료 발급 | Invoiceo.online",
+      "metaDescription": "출고 전 고객의 주문 내용과 납품 일정을 상호 확인하는 공식 수주 확인서.",
+      "description": "견적 승인 후 최종 납품과 청구를 잇는 신뢰의 문서."
+    },
+    "proforma-invoice-generator": {
+      "name": "프로포마 인보이스 (견적송장)",
+      "shortName": "프로포마",
+      "h1": "수출입 통관용 프로포마 인보이스 작성",
+      "metaTitle": "영문 프로포마 인보이스 PDF 무료 작성 | Invoiceo.online",
+      "metaDescription": "해외 무역, 세관 통관, 사전 결제용 견적송장(Proforma Invoice)을 손쉽게 작성.",
+      "description": "글로벌 비즈니스 및 무역 거래를 위한 필수 선행 무역 서식."
+    },
+    "timesheet-generator": {
+      "name": "근무시간 / 타임시트 청구서",
+      "shortName": "타임시트",
+      "h1": "시급제 프리랜서 근무시간 청구서",
+      "metaTitle": "타임시트 및 시간제 인건비 청구서 PDF | Invoiceo.online",
+      "metaDescription": "근무 시간, 시간당 단가, 프로젝트 업무 내역을 입력하여 인건비를 청구하세요.",
+      "description": "자문료 및 시급 기반 용역 정산에 최적화된 투명한 청구서."
+    },
+    "work-order-generator": {
+      "name": "작업지시서 / 서비스 내역서",
+      "shortName": "작업지시",
+      "h1": "현장 작업지시서 및 유지보수 점검표",
+      "metaTitle": "작업지시서 및 서비스 확인서 PDF | Invoiceo.online",
+      "metaDescription": "현장 수리, 설치 작업 내역 및 고객 확인 서명란이 포함된 작업지시서.",
+      "description": "필드 엔지니어링 및 유지보수 업무를 깔끔하게 문서화."
+    },
+    "account-statement-generator": {
+      "name": "거래처 원장 / 잔액 명세서",
+      "shortName": "원장명세",
+      "h1": "거래처 미수금 및 입출금 내역서",
+      "metaTitle": "거래처 잔액 명세서 및 청구 대장 PDF | Invoiceo.online",
+      "metaDescription": "미청구 건, 입금 내역, 누적 미수 잔액을 한눈에 정리하여 거래처에 발송하세요.",
+      "description": "거래처와의 정기 정산 및 미수금 관리를 위한 명세서."
+    },
+    "packing-slip-generator": {
+      "name": "거래명세서 / 패킹리스트 (포장명세서)",
+      "shortName": "거래명세",
+      "h1": "물품 출고 및 배송 거래명세서 작성",
+      "metaTitle": "거래명세서 및 포장명세서 PDF 무료 | Invoiceo.online",
+      "metaDescription": "포장 박스별 품목, 수량, 출하 확인란을 갖춘 깔끔한 거래명세서.",
+      "description": "오배송을 방지하고 인수 확인을 돕는 필수 배송 동봉 서식."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "회사 소개 | 가입 없는 안전한 청구서 - Invoiceo.online",
+      "description": "Invoiceo.online 소개: 100% 무료, 브라우저 완결형 고품질 비즈니스 문서 도구."
+    },
+    "contact": {
+      "title": "문의하기 | 고객 지원 및 피드백 - Invoiceo.online",
+      "description": "기능 제안, 사용 문의, 제휴 제안 등 개발팀과 직접 소통하세요."
+    },
+    "privacy": {
+      "title": "개인정보 처리방침 | 로컬 보안 완결 - Invoiceo.online",
+      "description": "클라우드 DB 없음, 브라우저 메모리 내 PDF 생성으로 철저한 금융 데이터 보안."
+    },
+    "terms": {
+      "title": "이용약관 | 무료 비즈니스 도구 - Invoiceo.online",
+      "description": "Invoiceo.online의 무료 상업용 서식 작성 툴 이용약관 및 가이드라인."
+    },
+    "bugs": {
+      "title": "오류 제보 | 버그 트래커 - Invoiceo.online",
+      "description": "계산 오류나 화면 깨짐 문제를 개발팀에 직접 제보해 주세요."
+    }
+  }
+}

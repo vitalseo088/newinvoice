@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% Gratis • Geen registratie vereist • Hoge resolutie PDF",
+    "backupNotice": "Uw documenten worden automatisch opgeslagen in deze browser. Exporteer een back-up om uw gegevens veilig te bewaren.",
+    "exportBackup": "Exporteer Back-up"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Factuur Generator",
+      "shortName": "Factuur",
+      "h1": "Gratis Online Factuur Generator",
+      "metaTitle": "Gratis Factuur Maken - Professionele PDF Facturen | Invoiceo.online",
+      "metaDescription": "100% gratis professionele factuurgenerator. Maak, bewerk en download direct PDF-facturen zonder registratie.",
+      "description": "Maak binnen enkele seconden heldere en professionele facturen met Invoiceo, vertrouwd door freelancers en ondernemers wereldwijd."
+    },
+    "receipt-generator": {
+      "name": "Kwitantie Generator",
+      "shortName": "Kwitantie",
+      "h1": "Gratis Kwitantie & Betaalbewijs Maken",
+      "metaTitle": "Gratis Kwitantie Maken - Download Betaalbewijs PDF | Invoiceo.online",
+      "metaDescription": "Maak officiële betaalbewijzen en kwitanties online. Download direct PDF met transactiegegevens en btw.",
+      "description": "Genereer officiële kwitanties in seconden. Ideaal voor betalingsbewijzen en transacties."
+    },
+    "quote-generator": {
+      "name": "Offerte Generator",
+      "shortName": "Offerte",
+      "h1": "Gratis Offerte Maken Online",
+      "metaTitle": "Gratis Offerte Maken - Professionele PDF Offertes | Invoiceo.online",
+      "metaDescription": "Maak eenvoudig professionele prijsopgaven en offertes. Direct downloaden als PDF zonder registratie.",
+      "description": "Overtuig klanten met duidelijke en aantrekkelijke offertes inclusief geldigheidsdatum en voorwaarden."
+    },
+    "estimate-generator": {
+      "name": "Kostenraming Generator",
+      "shortName": "Kostenraming",
+      "h1": "Gratis Prijsindicatie & Raming Maken",
+      "metaTitle": "Gratis Kostenraming - PDF Voor Aannemers & Klussers | Invoiceo.online",
+      "metaDescription": "Stel overzichtelijke kostenindicaties en ramingen op voor projecten, inclusief materiaal en arbeid.",
+      "description": "Nauwkeurige calculaties en ramingen voor aannemers, vakmensen en dienstverleners."
+    },
+    "credit-note-generator": {
+      "name": "Creditnota Generator",
+      "shortName": "Creditnota",
+      "h1": "Gratis Creditnota Maken",
+      "metaTitle": "Gratis Creditnota Maken - PDF Creditfactuur | Invoiceo.online",
+      "metaDescription": "Genereer professionele creditfacturen en creditnota's online. Direct te downloaden als PDF.",
+      "description": "Corrigeer eenvoudig eerdere facturen of verwerk terugbetalingen met een conforme creditnota."
+    },
+    "purchase-order-generator": {
+      "name": "Inkooporder Generator",
+      "shortName": "Inkooporder",
+      "h1": "Gratis Inkooporder (PO) Maken",
+      "metaTitle": "Gratis Inkooporder Generator - Professionele PO PDF | Invoiceo.online",
+      "metaDescription": "Maak officiële bestelbonnen en inkooporders online voor leveranciers zonder registratie.",
+      "description": "Stel duidelijke inkooporders op met leveringsvoorwaarden en artikellijsten."
+    },
+    "sales-order-generator": {
+      "name": "Orderbevestiging Generator",
+      "shortName": "Orderbevestiging",
+      "h1": "Gratis Verkooporder & Bevestiging Maken",
+      "metaTitle": "Gratis Orderbevestiging Maken - Download PDF | Invoiceo.online",
+      "metaDescription": "Bevestig klantbestellingen en leveringsafspraken met een overzichtelijke orderbevestiging.",
+      "description": "Bevestig orders snel en professioneel voordat de uiteindelijke factuur wordt opgesteld."
+    },
+    "proforma-invoice-generator": {
+      "name": "Proforma Factuur Generator",
+      "shortName": "Proforma",
+      "h1": "Gratis Proforma Factuur Maken",
+      "metaTitle": "Gratis Proforma Factuur - Voor Douane & Export | Invoiceo.online",
+      "metaDescription": "Maak proforma facturen voor internationale zendingen, douane en vooruitbetalingen.",
+      "description": "Essentiële commerciële voorlopige facturen voor internationale handel en douaneafhandeling."
+    },
+    "timesheet-generator": {
+      "name": "Urenregistratie Generator",
+      "shortName": "Urenstaat",
+      "h1": "Gratis Urenfactuur & Timesheet Maken",
+      "metaTitle": "Gratis Urenregistratie - Factuur Voor Freelancers | Invoiceo.online",
+      "metaDescription": "Houd gewerkte uren, uurtarieven en projecttaken bij met een directe PDF-export.",
+      "description": "Ideaal voor zzp'ers en consultants om uren en werkzaamheden inzichtelijk te factureren."
+    },
+    "work-order-generator": {
+      "name": "Werkbon Generator",
+      "shortName": "Werkbon",
+      "h1": "Gratis Werkbon Maken Online",
+      "metaTitle": "Gratis Werkbon Generator - Service & Onderhoud PDF | Invoiceo.online",
+      "metaDescription": "Maak heldere werkbonnen voor onderhoud, installaties en servicetaken met handtekening.",
+      "description": "Stroomlijn buitendienst en onderhoudswerkzaamheden met duidelijke werkbonnen."
+    },
+    "account-statement-generator": {
+      "name": "Rekeningoverzicht Generator",
+      "shortName": "Overzicht",
+      "h1": "Gratis Rekeningoverzicht Maken",
+      "metaTitle": "Gratis Klantenoverzicht Maken - Rekeningstaat PDF | Invoiceo.online",
+      "metaDescription": "Vat openstaande facturen, betalingen en saldi overzichtelijk samen voor uw klanten.",
+      "description": "Bied klanten een transparant overzicht van transacties en openstaande posten."
+    },
+    "packing-slip-generator": {
+      "name": "Pakbon Generator",
+      "shortName": "Pakbon",
+      "h1": "Gratis Pakbon Maken Online",
+      "metaTitle": "Gratis Pakbon Maken - Verzendlijst PDF | Invoiceo.online",
+      "metaDescription": "Genereer pakbonnen en verzendlijsten voor pakketten en leveringen. Direct downloaden.",
+      "description": "Professionele pakbonnen ter controle van geleverde artikelen en zendingen."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Over Ons | Gratis & Privacyvriendelijk Factureren - Invoiceo.online",
+      "description": "Ontdek Invoiceo.online: 100% gratis, browser-gebaseerde facturatie zonder abonnementen of registraties."
+    },
+    "contact": {
+      "title": "Contact | Hulp & Feedback - Invoiceo.online",
+      "description": "Neem contact op met het Invoiceo-team voor ondersteuning, functieverzoeken of algemene vragen."
+    },
+    "privacy": {
+      "title": "Privacybeleid | Volledig Lokaal & Veilig - Invoiceo.online",
+      "description": "Ons strikte privacybeleid: geen clouddatabases, PDF-verwerking in de browser en volledige privacy."
+    },
+    "terms": {
+      "title": "Gebruiksvoorwaarden | Gratis Factuurtools - Invoiceo.online",
+      "description": "Lees de gebruiksvoorwaarden van Invoiceo.online voor zakelijke documentcreatie."
+    },
+    "bugs": {
+      "title": "Fout Melden | Probleemtracker - Invoiceo.online",
+      "description": "Meld rekenfouten, weergaveproblemen of PDF-fouten rechtstreeks aan ons ontwikkelteam."
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import { SUPPORTED_LANGUAGES } from './languages';
+
 export interface RouteMapping {
   id: string; // Internal canonical ID (e.g. 'invoice-generator', 'receipt-generator', 'about')
   type: 'tool' | 'info';
@@ -244,12 +246,12 @@ export function resolvePath(pathname: string): { lang: string; id: string; type:
   const firstPart = parts[0];
 
   // Check if first part is a supported non-English language
-  if (['es', 'fr', 'de', 'pt', 'it'].includes(firstPart)) {
+  if (firstPart !== 'en' && Boolean(SUPPORTED_LANGUAGES[firstPart])) {
     const lang = firstPart;
     const subSlug = parts[1] || '';
 
     if (!subSlug) {
-      // Home page for this language (e.g., /es/ or /fr/)
+      // Home page for this language (e.g., /es/ or /nl/)
       return { lang, id: 'invoice-generator', type: 'tool' };
     }
 
@@ -264,6 +266,13 @@ export function resolvePath(pathname: string): { lang: string; id: string; type:
     if (fallback) {
       return { lang, id: fallback.id, type: fallback.type };
     }
+
+    // Info page aliases
+    if (['about', 'about-us'].includes(subSlug)) return { lang, id: 'about', type: 'info' };
+    if (['contact', 'contact-us'].includes(subSlug)) return { lang, id: 'contact', type: 'info' };
+    if (['privacy', 'privacy-policy'].includes(subSlug)) return { lang, id: 'privacy', type: 'info' };
+    if (['terms', 'terms-of-use', 'terms-and-conditions'].includes(subSlug)) return { lang, id: 'terms', type: 'info' };
+    if (['bugs', 'report-bugs', 'bug-report'].includes(subSlug)) return { lang, id: 'bugs', type: 'info' };
 
     return { lang, id: 'invoice-generator', type: 'tool' };
   }

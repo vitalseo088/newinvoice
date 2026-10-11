@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "AVSENDER (SELGERS FIRMA)",
+    "billTo": "FAKTURERES TIL (KJØPER)",
+    "shipTo": "LEVERINGSADRESSE",
+    "invoiceDate": "FAKTURADATO",
+    "dueDate": "FORFALLSDATO",
+    "paymentTerms": "BETALINGSBETINGELSER",
+    "poNumber": "ORDRENUMMER (PO)",
+    "balanceDue": "Å BETALE",
+    "taxId": "ORGANISASJONSNUMMER / MVA",
+    "paymentInstructions": "BETALINGSINFORMASJON",
+    "bank": "Bank",
+    "account": "Kontonummer",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "terms": "VILKÅR & BETINGELSER",
+    "notes": "NOTATER",
+    "subtotal": "DELSUM (EKSKL. MVA)",
+    "discount": "RABATT",
+    "tax": "MVA (25%)",
+    "shipping": "FRAKT",
+    "total": "TOTALT (INKL. MVA)",
+    "amountPaid": "INNBETALT BELØP",
+    "tableItem": "BESKRIVELSE / VARE",
+    "tableQty": "ANTALL",
+    "tableRate": "ENHETSPRIS",
+    "tableTax": "MVA",
+    "tableAmount": "BELØP"
+  },
+  "terms": {
+    "on_receipt": "Kontant ved mottak",
+    "net_7": "Netto per 7 dager",
+    "net_15": "Netto per 15 dager",
+    "net_30": "Netto per 30 dager",
+    "net_45": "Netto per 45 dager",
+    "net_60": "Netto per 60 dager",
+    "custom": "Spesielle betingelser"
+  }
+}

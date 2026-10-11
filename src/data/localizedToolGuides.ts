@@ -420,5 +420,7 @@ export const LOCALIZED_TOOL_GUIDES: Record<string, Record<string, Partial<ToolGu
 export function getLocalizedGuide(toolSlug: string, lang: string): Partial<ToolGuideData> | undefined {
   if (lang === 'en') return undefined;
   const generated = buildLocalizedToolGuide(toolSlug, lang);
-  return { ...generated, ...LOCALIZED_TOOL_GUIDES[lang]?.[toolSlug] };
+  const explicit = LOCALIZED_TOOL_GUIDES[lang]?.[toolSlug];
+  if (!generated && !explicit) return undefined;
+  return { ...(generated || {}), ...(explicit || {}) };
 }

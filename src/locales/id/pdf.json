@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "DARI (PENGIRIM)",
+    "billTo": "DITUJUKAN KEPADA",
+    "shipTo": "ALAMAT PENGIRIMAN",
+    "invoiceDate": "TANGGAL FAKTUR",
+    "dueDate": "JATUH TEMPO",
+    "paymentTerms": "SYARAT PEMBAYARAN",
+    "poNumber": "NOMOR P.O.",
+    "balanceDue": "SISA TAGIHAN",
+    "taxId": "NPWP",
+    "paymentInstructions": "PETUNJUK PEMBAYARAN",
+    "bank": "Bank",
+    "account": "Nomor Rekening",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "SYARAT & KETENTUAN",
+    "notes": "CATATAN",
+    "subtotal": "SUBTOTAL",
+    "discount": "DISKON",
+    "tax": "PAJAK (PPN)",
+    "shipping": "ONGKOS KIRIM",
+    "total": "TOTAL",
+    "amountPaid": "JUMLAH DIBAYAR",
+    "tableItem": "DESKRIPSI BARANG / JASA",
+    "tableQty": "QTY",
+    "tableRate": "HARGA",
+    "tableTax": "PAJAK",
+    "tableAmount": "JUMLAH"
+  },
+  "terms": {
+    "on_receipt": "Saat Diterima",
+    "net_7": "Tempo 7 Hari",
+    "net_15": "Tempo 15 Hari",
+    "net_30": "Tempo 30 Hari",
+    "net_45": "Tempo 45 Hari",
+    "net_60": "Tempo 60 Hari",
+    "custom": "Syarat Khusus"
+  }
+}

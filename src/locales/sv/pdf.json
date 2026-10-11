@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "AVSÄNDARE (FÖRETAG)",
+    "billTo": "FAKTURERAS TILL (KUND)",
+    "shipTo": "LEVERANSADRESS",
+    "invoiceDate": "FAKTURADATUM",
+    "dueDate": "FÖRFALLODATUM",
+    "paymentTerms": "BETALNINGSVILLKOR",
+    "poNumber": "INKÖPSORDER (PO)",
+    "balanceDue": "ATT BETALA",
+    "taxId": "ORGANISATIONSNUMMER / MOMSREG.",
+    "paymentInstructions": "BETALNINGSINFORMATION",
+    "bank": "Bank / Bankgiro",
+    "account": "Kontonummer / Plusgiro",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "terms": "VILLKOR & BESTÄMMELSER",
+    "notes": "NOTERINGAR",
+    "subtotal": "DELSUMMA (EXKL. MOMS)",
+    "discount": "RABATT",
+    "tax": "MOMS (MOMS %)",
+    "shipping": "FRAKT",
+    "total": "TOTALT (INKL. MOMS)",
+    "amountPaid": "BETALT BELOPP",
+    "tableItem": "BESKRIVNING / ARTIKEL",
+    "tableQty": "ANTAL",
+    "tableRate": "À-PRIS",
+    "tableTax": "MOMS",
+    "tableAmount": "BELOPP"
+  },
+  "terms": {
+    "on_receipt": "Betalas vid mottagande",
+    "net_7": "7 dagar netto",
+    "net_15": "15 dagar netto",
+    "net_30": "30 dagar netto",
+    "net_45": "45 dagar netto",
+    "net_60": "60 dagar netto",
+    "custom": "Anpassade villkor"
+  }
+}

@@ -28,7 +28,8 @@ export const InvoiceEditor: React.FC<InvoiceEditorProps> = ({
   onOpenSignatureModal,
 }) => {
   const { t } = useTranslation('common');
-  const x = FORM_TRANSLATIONS[i18n.language] || FORM_TRANSLATIONS.en;
+  const currentLangCode = i18n.language ? i18n.language.split('-')[0].toLowerCase() : 'en';
+  const x = FORM_TRANSLATIONS[currentLangCode] || FORM_TRANSLATIONS.en;
   const logoInputRef = useRef<HTMLInputElement | null>(null);
   const photoInputRef = useRef<HTMLInputElement | null>(null);
 

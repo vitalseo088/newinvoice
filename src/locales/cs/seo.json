@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% Zdarma • Bez nutnosti registrace • Vektorové PDF ve vysokém rozlišení",
+    "backupNotice": "Vaše dokumenty se automaticky ukládají v tomto prohlížeči. Stáhněte si zálohu pro bezpečné uchování dat.",
+    "exportBackup": "Exportovat Zálohu"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Generátor Faktur",
+      "shortName": "Faktura",
+      "h1": "Vystavit Fakturu Online Zdarma",
+      "metaTitle": "Faktura Online Zdarma - Vytvořit a Stáhnout PDF | Invoiceo.online",
+      "metaDescription": "100% bezplatný generátor faktur. Vytvořte, upravte a stáhněte profesionální PDF faktury okamžitě bez registrace.",
+      "description": "Vytvářejte přehledné a profesionální faktury během několika sekund s Invoiceo pro živnostníky a firmy."
+    },
+    "receipt-generator": {
+      "name": "Příjmový Pokladní Doklad",
+      "shortName": "Stvrzenka",
+      "h1": "Vystavit Příjmový Doklad a Účtenku Online",
+      "metaTitle": "Příjmový Pokladní Doklad PDF Zdarma | Invoiceo.online",
+      "metaDescription": "Vystavujte oficiální příjmové doklady a potvrzení o platbě v PDF s rozpisem DPH a číslem transakce.",
+      "description": "Oficiální stvrzenky a doklady o úhradě snadno a bez registrace."
+    },
+    "quote-generator": {
+      "name": "Generátor Cenových Nabídek",
+      "shortName": "Cenová nabídka",
+      "h1": "Vytvořit Profesionální Cenovou Nabídku Online",
+      "metaTitle": "Vzor Cenové Nabídky PDF Zdarma | Invoiceo.online",
+      "metaDescription": "Připravte pro své zákazníky reprezentativní cenové nabídky s dobou platnosti a rozpisem položek.",
+      "description": "Získejte více zakázek díky přehledným a působivým cenovým nabídkám."
+    },
+    "estimate-generator": {
+      "name": "Rozpočet Nákladů / Kalkulace",
+      "shortName": "Kalkulace",
+      "h1": "Položkový Rozpočet a Kalkulace Nákladů",
+      "metaTitle": "Položkový Rozpočet a Kalkulace PDF | Invoiceo.online",
+      "metaDescription": "Rozepište práci, materiál a vedlejší náklady do přehledného rozpočtu pro zákazníka.",
+      "description": "Přesné a strukturované kalkulace pro řemeslníky a technické profese."
+    },
+    "credit-note-generator": {
+      "name": "Opravný Daňový Doklad (Dobropis)",
+      "shortName": "Dobropis",
+      "h1": "Vystavit Dobropis Online Zdarma",
+      "metaTitle": "Vzor Dobropisu a Opravného Dokladu PDF | Invoiceo.online",
+      "metaDescription": "Vystavujte opravné daňové doklady a dobropisy pro vratky nebo úpravy faktur.",
+      "description": "Správné a zákonné vystavení dobropisů v profesionální podobě."
+    },
+    "purchase-order-generator": {
+      "name": "Objednávka Zboží (PO)",
+      "shortName": "Objednávka",
+      "h1": "Vystavit Objednávku pro Dodavatele",
+      "metaTitle": "Vzor Objednávky PDF Zdarma ke Stažení | Invoiceo.online",
+      "metaDescription": "Sestavte formální objednávky pro své dodavatele s položkami, cenami a dodacími podmínkami.",
+      "description": "Spolehlivá evidence nákupů a objednávek pro vaše podnikání."
+    },
+    "sales-order-generator": {
+      "name": "Potvrzení Objednávky",
+      "shortName": "Potvrzení",
+      "h1": "Potvrzení Přijetí Objednávky Zákazníka",
+      "metaTitle": "Potvrzení Objednávky PDF Vzor | Invoiceo.online",
+      "metaDescription": "Potvrďte přijatou objednávku zákazníka a termín dodání před konečnou fakturací.",
+      "description": "Oficiální potvrzení zakázky před odesláním zboží."
+    },
+    "proforma-invoice-generator": {
+      "name": "Zálohová / Proforma Faktura",
+      "shortName": "Proforma",
+      "h1": "Vystavit Proforma Fakturu Online",
+      "metaTitle": "Proforma a Zálohová Faktura PDF Zdarma | Invoiceo.online",
+      "metaDescription": "Vystavujte proforma faktury pro zálohové platby, celní řízení a mezinárodní obchod.",
+      "description": "Nezbytný doklad pro zálohové platby a export."
+    },
+    "timesheet-generator": {
+      "name": "Pracovní Výkaz & Vyúčtování Hodin",
+      "shortName": "Výkaz hodin",
+      "h1": "Vyúčtování Odpracovaných Hodin Online",
+      "metaTitle": "Pracovní Výkaz a Hodinová Faktura PDF | Invoiceo.online",
+      "metaDescription": "Zaznamenejte odpracované hodiny, hodinovou sazbu a projektové úkoly pro freelancery.",
+      "description": "Přehledné vyúčtování odpracovaného času pro nezávislé profesionály."
+    },
+    "work-order-generator": {
+      "name": "Pracovní / Montážní List",
+      "shortName": "Pracovní list",
+      "h1": "Vystavit Servisní a Montážní List",
+      "metaTitle": "Montážní a Servisní List PDF ke Stažení | Invoiceo.online",
+      "metaDescription": "Vystavujte protokoly o servisu, opravách a montážích s podpisem zákazníka.",
+      "description": "Efektivní organizace servisních zásahů v terénu."
+    },
+    "account-statement-generator": {
+      "name": "Výpis z Účtu / Saldo Zákazníka",
+      "shortName": "Výpis konta",
+      "h1": "Výpis Pohledávek a Saldo Odběratele",
+      "metaTitle": "Výpis Odběratelského Konta a Pohledávek PDF | Invoiceo.online",
+      "metaDescription": "Shrňte neuhrazené faktury, přijaté platby a aktuální zůstatek odběratele.",
+      "description": "Přehledné vyúčtování pohledávek pro obchodní partnery."
+    },
+    "packing-slip-generator": {
+      "name": "Dodací List",
+      "shortName": "Dodací list",
+      "h1": "Vystavit Dodací List ke Zboží Online",
+      "metaTitle": "Dodací List Vzor PDF Zdarma | Invoiceo.online",
+      "metaDescription": "Vystavujte dodací listy se soupisem balíků, položek a kusů pro bezproblémovou expedici.",
+      "description": "Zajišťuje správné doručení a kontrolu převzatého zboží."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "O Nás | Bezplatná a Bezpečná Fakturace - Invoiceo.online",
+      "description": "Poznejte Invoiceo.online: 100% bezplatná fakturace přímo v prohlížeči bez předplatného a registrace."
+    },
+    "contact": {
+      "title": "Kontakt | Podpora a Zpětná Vazba - Invoiceo.online",
+      "description": "Kontaktujte tým Invoiceo v případě dotazů, nápadů na vylepšení nebo podpory."
+    },
+    "privacy": {
+      "title": "Zásady Ochrany Soukromí | Data Zůstávají u Vás - Invoiceo.online",
+      "description": "Žádné cloudové databáze, vykreslování PDF přímo v prohlížeči a úplná kontrola nad daty."
+    },
+    "terms": {
+      "title": "Podmínky Použití | Bezplatné Nástroje - Invoiceo.online",
+      "description": "Podmínky používání bezplatných fakturačních nástrojů Invoiceo.online."
+    },
+    "bugs": {
+      "title": "Nahlásit Chybu | Sledování Problémů - Invoiceo.online",
+      "description": "Nahlaste chyby v zobrazení nebo výpočtech přímo vývojářům."
+    }
+  }
+}

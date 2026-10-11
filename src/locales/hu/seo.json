@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% Ingyenes • Regisztráció nélkül • Nagy felbontású PDF",
+    "backupNotice": "Dokumentumai automatikusan mentésre kerülnek a böngészőjében. Exportáljon biztonsági mentést az adatok védelmében.",
+    "exportBackup": "Mentés Exportálása"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Számlakészítő Generátor",
+      "shortName": "Számla",
+      "h1": "Ingyenes Online Számlakészítő",
+      "metaTitle": "Számlakészítés Ingyen Online - Letölthető PDF | Invoiceo.online",
+      "metaDescription": "100% ingyenes professzionális számlagenerátor. Készítsen, szabjon testre és töltsön le PDF számlákat azonnal, regisztráció nélkül.",
+      "description": "Hozzon létre áttekinthető, professzionális számlákat másodpercek alatt az Invoiceo segítségével egyéni vállalkozóknak és cégeknek."
+    },
+    "receipt-generator": {
+      "name": "Nyugta és Bevételi Bizonylat",
+      "shortName": "Nyugta",
+      "h1": "Készítsen Nyugtát és Átvételi Bizonylatot Online",
+      "metaTitle": "Ingyenes Nyugta Minta PDF | Invoiceo.online",
+      "metaDescription": "Állítson ki hivatalos nyugtákat és befizetési bizonylatokat PDF formátumban áfa-bontással és bizonylatszámmal.",
+      "description": "Hivatalos nyugták kiállítása egyszerűen és regisztráció nélkül."
+    },
+    "quote-generator": {
+      "name": "Árajánlat Készítő",
+      "shortName": "Árajánlat",
+      "h1": "Professzionális Árajánlat Készítés Online",
+      "metaTitle": "Ingyenes Árajánlat Minta PDF | Invoiceo.online",
+      "metaDescription": "Készítsen részletes árajánlatokat ügyfeleinek érvényességi idővel, tételes felsorolással és feltételekkel.",
+      "description": "Szerezzen több megrendelést elegáns és átlátható árajánlatokkal."
+    },
+    "estimate-generator": {
+      "name": "Költségvetés / Költségbecslés",
+      "shortName": "Költségbecslés",
+      "h1": "Projekt Költségbecslés és Árkalkuláció",
+      "metaTitle": "Költségbecslés és Árkalkuláció PDF Minta | Invoiceo.online",
+      "metaDescription": "Bontsa le a munkadíjat, anyagköltségeket és járulékos kiadásokat áttekinthető PDF-ben megrendelői számára.",
+      "description": "Pontos és átlátható költségkalkuláció kivitelezőknek és szakembereknek."
+    },
+    "credit-note-generator": {
+      "name": "Helyesbítő Számla (Jóváírás)",
+      "shortName": "Helyesbítő számla",
+      "h1": "Helyesbítő Számla Készítése Online",
+      "metaTitle": "Ingyenes Helyesbítő Számla PDF Minta | Invoiceo.online",
+      "metaDescription": "Állítson ki helyesbítő számlát vagy jóváírást visszáru és korábbi számlák javítása esetén.",
+      "description": "Számlakorrekció hivatalos és egyszerű formában."
+    },
+    "purchase-order-generator": {
+      "name": "Megrendelőlap (PO)",
+      "shortName": "Megrendelés",
+      "h1": "Hivatalos Megrendelőlap Beszállítóknak",
+      "metaTitle": "Megrendelőlap Minta PDF Ingyen | Invoiceo.online",
+      "metaDescription": "Készítsen hivatalos megrendelőlapokat beszállítói részére tételsorokkal, árakkal és szállítási határidővel.",
+      "description": "Vállalati beszerzések egyértelmű dokumentálása."
+    },
+    "sales-order-generator": {
+      "name": "Rendelés Visszaigazolás",
+      "shortName": "Visszaigazolás",
+      "h1": "Vevői Megrendelés Visszaigazolása Online",
+      "metaTitle": "Rendelés Visszaigazolás Minta PDF | Invoiceo.online",
+      "metaDescription": "Igazolja vissza vevője rendelését és a szállítási határidőt a végszámla kiállítása előtt.",
+      "description": "Biztos kapocs az elfogadott ajánlat és a teljesítés között."
+    },
+    "proforma-invoice-generator": {
+      "name": "Díjbekérő / Proforma Számla",
+      "shortName": "Díjbekérő",
+      "h1": "Díjbekérő Készítése Exportra és Előlegre",
+      "metaTitle": "Díjbekérő és Proforma Számla PDF Ingyen | Invoiceo.online",
+      "metaDescription": "Készítsen díjbekérőt előlegfizetéshez, vámdokumentációhoz és nemzetközi kereskedelemhez.",
+      "description": "Elengedhetetlen előzetes bizonylat előre fizetéshez és exporthoz."
+    },
+    "timesheet-generator": {
+      "name": "Munkaidő-nyilvántartás & Óradíjas Számlázás",
+      "shortName": "Munkaidő",
+      "h1": "Óradíjas Elszámolás Készítése Online",
+      "metaTitle": "Munkaidő Elszámolás és Óradíjas Számla PDF | Invoiceo.online",
+      "metaDescription": "Rögzítse a ledolgozott órákat, óradíjakat és feladatokat szabadúszóként vagy tanácsadóként.",
+      "description": "Átlátható időalapú elszámolás független szakértőknek."
+    },
+    "work-order-generator": {
+      "name": "Munkalap / Szervizlap",
+      "shortName": "Munkalap",
+      "h1": "Szerviz Munkalap és Hibajegy Készítése",
+      "metaTitle": "Munkalap és Szerviz Bizonylat PDF Minta | Invoiceo.online",
+      "metaDescription": "Készítsen karbantartási és javítási munkalapokat ügyféli átvételi aláírási résszel.",
+      "description": "Helyszíni szervizfeladatok és kivitelezések pontos rögzítése."
+    },
+    "account-statement-generator": {
+      "name": "Folyószámla Kivonat / Ügyfél Egyenlegközlő",
+      "shortName": "Egyenlegközlő",
+      "h1": "Vevői Folyószámla Kivonat és Egyenlegközlő",
+      "metaTitle": "Ügyfél Egyenlegközlő és Kimutatás PDF | Invoiceo.online",
+      "metaDescription": "Foglalja össze a kifizetetlen számlákat, beérkezett összegeket és a fennálló egyenleget.",
+      "description": "Áttekinthető egyenlegközlés üzleti partnerei felé."
+    },
+    "packing-slip-generator": {
+      "name": "Szállítólevél",
+      "shortName": "Szállítólevél",
+      "h1": "Szállítólevél Készítése Online",
+      "metaTitle": "Ingyenes Szállítólevél Minta PDF | Invoiceo.online",
+      "metaDescription": "Készítsen szállítóleveleket a csomagok tartalmával és darabszámával a biztonságos átadás érdekében.",
+      "description": "Garantálja a pontos áruátadást és megkönnyíti az ellenőrzést."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Rólunk | Ingyenes és Biztonságos Számlázás - Invoiceo.online",
+      "description": "Tudjon meg többet az Invoiceo.online-ról: 100% ingyenes bizonylatkészítés a böngészőben előfizetések nélkül."
+    },
+    "contact": {
+      "title": "Kapcsolat | Ügyfélszolgálat és Visszajelzés - Invoiceo.online",
+      "description": "Vegye fel a kapcsolatot az Invoiceo csapatával kérdések, ötletek vagy segítség esetén."
+    },
+    "privacy": {
+      "title": "Adatvédelmi Tájékoztató | Helyi Adatbiztonság - Invoiceo.online",
+      "description": "Nincsenek felhős adatbázisok, a PDF közvetlenül a böngészőben készül a maximális adatvédelemért."
+    },
+    "terms": {
+      "title": "Felhasználási Feltételek | Ingyenes Üzleti Eszközök - Invoiceo.online",
+      "description": "Az Invoiceo.online ingyenes bizonylatkészítő eszközeinek használati feltételei."
+    },
+    "bugs": {
+      "title": "Hiba Bejelentése | Hibakövető - Invoiceo.online",
+      "description": "Jelezze a megjelenítési vagy számítási hibákat közvetlenül a fejlesztőknek."
+    }
+  }
+}

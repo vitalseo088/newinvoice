@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "FURNIZOOR (EMITENT)",
+    "billTo": "CLIENT (BENEFICIAR)",
+    "shipTo": "ADRESA DE LIVRARE",
+    "invoiceDate": "DATA FACTURII",
+    "dueDate": "DATA SCADENTĂ",
+    "paymentTerms": "TERMENI DE PLATĂ",
+    "poNumber": "NUMĂR COMANDĂ (PO)",
+    "balanceDue": "TOTAL DE PLATĂ",
+    "taxId": "CUI / CIF / REG. COM.",
+    "paymentInstructions": "DATE BANCARE PENTRU PLATĂ",
+    "bank": "Banca",
+    "account": "Cont IBAN",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "terms": "TERMENI ȘI CONDIȚII",
+    "notes": "MENTIUNI",
+    "subtotal": "SUBTOTAL (FĂRĂ TVA)",
+    "discount": "REDUCERE",
+    "tax": "TVA",
+    "shipping": "TRANSPORT",
+    "total": "TOTAL GENERAL",
+    "amountPaid": "SUMA ACHITATĂ",
+    "tableItem": "DENUMIRE PRODUS / SERVICIU",
+    "tableQty": "CANT.",
+    "tableRate": "PREȚ UNITAR",
+    "tableTax": "TVA %",
+    "tableAmount": "VALOARE"
+  },
+  "terms": {
+    "on_receipt": "Plată la primire",
+    "net_7": "Termen 7 zile",
+    "net_15": "Termen 15 zile",
+    "net_30": "Termen 30 zile",
+    "net_45": "Termen 45 zile",
+    "net_60": "Termen 60 zile",
+    "custom": "Termeni stabiliți"
+  }
+}

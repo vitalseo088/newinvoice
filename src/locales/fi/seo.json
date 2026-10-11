@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100 % Ilmainen • Ei rekisteröitymistä • Korkealaatuinen PDF",
+    "backupNotice": "Asiakirjasi tallennetaan automaattisesti selaimeesi. Vie varmuuskopio tietojesi turvaamiseksi.",
+    "exportBackup": "Vie Varmuuskopio"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Laskupohja ja Laskugeneraattori",
+      "shortName": "Lasku",
+      "h1": "Tee Lasku Ilmaiseksi Verkossa",
+      "metaTitle": "Ilmainen Laskupohja - Lataa Lasku PDF | Invoiceo.online",
+      "metaDescription": "100 % ilmainen ammattimainen laskugeneraattori. Luo, muokkaa ja lataa PDF-laskut heti ilman rekisteröitymistä.",
+      "description": "Luo selkeitä ja ammattimaisia laskuja sekunneissa Invoiceo-palvelulla freelancereille ja yrityksille."
+    },
+    "receipt-generator": {
+      "name": "Kuittipohja Generator",
+      "shortName": "Kuitti",
+      "h1": "Luo Maksukuitti ja Ostotosite Verkossa",
+      "metaTitle": "Ilmainen Kuittipohja PDF | Invoiceo.online",
+      "metaDescription": "Laadi viralliset kuitit ja maksutositeet PDF-muodossa alv-erittelyllä ja viitenumerolla.",
+      "description": "Viralliset kuitit ja maksutositteet vaivattomasti ilman kirjautumista."
+    },
+    "quote-generator": {
+      "name": "Tarjouspohja Generator",
+      "shortName": "Tarjous",
+      "h1": "Luo Ammattimainen Tarjous Verkossa",
+      "metaTitle": "Ilmainen Tarjouspohja PDF | Invoiceo.online",
+      "metaDescription": "Laadi selkeät yritystarjoukset voimassaoloajalla, toimitusehdoilla ja hinnoittelulla.",
+      "description": "Voita enemmän asiakkuuksia tyylikkäillä ja vakuuttavilla tarjouksilla."
+    },
+    "estimate-generator": {
+      "name": "Kustannusarvio Generator",
+      "shortName": "Kustannusarvio",
+      "h1": "Tee Projektin Kustannusarvio ja Hinta-arvio",
+      "metaTitle": "Kustannusarvio ja Työseloste PDF | Invoiceo.online",
+      "metaDescription": "Erittele työtunnit, materiaalit ja lisäkulut selkeäksi PDF-kustannusarvioksi asiakkaillesi.",
+      "description": "Tarkat hinta-arviot urakoitsijoille, asentajille ja palveluntarjoajille."
+    },
+    "credit-note-generator": {
+      "name": "Hyvityslasku Generator",
+      "shortName": "Hyvityslasku",
+      "h1": "Luo Hyvityslasku Verkossa Ilmaiseksi",
+      "metaTitle": "Ilmainen Hyvityslasku PDF | Invoiceo.online",
+      "metaDescription": "Luo viralliset hyvityslaskut palautuksia tai aiempien laskujen korjauksia varten.",
+      "description": "Laskujen korjaaminen ja hyvittäminen ammattimaisesti."
+    },
+    "purchase-order-generator": {
+      "name": "Ostotilaus (PO) Generator",
+      "shortName": "Ostotilaus",
+      "h1": "Luo Ostotilaus Toimittajalle",
+      "metaTitle": "Ostotilaus Mallipohja PDF Ilmainen | Invoiceo.online",
+      "metaDescription": "Laadi viralliset ostotilaukset tavarantoimittajille tuoteriveillä, hinnoilla ja toimitusehdoilla.",
+      "description": "Yrityksen ostojen selkeä dokumentointi."
+    },
+    "sales-order-generator": {
+      "name": "Tilausvahvistus Generator",
+      "shortName": "Tilausvahvistus",
+      "h1": "Luo Tilausvahvistus Asiakkaalle",
+      "metaTitle": "Tilausvahvistus Mallipohja PDF | Invoiceo.online",
+      "metaDescription": "Vahvista asiakkaan tilaus ja toimitusajankohta ennen lopullista toimitusta ja laskutusta.",
+      "description": "Luotettava vahvistus tilauksesta ennen toimitusta."
+    },
+    "proforma-invoice-generator": {
+      "name": "Proformalasku Generator",
+      "shortName": "Proforma",
+      "h1": "Luo Proformalasku Vientiin ja Tulliin",
+      "metaTitle": "Proformalasku Mallipohja PDF Ilmainen | Invoiceo.online",
+      "metaDescription": "Laadi proformalaskut kansainvälistä kauppaa, tullausta ja ennakkomaksuja varten.",
+      "description": "Välttämätön alustava kauppalasku vientiin ja tullaukseen."
+    },
+    "timesheet-generator": {
+      "name": "Tuntilista & Tuntilaskutus",
+      "shortName": "Tuntilista",
+      "h1": "Laskuta Työtunnit Verkossa",
+      "metaTitle": "Tuntilista ja Tuntilaskutus PDF | Invoiceo.online",
+      "metaDescription": "Kirjaa tehdyt työtunnit, tuntihinnat ja tehtävät freelancereille ja asiantuntijoille.",
+      "description": "Läpinäkyvä tuntiperusteinen laskutus asiantuntijatyölle."
+    },
+    "work-order-generator": {
+      "name": "Työmääräys / Huoltopyyntö",
+      "shortName": "Työmääräys",
+      "h1": "Luo Työmääräys ja Huoltoraportti",
+      "metaTitle": "Työmääräys ja Huoltoliite PDF | Invoiceo.online",
+      "metaDescription": "Laadi huoltotöiden ja asennusten työmääräykset asiakkaan kuittausallekirjoituksella.",
+      "description": "Kenttätyön ja huoltotoiminnan tehokas dokumentointi."
+    },
+    "account-statement-generator": {
+      "name": "Tiliote / Asiakasreskontra",
+      "shortName": "Tiliote",
+      "h1": "Luo Asiakastiliote ja Saldoerittely",
+      "metaTitle": "Asiakastiliote ja Saldoraportti PDF | Invoiceo.online",
+      "metaDescription": "Kokoa avoimet laskut, suoritetut maksut ja nykyinen saldo selkeäksi yhteenvedoksi.",
+      "description": "Selkeä raportti asiakkaan avoimista maksuista ja reskontrasta."
+    },
+    "packing-slip-generator": {
+      "name": "Lähete / Pakkauslista",
+      "shortName": "Lähete",
+      "h1": "Luo Lähete ja Pakkausluettelo",
+      "metaTitle": "Lähete ja Pakkauslista PDF Ilmainen | Invoiceo.online",
+      "metaDescription": "Luo tavaralähetteet ja pakkauslistat lähetysten sisällön ja määrien tarkistamiseen.",
+      "description": "Varmistaa oikeat toimitukset ja helpon tavaran vastaanottotarkistuksen."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Tietoa Meistä | Ilmainen & Luotettava Laskutus - Invoiceo.online",
+      "description": "Lue lisää Invoiceo.online-palvelusta: 100 % ilmainen laskutus suoraan selaimessa ilman kirjautumista."
+    },
+    "contact": {
+      "title": "Ota Yhteyttä | Tuki ja Palaute - Invoiceo.online",
+      "description": "Ota yhteyttä Invoiceo-tiimiin kysymyksissä, kehitysehdotuksissa tai palautteessa."
+    },
+    "privacy": {
+      "title": "Tietosuojaseloste | Tiedot Vain Laitteellasi - Invoiceo.online",
+      "description": "Ei pilvitietokantoja, PDF-tiedostojen luonti paikallisesti selaimessa ja täysi yksityisyys."
+    },
+    "terms": {
+      "title": "Käyttöehdot | Maksuttomat Yritystyökalut - Invoiceo.online",
+      "description": "Invoiceo.onlinen ilmaisten asiakirjatyökalujen käyttöehdot."
+    },
+    "bugs": {
+      "title": "Ilmoita Virheestä | Vikaseuranta - Invoiceo.online",
+      "description": "Ilmoita asettelu- tai laskentavirheistä suoraan sovelluskehittäjillemme."
+    }
+  }
+}

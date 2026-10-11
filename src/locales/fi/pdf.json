@@ -1,0 +1,40 @@
+{
+  "labels": {
+    "from": "LÄHETTÄJÄ (MYYJÄ)",
+    "billTo": "LASKUTUSOSOITE (ASIAKAS)",
+    "shipTo": "TOIMITUSOSOITE",
+    "invoiceDate": "LASKUN PÄIVÄYS",
+    "dueDate": "ERÄPÄIVÄ",
+    "paymentTerms": "MAKSUEHDOT",
+    "poNumber": "TILAUSNUMERO (PO)",
+    "balanceDue": "MAKSETTAVA YHTEENSÄ",
+    "taxId": "Y-TUNNUS / ALV-NUMERO",
+    "paymentInstructions": "MAKSUTIEDOT",
+    "bank": "Pankki",
+    "account": "Tilinumero / IBAN",
+    "iban": "IBAN",
+    "swift": "BIC / SWIFT",
+    "terms": "EHDOT JA HUOMAUTUKSET",
+    "notes": "LISÄTIEDOT",
+    "subtotal": "VÄLISUMMA (ALV 0%)",
+    "discount": "ALENNUS",
+    "tax": "ALV",
+    "shipping": "TOIMITUSKULUT",
+    "total": "YHTEENSÄ (SIS. ALV)",
+    "amountPaid": "MAKSETTU MÄÄRÄ",
+    "tableItem": "KUVAUS / TUOTE TAI PALVELU",
+    "tableQty": "MÄÄRÄ",
+    "tableRate": "YKSIKKÖHINTA",
+    "tableTax": "ALV %",
+    "tableAmount": "SUMMA"
+  },
+  "terms": {
+    "on_receipt": "Heti vastaanotettaessa",
+    "net_7": "7 pv netto",
+    "net_15": "15 pv netto",
+    "net_30": "30 pv netto",
+    "net_45": "45 pv netto",
+    "net_60": "60 pv netto",
+    "custom": "Erillisen sopimuksen mukaan"
+  }
+}

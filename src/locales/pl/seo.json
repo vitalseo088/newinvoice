@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% Bezpłatnie • Bez rejestracji • Pliki PDF w wysokiej rozdzielczości",
+    "backupNotice": "Twoje dokumenty zapisują się automatycznie w przeglądarce. Pobierz kopię zapasową, aby zabezpieczyć dane.",
+    "exportBackup": "Eksportuj Kopię"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Generator Faktur",
+      "shortName": "Faktura",
+      "h1": "Darmowy Generator Faktur Online",
+      "metaTitle": "Darmowy Generator Faktur - Wystaw Fakturę PDF | Invoiceo.online",
+      "metaDescription": "100% darmowy profesjonalny program do wystawiania faktur. Twórz i pobieraj faktury PDF bez rejestracji.",
+      "description": "Twórz czytelne, profesjonalne faktury w kilka sekund dzięki Invoiceo. Całkowicie bezpłatnie i bez rejestracji."
+    },
+    "receipt-generator": {
+      "name": "Generator Rachunków i Paragonów",
+      "shortName": "Rachunek",
+      "h1": "Darmowy Rachunek Online - Pobierz PDF",
+      "metaTitle": "Generator Rachunków i Pokwitowań PDF | Invoiceo.online",
+      "metaDescription": "Wystawiaj oficjalne rachunki i pokwitowania zapłaty w formacie PDF. Szybko, za darmo i bez logowania.",
+      "description": "Generuj oficjalne potwierdzenia wpłaty i rachunki w kilka sekund."
+    },
+    "quote-generator": {
+      "name": "Generator Ofert Cenowych",
+      "shortName": "Oferta",
+      "h1": "Darmowy Generator Ofert Handlowych",
+      "metaTitle": "Oferta Handlowa Online - Szablony i PDF | Invoiceo.online",
+      "metaDescription": "Przygotuj profesjonalną ofertę cenową w formacie PDF dla swoich klientów bez żadnych opłat.",
+      "description": "Zdobądź więcej zleceń dzięki przejrzystym ofertom handlowym z terminami ważności i warunkami."
+    },
+    "estimate-generator": {
+      "name": "Generator Kosztorysów",
+      "shortName": "Kosztorys",
+      "h1": "Darmowy Kosztorys Budowlany i Usługowy",
+      "metaTitle": "Generator Kosztorysów Online - Pobierz PDF | Invoiceo.online",
+      "metaDescription": "Twórz kalkulacje kosztów, wyceny prac remontowych i robocizny w czytelnym pliku PDF.",
+      "description": "Precyzyjne kosztorysy dla wykonawców, rzemieślników i firm usługowych."
+    },
+    "credit-note-generator": {
+      "name": "Faktura Korygująca Generator",
+      "shortName": "Korekta",
+      "h1": "Darmowa Faktura Korygująca Online",
+      "metaTitle": "Generator Faktur Korygujących PDF | Invoiceo.online",
+      "metaDescription": "Wystawiaj faktury korygujące i noty kredytowe szybko i zgodnie z przepisami w formacie PDF.",
+      "description": "Koryguj błędy i rozliczaj zwroty dzięki profesjonalnym fakturom korygującym."
+    },
+    "purchase-order-generator": {
+      "name": "Generator Zamówień Zakupu",
+      "shortName": "Zamówienie",
+      "h1": "Darmowy Druk Zamówienia Zakupu (PO)",
+      "metaTitle": "Generator Zamówień Zakupu Towarów PDF | Invoiceo.online",
+      "metaDescription": "Sporządzaj oficjalne zamówienia handlowe dla dostawców z pozycjami, cenami i podpisem.",
+      "description": "Twórz wiążące zamówienia towarów i usług w zaledwie kilka chwil."
+    },
+    "sales-order-generator": {
+      "name": "Potwierdzenie Zamówienia",
+      "shortName": "Potwierdzenie",
+      "h1": "Potwierdzenie Przyjęcia Zamówienia Online",
+      "metaTitle": "Generator Potwierdzeń Zamówień PDF | Invoiceo.online",
+      "metaDescription": "Generuj formalne potwierdzenia zamówień ze specyfikacją terminów realizacji i dostawy.",
+      "description": "Potwierdzaj zamówienia klientów przed realizacją i wystawieniem faktury końcowej."
+    },
+    "proforma-invoice-generator": {
+      "name": "Faktura Proforma Generator",
+      "shortName": "Proforma",
+      "h1": "Darmowa Faktura Proforma Online",
+      "metaTitle": "Generator Faktur Proforma PDF | Invoiceo.online",
+      "metaDescription": "Wystawiaj bezpłatne faktury proforma do przedpłat, handlu zagranicznego i procedur celnych.",
+      "description": "Niezbędny dokument handlowy do zaliczek i transakcji międzynarodowych."
+    },
+    "timesheet-generator": {
+      "name": "Generator Ewidencji Czasu Pracy",
+      "shortName": "Karta Pracy",
+      "h1": "Ewidencja Czasu Pracy i Rozliczenie Godzin",
+      "metaTitle": "Karta Czasu Pracy i Faktura za Godziny PDF | Invoiceo.online",
+      "metaDescription": "Rozliczaj godziny przepracowane dla klientów ze stawkami godzinowymi i zestawieniem zadań.",
+      "description": "Wygodne narzędzie dla freelancerów i podwykonawców rozliczających się za czas pracy."
+    },
+    "work-order-generator": {
+      "name": "Zlecenie Wykonania Prac",
+      "shortName": "Zlecenie",
+      "h1": "Karta Zlecenia Serwisowego Online",
+      "metaTitle": "Generator Zleceń Serwisowych i Napraw PDF | Invoiceo.online",
+      "metaDescription": "Twórz protokoły zleceń serwisowych, prac montażowych i technicznych z miejscem na podpis.",
+      "description": "Usprawnij pracę serwisu i ekip technicznych za pomocą czytelnych zleceń."
+    },
+    "account-statement-generator": {
+      "name": "Wyciąg Rozliczeniowy Klienta",
+      "shortName": "Zestawienie",
+      "h1": "Zestawienie Rozrachunków z Klientem",
+      "metaTitle": "Wyciąg Należności i Płatności PDF | Invoiceo.online",
+      "metaDescription": "Podsumowuj nieuregulowane faktury, dokonane wpłaty i saldo konta kontrahenta.",
+      "description": "Przejrzysta informacja o saldzie i historii transakcji dla Twoich partnerów biznesowych."
+    },
+    "packing-slip-generator": {
+      "name": "Generator Listu Przewozowego / WZ",
+      "shortName": "Dokument WZ",
+      "h1": "Darmowy Dokument Wydania / List Pakunkowy",
+      "metaTitle": "Druk WZ i List Pakunkowy PDF | Invoiceo.online",
+      "metaDescription": "Generuj dowody wydania towaru i listy pakunkowe do wysyłek magazynowych.",
+      "description": "Dokumentacja wysyłki towarów ułatwiająca kompletację i kontrolę dostaw."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "O Nas | Darmowe i Bezpieczne Faktury - Invoiceo.online",
+      "description": "Poznaj Invoiceo.online: w 100% darmowe fakturowanie w przeglądarce bez ukrytych opłat i logowania."
+    },
+    "contact": {
+      "title": "Kontakt | Pomoc i Wsparcie - Invoiceo.online",
+      "description": "Skontaktuj się z zespołem Invoiceo. Zgłaszaj pomysły i pytania dotyczące działania aplikacji."
+    },
+    "privacy": {
+      "title": "Polityka Prywatności | Dane w Twojej Przeglądarce - Invoiceo.online",
+      "description": "Brak baz danych w chmurze, renderowanie PDF w przeglądarce i pełne bezpieczeństwo danych finansowych."
+    },
+    "terms": {
+      "title": "Regulamin | Warunki Korzystania - Invoiceo.online",
+      "description": "Zasady korzystania z darmowych narzędzi do wystawiania dokumentów handlowych Invoiceo."
+    },
+    "bugs": {
+      "title": "Zgłoś Błąd | Dział Techniczny - Invoiceo.online",
+      "description": "Zauważyłeś błąd w wyliczeniach lub generowaniu pliku PDF? Poinformuj naszych programistów."
+    }
+  }
+}

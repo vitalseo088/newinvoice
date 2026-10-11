@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "100% Gratuit • Fără înregistrare • PDF vectorial de înaltă rezoluție",
+    "backupNotice": "Documentele sunt salvate automat în browserul dumneavoastră. Exportați o copie de rezervă pentru siguranță.",
+    "exportBackup": "Exportă Copie de Siguranță"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "Generator de Facturi",
+      "shortName": "Factură",
+      "h1": "Generator de Facturi Online Gratuit",
+      "metaTitle": "Factură Online Gratuită - Descarcă PDF | Invoiceo.online",
+      "metaDescription": "Generator de facturi profesional 100% gratuit. Creează, personalizează și descarcă facturi PDF instant, fără cont sau abonament.",
+      "description": "Creează facturi clare și profesionale în câteva secunde cu Invoiceo pentru liber-profesioniști și firme."
+    },
+    "receipt-generator": {
+      "name": "Generator de Chitanțe",
+      "shortName": "Chitanță",
+      "h1": "Emite Chitanță de Plată Online",
+      "metaTitle": "Chitanță Online Gratuită PDF | Invoiceo.online",
+      "metaDescription": "Emite chitanțe oficiale de plată și dovezi de încasare în format PDF cu calcul TVA și număr tranzacție.",
+      "description": "Generare rapidă de chitanțe oficiale fără cont."
+    },
+    "quote-generator": {
+      "name": "Generator de Oferte de Preț",
+      "shortName": "Ofertă",
+      "h1": "Creează Ofertă Comercială Online",
+      "metaTitle": "Model Ofertă de Preț PDF Gratuit | Invoiceo.online",
+      "metaDescription": "Pregătește oferte de preț atractive pentru clienți, cu perioadă de valabilitate și detalii complete.",
+      "description": "Câștigă mai mulți clienți cu oferte comerciale clare și bine structurate."
+    },
+    "estimate-generator": {
+      "name": "Deviz de Lucrări / Estimare Costuri",
+      "shortName": "Deviz",
+      "h1": "Calculează Deviz Estimativ de Lucrări",
+      "metaTitle": "Model Deviz Estimativ PDF Gratuit | Invoiceo.online",
+      "metaDescription": "Detaliază manopera, materialele și cheltuielile neprevăzute într-un deviz clar pentru clienți.",
+      "description": "Estimări de costuri precise pentru meșteri, constructori și furnizori de servicii."
+    },
+    "credit-note-generator": {
+      "name": "Factură de Stornare / Notă de Credit",
+      "shortName": "Stornare",
+      "h1": "Emite Factură Storno Online Gratuit",
+      "metaTitle": "Model Factură Storno PDF Gratuit | Invoiceo.online",
+      "metaDescription": "Emite facturi de stornare și note de credit pentru retururi sau corecții de factură.",
+      "description": "Corectare oficială și simplă a sumelor facturate anterior."
+    },
+    "purchase-order-generator": {
+      "name": "Comandă de Achiziție (PO)",
+      "shortName": "Comandă furnizor",
+      "h1": "Creează Comandă Către Furnizor",
+      "metaTitle": "Model Comandă de Achiziție PDF | Invoiceo.online",
+      "metaDescription": "Redactează comenzi oficiale pentru furnizori cu liste de articole, prețuri și termene de livrare.",
+      "description": "Documentare rapidă a achizițiilor comerciale pentru afacerea ta."
+    },
+    "sales-order-generator": {
+      "name": "Confirmare Comandă Client",
+      "shortName": "Confirmare",
+      "h1": "Confirmare Comandă de Vânzare Online",
+      "metaTitle": "Model Confirmare Comandă PDF | Invoiceo.online",
+      "metaDescription": "Confirmă comanda clientului și termenul de livrare înainte de emiterea facturii finale.",
+      "description": "Verigă sigură între oferta acceptată și livrarea finală."
+    },
+    "proforma-invoice-generator": {
+      "name": "Factură Proformă",
+      "shortName": "Proformă",
+      "h1": "Creează Factură Proformă Online",
+      "metaTitle": "Model Factură Proformă PDF Gratuit | Invoiceo.online",
+      "metaDescription": "Emite facturi proforme pentru plăți în avans, vămuire și comerț internațional.",
+      "description": "Document comercial preliminar indispensabil pentru plăți în avans și export."
+    },
+    "timesheet-generator": {
+      "name": "Pontaj & Facturare la Oră",
+      "shortName": "Pontaj",
+      "h1": "Facturează Ore Lucrate Online",
+      "metaTitle": "Fișă de Pontaj și Factură Orară PDF | Invoiceo.online",
+      "metaDescription": "Înregistrează orele de lucru, tariful orar și sarcinile de proiect pentru liber-profesioniști.",
+      "description": "Facturare transparentă pe bază de timp pentru consultanți și specialiști independenți."
+    },
+    "work-order-generator": {
+      "name": "Comandă de Lucru / Fișă de Service",
+      "shortName": "Comandă lucru",
+      "h1": "Creează Fișă de Lucru și Intervenție",
+      "metaTitle": "Model Fișă de Lucru și Service PDF | Invoiceo.online",
+      "metaDescription": "Redactează fișe de intervenție service, reparații și mentenanță cu semnătura clientului.",
+      "description": "Organizează operațiunile de service pe teren cu documente clare."
+    },
+    "account-statement-generator": {
+      "name": "Extras de Cont Client / Fișă Client",
+      "shortName": "Extras cont",
+      "h1": "Extras de Cont și Sold Clienți",
+      "metaTitle": "Fișă Partener și Extras de Cont PDF | Invoiceo.online",
+      "metaDescription": "Sintetizează facturile neachitate, plățile primite și soldul curent într-un raport clar.",
+      "description": "Reconciliere transparentă a tranzacțiilor și soldurilor cu partenerii de afaceri."
+    },
+    "packing-slip-generator": {
+      "name": "Aviz de Însoțire a Mărfii",
+      "shortName": "Aviz marfă",
+      "h1": "Creează Aviz de Expediție și Însoțire",
+      "metaTitle": "Model Aviz de Însoțire a Mărfii PDF | Invoiceo.online",
+      "metaDescription": "Întocmește avize de livrare și note de expediție pentru controlul cantitativ al coletelor.",
+      "description": "Verifică conținutul transporturilor pentru o livrare fără greșeală."
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "Despre Noi | Facturare Gratuită și Sigură - Invoiceo.online",
+      "description": "Află mai multe despre Invoiceo.online: facturare 100% gratuită în browser, fără abonamente sau conturi."
+    },
+    "contact": {
+      "title": "Contact | Asistență și Sugestii - Invoiceo.online",
+      "description": "Contactează echipa Invoiceo pentru asistență, propuneri de funcționalități sau feedback."
+    },
+    "privacy": {
+      "title": "Politica de Confidențialitate | Date Salvate Local - Invoiceo.online",
+      "description": "Fără baze de date în cloud, generare PDF în browser și confidențialitate totală a datelor."
+    },
+    "terms": {
+      "title": "Termeni de Utilizare | Instrumente Gratuite - Invoiceo.online",
+      "description": "Termenii și condițiile de utilizare a instrumentelor de generare documente Invoiceo.online."
+    },
+    "bugs": {
+      "title": "Raportează o Problemă | Urmărire Erori - Invoiceo.online",
+      "description": "Semnalează erori de calcul sau anomalii de afișare direct echipei de dezvoltatori."
+    }
+  }
+}

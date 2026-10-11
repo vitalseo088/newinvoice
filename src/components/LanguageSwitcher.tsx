@@ -68,12 +68,13 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         <div
           className={`absolute ${
             isFooter ? 'bottom-full mb-2 left-0' : 'top-full mt-1.5 right-0'
-          } w-52 rounded bg-white shadow-xl border border-gray-200 py-1.5 z-50 focus:outline-hidden`}
+          } w-64 sm:w-72 rounded bg-white shadow-xl border border-gray-200 py-1.5 z-50 focus:outline-hidden`}
         >
-          <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-600 border-b border-gray-100">
-            Select Language
+          <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-500 border-b border-gray-100 flex items-center justify-between">
+            <span>Select Language</span>
+            <span className="text-[10px] text-gray-600 font-normal">{PHASE_1_LANGUAGES.length} languages</span>
           </div>
-          <div className="max-h-64 overflow-y-auto py-1">
+          <div className="max-h-72 overflow-y-auto py-1 divide-y divide-gray-50">
             {PHASE_1_LANGUAGES.map((lang) => {
               const href = getLocalizedPath(currentRouteId, lang.code);
               const isSelected = lang.code === currentLang;
@@ -89,12 +90,12 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                       : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
-                  <span className="flex items-center gap-2.5">
-                    <span className="text-base">{lang.flag}</span>
-                    <span className="font-medium">{lang.nativeName}</span>
-                    <span className="text-[10px] text-gray-600">({lang.name})</span>
+                  <span className="flex items-center gap-2.5 truncate">
+                    <span className="text-base shrink-0">{lang.flag}</span>
+                    <span className="font-medium truncate">{lang.nativeName}</span>
+                    <span className="text-[10px] text-gray-600 shrink-0">({lang.name})</span>
                   </span>
-                  {isSelected && <Check className="w-3.5 h-3.5 text-[#1A3263]" />}
+                  {isSelected && <Check className="w-3.5 h-3.5 text-[#1A3263] shrink-0 ml-1.5" />}
                 </a>
               );
             })}

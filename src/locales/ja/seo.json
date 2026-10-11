@@ -1,0 +1,127 @@
+{
+  "site": {
+    "toolTrustLine": "完全無料 • 登録不要 • 高解像度ベクターPDF",
+    "backupNotice": "書類データはお使いのブラウザに自動保存されます。データのバックアップ保存をお勧めします。",
+    "exportBackup": "バックアップを保存"
+  },
+  "tools": {
+    "invoice-generator": {
+      "name": "無料請求書作成ツール",
+      "shortName": "請求書",
+      "h1": "登録不要の無料オンライン請求書作成",
+      "metaTitle": "無料の請求書作成ツール - PDF即時発行 | Invoiceo.online",
+      "metaDescription": "登録不要・完全無料のプロ仕様請求書ジェネレーター。消費税計算やインボイス制度対応のPDFを即座に作成・ダウンロード。",
+      "description": "フリーランスや個人事業主、中小企業向けに数秒で綺麗な請求書を発行できる無料ツール。"
+    },
+    "receipt-generator": {
+      "name": "領収書作成ツール",
+      "shortName": "領収書",
+      "h1": "印紙税・但し書き対応の領収書作成",
+      "metaTitle": "無料領収書作成ツール - PDF即時発行 | Invoiceo.online",
+      "metaDescription": "取引番号や消費税額を明記した正式な領収書・受領書をオンラインで簡単作成。PDFダウンロード。",
+      "description": "登録なしですぐに発行できる公式な領収書・お支払受領書作成ツール。"
+    },
+    "quote-generator": {
+      "name": "見積書作成ツール",
+      "shortName": "見積書",
+      "h1": "プロ品質の見積書を簡単オンライン作成",
+      "metaTitle": "無料見積書作成ツール - PDF即時ダウンロード | Invoiceo.online",
+      "metaDescription": "有効期限や取引条件、品目明細を美しくレイアウトした見積書を素早く作成してPDF保存。",
+      "description": "受注率を高める明瞭で洗練された見積書を簡単に作成。"
+    },
+    "estimate-generator": {
+      "name": "概算見積・積算書ツール",
+      "shortName": "概算見積",
+      "h1": "工事・制作案件の概算見積書作成",
+      "metaTitle": "概算見積書・積算内訳書 PDF無料作成 | Invoiceo.online",
+      "metaDescription": "工数、材料費、諸経費の内訳を分かりやすく整理した概算見積書を簡単に作成。",
+      "description": "建設業、エンジニア、デザイナー向けの詳細積算見積ツール。"
+    },
+    "credit-note-generator": {
+      "name": "返金明細・赤伝票ツール",
+      "shortName": "返金明細",
+      "h1": "請求修正および返金明細書作成",
+      "metaTitle": "クレジットノート・返金明細書 PDF作成 | Invoiceo.online",
+      "metaDescription": "返品や請求訂正、値引きに対応する返金明細書（クレジットノート）を公式形式で発行。",
+      "description": "過去の請求金額の訂正や相殺処理に最適な取引文書。"
+    },
+    "purchase-order-generator": {
+      "name": "発注書（注文書）ツール",
+      "shortName": "発注書",
+      "h1": "仕入先向け正式発注書のオンライン作成",
+      "metaTitle": "無料発注書・注文書作成ツール PDF | Invoiceo.online",
+      "metaDescription": "発注品目、単価、希望納期、承認印欄を備えた正式な発注書を数分で作成。",
+      "description": "購買取引を確実にする公式発注書をすばやく作成。"
+    },
+    "sales-order-generator": {
+      "name": "注文請書（受注確認書）",
+      "shortName": "注文請書",
+      "h1": "受注確認書・注文請書のオンライン発行",
+      "metaTitle": "注文請書・受注確認書作成ツール PDF | Invoiceo.online",
+      "metaDescription": "受注内容と納品期日をお客様へ正式に確認・通知するための注文請書を作成。",
+      "description": "見積承諾から最終納品・請求までの確実な受注確認ドキュメント。"
+    },
+    "proforma-invoice-generator": {
+      "name": "プロフォーマインボイス作成",
+      "shortName": "プロフォーマ",
+      "h1": "貿易・通関用プロフォーマインボイス",
+      "metaTitle": "無料プロフォーマインボイス作成 PDF | Invoiceo.online",
+      "metaDescription": "輸出入通関手続きや前払取引に必要なプロフォーマインボイス（仮請求書）を簡単作成。",
+      "description": "海外取引や前受金確認に不可欠な国際商業書類。"
+    },
+    "timesheet-generator": {
+      "name": "作業時間・タイムシート請求書",
+      "shortName": "タイムシート",
+      "h1": "時間給・稼働時間連動の請求書作成",
+      "metaTitle": "稼働時間請求書・タイムシート PDF | Invoiceo.online",
+      "metaDescription": "稼働時間と時間単価、プロジェクト業務内容を記録して請求書を作成。",
+      "description": "業務委託コンサルタントやフリーランスのための時間精算型ツール。"
+    },
+    "work-order-generator": {
+      "name": "作業指示書・業務完了報告書",
+      "shortName": "作業指示書",
+      "h1": "保守点検・修理作業指示書作成",
+      "metaTitle": "作業指示書・サービス伝票 PDF作成 | Invoiceo.online",
+      "metaDescription": "現場点検、修理、設置工事の指示書および顧客受領サイン欄付き完了報告書を作成。",
+      "description": "技術サービスやメンテナンス業務の効率化に最適。"
+    },
+    "account-statement-generator": {
+      "name": "取引残高明細・請求明細書",
+      "shortName": "残高明細",
+      "h1": "お取引先向け売掛残高・請求明細書",
+      "metaTitle": "売掛残高明細書・請求一覧表 PDF | Invoiceo.online",
+      "metaDescription": "未払い請求書、入金履歴、繰越残高を一括集計して取引先へ提示する計算書。",
+      "description": "取引先との残高確認や月次照合に役立つ明細書。"
+    },
+    "packing-slip-generator": {
+      "name": "納品書・梱包明細書（パッキングリスト）",
+      "shortName": "納品書",
+      "h1": "納品書・出荷梱包明細書の簡単作成",
+      "metaTitle": "無料納品書・梱包明細書作成 PDF | Invoiceo.online",
+      "metaDescription": "梱包箱ごとの品名、数量、出荷確認用チェック欄を備えた納品明細書。",
+      "description": "誤出荷を防ぎ、配送・荷受を円滑にする出荷伝票。"
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "当サービスについて | 登録不要の安全な請求書 - Invoiceo.online",
+      "description": "Invoiceo.onlineのご紹介：ブラウザ上で完結する完全無料・安全な書類作成ツール。"
+    },
+    "contact": {
+      "title": "お問い合わせ | サポート・ご意見 - Invoiceo.online",
+      "description": "Invoiceo開発チームへのお問い合わせ、ご要望、改善提案はこちらから。"
+    },
+    "privacy": {
+      "title": "プライバシーポリシー | 端末内完結の安全性 - Invoiceo.online",
+      "description": "サーバー保存なし、ブラウザ内PDFレンダリングによる強固なデータプライバシー。"
+    },
+    "terms": {
+      "title": "利用規約 | 無料商用利用ツール - Invoiceo.online",
+      "description": "Invoiceo.onlineの無料書類作成ツールの利用規約および免責事項。"
+    },
+    "bugs": {
+      "title": "不具合報告 | バグトラッカー - Invoiceo.online",
+      "description": "計算ミスやレイアウト崩れの報告を開発チームへ直接送信できます。"
+    }
+  }
+}

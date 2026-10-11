@@ -37,8 +37,9 @@ export const SeoHead: React.FC<SeoHeadProps> = ({ pageId, lang, title, descripti
     setOgTag('og:description', description);
     setOgTag('og:type', 'website');
 
-    // 4. Update html lang attribute
+    // 4. Update html lang attribute and direction (RTL for Arabic & Urdu)
     document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar' || lang === 'ur') ? 'rtl' : 'ltr';
 
     // 5. Update canonical link
     const seoData = getSeoMetadata(pageId, lang);
