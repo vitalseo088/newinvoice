@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-// Define base URL
-const BASE_URL = 'https://invoiceo.online';
+// Define base URL with environment variable support
+const BASE_URL = process.env.BASE_URL || process.env.VITE_BASE_URL || 'https://invoiceo.online';
 
 // All 26 languages
 const LANGUAGES = [
