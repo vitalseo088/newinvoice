@@ -4,6 +4,7 @@ import { TOOL_GUIDES, ToolGuideData } from '../data/toolGuidesData';
 import { getLocalizedGuide } from '../data/localizedToolGuides';
 import { getGuideUi } from '../data/toolGuideLocalization';
 import i18n from '../utils/i18n';
+import { BannerAd } from './BannerAd';
 
 interface CompleteGuideProps {
   toolSlug?: string;
@@ -42,6 +43,9 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         id="tool-complete-guide"
         className="max-w-4xl mx-auto my-8 sm:my-10 bg-white border border-gray-200/90 rounded-2xl shadow-sm px-5 sm:px-10 md:px-14 py-8 sm:py-12 text-gray-800"
       >
+        {/* Banner Ad */}
+        <BannerAd />
+
         {/* Title */}
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
           {customGuide.h1}
@@ -296,6 +300,9 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
       id="invoiceo-guide"
       className="max-w-4xl mx-auto my-8 sm:my-10 bg-white border border-gray-200/90 rounded-2xl shadow-sm px-5 sm:px-10 md:px-14 py-8 sm:py-12 text-gray-800"
     >
+      {/* Banner Ad */}
+      <BannerAd />
+
       {/* Title */}
       <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
         {defaultH1}
