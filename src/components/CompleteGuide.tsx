@@ -3,6 +3,7 @@ import { PROFESSION_EXAMPLES, ProfessionTemplateExample } from '../data/professi
 import { TOOL_GUIDES, ToolGuideData } from '../data/toolGuidesData';
 import { getLocalizedGuide } from '../data/localizedToolGuides';
 import { getGuideUi } from '../data/toolGuideLocalization';
+import { formatLocalizedMoney } from '../utils/formatters';
 import i18n from '../utils/i18n';
 import { BannerAd } from './BannerAd';
 import { SecondBannerAd } from './SecondBannerAd';
@@ -231,7 +232,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
                   <ul className="list-disc pl-6 text-sm text-gray-700 space-y-1">
                     {ex.items?.map((it, itIdx) => (
                       <li key={itIdx}>
-                        {it.desc} &mdash; {it.qty} × {new Intl.NumberFormat(lang === 'pt' ? 'pt-BR' : `${lang}-${lang === 'es' ? 'ES' : lang === 'fr' ? 'FR' : lang === 'de' ? 'DE' : lang === 'it' ? 'IT' : 'US'}`, { style: 'currency', currency: ex.currency }).format(it.rate)} = {new Intl.NumberFormat(lang === 'pt' ? 'pt-BR' : `${lang}-${lang === 'es' ? 'ES' : lang === 'fr' ? 'FR' : lang === 'de' ? 'DE' : lang === 'it' ? 'IT' : 'US'}`, { style: 'currency', currency: ex.currency }).format(it.total)}
+                        {it.desc} &mdash; {it.qty} × {formatLocalizedMoney(it.rate, ex.currency, lang)} = {formatLocalizedMoney(it.total, ex.currency, lang)}
                       </li>
                     ))}
                   </ul>

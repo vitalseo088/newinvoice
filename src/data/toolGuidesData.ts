@@ -196,7 +196,7 @@ export const TOOL_GUIDES: Record<string, ToolGuideData> = {
         {
           industry: 'Freelance Web Developer',
           headline: 'Milestone 2 Final Payment Clearance',
-          currency: 'USD ($)',
+          currency: 'USD',
           items: [
             { desc: 'Full-Stack Web App Development (Sprint 4-6)', qty: 1, rate: 3200, total: 3200 },
             { desc: 'Production Deployment & SSL Certification', qty: 1, rate: 450, total: 450 },
@@ -206,7 +206,7 @@ export const TOOL_GUIDES: Record<string, ToolGuideData> = {
         {
           industry: 'Residential Contractor / Electrician',
           headline: 'Service & Panel Upgrade Completion',
-          currency: 'USD ($)',
+          currency: 'USD',
           items: [
             { desc: '200A Main Service Panel Installation & Breakers', qty: 1, rate: 1850, total: 1850 },
             { desc: 'Municipal Electrical Permit & Inspection Clearance', qty: 1, rate: 220, total: 220 },
