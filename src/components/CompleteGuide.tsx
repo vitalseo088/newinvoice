@@ -5,6 +5,7 @@ import { getLocalizedGuide } from '../data/localizedToolGuides';
 import { getGuideUi } from '../data/toolGuideLocalization';
 import i18n from '../utils/i18n';
 import { BannerAd } from './BannerAd';
+import { SecondBannerAd } from './SecondBannerAd';
 
 interface CompleteGuideProps {
   toolSlug?: string;
@@ -130,6 +131,9 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
             )}
           </div>
         ))}
+
+        {/* Second Banner Ad */}
+        <SecondBannerAd />
 
         {/* Section: Choosing the right template */}
         {customGuide.templatesSection && (
@@ -494,6 +498,9 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
       <p className="mb-6 leading-relaxed text-gray-600 italic">
         Tip: On smaller screens the form and the preview are shown in tabs, so you can switch between editing and checking how the final invoice looks.
       </p>
+
+      {/* Second Banner Ad */}
+      <SecondBannerAd />
 
       {/* Choosing the right template */}
       <h2 id="choosing-the-right-template" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
