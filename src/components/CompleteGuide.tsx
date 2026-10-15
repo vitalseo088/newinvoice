@@ -5,8 +5,6 @@ import { getLocalizedGuide } from '../data/localizedToolGuides';
 import { getGuideUi } from '../data/toolGuideLocalization';
 import { formatLocalizedMoney } from '../utils/formatters';
 import i18n from '../utils/i18n';
-import { BannerAd } from './BannerAd';
-import { SecondBannerAd } from './SecondBannerAd';
 
 interface CompleteGuideProps {
   toolSlug?: string;
@@ -45,8 +43,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         id="tool-complete-guide"
         className="max-w-4xl mx-auto my-8 sm:my-10 bg-white border border-gray-200/90 rounded-2xl shadow-sm px-5 sm:px-10 md:px-14 py-8 sm:py-12 text-gray-800"
       >
-        {/* Banner Ad */}
-        <BannerAd />
+
 
         {/* Title */}
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -133,8 +130,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
           </div>
         ))}
 
-        {/* Second Banner Ad */}
-        <SecondBannerAd />
+
 
         {/* Section: Choosing the right template */}
         {customGuide.templatesSection && (
@@ -305,8 +301,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
       id="invoiceo-guide"
       className="max-w-4xl mx-auto my-8 sm:my-10 bg-white border border-gray-200/90 rounded-2xl shadow-sm px-5 sm:px-10 md:px-14 py-8 sm:py-12 text-gray-800"
     >
-      {/* Banner Ad */}
-      <BannerAd />
+
 
       {/* Title */}
       <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -500,8 +495,7 @@ export const CompleteGuide: React.FC<CompleteGuideProps> = ({
         Tip: On smaller screens the form and the preview are shown in tabs, so you can switch between editing and checking how the final invoice looks.
       </p>
 
-      {/* Second Banner Ad */}
-      <SecondBannerAd />
+
 
       {/* Choosing the right template */}
       <h2 id="choosing-the-right-template" className="text-2xl font-bold text-gray-900 mt-10 mb-3">
