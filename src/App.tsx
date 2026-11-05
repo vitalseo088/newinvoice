@@ -632,7 +632,11 @@ export default function App() {
       {currentRoute.type === 'info' ? (
         <main className="flex-1 max-w-[1320px] w-full mx-auto px-4 sm:px-6 pt-6 pb-8">
           {currentRoute.page === 'about' && (
-            <AboutPage onNavigateHome={handleNavigateHome} onSelectTool={handleSelectTool} />
+            <AboutPage
+              onNavigateHome={handleNavigateHome}
+              onSelectTool={handleSelectTool}
+              onNavigatePage={handleNavigatePage}
+            />
           )}
           {currentRoute.page === 'contact' && (
             <ContactPage onNavigateHome={handleNavigateHome} />
