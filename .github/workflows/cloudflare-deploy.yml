@@ -2,9 +2,7 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [main, master]
   pull_request:
-    branches: [main, master]
   workflow_dispatch:
 
 jobs:
@@ -13,7 +11,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: Build & Verify
+    name: Build & Deploy
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -22,9 +20,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci || npm install
 
       - name: Build Project & Generate Sitemaps
         run: npm run build
@@ -33,6 +32,8 @@ jobs:
         run: |
           if [ -d "dist" ] && [ -f "dist/index.html" ]; then
             echo "✓ Production build verified successfully in dist/"
+            echo "✓ Files in dist/:"
+            ls -la dist/
           else
             echo "Error: dist/index.html not found!"
             exit 1
@@ -44,16 +45,30 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: invoiceo
+          projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME || 'invoiceo' }}
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Deployment Status Summary
+      - name: Deployment Instructions & Diagnostics
         if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '' }}
         run: |
           echo "=========================================================================="
-          echo "Build and sitemaps verified successfully!"
-          echo "Direct GitHub Actions Cloudflare deploy was gracefully skipped because"
-          echo "CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets are not configured."
-          echo "If using Cloudflare Pages Git integration, Cloudflare builds directly."
+          echo "✓ Build and sitemaps verified successfully!"
+          echo ""
+          echo "WHY CLOUDFLARE DID NOT DEPLOY VIA THIS GITHUB ACTION:"
+          echo "GitHub Actions cannot upload to your Cloudflare account without an API token."
+          echo "CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID are not set in GitHub Secrets."
+          echo ""
+          echo "HOW TO ENABLE AUTO-DEPLOY (CHOOSE EITHER METHOD):"
+          echo "--------------------------------------------------------------------------"
+          echo "METHOD 1 (Recommended - Native Cloudflare Git Auto-Deploy, No secrets needed):"
+          echo "1. Go to Cloudflare Dashboard -> Workers & Pages -> Pages -> Connect to Git."
+          echo "2. Select your GitHub repository."
+          echo "3. Set Build command: 'npm run build' and Output directory: 'dist'."
+          echo "4. Cloudflare will automatically build and deploy every push natively!"
+          echo ""
+          echo "METHOD 2 (Deploy via this GitHub Action):"
+          echo "1. Go to your GitHub Repo -> Settings -> Secrets and variables -> Actions."
+          echo "2. Add 'CLOUDFLARE_API_TOKEN' (Cloudflare dashboard -> My Profile -> API Tokens)."
+          echo "3. Add 'CLOUDFLARE_ACCOUNT_ID' (Found on your Cloudflare dashboard overview)."
           echo "=========================================================================="
