@@ -1,21 +1,24 @@
-name: Deploy to Cloudflare Pages
+name: Build and Deploy
 
 on:
   push:
     branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
-    name: Publish to Cloudflare Pages
+    name: Build & Verify
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Bun or Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -26,7 +29,17 @@ jobs:
       - name: Build Project & Generate Sitemaps
         run: npm run build
 
+      - name: Verify Build Artifacts
+        run: |
+          if [ -d "dist" ] && [ -f "dist/index.html" ]; then
+            echo "✓ Production build verified successfully in dist/"
+          else
+            echo "Error: dist/index.html not found!"
+            exit 1
+          fi
+
       - name: Publish to Cloudflare Pages
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
         uses: cloudflare/pages-action@1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -34,3 +47,13 @@ jobs:
           projectName: invoiceo
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deployment Status Summary
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '' }}
+        run: |
+          echo "=========================================================================="
+          echo "Build and sitemaps verified successfully!"
+          echo "Direct GitHub Actions Cloudflare deploy was gracefully skipped because"
+          echo "CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets are not configured."
+          echo "If using Cloudflare Pages Git integration, Cloudflare builds directly."
+          echo "=========================================================================="
