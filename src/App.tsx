@@ -645,6 +645,7 @@ export default function App() {
             <PrivacyPage
               onNavigateHome={handleNavigateHome}
               onOpenImportExport={() => setIsImportExportOpen(true)}
+              onNavigatePage={handleNavigatePage}
             />
           )}
           {currentRoute.page === 'terms' && (
