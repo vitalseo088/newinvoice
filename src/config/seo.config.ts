@@ -17,12 +17,10 @@ export interface SeoMetadata {
   ogDescription: string;
   ogUrl: string;
   hreflangs: HreflangTag[];
-  jsonLd: Record<string, any>[];
 }
 
 /**
- * Returns complete SEO metadata, canonical URLs, bidirectional hreflang tags,
- * and Schema.org structured data (WebApplication & SoftwareApplication) for any page & language.
+ * Returns complete SEO metadata, canonical URLs, and bidirectional hreflang tags for any page & language.
  */
 export function getSeoMetadata(pageId: string, currentLang: string = DEFAULT_LANGUAGE): SeoMetadata {
   const currentPath = getLocalizedPath(pageId, currentLang);
@@ -48,21 +46,5 @@ export function getSeoMetadata(pageId: string, currentLang: string = DEFAULT_LAN
     ogDescription: '',
     ogUrl: canonicalUrl,
     hreflangs,
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'WebApplication',
-        name: 'Invoiceo',
-        url: canonicalUrl,
-        applicationCategory: 'BusinessApplication',
-        operatingSystem: 'All',
-        offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD',
-        },
-        browserRequirements: 'Requires JavaScript. Requires HTML5.',
-      },
-    ],
   };
 }

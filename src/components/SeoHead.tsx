@@ -66,15 +66,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({ pageId, lang, title, descripti
       document.head.appendChild(link);
     });
 
-    // 7. Inject / update Schema.org structured data JSON-LD
-    let scriptTag = document.querySelector('script[type="application/ld+json"]#seo-jsonld');
-    if (!scriptTag) {
-      scriptTag = document.createElement('script');
-      scriptTag.setAttribute('type', 'application/ld+json');
-      scriptTag.setAttribute('id', 'seo-jsonld');
-      document.head.appendChild(scriptTag);
-    }
-    scriptTag.textContent = JSON.stringify(seoData.jsonLd);
+
   }, [pageId, lang, title, description]);
 
   return null;

@@ -33,7 +33,16 @@ async function startServer() {
     });
   }
 
-  const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 5000;
+  let port = 3000;
+  const portArgIndex = process.argv.indexOf('--port');
+  if (portArgIndex !== -1 && process.argv[portArgIndex + 1]) {
+    port = parseInt(process.argv[portArgIndex + 1], 10);
+  } else if (process.env.PORT && process.env.PORT !== '8080') {
+    port = parseInt(process.env.PORT, 10);
+  } else if (process.env.DEFAULT_APP_PORT) {
+    port = parseInt(process.env.DEFAULT_APP_PORT, 10);
+  }
+
   app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
   });

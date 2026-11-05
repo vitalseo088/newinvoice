@@ -435,6 +435,6 @@
     "fix2Title": "Ad-Blocker Notice:",
     "fix2Desc": "Some aggressive privacy extensions block canvas rendering used for PDF creation. Try whitelisting the site.",
     "fix3Title": "Direct Developer Mail:",
-    "fix3Desc": "For critical issues, email developer support directly at bugs@invoiceo.online."
+    "fix3Desc": "For critical issues, email developer support directly at contact@invoiceo.online."
   }
 }

@@ -61,12 +61,44 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim() || !steps.trim()) return;
+    if (!title.trim() || !steps.trim() || isSubmitting) return;
+
+    setIsSubmitting(true);
     const ref = 'BUG-' + Math.floor(100000 + Math.random() * 900000);
     setBugRef(ref);
-    setSubmitted(true);
+
+    try {
+      await fetch('https://formsubmit.co/ajax/contact@invoiceo.online', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `[Invoiceo Bug Report] ${severity} - ${title} (${ref})`,
+          _replyto: email.trim() || undefined,
+          email: email.trim() || 'Not provided',
+          category,
+          severity,
+          title,
+          stepsToReproduce: steps,
+          expectedVsActual: expected,
+          diagnostics: includeSystemInfo ? systemInfo : 'Excluded by user',
+          bugReference: ref,
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      });
+    } catch (err) {
+      console.warn('Bug report submit network error, fallback available', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const handleReset = () => {
@@ -315,8 +347,16 @@ export const ReportBugsPage: React.FC<ReportBugsPageProps> = ({ onNavigateHome }
               <div className="flex items-start gap-2.5">
                 <HelpCircle className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 block mb-0.5">{t('reportBugs.fix3Title', 'Direct Developer Mail:')}</strong>
-                  <span>{t('reportBugs.fix3Desc', 'For critical issues, email developer support directly at bugs@invoiceo.online.')}</span>
+                  <strong className="text-gray-900 block mb-0.5">{t('reportBugs.fix3Title', 'Direct Support Mail:')}</strong>
+                  <span>
+                    For critical issues, email developer support directly at{' '}
+                    <a
+                      href="mailto:contact@invoiceo.online"
+                      className="font-semibold text-[#1A3263] hover:underline"
+                    >
+                      contact@invoiceo.online
+                    </a>.
+                  </span>
                 </div>
               </div>
             </div>
